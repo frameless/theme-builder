@@ -26,8 +26,8 @@ export const setTokens = (input: HTMLButtonElement | HTMLInputElement) => {
     Object.entries(tokens).map(([name, value]) => [toCssName(name), toCssValue(value)]),
   );
   console.log(cssVariables);
-  Object.entries(cssVariables).forEach(([name, value]) => {
-    document.documentElement.style.setProperty(name, value);
-  });
-  setCssVariables(setCssVariables);
+  // Object.entries(cssVariables).forEach(([name, value]) => {
+  //   document.documentElement.style.setProperty(name, value);
+  // });
+  setCssVariables(cssVariables);
 };

@@ -1,6 +1,6 @@
 import { generateRadixColors } from './generateRadixColors.js';
 import { defineCustomElements } from '@utrecht/web-component-library-stencil/loader/index.js';
-import { toCssName, toCssValue, styleAttribute, setTokens } from './utils.js';
+import { toCssName, toCssValue, styleAttribute, setTokens, setCssVariables, toCssVariables } from './utils.js';
 import '@utrecht/page-layout-css';
 import '@utrecht/body-css';
 import '@utrecht/root-css';
@@ -167,31 +167,31 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <utrecht-page-body>
     <form>
     <div>
-    <input type="color" oninput="handleColor(event.target, 'primary')" id="primary-input" value="#FF0000">
+    <input type="color" oninput="themeBuilder.handleColor(event.target, 'primary')" id="primary-input" value="#FF0000">
     <utrecht-button type="button" appearance="primary-action-button">Primary action</utrecht-button>
     </div>
     <div>
-    <input type="color" oninput="handleColor(event.target, 'secondary')" id="secondary-input" value="#00FF00">
+    <input type="color" oninput="themeBuilder.handleColor(event.target, 'secondary')" id="secondary-input" value="#00FF00">
     <utrecht-button type="button" appearance="secondary-action-button">Secondary action</utrecht-button>
     </div>
     <div>
-      <input type="color" oninput="handleColor(event.target, 'text')" id="text-input" value="#000000">
+      <input type="color" oninput="themeBuilder.handleColor(event.target, 'text')" id="text-input" value="#000000">
       <div>Text</div>
     </div>
     <div>
       <p>Default font family:</p>
       <ul>
-        ${fontFamilies.map(({ name, recommended }) => `<li><utrecht-button type="button" appearance="subtle-button" name="basis.typography.font-family.default" value="'${name}'" onclick="setToken(event.target)"><span class="example-font-sample" style="font-family: '${name}'">${name}</span></utrecht-button>${recommended ? ' (recommended)' : ''}</li>`).join('\n')}
+        ${fontFamilies.map(({ name, recommended }) => `<li><utrecht-button type="button" appearance="subtle-button" name="basis.typography.font-family.default" value="'${name}'" onclick="themeBuilder.setToken(event.target)"><span class="example-font-sample" style="font-family: '${name}'">${name}</span></utrecht-button>${recommended ? ' (recommended)' : ''}</li>`).join('\n')}
       </ul>
     </div>
     <div>
       <p>Form control border radius:</p>
       <utrecht-textbox></utrecht-textbox>
       <ul>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="basis.form-control.border-radius" value="0" onclick="setToken(event.target)">Square corners</utrecht-button> (recommended)</li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="basis.form-control.border-radius" value="{basis.border-radius.sm}" onclick="setToken(event.target)">Small</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="basis.form-control.border-radius" value="{basis.border-radius.md}" onclick="setToken(event.target)">Medium</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="basis.form-control.border-radius" value="{basis.border-radius.lg}" onclick="setToken(event.target)">Large</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" name="basis.form-control.border-radius" value="0" onclick="themeBuilder.setToken(event.target)">Square corners</utrecht-button> (recommended)</li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" name="basis.form-control.border-radius" value="{basis.border-radius.sm}" onclick="themeBuilder.setToken(event.target)">Small</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" name="basis.form-control.border-radius" value="{basis.border-radius.md}" onclick="themeBuilder.setToken(event.target)">Medium</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" name="basis.form-control.border-radius" value="{basis.border-radius.lg}" onclick="themeBuilder.setToken(event.target)">Large</utrecht-button></li>
       </ul>
     </div>
     <div>
@@ -206,64 +206,64 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
       </figure>
       <p>Form control padding above and below:</p>
       <ul>
-      <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingBlockZero)}' onclick="setTokens(event.target)">No padding</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingBlockSmall)}' onclick="setTokens(event.target)">Small</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingBlockMedium)}' onclick="setTokens(event.target)">Medium</utrecht-button> (recommended)</li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingBlockLarge)}' onclick="setTokens(event.target)">Large</utrecht-button></li>
+      <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingBlockZero)}' onclick="themeBuilder.setTokens(event.target)">No padding</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingBlockSmall)}' onclick="themeBuilder.setTokens(event.target)">Small</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingBlockMedium)}' onclick="themeBuilder.setTokens(event.target)">Medium</utrecht-button> (recommended)</li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingBlockLarge)}' onclick="themeBuilder.setTokens(event.target)">Large</utrecht-button></li>
       </ul>
       <p>Form control padding left and right:</p>
       <ul>
-      <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingInlineZero)}' onclick="setTokens(event.target)">No padding</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingInlineSmall)}' onclick="setTokens(event.target)">Small</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingInlineMedium)}' onclick="setTokens(event.target)">Medium</utrecht-button> (recommended)</li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingInlineLarge)}' onclick="setTokens(event.target)">Large</utrecht-button></li>
+      <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingInlineZero)}' onclick="themeBuilder.setTokens(event.target)">No padding</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingInlineSmall)}' onclick="themeBuilder.setTokens(event.target)">Small</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingInlineMedium)}' onclick="themeBuilder.setTokens(event.target)">Medium</utrecht-button> (recommended)</li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingInlineLarge)}' onclick="themeBuilder.setTokens(event.target)">Large</utrecht-button></li>
       </ul>
     </div>
     <div>
       <p>Button border radius:</p>
       <ul>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="0" onclick="setToken(event.target)">Square corners</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value=onclick="setToken(event.target)">Small</utrecht-button> (recommended)</li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="{basis.border-radius.md}" onclick="setToken(event.target)">Medium</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="{basis.border-radius.lg}" onclick="setToken(event.target)">Large</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="{basis.border-radius.round}" onclick="setToken(event.target)">Round</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="0" onclick="themeBuilder.setToken(event.target)">Square corners</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value=onclick="themeBuilder.setToken(event.target)">Small</utrecht-button> (recommended)</li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="{basis.border-radius.md}" onclick="themeBuilder.setToken(event.target)">Medium</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="{basis.border-radius.lg}" onclick="themeBuilder.setToken(event.target)">Large</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="{basis.border-radius.round}" onclick="themeBuilder.setToken(event.target)">Round</utrecht-button></li>
       </ul>
     </div>
     <div>
       <p>Button border width:</p>
       <utrecht-textbox></utrecht-textbox>
       <ul>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-width" value="{basis.border-width.sm}" onclick="setToken(event.target)">Small</utrecht-button> (recommended)</li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-width" value="{basis.border-width.md}" onclick="setToken(event.target)">Medium</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-width" value="{basis.border-width.sm}" onclick="themeBuilder.setToken(event.target)">Small</utrecht-button> (recommended)</li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-width" value="{basis.border-width.md}" onclick="themeBuilder.setToken(event.target)">Medium</utrecht-button></li>
       </ul>
     </div>
     <div>
       <p>Primary button style:</p>
       <ul>
-        <li><utrecht-button type="button" appearance="primary-action-button" value='${JSON.stringify(primaryButton1)}' onclick="setTokens(event.target)">Plain with border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="primary-action-button" value='${JSON.stringify(primaryButton2)}' onclick="setTokens(event.target)">Plain without border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="primary-action-button" value='${JSON.stringify(primaryButton3)}' onclick="setTokens(event.target)">Inverse with border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="primary-action-button" value='${JSON.stringify(primaryButton4)}' onclick="setTokens(event.target)">Inverse without border</utrecht-button> (recommended)</li>
+        <li><utrecht-button type="button" appearance="primary-action-button" value='${JSON.stringify(primaryButton1)}' onclick="themeBuilder.setTokens(event.target)">Plain with border</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="primary-action-button" value='${JSON.stringify(primaryButton2)}' onclick="themeBuilder.setTokens(event.target)">Plain without border</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="primary-action-button" value='${JSON.stringify(primaryButton3)}' onclick="themeBuilder.setTokens(event.target)">Inverse with border</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="primary-action-button" value='${JSON.stringify(primaryButton4)}' onclick="themeBuilder.setTokens(event.target)">Inverse without border</utrecht-button> (recommended)</li>
       </ul>
     </div>
     <div>
       <p>Secondary button style:</p>
       <ul>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(secondaryButton1)}' onclick="setTokens(event.target)">Plain with border</utrecht-button>  (recommended)</li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(secondaryButton2)}' onclick="setTokens(event.target)">Plain without border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(secondaryButton3)}' onclick="setTokens(event.target)">Inverse with border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(secondaryButton4)}' onclick="setTokens(event.target)">Inverse without border</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(secondaryButton1)}' onclick="themeBuilder.setTokens(event.target)">Plain with border</utrecht-button>  (recommended)</li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(secondaryButton2)}' onclick="themeBuilder.setTokens(event.target)">Plain without border</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(secondaryButton3)}' onclick="themeBuilder.setTokens(event.target)">Inverse with border</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(secondaryButton4)}' onclick="themeBuilder.setTokens(event.target)">Inverse without border</utrecht-button></li>
       </ul>
     </div>
     <div>
       <p>Subtle button style:</p>
       <ul>
-        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton1)}' onclick="setTokens(event.target)">Plain with border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton2)}' onclick="setTokens(event.target)">Plain without border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton3)}' onclick="setTokens(event.target)">Inverse with border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton4)}' onclick="setTokens(event.target)">Inverse without border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton5)}' onclick="setTokens(event.target)">Transparent without border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton6)}' onclick="setTokens(event.target)">Transparent with border</utrecht-button> (recommended)</li>
+        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton1)}' onclick="themeBuilder.setTokens(event.target)">Plain with border</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton2)}' onclick="themeBuilder.setTokens(event.target)">Plain without border</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton3)}' onclick="themeBuilder.setTokens(event.target)">Inverse with border</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton4)}' onclick="themeBuilder.setTokens(event.target)">Inverse without border</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton5)}' onclick="themeBuilder.setTokens(event.target)">Transparent without border</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton6)}' onclick="themeBuilder.setTokens(event.target)">Transparent with border</utrecht-button> (recommended)</li>
       </ul>
     </div>
     <div>
@@ -275,9 +275,9 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
         <figcaption>Button without padding, demonstrating the minimum pointer target size</figcaption>
       </figure>
       <ul>
-        <li><utrecht-button type="button" appearance="secondary-button" value='${JSON.stringify(aaTargetSize)}' onclick="setTokens(event.target)">WCAG Level AA: 24px</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-button" value='${JSON.stringify(aaaTargetSize)}' onclick="setTokens(event.target)">WCAG Level AAA: 44px</utrecht-button> (recommended)</li>
-        <li><utrecht-button type="button" appearance="secondary-button" value='${JSON.stringify(materialTargetSize)}' onclick="setTokens(event.target)">Material Design: 48px</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-button" value='${JSON.stringify(aaTargetSize)}' onclick="themeBuilder.setTokens(event.target)">WCAG Level AA: 24px</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-button" value='${JSON.stringify(aaaTargetSize)}' onclick="themeBuilder.setTokens(event.target)">WCAG Level AAA: 44px</utrecht-button> (recommended)</li>
+        <li><utrecht-button type="button" appearance="secondary-button" value='${JSON.stringify(materialTargetSize)}' onclick="themeBuilder.setTokens(event.target)">Material Design: 48px</utrecht-button></li>
       </ul>
     </div>
     </form>
@@ -305,7 +305,7 @@ const handleColor = (target: HTMLInputElement, name: string) => {
   const { accentScale } = radixTheme;
   const { accentScale: inverseAccentScale } = inverseTheme;
 
-  const createScaleObject = (scale, prefix = '') =>
+  const createScaleObject = (scale: Array<string>, prefix = ''): { [index: string]: string } =>
     scale.reduce((obj, color, index) => {
       let colorNumber = index + 1;
       let scalePrefix = 'color';
@@ -327,24 +327,19 @@ const handleColor = (target: HTMLInputElement, name: string) => {
       }
       return {
         ...obj,
-        [`${prefix}${scalePrefix}${colorNumber}`]: {
-          ['$value']: color,
-        },
+        [`${prefix}${scalePrefix}${colorNumber}`]: color,
       };
     }, {});
-  console.log(inverseAccentScale, accentScale);
-  const scaleTokens = createScaleObject(accentScale);
-  const inverseScaleTokens = createScaleObject(inverseAccentScale, 'inverse-');
+
+  const scaleTokens = createScaleObject(accentScale, `basis.color.${name}.`);
+  const inverseScaleTokens = createScaleObject(inverseAccentScale, `basis.color.${name}-inverse.`);
 
   const tokens = {
     ...scaleTokens,
     ...inverseScaleTokens,
   };
-  console.log(tokens);
-  for (var key in tokens) {
-    document.documentElement.style.setProperty(`--basis-color-${name}-${key}`, String(tokens[key]['$value']));
-  }
-  // setTheme(set(theme, tokenData.tokenRef, scaleTokens));
+
+  setCssVariables(toCssVariables(tokens));
 };
 
 const setToken = (input: HTMLButtonElement | HTMLInputElement) => {
@@ -362,10 +357,24 @@ const setToken = (input: HTMLButtonElement | HTMLInputElement) => {
   document.documentElement.style.setProperty(cssName, cssValue);
 };
 
-handleColor(document.getElementById('primary-input'), 'primary');
-handleColor(document.getElementById('secondary-input'), 'secondary');
-handleColor(document.getElementById('text-input'), 'text');
+[
+  { inputId: 'primary-input', name: 'primary' },
+  { inputId: 'secondary-input', name: 'secondary' },
+  { inputId: 'text-input', name: 'text' },
+].forEach(({ inputId, name }) => {
+  const el = document.getElementById(inputId);
+  if (el instanceof HTMLInputElement) {
+    handleColor(el, name);
+  }
+});
+declare global {
+  interface Window {
+    themeBuilder: { [index: string]: any };
+  }
+}
 
-window['handleColor'] = handleColor;
-window['setToken'] = setToken;
-window['setTokens'] = setTokens;
+window.themeBuilder = {
+  handleColor,
+  setToken,
+  setTokens,
+};
