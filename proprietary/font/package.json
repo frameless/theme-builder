@@ -1,5 +1,5 @@
 {
-  "name": "@example/font",
+  "name": "@frameless/font",
   "version": "1.0.0-alpha.0",
   "author": "Community for NL Design System",
   "description": "Font assets",
@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git+ssh",
-    "url": "git@github.com:nl-design-system/example.git",
+    "url": "git@github.com:frameless/theme-builder.git",
     "directory": "proprietary/font"
   }
 }

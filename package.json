@@ -1,5 +1,5 @@
 {
-  "name": "@example/design-system",
+  "name": "@frameless/theme-builder-workspace",
   "version": "1.0.0-alpha.0",
   "author": "Community for NL Design System",
   "description": "Design system based on the NL Design System architecture",
@@ -10,7 +10,7 @@
   "private": true,
   "repository": {
     "type": "git+ssh",
-    "url": "git@github.com:nl-design-system/example.git",
+    "url": "git@github.com:frameless/theme-builder.git",
     "directory": "."
   },
   "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0",
@@ -45,10 +45,13 @@
     "stylelint": "16.15.0",
     "stylelint-config-standard-scss": "14.0.0",
     "stylelint-order": "6.0.4",
-    "typescript": "5.8.2"
+    "typescript": "5.8.2",
+    "vite": "6.2.0"
   },
   "scripts": {
-    "build": "pnpm --recursive run build",
+    "dev": "vite",
+    "build": "pnpm --recursive run build && pnpm run build:vite",
+    "build:vite": "tsc && vite build",
     "clean": "pnpm --recursive run clean",
     "lint": "npm-run-all --continue-on-error lint:** lint-workspaces",
     "lint:css": "stylelint --allow-empty-input '**/*.{css,scss}'",
@@ -68,6 +71,7 @@
     "changeset:empty": "changeset --empty",
     "changeset:publish": "changeset publish",
     "changeset:status": "changeset status --since origin/main",
+    "preview": "vite preview",
     "start": "http-server packages/storybook/dist/",
     "storybook": "npm-run-all --parallel watch:**",
     "test": "pnpm run test-workspaces",
@@ -76,10 +80,18 @@
     "update-patch": "npm-check-updates --configFileName .ncurc.patch.cjs",
     "update-minor": "npm-check-updates --configFileName .ncurc.minor.cjs",
     "update-major": "npm-check-updates --configFileName .ncurc.major.cjs",
-    "watch:storybook": "pnpm --filter @example/web-components-stencil run build:stencil && pnpm --filter @example/design-tokens run build:style-dictionary && pnpm --filter ./packages/storybook run storybook",
-    "watch:style-dictionary": "pnpm --filter @example/design-tokens run watch:style-dictionary"
+    "watch:storybook": "pnpm --filter @frameless/web-components-stencil run build:stencil && pnpm --filter @frameless/design-tokens run build:style-dictionary && pnpm --filter ./packages/storybook run storybook",
+    "watch:style-dictionary": "pnpm --filter @frameless/design-tokens run watch:style-dictionary"
   },
   "dependencies": {
+    "@radix-ui/colors": "3.0.0",
+    "@utrecht/body-css": "1.2.0",
+    "@utrecht/page-layout-css": "1.1.0",
+    "@utrecht/root-css": "1.2.0",
+    "@utrecht/web-component-library-stencil": "3.1.0",
+    "bezier-easing": "2.1.0",
+    "colorjs.io": "0.5.2",
     "http-server": "14.1.1"
-  }
+  },
+  "type": "module"
 }

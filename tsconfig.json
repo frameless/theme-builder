@@ -9,7 +9,6 @@
     "importHelpers": true,
     "lib": ["es2020", "dom"],
     "module": "esnext",
-    "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
@@ -19,7 +18,12 @@
     "sourceMap": true,
     "strict": true,
     "target": "es2020",
-    "jsx": "react"
+    "jsx": "react",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true
   },
   "exclude": ["**/node_modules/*"]
 }

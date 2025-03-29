@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   publish:
-    if: ${{ github.repository != 'nl-design-system/example' }}
+    if: ${{ github.repository != 'frameless/theme-builder' }}
     runs-on: ubuntu-latest
 
     steps:

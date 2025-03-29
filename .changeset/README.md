@@ -4,7 +4,7 @@ Kopieer en plak het onderstaande sjabloon. Je kunt hiervoor de kopieer knop link
 
 ```markdown
 ---
-'@example/<package-name>': major
+'@frameless/<package-name>': major
 ---
 
 Beschrijving
@@ -15,9 +15,9 @@ dubbele aanhalingstekens op een nieuwe regel.
 
 Gebruik:
 
-- `"@example/<package-name>": major` voor breaking changes
-- `"@example/<package-name>": minor` voor nieuwe features
-- `"@example/<package-name>": patch` voor bug fixes
+- `"@frameless/<package-name>": major` voor breaking changes
+- `"@frameless/<package-name>": minor` voor nieuwe features
+- `"@frameless/<package-name>": patch` voor bug fixes
 
 Beschrijf na de tweede set `---` welke veranderingen je hebt doorgevoerd.
 

@@ -1,0 +1,16 @@
+{
+  "name": "@frameless/theme-builder-website",
+  "author": "Community for NL Design System",
+  "description": "Website with NL Design System theme builder interface",
+  "license": "EUPL-1.2",
+  "keywords": [
+    "nl-design-system"
+  ],
+  "private": true,
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/theme-builder.git",
+    "directory": "packages/website"
+  },
+  "version": "0.0.0"
+}
