@@ -51,7 +51,7 @@
   "scripts": {
     "dev": "vite",
     "build": "pnpm --recursive run build && pnpm run build:vite",
-    "build:vite": "tsc && vite build",
+    "build:vite": "tsc && vite build --base=\"${BASE_URL:=\"/\"}\"",
     "clean": "pnpm --recursive run clean",
     "lint": "npm-run-all --continue-on-error lint:** lint-workspaces",
     "lint:css": "stylelint --allow-empty-input '**/*.{css,scss}'",
