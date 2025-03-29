@@ -181,14 +181,14 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <div>
       <p>Default font family:</p>
       <ul>
-        ${fontFamilies.map(({ name, recommended }) => `<li><utrecht-button type="button" appearance="subtle-button" name="basis.typography.font-family.default" value="'${name}'" onclick="themeBuilder.setToken(event.target)"><span class="example-font-sample" style="font-family: '${name}'">${name}</span></utrecht-button>${recommended ? ' (recommended)' : ''}</li>`).join('\n')}
+        ${fontFamilies.map(({ name, recommended }) => `<li><utrecht-button type="button" appearance="subtle-button" name="basis.typography.font-family.default" value="'${name}'" onclick="themeBuilder.setToken(event.target)"><span class="example-font-sample" style="font-family: '${name}'">${name}</span></utrecht-button>${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}</li>`).join('\n')}
       </ul>
     </div>
     <div>
       <p>Form control border radius:</p>
       <utrecht-textbox></utrecht-textbox>
       <ul>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="basis.form-control.border-radius" value="0" onclick="themeBuilder.setToken(event.target)">Square corners</utrecht-button> (recommended)</li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" name="basis.form-control.border-radius" value="0" onclick="themeBuilder.setToken(event.target)">Square corners</utrecht-button> <utrecht-data-badge>recommended</utrecht-data-badge></li>
         <li><utrecht-button type="button" appearance="secondary-action-button" name="basis.form-control.border-radius" value="{basis.border-radius.sm}" onclick="themeBuilder.setToken(event.target)">Small</utrecht-button></li>
         <li><utrecht-button type="button" appearance="secondary-action-button" name="basis.form-control.border-radius" value="{basis.border-radius.md}" onclick="themeBuilder.setToken(event.target)">Medium</utrecht-button></li>
         <li><utrecht-button type="button" appearance="secondary-action-button" name="basis.form-control.border-radius" value="{basis.border-radius.lg}" onclick="themeBuilder.setToken(event.target)">Large</utrecht-button></li>
@@ -208,14 +208,14 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
       <ul>
       <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingBlockZero)}' onclick="themeBuilder.setTokens(event.target)">No padding</utrecht-button></li>
         <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingBlockSmall)}' onclick="themeBuilder.setTokens(event.target)">Small</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingBlockMedium)}' onclick="themeBuilder.setTokens(event.target)">Medium</utrecht-button> (recommended)</li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingBlockMedium)}' onclick="themeBuilder.setTokens(event.target)">Medium</utrecht-button> <utrecht-data-badge>recommended</utrecht-data-badge></li>
         <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingBlockLarge)}' onclick="themeBuilder.setTokens(event.target)">Large</utrecht-button></li>
       </ul>
       <p>Form control padding left and right:</p>
       <ul>
       <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingInlineZero)}' onclick="themeBuilder.setTokens(event.target)">No padding</utrecht-button></li>
         <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingInlineSmall)}' onclick="themeBuilder.setTokens(event.target)">Small</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingInlineMedium)}' onclick="themeBuilder.setTokens(event.target)">Medium</utrecht-button> (recommended)</li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingInlineMedium)}' onclick="themeBuilder.setTokens(event.target)">Medium</utrecht-button> <utrecht-data-badge>recommended</utrecht-data-badge></li>
         <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingInlineLarge)}' onclick="themeBuilder.setTokens(event.target)">Large</utrecht-button></li>
       </ul>
     </div>
@@ -223,7 +223,7 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
       <p>Button border radius:</p>
       <ul>
         <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="0" onclick="themeBuilder.setToken(event.target)">Square corners</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value=onclick="themeBuilder.setToken(event.target)">Small</utrecht-button> (recommended)</li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value=onclick="themeBuilder.setToken(event.target)">Small</utrecht-button> <utrecht-data-badge>recommended</utrecht-data-badge></li>
         <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="{basis.border-radius.md}" onclick="themeBuilder.setToken(event.target)">Medium</utrecht-button></li>
         <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="{basis.border-radius.lg}" onclick="themeBuilder.setToken(event.target)">Large</utrecht-button></li>
         <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="{basis.border-radius.round}" onclick="themeBuilder.setToken(event.target)">Round</utrecht-button></li>
@@ -233,7 +233,7 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
       <p>Button border width:</p>
       <utrecht-textbox></utrecht-textbox>
       <ul>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-width" value="{basis.border-width.sm}" onclick="themeBuilder.setToken(event.target)">Small</utrecht-button> (recommended)</li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-width" value="{basis.border-width.sm}" onclick="themeBuilder.setToken(event.target)">Small</utrecht-button> <utrecht-data-badge>recommended</utrecht-data-badge></li>
         <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-width" value="{basis.border-width.md}" onclick="themeBuilder.setToken(event.target)">Medium</utrecht-button></li>
       </ul>
     </div>
@@ -243,13 +243,13 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
         <li><utrecht-button type="button" appearance="primary-action-button" value='${JSON.stringify(primaryButton1)}' onclick="themeBuilder.setTokens(event.target)">Plain with border</utrecht-button></li>
         <li><utrecht-button type="button" appearance="primary-action-button" value='${JSON.stringify(primaryButton2)}' onclick="themeBuilder.setTokens(event.target)">Plain without border</utrecht-button></li>
         <li><utrecht-button type="button" appearance="primary-action-button" value='${JSON.stringify(primaryButton3)}' onclick="themeBuilder.setTokens(event.target)">Inverse with border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="primary-action-button" value='${JSON.stringify(primaryButton4)}' onclick="themeBuilder.setTokens(event.target)">Inverse without border</utrecht-button> (recommended)</li>
+        <li><utrecht-button type="button" appearance="primary-action-button" value='${JSON.stringify(primaryButton4)}' onclick="themeBuilder.setTokens(event.target)">Inverse without border</utrecht-button> <utrecht-data-badge>recommended</utrecht-data-badge></li>
       </ul>
     </div>
     <div>
       <p>Secondary button style:</p>
       <ul>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(secondaryButton1)}' onclick="themeBuilder.setTokens(event.target)">Plain with border</utrecht-button>  (recommended)</li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(secondaryButton1)}' onclick="themeBuilder.setTokens(event.target)">Plain with border</utrecht-button>  <utrecht-data-badge>recommended</utrecht-data-badge></li>
         <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(secondaryButton2)}' onclick="themeBuilder.setTokens(event.target)">Plain without border</utrecht-button></li>
         <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(secondaryButton3)}' onclick="themeBuilder.setTokens(event.target)">Inverse with border</utrecht-button></li>
         <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(secondaryButton4)}' onclick="themeBuilder.setTokens(event.target)">Inverse without border</utrecht-button></li>
@@ -263,7 +263,7 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
         <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton3)}' onclick="themeBuilder.setTokens(event.target)">Inverse with border</utrecht-button></li>
         <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton4)}' onclick="themeBuilder.setTokens(event.target)">Inverse without border</utrecht-button></li>
         <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton5)}' onclick="themeBuilder.setTokens(event.target)">Transparent without border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton6)}' onclick="themeBuilder.setTokens(event.target)">Transparent with border</utrecht-button> (recommended)</li>
+        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton6)}' onclick="themeBuilder.setTokens(event.target)">Transparent with border</utrecht-button> <utrecht-data-badge>recommended</utrecht-data-badge></li>
       </ul>
     </div>
     <div>
@@ -276,7 +276,7 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
       </figure>
       <ul>
         <li><utrecht-button type="button" appearance="secondary-button" value='${JSON.stringify(aaTargetSize)}' onclick="themeBuilder.setTokens(event.target)">WCAG Level AA: 24px</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-button" value='${JSON.stringify(aaaTargetSize)}' onclick="themeBuilder.setTokens(event.target)">WCAG Level AAA: 44px</utrecht-button> (recommended)</li>
+        <li><utrecht-button type="button" appearance="secondary-button" value='${JSON.stringify(aaaTargetSize)}' onclick="themeBuilder.setTokens(event.target)">WCAG Level AAA: 44px</utrecht-button> <utrecht-data-badge>recommended</utrecht-data-badge></li>
         <li><utrecht-button type="button" appearance="secondary-button" value='${JSON.stringify(materialTargetSize)}' onclick="themeBuilder.setTokens(event.target)">Material Design: 48px</utrecht-button></li>
       </ul>
     </div>
