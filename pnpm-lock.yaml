@@ -14,9 +14,6 @@ importers:
       '@utrecht/body-css':
         specifier: 1.2.0
         version: 1.2.0
-      '@utrecht/page-body-css':
-        specifier: 0.1.0
-        version: 0.1.0
       '@utrecht/page-layout-css':
         specifier: 1.1.0
         version: 1.1.0
@@ -669,9 +666,6 @@ packages:
 
   '@utrecht/body-css@1.2.0':
     resolution: {integrity: sha512-hzUaFBjGSSpNbrI4gBspRjHvQkXLuMUo8MURsvEOoEgZG/ZDgUx4POvhBcXEyWKD25v5N2yA5UiGbNQbsnQTtg==}
-
-  '@utrecht/page-body-css@0.1.0':
-    resolution: {integrity: sha512-vo4SH5/v73I18uvoBzVqHLODhBADdPhvveqyISz0kB4Nz2E4QCFoLZ0n+oqStYmUieVkHjCOnu3OSR2fYLLX/g==}
 
   '@utrecht/page-layout-css@1.1.0':
     resolution: {integrity: sha512-nGPZHDvbhKn7wsMYSRWKqZIFq3PDmrjqA/b/GbeKHBTUTjDlnVa8qRsOL6uMPNEd/FXNHhV70ezfxFbVcbkyqA==}
@@ -4249,8 +4243,6 @@ snapshots:
   '@ungap/structured-clone@1.2.0': {}
 
   '@utrecht/body-css@1.2.0': {}
-
-  '@utrecht/page-body-css@0.1.0': {}
 
   '@utrecht/page-layout-css@1.1.0': {}
 

@@ -129,6 +129,37 @@ const formControlPaddingInlineLarge = {
   'basis.form-control.padding-inline-end': '{basis.space.inline.lg}',
 };
 
+const fontFamilies = [
+  {
+    name: 'Atkinson Hyperlegible',
+  },
+  {
+    name: 'Fira Sans',
+    recommended: true,
+  },
+  {
+    name: 'Inclusive Sans',
+  },
+  {
+    name: 'Lexend',
+  },
+  {
+    name: 'Noto Sans',
+  },
+  {
+    name: 'Plus Jakarta Sans',
+  },
+  {
+    name: 'Public Sans',
+  },
+  {
+    name: 'Source Sans 3',
+  },
+  {
+    name: 'Varta',
+  },
+];
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <utrecht-page-header>
     <h1>Theme Builder</h1>
@@ -146,6 +177,12 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <div>
       <input type="color" oninput="handleColor(event.target, 'text')" id="text-input" value="#000000">
       <div>Text</div>
+    </div>
+    <div>
+      <p>Default font family:</p>
+      <ul>
+        ${fontFamilies.map(({ name, recommended }) => `<li><utrecht-button type="button" appearance="subtle-button" name="basis.typography.font-family.default" value="'${name}'" onclick="setToken(event.target)"><span class="example-font-sample" style="font-family: '${name}'">${name}</span></utrecht-button>${recommended ? ' (recommended)' : ''}</li>`).join('\n')}
+      </ul>
     </div>
     <div>
       <p>Form control border radius:</p>
@@ -184,12 +221,20 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
     </div>
     <div>
       <p>Button border radius:</p>
-      <utrecht-textbox></utrecht-textbox>
       <ul>
         <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="0" onclick="setToken(event.target)">Square corners</utrecht-button></li>
         <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value=onclick="setToken(event.target)">Small</utrecht-button> (recommended)</li>
         <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="{basis.border-radius.md}" onclick="setToken(event.target)">Medium</utrecht-button></li>
         <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="{basis.border-radius.lg}" onclick="setToken(event.target)">Large</utrecht-button></li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="{basis.border-radius.round}" onclick="setToken(event.target)">Round</utrecht-button></li>
+      </ul>
+    </div>
+    <div>
+      <p>Button border width:</p>
+      <utrecht-textbox></utrecht-textbox>
+      <ul>
+        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-width" value="{basis.border-width.sm}" onclick="setToken(event.target)">Small</utrecht-button> (recommended)</li>
+        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-width" value="{basis.border-width.md}" onclick="setToken(event.target)">Medium</utrecht-button></li>
       </ul>
     </div>
     <div>
