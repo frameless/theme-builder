@@ -56,6 +56,15 @@ const primaryButton6 = {
   'utrecht.button.primary-action.border-color': '{basis.color.transparent}',
 };
 
+interface FlatTokens {
+  [index: string]: string;
+}
+interface ComponentVariant {
+  flatTokens: FlatTokens;
+  name: string;
+  recommended?: boolean;
+}
+
 // const updateKeys = <T>(object: { [index: string]: T }, callback: (arg: string) => string) =>
 // Object.fromEntries(Object.entries(object).map(([key, value]) => [callback(key), value]));
 
@@ -129,7 +138,213 @@ const formControlPaddingInlineLarge = {
   'basis.form-control.padding-inline-end': '{basis.space.inline.lg}',
 };
 
-const fontFamilies = [
+const primaryButtonVariants: ComponentVariant[] = [
+  {
+    flatTokens: primaryButton1,
+    name: 'Plain with border',
+  },
+  {
+    flatTokens: primaryButton2,
+    name: 'Plain without border',
+  },
+  {
+    flatTokens: primaryButton3,
+    name: 'Inverse with border',
+  },
+  {
+    flatTokens: primaryButton4,
+    name: 'Inverse without border',
+    recommended: true,
+  },
+];
+
+const secondaryButtonVariants: ComponentVariant[] = [
+  {
+    flatTokens: secondaryButton1,
+    name: 'Plain with border',
+    recommended: true,
+  },
+  {
+    flatTokens: secondaryButton2,
+    name: 'Plain without border',
+  },
+  {
+    flatTokens: secondaryButton3,
+    name: 'Inverse with border',
+  },
+  {
+    flatTokens: secondaryButton4,
+    name: 'Inverse without border',
+  },
+];
+
+const subtleButtonVariants: ComponentVariant[] = [
+  {
+    flatTokens: subtleButton1,
+    name: 'Plain with border',
+  },
+  {
+    flatTokens: subtleButton2,
+    name: 'Plain without border',
+  },
+  {
+    flatTokens: subtleButton3,
+    name: 'Inverse with border',
+  },
+  {
+    flatTokens: subtleButton4,
+    name: 'Inverse without border',
+  },
+  {
+    flatTokens: subtleButton5,
+    name: 'Transparent without border',
+  },
+  {
+    flatTokens: subtleButton6,
+    name: 'Transparent with border',
+  },
+];
+
+const pointerTargetVariants: ComponentVariant[] = [
+  {
+    flatTokens: aaTargetSize,
+    name: 'WCAG Level AA: 24px',
+  },
+  {
+    flatTokens: aaaTargetSize,
+    name: 'WCAG Level AAA: 44px',
+    recommended: true,
+  },
+  {
+    flatTokens: materialTargetSize,
+    name: 'Material Design: 48px',
+  },
+];
+
+const buttonBorderRadiusVariants: ComponentVariant[] = [
+  {
+    flatTokens: {
+      'utrecht.button.border-radius': '0',
+    },
+    name: 'Square corners',
+  },
+  {
+    flatTokens: {
+      'utrecht.button.border-radius': '{basis.border-radius.sm}',
+    },
+    name: 'Small',
+    recommended: true,
+  },
+  {
+    flatTokens: {
+      'utrecht.button.border-radius': '{basis.border-radius.md}',
+    },
+    name: 'Medium',
+  },
+  {
+    flatTokens: {
+      'utrecht.button.border-radius': '{basis.border-radius.lg}',
+    },
+    name: 'Large',
+  },
+  {
+    flatTokens: {
+      'utrecht.button.border-radius': '{basis.border-radius.round}',
+    },
+    name: 'Round',
+  },
+];
+
+const formControlPaddingBlockVariants: ComponentVariant[] = [
+  {
+    flatTokens: formControlPaddingBlockZero,
+    name: 'No padding',
+  },
+  {
+    flatTokens: formControlPaddingBlockSmall,
+    name: 'Small',
+  },
+  {
+    flatTokens: formControlPaddingBlockMedium,
+    name: 'Medium',
+    recommended: true,
+  },
+  {
+    flatTokens: formControlPaddingBlockLarge,
+    name: 'Large',
+  },
+];
+
+const formControlPaddingInlineVariants: ComponentVariant[] = [
+  {
+    flatTokens: formControlPaddingInlineZero,
+    name: 'No padding',
+  },
+  {
+    flatTokens: formControlPaddingInlineSmall,
+    name: 'Small',
+  },
+  {
+    flatTokens: formControlPaddingInlineMedium,
+    name: 'Medium',
+    recommended: true,
+  },
+  {
+    flatTokens: formControlPaddingInlineLarge,
+    name: 'Large',
+  },
+];
+
+const buttonBorderWidthVariants: ComponentVariant[] = [
+  {
+    flatTokens: {
+      'utrecht.button.border-width': '{basis.border-width.sm}',
+    },
+    name: 'Small',
+    recommended: true,
+  },
+  {
+    flatTokens: {
+      'utrecht.button.border-width': '{basis.border-width.sm}',
+    },
+    name: 'Medium',
+  },
+];
+
+const formControlBorderRadius: ComponentVariant[] = [
+  {
+    flatTokens: {
+      'basis.form-control.border-radius': '0',
+    },
+    name: 'Square corners',
+  },
+  {
+    flatTokens: {
+      'basis.form-control.border-radius': '{basis.border-radius.sm}',
+    },
+    name: 'Small',
+    recommended: true,
+  },
+  {
+    flatTokens: {
+      'basis.form-control.border-radius': '{basis.border-radius.md}',
+    },
+    name: 'Medium',
+  },
+  {
+    flatTokens: {
+      'basis.form-control.border-radius': '{basis.border-radius.lg}',
+    },
+    name: 'Large',
+  },
+];
+
+interface FontFamilyVariant {
+  name: string;
+  recommended?: boolean;
+}
+
+const fontFamilies: FontFamilyVariant[] = [
   {
     name: 'Atkinson Hyperlegible',
   },
@@ -160,9 +375,44 @@ const fontFamilies = [
   },
 ];
 
+const codeFonts: FontFamilyVariant[] = [
+  {
+    name: 'Courier',
+  },
+  {
+    name: 'Monaco',
+  },
+  {
+    name: 'Fira Code',
+    recommended: true,
+  },
+];
+
+const renderVariants = (variants: ComponentVariant[], appearance = 'subtle-button') => `<ul>${variants
+  .map(
+    ({ flatTokens, name, recommended }) =>
+      `<li><utrecht-button type="button" appearance="${appearance}" value='${JSON.stringify(flatTokens)}' onclick="themeBuilder.setTokens(event.target)">${name}</utrecht-button>${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}</li>`,
+  )
+  .join('\n')}
+      </ul>`;
+
+const renderFontFamilyVariants = (variants: FontFamilyVariant[], tokenName: string) =>
+  renderVariants(
+    variants.map((obj): ComponentVariant => {
+      const { name } = obj;
+      return {
+        ...obj,
+        flatTokens: {
+          [tokenName]: `"${name}"`,
+        },
+        name: `<span class="example-font-sample" style="font-family: '${name}'">${name}</span>`,
+      };
+    }),
+  );
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <utrecht-page-header>
-    <h1>Theme Builder</h1>
+    <utrecht-heading-1>Ceci n'est pas un theme builder</utrecht-heading-1>
   </utrecht-page-header>
   <utrecht-page-body>
     <form>
@@ -180,19 +430,35 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </div>
     <div>
       <p>Default font family:</p>
-      <ul>
-        ${fontFamilies.map(({ name, recommended }) => `<li><utrecht-button type="button" appearance="subtle-button" name="basis.typography.font-family.default" value="'${name}'" onclick="themeBuilder.setToken(event.target)"><span class="example-font-sample" style="font-family: '${name}'">${name}</span></utrecht-button>${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}</li>`).join('\n')}
-      </ul>
+      ${renderFontFamilyVariants(fontFamilies, 'basis.typography.font-family.default')}
+    </div>
+    <div>
+    <div>
+      <utrecht-heading-1>Heading 1</utrecht-heading-1>
+      <utrecht-paragraph><span style="display: block; overflow: hidden; text-overflow: ellipsis; white-space: pre;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></utrecht-paragraph>
+      <utrecht-heading-2>Heading 2</utrecht-heading-2>
+      <utrecht-paragraph><span style="display: block; overflow: hidden; text-overflow: ellipsis; white-space: pre;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></utrecht-paragraph>
+      <utrecht-heading-3>Heading 3</utrecht-heading-3>
+      <utrecht-paragraph><span style="display: block; overflow: hidden; text-overflow: ellipsis; white-space: pre;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></utrecht-paragraph>
+      <utrecht-heading-4>Heading 4</utrecht-heading-4>
+      <utrecht-paragraph><span style="display: block; overflow: hidden; text-overflow: ellipsis; white-space: pre;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></utrecht-paragraph>
+      <utrecht-heading-5>Heading 5</utrecht-heading-5>
+      <utrecht-paragraph><span style="display: block; overflow: hidden; text-overflow: ellipsis; white-space: pre;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></utrecht-paragraph>
+      <utrecht-heading-6>Heading 6</utrecht-heading-6>
+      <utrecht-paragraph><span style="display: block; overflow: hidden; text-overflow: ellipsis; white-space: pre;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></utrecht-paragraph>
+    </div>
+      <p>Heading font family:</p>
+      ${renderFontFamilyVariants(fontFamilies, 'basis.typography.font-family.heading')}
+    </div>
+    <div>
+      <utrecht-code-block>&lt;input type="url" value="https://example.fi/"></utrecht-code-block>
+      <p>Code family:</p>
+      ${renderFontFamilyVariants(codeFonts, 'basis.typography.font-family.code')}
     </div>
     <div>
       <p>Form control border radius:</p>
       <utrecht-textbox></utrecht-textbox>
-      <ul>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="basis.form-control.border-radius" value="0" onclick="themeBuilder.setToken(event.target)">Square corners</utrecht-button> <utrecht-data-badge>recommended</utrecht-data-badge></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="basis.form-control.border-radius" value="{basis.border-radius.sm}" onclick="themeBuilder.setToken(event.target)">Small</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="basis.form-control.border-radius" value="{basis.border-radius.md}" onclick="themeBuilder.setToken(event.target)">Medium</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="basis.form-control.border-radius" value="{basis.border-radius.lg}" onclick="themeBuilder.setToken(event.target)">Large</utrecht-button></li>
-      </ul>
+      ${renderVariants(formControlBorderRadius)}
     </div>
     <div>
       <figure>
@@ -205,66 +471,30 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
         <figcaption>Textarea without minimum pointer target size, demonstrating the padding needed for readability</figcaption>
       </figure>
       <p>Form control padding above and below:</p>
-      <ul>
-      <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingBlockZero)}' onclick="themeBuilder.setTokens(event.target)">No padding</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingBlockSmall)}' onclick="themeBuilder.setTokens(event.target)">Small</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingBlockMedium)}' onclick="themeBuilder.setTokens(event.target)">Medium</utrecht-button> <utrecht-data-badge>recommended</utrecht-data-badge></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingBlockLarge)}' onclick="themeBuilder.setTokens(event.target)">Large</utrecht-button></li>
-      </ul>
+      ${renderVariants(formControlPaddingBlockVariants)}
       <p>Form control padding left and right:</p>
-      <ul>
-      <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingInlineZero)}' onclick="themeBuilder.setTokens(event.target)">No padding</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingInlineSmall)}' onclick="themeBuilder.setTokens(event.target)">Small</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingInlineMedium)}' onclick="themeBuilder.setTokens(event.target)">Medium</utrecht-button> <utrecht-data-badge>recommended</utrecht-data-badge></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(formControlPaddingInlineLarge)}' onclick="themeBuilder.setTokens(event.target)">Large</utrecht-button></li>
-      </ul>
+      ${renderVariants(formControlPaddingInlineVariants)}
     </div>
     <div>
       <p>Button border radius:</p>
-      <ul>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="0" onclick="themeBuilder.setToken(event.target)">Square corners</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value=onclick="themeBuilder.setToken(event.target)">Small</utrecht-button> <utrecht-data-badge>recommended</utrecht-data-badge></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="{basis.border-radius.md}" onclick="themeBuilder.setToken(event.target)">Medium</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="{basis.border-radius.lg}" onclick="themeBuilder.setToken(event.target)">Large</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-radius" value="{basis.border-radius.round}" onclick="themeBuilder.setToken(event.target)">Round</utrecht-button></li>
-      </ul>
+      ${renderVariants(buttonBorderRadiusVariants)}
     </div>
     <div>
       <p>Button border width:</p>
       <utrecht-textbox></utrecht-textbox>
-      <ul>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-width" value="{basis.border-width.sm}" onclick="themeBuilder.setToken(event.target)">Small</utrecht-button> <utrecht-data-badge>recommended</utrecht-data-badge></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" name="utrecht.button.border-width" value="{basis.border-width.md}" onclick="themeBuilder.setToken(event.target)">Medium</utrecht-button></li>
-      </ul>
+      ${renderVariants(buttonBorderWidthVariants)}
     </div>
     <div>
       <p>Primary button style:</p>
-      <ul>
-        <li><utrecht-button type="button" appearance="primary-action-button" value='${JSON.stringify(primaryButton1)}' onclick="themeBuilder.setTokens(event.target)">Plain with border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="primary-action-button" value='${JSON.stringify(primaryButton2)}' onclick="themeBuilder.setTokens(event.target)">Plain without border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="primary-action-button" value='${JSON.stringify(primaryButton3)}' onclick="themeBuilder.setTokens(event.target)">Inverse with border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="primary-action-button" value='${JSON.stringify(primaryButton4)}' onclick="themeBuilder.setTokens(event.target)">Inverse without border</utrecht-button> <utrecht-data-badge>recommended</utrecht-data-badge></li>
-      </ul>
+      ${renderVariants(primaryButtonVariants, 'primary-action-button')}
     </div>
     <div>
       <p>Secondary button style:</p>
-      <ul>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(secondaryButton1)}' onclick="themeBuilder.setTokens(event.target)">Plain with border</utrecht-button>  <utrecht-data-badge>recommended</utrecht-data-badge></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(secondaryButton2)}' onclick="themeBuilder.setTokens(event.target)">Plain without border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(secondaryButton3)}' onclick="themeBuilder.setTokens(event.target)">Inverse with border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-action-button" value='${JSON.stringify(secondaryButton4)}' onclick="themeBuilder.setTokens(event.target)">Inverse without border</utrecht-button></li>
-      </ul>
+      ${renderVariants(secondaryButtonVariants, 'secondary-action-button')}
     </div>
     <div>
       <p>Subtle button style:</p>
-      <ul>
-        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton1)}' onclick="themeBuilder.setTokens(event.target)">Plain with border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton2)}' onclick="themeBuilder.setTokens(event.target)">Plain without border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton3)}' onclick="themeBuilder.setTokens(event.target)">Inverse with border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton4)}' onclick="themeBuilder.setTokens(event.target)">Inverse without border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton5)}' onclick="themeBuilder.setTokens(event.target)">Transparent without border</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="subtle-button" value='${JSON.stringify(subtleButton6)}' onclick="themeBuilder.setTokens(event.target)">Transparent with border</utrecht-button> <utrecht-data-badge>recommended</utrecht-data-badge></li>
-      </ul>
+      ${renderVariants(subtleButtonVariants, 'subtle-button')}
     </div>
     <div>
       <p>Minimum target size:</p>
@@ -274,11 +504,7 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
         </div>
         <figcaption>Button without padding, demonstrating the minimum pointer target size</figcaption>
       </figure>
-      <ul>
-        <li><utrecht-button type="button" appearance="secondary-button" value='${JSON.stringify(aaTargetSize)}' onclick="themeBuilder.setTokens(event.target)">WCAG Level AA: 24px</utrecht-button></li>
-        <li><utrecht-button type="button" appearance="secondary-button" value='${JSON.stringify(aaaTargetSize)}' onclick="themeBuilder.setTokens(event.target)">WCAG Level AAA: 44px</utrecht-button> <utrecht-data-badge>recommended</utrecht-data-badge></li>
-        <li><utrecht-button type="button" appearance="secondary-button" value='${JSON.stringify(materialTargetSize)}' onclick="themeBuilder.setTokens(event.target)">Material Design: 48px</utrecht-button></li>
-      </ul>
+      ${renderVariants(pointerTargetVariants)}
     </div>
     </form>
   </utrecht-page-body>
