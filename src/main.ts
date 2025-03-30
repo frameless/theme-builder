@@ -6,6 +6,7 @@ import '@utrecht/body-css';
 import '@utrecht/root-css';
 import './style.css';
 import './basis-theme.css';
+import './fluid.css';
 import './story-canvas.css';
 
 defineCustomElements();
@@ -754,7 +755,7 @@ const codeFonts: FontFamilyVariant[] = [
 const renderVariants = (variants: ComponentVariant[], appearance = 'subtle-button') => `<ul>${variants
   .map(
     ({ flatTokens, name, recommended }) =>
-      `<li><utrecht-button type="button" appearance="${appearance}" value='${JSON.stringify(flatTokens)}' onclick="themeBuilder.setTokens(event.target)">${name}</utrecht-button>${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}</li>`,
+      `<li><utrecht-button type="button" appearance="${appearance}" value='${JSON.stringify(flatTokens)}' onclick="themeBuilder.setTokens(event.currentTarget)">${name}</utrecht-button>${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}</li>`,
   )
   .join('\n')}
       </ul>`;
@@ -774,11 +775,57 @@ const renderFontFamilyVariants = (variants: FontFamilyVariant[], tokenName: stri
   );
 
 const renderColorScalePicker = (name: string, inverseName: string, defaultValue: string) =>
-  `<input type="color" oninput='themeBuilder.handleColor(event.target, ${JSON.stringify(name)}, ${JSON.stringify(inverseName)})' value="${defaultValue}">`;
+  `<input type="color" oninput='themeBuilder.handleColor(event.currentTarget, ${JSON.stringify(name)}, ${JSON.stringify(inverseName)})' value="${defaultValue}">`;
+
+const renderColorSamplePicker = (name: string, inverseName: string, colors: { name: string; color: string }[]) =>
+  `<details><summary>Show preset colors</summary><utrecht-button-group>${colors
+    .map(
+      ({ name: colorName, color }) =>
+        `<utrecht-button onclick='themeBuilder.handleColor(event.currentTarget, ${JSON.stringify(name)}, ${JSON.stringify(inverseName)})' value="${color}"><utrecht-color-sample color="${color}"></utrecht-color-sample> ${colorName}</utrecht-button>`,
+    )
+    .join('\n')}</utrecht-button-group></details>`;
+
+const radixColors = [
+  { name: 'voilet', color: '#5315f6' },
+  { name: 'Gray', color: '#3f5676' },
+  { name: 'Pink', color: '#a60e52' },
+  { name: 'Red', color: '#a41e24' },
+  { name: 'Orange', color: '#6a2e13' },
+  { name: 'Yellow', color: '#8b3e18' },
+  { name: 'Green', color: '#645400' },
+  { name: 'Green', color: '#116227' },
+  { name: 'Sea green', color: '#006053' },
+  { name: 'Blue', color: '#00588f' },
+];
+
+const renderColorScaleExample = (name: string) => {
+  const keys = [
+    'bg-1',
+    'bg-2',
+    'interactive-1',
+    'interactive-2',
+    'interactive-3',
+    'border-1',
+    'border-2',
+    'border-3',
+    'fill-1',
+    'fill-2',
+    'text-1',
+    'text-2',
+  ];
+  const content = keys
+    .map(
+      (color) =>
+        `<div><utrecht-color-sample color="var(${toCssName(`${name}.${color}`)})"></utrecht-color-sample></div>`,
+    )
+    .join('\n');
+
+  return `<div><utrecht-code>${name}</utrecht-code>:</div><div><div class="color-sample-list">${content}</div></div>`;
+};
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <utrecht-page-header>
-    <utrecht-heading-1>Ceci n'est pas un theme builder</utrecht-heading-1>
+    <utrecht-heading-1>Frameless Theme Builder</utrecht-heading-1>
   </utrecht-page-header>
   <utrecht-page-body>
     <form>
@@ -786,6 +833,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <utrecht-heading-3>Primary color</utrecht-heading-3>
     <div>
       ${renderColorScalePicker('basis.color.primary', 'basis.color.primary-inverse', '#FF0000')}
+      ${renderColorSamplePicker('basis.color.primary', 'basis.color.primary-inverse', radixColors)}
+      ${renderColorScaleExample('basis.color.primary')}
+      ${renderColorScaleExample('basis.color.primary-inverse')}
       <div class="example-story-canvas">
         <utrecht-button type="button" appearance="primary-action-button">Primary action</utrecht-button>
       </div>
@@ -796,6 +846,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <div class="example-story-canvas">
         <utrecht-button type="button" appearance="secondary-action-button">Secondary action</utrecht-button>
       </div>
+      ${renderColorScaleExample('basis.color.secondary')}
+      ${renderColorScaleExample('basis.color.secondary-inverse')}
     </div>
     <utrecht-heading-3>Text color</utrecht-heading-3>
     <div class="example-story-canvas">
@@ -805,6 +857,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </div>
     <div>
       ${renderColorScalePicker('basis.color.text', 'basis.color.text-inverse', '#000000')}
+      ${renderColorScaleExample('basis.color.text')}
+      ${renderColorScaleExample('basis.color.text-inverse')}
     </div>
 
     <utrecht-heading-3>Info color</utrecht-heading-3>
@@ -815,6 +869,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </div>
     <div>
       ${renderColorScalePicker('basis.color.info', 'basis.color.info-inverse', '#0000FF')}
+      ${renderColorScaleExample('basis.color.info')}
+      ${renderColorScaleExample('basis.color.info-inverse')}
     </div>
     <utrecht-heading-3>Success color</utrecht-heading-3>
     <div class="example-story-canvas">
@@ -824,6 +880,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </div>
     <div>
       ${renderColorScalePicker('basis.color.success', 'basis.color.success-inverse', '#228B22')}
+      ${renderColorScaleExample('basis.color.success')}
+      ${renderColorScaleExample('basis.color.success-inverse')}
     </div>
     <utrecht-heading-3>Warning color</utrecht-heading-3>
     <div class="example-story-canvas">
@@ -833,6 +891,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </div>
     <div>
       ${renderColorScalePicker('basis.color.warning', 'basis.color.warning-inverse', '#FF8C00')}
+      ${renderColorScaleExample('basis.color.warning')}
+      ${renderColorScaleExample('basis.color.warning-inverse')}
     </div>
     <utrecht-heading-3>Error color</utrecht-heading-3>
     <div class="example-story-canvas">
@@ -842,6 +902,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </div>
     <div>
       ${renderColorScalePicker('basis.color.error', 'basis.color.error-inverse', '#FF0000')}
+      ${renderColorScaleExample('basis.color.error')}
+      ${renderColorScaleExample('basis.color.error-inverse')}
     </div>
     <utrecht-heading-2>Fonts</utrecht-heading-2>
     <div>
@@ -976,7 +1038,7 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
     <div>
       <p>Page width (in px):</p>
       ${renderVariants(pageSizeVariants)}
-      <input hidden type="number" min="768" max="1920" name="basis.page.max-inline-size" oninput="themeBuilder.setToken(event.target, { unit: 'px' })">
+      <input hidden type="number" min="768" max="1920" name="basis.page.max-inline-size" oninput="themeBuilder.setToken(event.currentTarget, { unit: 'px' })">
     </div>
     <div>
       <p>Minimum target size:</p>
@@ -999,6 +1061,10 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
       <p>Horizontal space inside components:</p>
       ${renderVariants(spaceInlineVariants)}
     </div>
+    <utrecht-heading-2>Responsive layout</utrecht-heading-2>
+    <div>
+      <label for="fluid"><input id="fluid" type="checkbox" oninput="document.documentElement.classList.toggle('basis-theme--fluid', event.currentTarget.checked)">Fluid typography and spacing</label>
+    </div>
     </form>
   </utrecht-page-body>
   <utrecht-page-footer>
@@ -1007,7 +1073,7 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
 `;
 
 const handleColor = (target: HTMLInputElement, name: string, inverseName: string) => {
-  if (!(target instanceof HTMLInputElement)) {
+  if (typeof target.value !== 'string') {
     return;
   }
 
