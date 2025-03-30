@@ -1,13 +1,13 @@
 import { generateRadixColors } from './generateRadixColors.js';
 import { defineCustomElements } from '@utrecht/web-component-library-stencil/loader/index.js';
 import { toCssName, toCssValue, styleAttribute, setTokens, setCssVariables, toCssVariables } from './utils.js';
+import './story-canvas.js';
 import '@utrecht/page-layout-css';
 import '@utrecht/body-css';
 import '@utrecht/root-css';
 import './style.css';
 import './basis-theme.css';
 import './fluid.css';
-import './story-canvas.css';
 
 defineCustomElements();
 
@@ -836,25 +836,25 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       ${renderColorSamplePicker('basis.color.primary', 'basis.color.primary-inverse', radixColors)}
       ${renderColorScaleExample('basis.color.primary')}
       ${renderColorScaleExample('basis.color.primary-inverse')}
-      <div class="example-story-canvas">
+      <example-story-canvas>
         <utrecht-button type="button" appearance="primary-action-button">Primary action</utrecht-button>
-      </div>
+      </example-story-canvas>
     </div>
     <utrecht-heading-3>Secondary color</utrecht-heading-3>
     <div>
       ${renderColorScalePicker('basis.color.secondary', 'basis.color.secondary-inverse', '#00FF00')}
-      <div class="example-story-canvas">
+      <example-story-canvas>
         <utrecht-button type="button" appearance="secondary-action-button">Secondary action</utrecht-button>
-      </div>
+      </example-story-canvas>
       ${renderColorScaleExample('basis.color.secondary')}
       ${renderColorScaleExample('basis.color.secondary-inverse')}
     </div>
     <utrecht-heading-3>Text color</utrecht-heading-3>
-    <div class="example-story-canvas">
+    <example-story-canvas>
       <utrecht-paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</utrecht-paragraph>
       <utrecht-separator></utrecht-separator>
       <utrecht-paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</utrecht-paragraph>
-    </div>
+    </example-story-canvas>
     <div>
       ${renderColorScalePicker('basis.color.text', 'basis.color.text-inverse', '#000000')}
       ${renderColorScaleExample('basis.color.text')}
@@ -862,44 +862,44 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </div>
 
     <utrecht-heading-3>Info color</utrecht-heading-3>
-    <div class="example-story-canvas">
+    <example-story-canvas>
       <utrecht-alert type="info">
         <utrecht-paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</utrecht-paragraph>
       </utrecht-alert>
-    </div>
+    </example-story-canvas>
     <div>
       ${renderColorScalePicker('basis.color.info', 'basis.color.info-inverse', '#0000FF')}
       ${renderColorScaleExample('basis.color.info')}
       ${renderColorScaleExample('basis.color.info-inverse')}
     </div>
     <utrecht-heading-3>Success color</utrecht-heading-3>
-    <div class="example-story-canvas">
+    <example-story-canvas>
       <utrecht-alert type="ok">
         <utrecht-paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</utrecht-paragraph>
       </utrecht-alert>
-    </div>
+    </example-story-canvas>
     <div>
       ${renderColorScalePicker('basis.color.success', 'basis.color.success-inverse', '#228B22')}
       ${renderColorScaleExample('basis.color.success')}
       ${renderColorScaleExample('basis.color.success-inverse')}
     </div>
     <utrecht-heading-3>Warning color</utrecht-heading-3>
-    <div class="example-story-canvas">
+    <example-story-canvas>
       <utrecht-alert type="warning">
         <utrecht-paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</utrecht-paragraph>
       </utrecht-alert>
-    </div>
+    </example-story-canvas>
     <div>
       ${renderColorScalePicker('basis.color.warning', 'basis.color.warning-inverse', '#FF8C00')}
       ${renderColorScaleExample('basis.color.warning')}
       ${renderColorScaleExample('basis.color.warning-inverse')}
     </div>
     <utrecht-heading-3>Error color</utrecht-heading-3>
-    <div class="example-story-canvas">
+    <example-story-canvas>
       <utrecht-alert type="error">
         <utrecht-paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</utrecht-paragraph>
       </utrecht-alert>
-    </div>
+    </example-story-canvas>
     <div>
       ${renderColorScalePicker('basis.color.error', 'basis.color.error-inverse', '#FF0000')}
       ${renderColorScaleExample('basis.color.error')}
@@ -911,7 +911,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       ${renderFontFamilyVariants(fontFamilies, 'basis.typography.font-family.default')}
     </div>
     <div>
-    <div class="example-story-canvas">
+    <example-story-canvas>
       <utrecht-heading-1>Heading 1</utrecht-heading-1>
       <utrecht-paragraph><span style="display: block; overflow: hidden; text-overflow: ellipsis; white-space: pre;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></utrecht-paragraph>
       <utrecht-heading-2>Heading 2</utrecht-heading-2>
@@ -924,7 +924,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <utrecht-paragraph><span style="display: block; overflow: hidden; text-overflow: ellipsis; white-space: pre;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></utrecht-paragraph>
       <utrecht-heading-6>Heading 6</utrecht-heading-6>
       <utrecht-paragraph><span style="display: block; overflow: hidden; text-overflow: ellipsis; white-space: pre;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></utrecht-paragraph>
-    </div>
+    </example-story-canvas>
       <p>Heading font family:</p>
       ${renderFontFamilyVariants(fontFamilies, 'basis.typography.font-family.heading')}
     </div>
@@ -933,37 +933,37 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       ${renderVariants(headingColorVariants)}
     </div>
     <div>
-      <div class="example-story-canvas">
+      <example-story-canvas>
         <utrecht-code-block>&lt;input type="url" value="https://example.fi/"></utrecht-code-block>
-      </div>
+      </example-story-canvas>
       <p>Code family:</p>
       ${renderFontFamilyVariants(codeFonts, 'basis.typography.font-family.code')}
     </div>
     <utrecht-heading-2>Form controls</utrecht-heading-2>
     <div>
-      <div class="example-story-canvas">
+      <example-story-canvas>
         <utrecht-textbox></utrecht-textbox>
-      </div>
+      </example-story-canvas>
       <p>Form control border radius:</p>
       ${renderVariants(formControlBorderRadius)}
     </div>
     <div>
-      <div class="example-story-canvas">
+      <example-story-canvas>
         <utrecht-textbox></utrecht-textbox>
-      </div>
+      </example-story-canvas>
       <p>Form control border width:</p>
       ${renderVariants(formControlBorderWidthVariants)}
     </div>
     <div>
       <figure>
-      <div class="example-story-canvas">
+      <example-story-canvas>
         <div style="${styleAttribute(buttonWithoutPadding)}">
           <utrecht-textarea value="Ut quos illum eligendi. Et aut optio vitae. Reiciendis consectetur ipsam illo laborum rem id. Quo vel iure optio commodi veniam nihil. Quae ipsa non qui. Rem dolores nulla commodi ratione cum.
 Aut iste quam unde. Iure quidem et accusantium pariatur molestiae occaecati consequatur. Aut consectetur amet ea sint officia nesciunt ullam ut. Odio nulla rem neque et facere.
 Necessitatibus debitis eos expedita dolor. Quam laudantium qui officia est et eos. Sunt dolores voluptatibus nisi similique quae consequatur est.
 Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum et qui sed aperiam totam veritatis quos."></utrecht-textarea>
         </div>
-        </div>
+        </example-story-canvas>
         <figcaption>Textarea without minimum pointer target size, demonstrating the padding needed for readability</figcaption>
       </figure>
       <p>Form control padding above and below:</p>
@@ -978,9 +978,9 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
     </div>
     <div>
       <p>Button border width:</p>
-      <div class="example-story-canvas">
+      <example-story-canvas>
         <utrecht-textbox></utrecht-textbox>
-      </div>
+      </example-story-canvas>
       ${renderVariants(buttonBorderWidthVariants)}
     </div>
     <div>
@@ -996,37 +996,37 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
       ${renderVariants(subtleButtonVariants, 'subtle-button')}
     </div>
     <utrecht-heading-2>Data badge</utrecht-heading-2>
-    <div class="example-story-canvas">
+    <example-story-canvas>
       <utrecht-data-badge>Some subject</utrecht-data-badge>
-    </div>
+    </example-story-canvas>
     <div>
       <p>Data badge style:</p>
       ${renderVariants(dataBadgeAppearanceVariants)}
     </div>
     <utrecht-heading-2>Number badge</utrecht-heading-2>
-    <div class="example-story-canvas">
+    <example-story-canvas>
       <utrecht-number-badge>42</utrecht-number-badge>
-    </div>
+    </example-story-canvas>
     <div>
       <p>Number badge style:</p>
       ${renderVariants(numberBadgeAppearanceVariants)}
     </div>
     <utrecht-heading-2>Alert</utrecht-heading-2>
-    <div class="example-story-canvas">
+    <example-story-canvas>
       <utrecht-alert type="info">
         <utrecht-paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</utrecht-paragraph>
       </utrecht-alert>
-    </div>
+    </example-story-canvas>
     <div>
       <p>Alert style:</p>
       ${renderVariants(alertAppearanceVariants)}
     </div>
     <utrecht-heading-2>Page Footer</utrecht-heading-2>
-    <div class="example-story-canvas">
+    <example-story-canvas>
       <utrecht-page-footer>
         <p>Hello world</p>
       </utrecht-page-footer>
-    </div>
+    </example-story-canvas>
     <div>
       <p>Page Footer style:</p>
       ${renderVariants(pageFooterAppearanceVariants)}
@@ -1043,11 +1043,11 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
     <div>
       <p>Minimum target size:</p>
       <figure>
-        <div class="example-story-canvas">
+        <example-story-canvas>
           <div style="${styleAttribute(buttonWithoutPadding)}">
             <utrecht-button type="button"><span contentEditable="true">❤️</span></utrecht-button>
           </div>
-        </div>
+        </example-story-canvas>
         <figcaption>Button without padding, demonstrating the minimum pointer target size</figcaption>
       </figure>
       ${renderVariants(pointerTargetVariants)}
