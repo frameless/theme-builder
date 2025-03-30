@@ -410,6 +410,9 @@ const renderFontFamilyVariants = (variants: FontFamilyVariant[], tokenName: stri
     }),
   );
 
+const renderColorScalePicker = (name: string, inverseName: string, defaultValue: string) =>
+  `<input type="color" oninput='themeBuilder.handleColor(event.target, ${JSON.stringify(name)}, ${JSON.stringify(inverseName)})' value="${defaultValue}">`;
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <utrecht-page-header>
     <utrecht-heading-1>Ceci n'est pas un theme builder</utrecht-heading-1>
@@ -417,15 +420,15 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <utrecht-page-body>
     <form>
     <div>
-    <input type="color" oninput="themeBuilder.handleColor(event.target, 'primary')" id="primary-input" value="#FF0000">
-    <utrecht-button type="button" appearance="primary-action-button">Primary action</utrecht-button>
+      ${renderColorScalePicker('basis.color.primary', 'basis.color.primary-inverse', '#FF0000')}
+      <utrecht-button type="button" appearance="primary-action-button">Primary action</utrecht-button>
     </div>
     <div>
-    <input type="color" oninput="themeBuilder.handleColor(event.target, 'secondary')" id="secondary-input" value="#00FF00">
-    <utrecht-button type="button" appearance="secondary-action-button">Secondary action</utrecht-button>
+      ${renderColorScalePicker('basis.color.secondary', 'basis.color.secondary-inverse', '#00FF00')}
+      <utrecht-button type="button" appearance="secondary-action-button">Secondary action</utrecht-button>
     </div>
     <div>
-      <input type="color" oninput="themeBuilder.handleColor(event.target, 'text')" id="text-input" value="#000000">
+      ${renderColorScalePicker('basis.color.text', 'basis.color.text-inverse', '#000000')}
       <div>Text</div>
     </div>
     <div>
@@ -510,7 +513,7 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
   </utrecht-page-body>
 `;
 
-const handleColor = (target: HTMLInputElement, name: string) => {
+const handleColor = (target: HTMLInputElement, name: string, inverseName: string) => {
   if (!(target instanceof HTMLInputElement)) {
     return;
   }
@@ -557,14 +560,14 @@ const handleColor = (target: HTMLInputElement, name: string) => {
       };
     }, {});
 
-  const scaleTokens = createScaleObject(accentScale, `basis.color.${name}.`);
-  const inverseScaleTokens = createScaleObject(inverseAccentScale, `basis.color.${name}-inverse.`);
+  const scaleTokens = createScaleObject(accentScale, `${name}.`);
+  const inverseScaleTokens = createScaleObject(inverseAccentScale, `${inverseName}.`);
 
   const tokens = {
     ...scaleTokens,
     ...inverseScaleTokens,
   };
-
+  console.log(tokens);
   setCssVariables(toCssVariables(tokens));
 };
 
@@ -584,13 +587,13 @@ const setToken = (input: HTMLButtonElement | HTMLInputElement) => {
 };
 
 [
-  { inputId: 'primary-input', name: 'primary' },
-  { inputId: 'secondary-input', name: 'secondary' },
-  { inputId: 'text-input', name: 'text' },
-].forEach(({ inputId, name }) => {
+  { inputId: 'primary-input', name: 'primary', inverseName: 'primary-inverse' },
+  { inputId: 'secondary-input', name: 'secondary', inverseName: 'primary-inverse' },
+  { inputId: 'text-input', name: 'text', inverseName: 'text-inverse' },
+].forEach(({ inputId, name, inverseName }) => {
   const el = document.getElementById(inputId);
   if (el instanceof HTMLInputElement) {
-    handleColor(el, name);
+    handleColor(el, name, inverseName);
   }
 });
 declare global {
