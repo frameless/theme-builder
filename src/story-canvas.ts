@@ -1,6 +1,6 @@
 customElements.define(
   'example-story-canvas',
-  class StoryReact extends HTMLElement {
+  class ExampleStoryCanvas extends HTMLElement {
     constructor() {
       super();
       const style = this.ownerDocument.createElement('style');

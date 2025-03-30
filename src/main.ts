@@ -1,7 +1,8 @@
 import { generateRadixColors } from './generateRadixColors.js';
 import { defineCustomElements } from '@utrecht/web-component-library-stencil/loader/index.js';
-import { toCssName, toCssValue, styleAttribute, setTokens, setCssVariables, toCssVariables } from './utils.js';
+import { toCssName, styleAttribute, setCssVariables, toCssVariables } from './utils.js';
 import './story-canvas.js';
+import './basis-theme-stylesheet.js';
 import '@utrecht/page-layout-css';
 import '@utrecht/body-css';
 import '@utrecht/root-css';
@@ -61,10 +62,16 @@ const primaryButton6 = {
 interface FlatTokens {
   [index: string]: string;
 }
+
 interface ComponentVariant {
   flatTokens: FlatTokens;
   name: string;
   recommended?: boolean;
+}
+
+interface VariantOptionGroup {
+  id: string;
+  variants: ComponentVariant[];
 }
 
 // const updateKeys = <T>(object: { [index: string]: T }, callback: (arg: string) => string) =>
@@ -140,507 +147,558 @@ const formControlPaddingInlineLarge = {
   'basis.form-control.padding-inline-end': '{basis.space.inline.lg}',
 };
 
-const headingColorVariants: ComponentVariant[] = [
-  {
-    flatTokens: {
-      'utrecht.heading-1.color': '{basis.color.text.text-2}',
-      'utrecht.heading-2.color': '{basis.color.text.text-2}',
-      'utrecht.heading-3.color': '{basis.color.text.text-2}',
-      'utrecht.heading-4.color': '{basis.color.text.text-2}',
-      'utrecht.heading-5.color': '{basis.color.text.text-2}',
-      'utrecht.heading-6.color': '{basis.color.text.text-2}',
+const headingColorVariants: VariantOptionGroup = {
+  id: 'heading',
+  variants: [
+    {
+      flatTokens: {
+        'utrecht.heading-1.color': '{basis.color.text.text-2}',
+        'utrecht.heading-2.color': '{basis.color.text.text-2}',
+        'utrecht.heading-3.color': '{basis.color.text.text-2}',
+        'utrecht.heading-4.color': '{basis.color.text.text-2}',
+        'utrecht.heading-5.color': '{basis.color.text.text-2}',
+        'utrecht.heading-6.color': '{basis.color.text.text-2}',
+      },
+      name: 'Text color',
+      recommended: true,
     },
-    name: 'Text color',
-    recommended: true,
-  },
-  {
-    flatTokens: {
-      'utrecht.heading-1.color': '{basis.color.primary.text-2}',
-      'utrecht.heading-2.color': '{basis.color.primary.text-2}',
-      'utrecht.heading-3.color': '{basis.color.primary.text-2}',
-      'utrecht.heading-4.color': '{basis.color.primary.text-2}',
-      'utrecht.heading-5.color': '{basis.color.primary.text-2}',
-      'utrecht.heading-6.color': '{basis.color.primary.text-2}',
+    {
+      flatTokens: {
+        'utrecht.heading-1.color': '{basis.color.primary.text-2}',
+        'utrecht.heading-2.color': '{basis.color.primary.text-2}',
+        'utrecht.heading-3.color': '{basis.color.primary.text-2}',
+        'utrecht.heading-4.color': '{basis.color.primary.text-2}',
+        'utrecht.heading-5.color': '{basis.color.primary.text-2}',
+        'utrecht.heading-6.color': '{basis.color.primary.text-2}',
+      },
+      name: 'Primary color',
     },
-    name: 'Primary color',
-  },
-  {
-    flatTokens: {
-      'utrecht.heading-1.color': '{basis.color.primary.fill-2}',
-      'utrecht.heading-2.color': '{basis.color.primary.fill-2}',
-      'utrecht.heading-3.color': '{basis.color.primary.fill-2}',
-      'utrecht.heading-4.color': '{basis.color.primary.fill-2}',
-      'utrecht.heading-5.color': '{basis.color.primary.fill-2}',
-      'utrecht.heading-6.color': '{basis.color.primary.fill-2}',
+    {
+      flatTokens: {
+        'utrecht.heading-1.color': '{basis.color.primary.fill-2}',
+        'utrecht.heading-2.color': '{basis.color.primary.fill-2}',
+        'utrecht.heading-3.color': '{basis.color.primary.fill-2}',
+        'utrecht.heading-4.color': '{basis.color.primary.fill-2}',
+        'utrecht.heading-5.color': '{basis.color.primary.fill-2}',
+        'utrecht.heading-6.color': '{basis.color.primary.fill-2}',
+      },
+      name: 'Primary fill color',
     },
-    name: 'Primary fill color',
-  },
-  {
-    flatTokens: {
-      'utrecht.heading-1.color': '{basis.color.secondary.text-2}',
-      'utrecht.heading-2.color': '{basis.color.secondary.text-2}',
-      'utrecht.heading-3.color': '{basis.color.secondary.text-2}',
-      'utrecht.heading-4.color': '{basis.color.secondary.text-2}',
-      'utrecht.heading-5.color': '{basis.color.secondary.text-2}',
-      'utrecht.heading-6.color': '{basis.color.secondary.text-2}',
+    {
+      flatTokens: {
+        'utrecht.heading-1.color': '{basis.color.secondary.text-2}',
+        'utrecht.heading-2.color': '{basis.color.secondary.text-2}',
+        'utrecht.heading-3.color': '{basis.color.secondary.text-2}',
+        'utrecht.heading-4.color': '{basis.color.secondary.text-2}',
+        'utrecht.heading-5.color': '{basis.color.secondary.text-2}',
+        'utrecht.heading-6.color': '{basis.color.secondary.text-2}',
+      },
+      name: 'Secondary color',
     },
-    name: 'Secondary color',
-  },
-  {
-    flatTokens: {
-      'utrecht.heading-1.color': '{basis.color.secondary.fill-2}',
-      'utrecht.heading-2.color': '{basis.color.secondary.fill-2}',
-      'utrecht.heading-3.color': '{basis.color.secondary.fill-2}',
-      'utrecht.heading-4.color': '{basis.color.secondary.fill-2}',
-      'utrecht.heading-5.color': '{basis.color.secondary.fill-2}',
-      'utrecht.heading-6.color': '{basis.color.secondary.fill-2}',
+    {
+      flatTokens: {
+        'utrecht.heading-1.color': '{basis.color.secondary.fill-2}',
+        'utrecht.heading-2.color': '{basis.color.secondary.fill-2}',
+        'utrecht.heading-3.color': '{basis.color.secondary.fill-2}',
+        'utrecht.heading-4.color': '{basis.color.secondary.fill-2}',
+        'utrecht.heading-5.color': '{basis.color.secondary.fill-2}',
+        'utrecht.heading-6.color': '{basis.color.secondary.fill-2}',
+      },
+      name: 'Secondary fill color',
     },
-    name: 'Secondary fill color',
-  },
-];
+  ],
+};
 
-const primaryButtonVariants: ComponentVariant[] = [
-  {
-    flatTokens: primaryButton1,
-    name: 'Plain with border',
-  },
-  {
-    flatTokens: primaryButton2,
-    name: 'Plain without border',
-  },
-  {
-    flatTokens: primaryButton3,
-    name: 'Inverse with border',
-  },
-  {
-    flatTokens: primaryButton4,
-    name: 'Inverse without border',
-    recommended: true,
-  },
-];
+const primaryButtonVariants: VariantOptionGroup = {
+  id: 'primary-button',
+  variants: [
+    {
+      flatTokens: primaryButton1,
+      name: 'Plain with border',
+    },
+    {
+      flatTokens: primaryButton2,
+      name: 'Plain without border',
+    },
+    {
+      flatTokens: primaryButton3,
+      name: 'Inverse with border',
+    },
+    {
+      flatTokens: primaryButton4,
+      name: 'Inverse without border',
+      recommended: true,
+    },
+  ],
+};
 
-const secondaryButtonVariants: ComponentVariant[] = [
-  {
-    flatTokens: secondaryButton1,
-    name: 'Plain with border',
-    recommended: true,
-  },
-  {
-    flatTokens: secondaryButton2,
-    name: 'Plain without border',
-  },
-  {
-    flatTokens: secondaryButton3,
-    name: 'Inverse with border',
-  },
-  {
-    flatTokens: secondaryButton4,
-    name: 'Inverse without border',
-  },
-];
+const secondaryButtonVariants: VariantOptionGroup = {
+  id: 'secondary-button',
+  variants: [
+    {
+      flatTokens: secondaryButton1,
+      name: 'Plain with border',
+      recommended: true,
+    },
+    {
+      flatTokens: secondaryButton2,
+      name: 'Plain without border',
+    },
+    {
+      flatTokens: secondaryButton3,
+      name: 'Inverse with border',
+    },
+    {
+      flatTokens: secondaryButton4,
+      name: 'Inverse without border',
+    },
+  ],
+};
 
-const subtleButtonVariants: ComponentVariant[] = [
-  {
-    flatTokens: subtleButton1,
-    name: 'Plain with border',
-  },
-  {
-    flatTokens: subtleButton2,
-    name: 'Plain without border',
-  },
-  {
-    flatTokens: subtleButton3,
-    name: 'Inverse with border',
-  },
-  {
-    flatTokens: subtleButton4,
-    name: 'Inverse without border',
-  },
-  {
-    flatTokens: subtleButton5,
-    name: 'Transparent with border',
-  },
-  {
-    flatTokens: subtleButton6,
-    name: 'Transparent without border',
-    recommended: true,
-  },
-];
+const subtleButtonVariants: VariantOptionGroup = {
+  id: 'subtle-button',
+  variants: [
+    {
+      flatTokens: subtleButton1,
+      name: 'Plain with border',
+    },
+    {
+      flatTokens: subtleButton2,
+      name: 'Plain without border',
+    },
+    {
+      flatTokens: subtleButton3,
+      name: 'Inverse with border',
+    },
+    {
+      flatTokens: subtleButton4,
+      name: 'Inverse without border',
+    },
+    {
+      flatTokens: subtleButton5,
+      name: 'Transparent with border',
+    },
+    {
+      flatTokens: subtleButton6,
+      name: 'Transparent without border',
+      recommended: true,
+    },
+  ],
+};
 
-const pointerTargetVariants: ComponentVariant[] = [
-  {
-    flatTokens: aaTargetSize,
-    name: 'WCAG Level AA: 24px',
-  },
-  {
-    flatTokens: aaaTargetSize,
-    name: 'WCAG Level AAA: 44px',
-    recommended: true,
-  },
-  {
-    flatTokens: materialTargetSize,
-    name: 'Material Design: 48px',
-  },
-];
+const pointerTargetVariants: VariantOptionGroup = {
+  id: 'pointer-target',
+  variants: [
+    {
+      flatTokens: aaTargetSize,
+      name: 'WCAG Level AA: 24px',
+    },
+    {
+      flatTokens: aaaTargetSize,
+      name: 'WCAG Level AAA: 44px',
+      recommended: true,
+    },
+    {
+      flatTokens: materialTargetSize,
+      name: 'Material Design: 48px',
+    },
+  ],
+};
 
-const buttonBorderRadiusVariants: ComponentVariant[] = [
-  {
-    flatTokens: {
-      'utrecht.button.border-radius': '0',
+const buttonBorderRadiusVariants: VariantOptionGroup = {
+  id: 'buttonBorderRadius',
+  variants: [
+    {
+      flatTokens: {
+        'utrecht.button.border-radius': '0',
+      },
+      name: 'Square corners',
     },
-    name: 'Square corners',
-  },
-  {
-    flatTokens: {
-      'utrecht.button.border-radius': '{basis.border-radius.sm}',
+    {
+      flatTokens: {
+        'utrecht.button.border-radius': '{basis.border-radius.sm}',
+      },
+      name: 'Small',
+      recommended: true,
     },
-    name: 'Small',
-    recommended: true,
-  },
-  {
-    flatTokens: {
-      'utrecht.button.border-radius': '{basis.border-radius.md}',
+    {
+      flatTokens: {
+        'utrecht.button.border-radius': '{basis.border-radius.md}',
+      },
+      name: 'Medium',
     },
-    name: 'Medium',
-  },
-  {
-    flatTokens: {
-      'utrecht.button.border-radius': '{basis.border-radius.lg}',
+    {
+      flatTokens: {
+        'utrecht.button.border-radius': '{basis.border-radius.lg}',
+      },
+      name: 'Large',
     },
-    name: 'Large',
-  },
-  {
-    flatTokens: {
-      'utrecht.button.border-radius': '{basis.border-radius.round}',
+    {
+      flatTokens: {
+        'utrecht.button.border-radius': '{basis.border-radius.round}',
+      },
+      name: 'Round',
     },
-    name: 'Round',
-  },
-];
+  ],
+};
 
-const formControlPaddingBlockVariants: ComponentVariant[] = [
-  {
-    flatTokens: formControlPaddingBlockZero,
-    name: 'No padding',
-  },
-  {
-    flatTokens: formControlPaddingBlockSmall,
-    name: 'Small',
-  },
-  {
-    flatTokens: formControlPaddingBlockMedium,
-    name: 'Medium',
-    recommended: true,
-  },
-  {
-    flatTokens: formControlPaddingBlockLarge,
-    name: 'Large',
-  },
-];
+const formControlPaddingBlockVariants: VariantOptionGroup = {
+  id: 'formControlPaddingBlock',
+  variants: [
+    {
+      flatTokens: formControlPaddingBlockZero,
+      name: 'No padding',
+    },
+    {
+      flatTokens: formControlPaddingBlockSmall,
+      name: 'Small',
+    },
+    {
+      flatTokens: formControlPaddingBlockMedium,
+      name: 'Medium',
+      recommended: true,
+    },
+    {
+      flatTokens: formControlPaddingBlockLarge,
+      name: 'Large',
+    },
+  ],
+};
 
-const formControlPaddingInlineVariants: ComponentVariant[] = [
-  {
-    flatTokens: formControlPaddingInlineZero,
-    name: 'No padding',
-  },
-  {
-    flatTokens: formControlPaddingInlineSmall,
-    name: 'Small',
-  },
-  {
-    flatTokens: formControlPaddingInlineMedium,
-    name: 'Medium',
-    recommended: true,
-  },
-  {
-    flatTokens: formControlPaddingInlineLarge,
-    name: 'Large',
-  },
-];
+const formControlPaddingInlineVariants: VariantOptionGroup = {
+  id: 'formControlPaddingInline',
+  variants: [
+    {
+      flatTokens: formControlPaddingInlineZero,
+      name: 'No padding',
+    },
+    {
+      flatTokens: formControlPaddingInlineSmall,
+      name: 'Small',
+    },
+    {
+      flatTokens: formControlPaddingInlineMedium,
+      name: 'Medium',
+      recommended: true,
+    },
+    {
+      flatTokens: formControlPaddingInlineLarge,
+      name: 'Large',
+    },
+  ],
+};
 
-const formControlBorderWidthVariants: ComponentVariant[] = [
-  {
-    flatTokens: {
-      'basis.form-control.border-width': '{basis.border-width.sm}',
+const formControlBorderWidthVariants: VariantOptionGroup = {
+  id: 'formControlBorderWidth',
+  variants: [
+    {
+      flatTokens: {
+        'basis.form-control.border-width': '{basis.border-width.sm}',
+      },
+      name: 'Small',
+      recommended: true,
     },
-    name: 'Small',
-    recommended: true,
-  },
-  {
-    flatTokens: {
-      'basis.form-control.border-width': '{basis.border-width.md}',
+    {
+      flatTokens: {
+        'basis.form-control.border-width': '{basis.border-width.md}',
+      },
+      name: 'Medium',
     },
-    name: 'Medium',
-  },
-];
+  ],
+};
 
-const buttonBorderWidthVariants: ComponentVariant[] = [
-  {
-    flatTokens: {
-      'utrecht.button.border-width': '{basis.border-width.sm}',
+const buttonBorderWidthVariants: VariantOptionGroup = {
+  id: 'buttonBorderWidth',
+  variants: [
+    {
+      flatTokens: {
+        'utrecht.button.border-width': '{basis.border-width.sm}',
+      },
+      name: 'Small',
+      recommended: true,
     },
-    name: 'Small',
-    recommended: true,
-  },
-  {
-    flatTokens: {
-      'utrecht.button.border-width': '{basis.border-width.md}',
+    {
+      flatTokens: {
+        'utrecht.button.border-width': '{basis.border-width.md}',
+      },
+      name: 'Medium',
     },
-    name: 'Medium',
-  },
-];
+  ],
+};
 
-const dataBadgeAppearanceVariants: ComponentVariant[] = [
-  {
-    flatTokens: {
-      'utrecht.data-badge.background-color': '{basis.color.primary.interactive-1}',
-      'utrecht.data-badge.border-color': '{basis.color.transparent}',
-      'utrecht.data-badge.border-width': '{basis.border-width.sm}',
-      'utrecht.data-badge.color': '{basis.color.primary.text-2}',
+const dataBadgeAppearanceVariants: VariantOptionGroup = {
+  id: 'dataBadgeAppearance',
+  variants: [
+    {
+      flatTokens: {
+        'utrecht.data-badge.background-color': '{basis.color.primary.interactive-1}',
+        'utrecht.data-badge.border-color': '{basis.color.transparent}',
+        'utrecht.data-badge.border-width': '{basis.border-width.sm}',
+        'utrecht.data-badge.color': '{basis.color.primary.text-2}',
+      },
+      name: 'Subtle',
     },
-    name: 'Subtle',
-  },
-  {
-    flatTokens: {
-      'utrecht.data-badge.background-color': '{basis.color.primary.interactive-1}',
-      'utrecht.data-badge.border-color': '{basis.color.primary.border-2}',
-      'utrecht.data-badge.border-width': '{basis.border-width.sm}',
-      'utrecht.data-badge.color': '{basis.color.primary.text-2}',
+    {
+      flatTokens: {
+        'utrecht.data-badge.background-color': '{basis.color.primary.interactive-1}',
+        'utrecht.data-badge.border-color': '{basis.color.primary.border-2}',
+        'utrecht.data-badge.border-width': '{basis.border-width.sm}',
+        'utrecht.data-badge.color': '{basis.color.primary.text-2}',
+      },
+      name: 'With border',
+      recommended: true,
     },
-    name: 'With border',
-    recommended: true,
-  },
-  {
-    flatTokens: {
-      'utrecht.data-badge.background-color': '{basis.color.primary-inverse.interactive-1}',
-      'utrecht.data-badge.border-color': '{basis.color.transparent}',
-      'utrecht.data-badge.border-width': '0',
-      'utrecht.data-badge.color': '{basis.color.primary-inverse.text-2}',
+    {
+      flatTokens: {
+        'utrecht.data-badge.background-color': '{basis.color.primary-inverse.interactive-1}',
+        'utrecht.data-badge.border-color': '{basis.color.transparent}',
+        'utrecht.data-badge.border-width': '0',
+        'utrecht.data-badge.color': '{basis.color.primary-inverse.text-2}',
+      },
+      name: 'Inverse',
     },
-    name: 'Inverse',
-  },
-];
+  ],
+};
 
-const numberBadgeAppearanceVariants: ComponentVariant[] = [
-  {
-    flatTokens: {
-      'utrecht.number-badge.background-color': '{basis.color.primary.interactive-1}',
-      'utrecht.number-badge.border-color': '{basis.color.transparent}',
-      'utrecht.number-badge.border-width': '{basis.border-width.sm}',
-      'utrecht.number-badge.color': '{basis.color.primary.text-2}',
+const numberBadgeAppearanceVariants: VariantOptionGroup = {
+  id: 'numberBadgeAppearance',
+  variants: [
+    {
+      flatTokens: {
+        'utrecht.number-badge.background-color': '{basis.color.primary.interactive-1}',
+        'utrecht.number-badge.border-color': '{basis.color.transparent}',
+        'utrecht.number-badge.border-width': '{basis.border-width.sm}',
+        'utrecht.number-badge.color': '{basis.color.primary.text-2}',
+      },
+      name: 'Subtle',
     },
-    name: 'Subtle',
-  },
-  {
-    flatTokens: {
-      'utrecht.number-badge.background-color': '{basis.color.primary.interactive-1}',
-      'utrecht.number-badge.border-color': '{basis.color.primary.border-2}',
-      'utrecht.number-badge.border-width': '{basis.border-width.sm}',
-      'utrecht.number-badge.color': '{basis.color.primary.text-2}',
+    {
+      flatTokens: {
+        'utrecht.number-badge.background-color': '{basis.color.primary.interactive-1}',
+        'utrecht.number-badge.border-color': '{basis.color.primary.border-2}',
+        'utrecht.number-badge.border-width': '{basis.border-width.sm}',
+        'utrecht.number-badge.color': '{basis.color.primary.text-2}',
+      },
+      name: 'With border',
     },
-    name: 'With border',
-  },
-  {
-    flatTokens: {
-      'utrecht.number-badge.background-color': '{basis.color.primary-inverse.interactive-1}',
-      'utrecht.number-badge.border-color': '{basis.color.transparent}',
-      'utrecht.number-badge.border-width': '0',
-      'utrecht.number-badge.color': '{basis.color.primary-inverse.text-2}',
+    {
+      flatTokens: {
+        'utrecht.number-badge.background-color': '{basis.color.primary-inverse.interactive-1}',
+        'utrecht.number-badge.border-color': '{basis.color.transparent}',
+        'utrecht.number-badge.border-width': '0',
+        'utrecht.number-badge.color': '{basis.color.primary-inverse.text-2}',
+      },
+      name: 'Inverse',
+      recommended: true,
     },
-    name: 'Inverse',
-    recommended: true,
-  },
-];
+  ],
+};
 
-const pageFooterAppearanceVariants: ComponentVariant[] = [
-  {
-    flatTokens: {
-      'utrecht.page-footer.content.background-color': '{basis.color.text.interactive-1}',
-      'utrecht.page-footer.border-color': '{basis.color.text.border-1}',
-      'utrecht.page-footer.color': '{basis.color.text.text-2}',
+const pageFooterAppearanceVariants: VariantOptionGroup = {
+  id: 'pageFooterAppearance',
+  variants: [
+    {
+      flatTokens: {
+        'utrecht.page-footer.content.background-color': '{basis.color.text.interactive-1}',
+        'utrecht.page-footer.border-color': '{basis.color.text.border-1}',
+        'utrecht.page-footer.color': '{basis.color.text.text-2}',
+      },
+      name: 'Text',
     },
-    name: 'Text',
-  },
-  {
-    flatTokens: {
-      'utrecht.page-footer.content.background-color': '{basis.color.text-inverse.interactive-1}',
-      'utrecht.page-footer.border-color': '{basis.color.text-inverse.border-1}',
-      'utrecht.page-footer.color': '{basis.color.text-inverse.text-2}',
+    {
+      flatTokens: {
+        'utrecht.page-footer.content.background-color': '{basis.color.text-inverse.interactive-1}',
+        'utrecht.page-footer.border-color': '{basis.color.text-inverse.border-1}',
+        'utrecht.page-footer.color': '{basis.color.text-inverse.text-2}',
+      },
+      name: 'Text inverse',
     },
-    name: 'Text inverse',
-  },
-  {
-    flatTokens: {
-      'utrecht.page-footer.content.background-color': '{basis.color.primary.interactive-1}',
-      'utrecht.page-footer.border-color': '{basis.color.primary.border-1}',
-      'utrecht.page-footer.color': '{basis.color.primary.text-2}',
+    {
+      flatTokens: {
+        'utrecht.page-footer.content.background-color': '{basis.color.primary.interactive-1}',
+        'utrecht.page-footer.border-color': '{basis.color.primary.border-1}',
+        'utrecht.page-footer.color': '{basis.color.primary.text-2}',
+      },
+      name: 'Primary',
+      recommended: true,
     },
-    name: 'Primary',
-    recommended: true,
-  },
-  {
-    flatTokens: {
-      'utrecht.page-footer.content.background-color': '{basis.color.primary-inverse.interactive-1}',
-      'utrecht.page-footer.border-color': '{basis.color.primary-inverse.border-1}',
-      'utrecht.page-footer.color': '{basis.color.primary-inverse.text-2}',
+    {
+      flatTokens: {
+        'utrecht.page-footer.content.background-color': '{basis.color.primary-inverse.interactive-1}',
+        'utrecht.page-footer.border-color': '{basis.color.primary-inverse.border-1}',
+        'utrecht.page-footer.color': '{basis.color.primary-inverse.text-2}',
+      },
+      name: 'Primary inverse',
     },
-    name: 'Primary inverse',
-  },
-  {
-    flatTokens: {
-      'utrecht.page-footer.content.background-color': '{basis.color.secondary.interactive-1}',
-      'utrecht.page-footer.border-color': '{basis.color.secondary.border-1}',
-      'utrecht.page-footer.color': '{basis.color.secondary.text-2}',
+    {
+      flatTokens: {
+        'utrecht.page-footer.content.background-color': '{basis.color.secondary.interactive-1}',
+        'utrecht.page-footer.border-color': '{basis.color.secondary.border-1}',
+        'utrecht.page-footer.color': '{basis.color.secondary.text-2}',
+      },
+      name: 'Secondary',
     },
-    name: 'Secondary',
-  },
-  {
-    flatTokens: {
-      'utrecht.page-footer.content.background-color': '{basis.color.secondary-inverse.interactive-1}',
-      'utrecht.page-footer.border-color': '{basis.color.secondary-inverse.border-1}',
-      'utrecht.page-footer.color': '{basis.color.secondary-inverse.text-2}',
+    {
+      flatTokens: {
+        'utrecht.page-footer.content.background-color': '{basis.color.secondary-inverse.interactive-1}',
+        'utrecht.page-footer.border-color': '{basis.color.secondary-inverse.border-1}',
+        'utrecht.page-footer.color': '{basis.color.secondary-inverse.text-2}',
+      },
+      name: 'Secondary inverse',
     },
-    name: 'Secondary inverse',
-  },
-];
+  ],
+};
 
-const pageFooterSizeVariants: ComponentVariant[] = [
-  {
-    flatTokens: {
-      'utrecht.page-footer.background-color': '{basis.color.transparent}',
-      'utrecht.page-footer.max-inline-size': '{utrecht.page-footer.content.max-inline-size}',
-      'utrecht.page-footer.content.max-inline-size': '{basis.page.max-inline-size}',
+const pageFooterSizeVariants: VariantOptionGroup = {
+  id: 'pageFooterSize',
+  variants: [
+    {
+      flatTokens: {
+        'utrecht.page-footer.background-color': '{basis.color.transparent}',
+        'utrecht.page-footer.max-inline-size': '{utrecht.page-footer.content.max-inline-size}',
+        'utrecht.page-footer.content.max-inline-size': '{basis.page.max-inline-size}',
+      },
+      name: 'Centered',
     },
-    name: 'Centered',
-  },
-  {
-    flatTokens: {
-      'utrecht.page-footer.background-color': '{utrecht.page-footer.content.background-color}',
-      'utrecht.page-footer.max-inline-size': '100%',
-      'utrecht.page-footer.content.max-inline-size': '{basis.page.max-inline-size}',
+    {
+      flatTokens: {
+        'utrecht.page-footer.background-color': '{utrecht.page-footer.content.background-color}',
+        'utrecht.page-footer.max-inline-size': '100%',
+        'utrecht.page-footer.content.max-inline-size': '{basis.page.max-inline-size}',
+      },
+      name: 'Full width',
+      recommended: true,
     },
-    name: 'Full width',
-    recommended: true,
-  },
-];
+  ],
+};
 
-const pageSizeVariants: ComponentVariant[] = [
-  {
-    flatTokens: {
-      'basis.page.max-inline-size': '1140px',
+const pageSizeVariants: VariantOptionGroup = {
+  id: 'pageSize',
+  variants: [
+    {
+      flatTokens: {
+        'basis.page.max-inline-size': '1140px',
+      },
+      name: '1140px',
     },
-    name: '1140px',
-  },
-  {
-    flatTokens: {
-      'basis.page.max-inline-size': '1200px',
+    {
+      flatTokens: {
+        'basis.page.max-inline-size': '1200px',
+      },
+      name: '1200px',
     },
-    name: '1200px',
-  },
-];
+  ],
+};
 
-const spaceBlockVariants: ComponentVariant[] = [
-  {
-    flatTokens: {
-      'basis.space.block.6xl': '160px',
-      'basis.space.block.5xl': '64px',
-      'basis.space.block.4xl': '32px',
-      'basis.space.block.3xl': '24px',
-      'basis.space.block.2xl': '20px',
-      'basis.space.block.xl': '16px',
-      'basis.space.block.lg': '12px',
-      'basis.space.block.md': '8px',
-      'basis.space.block.sm': '4px',
-      'basis.space.block.xs': '2px',
-      'basis.space.block.2xs': '1px',
+const spaceBlockVariants: VariantOptionGroup = {
+  id: 'spaceBlock',
+  variants: [
+    {
+      flatTokens: {
+        'basis.space.block.6xl': '160px',
+        'basis.space.block.5xl': '64px',
+        'basis.space.block.4xl': '32px',
+        'basis.space.block.3xl': '24px',
+        'basis.space.block.2xl': '20px',
+        'basis.space.block.xl': '16px',
+        'basis.space.block.lg': '12px',
+        'basis.space.block.md': '8px',
+        'basis.space.block.sm': '4px',
+        'basis.space.block.xs': '2px',
+        'basis.space.block.2xs': '1px',
+      },
+      name: 'Default',
+      recommended: true,
     },
-    name: 'Default',
-    recommended: true,
-  },
-  {
-    flatTokens: {
-      'basis.space.block.6xl': `${160 * 0.75}px`,
-      'basis.space.block.5xl': `${64 * 0.75}px`,
-      'basis.space.block.4xl': `${32 * 0.75}px`,
-      'basis.space.block.3xl': `${24 * 0.75}px`,
-      'basis.space.block.2xl': `${20 * 0.75}px`,
-      'basis.space.block.xl': `${16 * 0.75}px`,
-      'basis.space.block.lg': `${12 * 0.75}px`,
-      'basis.space.block.md': `${8 * 0.75}px`,
-      'basis.space.block.sm': `${4 * 0.75}px`,
-      'basis.space.block.xs': '2px',
-      'basis.space.block.2xs': '1px',
+    {
+      flatTokens: {
+        'basis.space.block.6xl': `${160 * 0.75}px`,
+        'basis.space.block.5xl': `${64 * 0.75}px`,
+        'basis.space.block.4xl': `${32 * 0.75}px`,
+        'basis.space.block.3xl': `${24 * 0.75}px`,
+        'basis.space.block.2xl': `${20 * 0.75}px`,
+        'basis.space.block.xl': `${16 * 0.75}px`,
+        'basis.space.block.lg': `${12 * 0.75}px`,
+        'basis.space.block.md': `${8 * 0.75}px`,
+        'basis.space.block.sm': `${4 * 0.75}px`,
+        'basis.space.block.xs': '2px',
+        'basis.space.block.2xs': '1px',
+      },
+      name: 'Compact (75%)',
     },
-    name: 'Compact (75%)',
-  },
-  {
-    flatTokens: {
-      'basis.space.block.6xl': `${160 * 0.5}px`,
-      'basis.space.block.5xl': `${64 * 0.5}px`,
-      'basis.space.block.4xl': `${32 * 0.5}px`,
-      'basis.space.block.3xl': `${24 * 0.5}px`,
-      'basis.space.block.2xl': `${20 * 0.5}px`,
-      'basis.space.block.xl': `${16 * 0.5}px`,
-      'basis.space.block.lg': `${12 * 0.5}px`,
-      'basis.space.block.md': `${8 * 0.5}px`,
-      'basis.space.block.sm': `${4 * 0.5}px`,
-      'basis.space.block.xs': '2px',
-      'basis.space.block.2xs': '1px',
+    {
+      flatTokens: {
+        'basis.space.block.6xl': `${160 * 0.5}px`,
+        'basis.space.block.5xl': `${64 * 0.5}px`,
+        'basis.space.block.4xl': `${32 * 0.5}px`,
+        'basis.space.block.3xl': `${24 * 0.5}px`,
+        'basis.space.block.2xl': `${20 * 0.5}px`,
+        'basis.space.block.xl': `${16 * 0.5}px`,
+        'basis.space.block.lg': `${12 * 0.5}px`,
+        'basis.space.block.md': `${8 * 0.5}px`,
+        'basis.space.block.sm': `${4 * 0.5}px`,
+        'basis.space.block.xs': '2px',
+        'basis.space.block.2xs': '1px',
+      },
+      name: 'Small (50%)',
     },
-    name: 'Small (50%)',
-  },
-];
+  ],
+};
 
-const spaceInlineVariants: ComponentVariant[] = [
-  {
-    flatTokens: {
-      'basis.space.inline.6xl': '160px',
-      'basis.space.inline.5xl': '64px',
-      'basis.space.inline.4xl': '32px',
-      'basis.space.inline.3xl': '24px',
-      'basis.space.inline.2xl': '20px',
-      'basis.space.inline.xl': '16px',
-      'basis.space.inline.lg': '12px',
-      'basis.space.inline.md': '8px',
-      'basis.space.inline.sm': '4px',
-      'basis.space.inline.xs': '2px',
-      'basis.space.inline.2xs': '1px',
+const spaceInlineVariants: VariantOptionGroup = {
+  id: 'spaceInline',
+  variants: [
+    {
+      flatTokens: {
+        'basis.space.inline.6xl': '160px',
+        'basis.space.inline.5xl': '64px',
+        'basis.space.inline.4xl': '32px',
+        'basis.space.inline.3xl': '24px',
+        'basis.space.inline.2xl': '20px',
+        'basis.space.inline.xl': '16px',
+        'basis.space.inline.lg': '12px',
+        'basis.space.inline.md': '8px',
+        'basis.space.inline.sm': '4px',
+        'basis.space.inline.xs': '2px',
+        'basis.space.inline.2xs': '1px',
+      },
+      name: 'Default',
+      recommended: true,
     },
-    name: 'Default',
-    recommended: true,
-  },
-  {
-    flatTokens: {
-      'basis.space.inline.6xl': `${160 * 0.75}px`,
-      'basis.space.inline.5xl': `${64 * 0.75}px`,
-      'basis.space.inline.4xl': `${32 * 0.75}px`,
-      'basis.space.inline.3xl': `${24 * 0.75}px`,
-      'basis.space.inline.2xl': `${20 * 0.75}px`,
-      'basis.space.inline.xl': `${16 * 0.75}px`,
-      'basis.space.inline.lg': `${12 * 0.75}px`,
-      'basis.space.inline.md': `${8 * 0.75}px`,
-      'basis.space.inline.sm': `${4 * 0.75}px`,
-      'basis.space.inline.xs': '2px',
-      'basis.space.inline.2xs': '1px',
+    {
+      flatTokens: {
+        'basis.space.inline.6xl': `${160 * 0.75}px`,
+        'basis.space.inline.5xl': `${64 * 0.75}px`,
+        'basis.space.inline.4xl': `${32 * 0.75}px`,
+        'basis.space.inline.3xl': `${24 * 0.75}px`,
+        'basis.space.inline.2xl': `${20 * 0.75}px`,
+        'basis.space.inline.xl': `${16 * 0.75}px`,
+        'basis.space.inline.lg': `${12 * 0.75}px`,
+        'basis.space.inline.md': `${8 * 0.75}px`,
+        'basis.space.inline.sm': `${4 * 0.75}px`,
+        'basis.space.inline.xs': '2px',
+        'basis.space.inline.2xs': '1px',
+      },
+      name: 'Compact (75%)',
     },
-    name: 'Compact (75%)',
-  },
-  {
-    flatTokens: {
-      'basis.space.inline.6xl': `${160 * 0.5}px`,
-      'basis.space.inline.5xl': `${64 * 0.5}px`,
-      'basis.space.inline.4xl': `${32 * 0.5}px`,
-      'basis.space.inline.3xl': `${24 * 0.5}px`,
-      'basis.space.inline.2xl': `${20 * 0.5}px`,
-      'basis.space.inline.xl': `${16 * 0.5}px`,
-      'basis.space.inline.lg': `${12 * 0.5}px`,
-      'basis.space.inline.md': `${8 * 0.5}px`,
-      'basis.space.inline.sm': `${4 * 0.5}px`,
-      'basis.space.inline.xs': '2px',
-      'basis.space.inline.2xs': '1px',
+    {
+      flatTokens: {
+        'basis.space.inline.6xl': `${160 * 0.5}px`,
+        'basis.space.inline.5xl': `${64 * 0.5}px`,
+        'basis.space.inline.4xl': `${32 * 0.5}px`,
+        'basis.space.inline.3xl': `${24 * 0.5}px`,
+        'basis.space.inline.2xl': `${20 * 0.5}px`,
+        'basis.space.inline.xl': `${16 * 0.5}px`,
+        'basis.space.inline.lg': `${12 * 0.5}px`,
+        'basis.space.inline.md': `${8 * 0.5}px`,
+        'basis.space.inline.sm': `${4 * 0.5}px`,
+        'basis.space.inline.xs': '2px',
+        'basis.space.inline.2xs': '1px',
+      },
+      name: 'Small (50%)',
     },
-    name: 'Small (50%)',
-  },
-];
+  ],
+};
 
 // TODO: Include these as default values in the Basis Theme
 const basisAlertTokens = {
@@ -650,58 +708,64 @@ const basisAlertTokens = {
   'utrecht.alert.ok.border-color': '{basis.color.success.border-1}',
   'utrecht.alert.warning.border-color': '{basis.color.warning.border-1}',
 };
-const alertAppearanceVariants: ComponentVariant[] = [
-  {
-    flatTokens: {
-      ...basisAlertTokens,
-      'utrecht.alert.border-width': '0',
+const alertAppearanceVariants: VariantOptionGroup = {
+  id: 'alertAppearance',
+  variants: [
+    {
+      flatTokens: {
+        ...basisAlertTokens,
+        'utrecht.alert.border-width': '0',
+      },
+      name: 'No border',
     },
-    name: 'No border',
-  },
-  {
-    flatTokens: {
-      ...basisAlertTokens,
-      'utrecht.alert.border-width': '{basis.border-width.sm}',
+    {
+      flatTokens: {
+        ...basisAlertTokens,
+        'utrecht.alert.border-width': '{basis.border-width.sm}',
+      },
+      name: 'Small border',
     },
-    name: 'Small border',
-  },
-  {
-    flatTokens: {
-      ...basisAlertTokens,
-      'utrecht.alert.border-width': '{basis.border-width.md}',
+    {
+      flatTokens: {
+        ...basisAlertTokens,
+        'utrecht.alert.border-width': '{basis.border-width.md}',
+      },
+      name: 'Medium border',
+      recommended: true,
     },
-    name: 'Medium border',
-    recommended: true,
-  },
-];
+  ],
+};
 
-const formControlBorderRadius: ComponentVariant[] = [
-  {
-    flatTokens: {
-      'basis.form-control.border-radius': '0',
+const formControlBorderRadius: VariantOptionGroup = {
+  id: 'formControlBorderRadius',
+  variants: [
+    {
+      flatTokens: {
+        'basis.form-control.border-radius': '0',
+      },
+      name: 'Square corners',
+      recommended: true,
     },
-    name: 'Square corners',
-    recommended: true,
-  },
-  {
-    flatTokens: {
-      'basis.form-control.border-radius': '{basis.border-radius.sm}',
+    {
+      flatTokens: {
+        'basis.form-control.border-radius': '{basis.border-radius.sm}',
+      },
+      name: 'Small',
     },
-    name: 'Small',
-  },
-  {
-    flatTokens: {
-      'basis.form-control.border-radius': '{basis.border-radius.md}',
+    {
+      flatTokens: {
+        'basis.form-control.border-radius': '{basis.border-radius.md}',
+      },
+      name: 'Medium',
     },
-    name: 'Medium',
-  },
-  {
-    flatTokens: {
-      'basis.form-control.border-radius': '{basis.border-radius.lg}',
+    {
+      flatTokens: {
+        'basis.form-control.border-radius': '{basis.border-radius.lg}',
+      },
+      name: 'Large',
     },
-    name: 'Large',
-  },
-];
+  ],
+};
 
 interface FontFamilyVariant {
   name: string;
@@ -752,17 +816,18 @@ const codeFonts: FontFamilyVariant[] = [
   },
 ];
 
-const renderVariants = (variants: ComponentVariant[], appearance = 'subtle-button') => `<ul>${variants
+const renderVariants = ({ id, variants }: VariantOptionGroup, appearance = 'subtle-button') => `<ul>${variants
   .map(
     ({ flatTokens, name, recommended }) =>
-      `<li><utrecht-button type="button" appearance="${appearance}" value='${JSON.stringify(flatTokens)}' onclick="themeBuilder.setTokens(event.currentTarget)">${name}</utrecht-button>${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}</li>`,
+      `<li><utrecht-button type="button" name="${id}" appearance="${appearance}" value='${JSON.stringify(flatTokens)}' onclick="themeBuilder.setTokens(event.currentTarget)">${name}</utrecht-button>${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}</li>`,
   )
   .join('\n')}
       </ul>`;
 
 const renderFontFamilyVariants = (variants: FontFamilyVariant[], tokenName: string) =>
-  renderVariants(
-    variants.map((obj): ComponentVariant => {
+  renderVariants({
+    id: tokenName,
+    variants: variants.map((obj): ComponentVariant => {
       const { name } = obj;
       return {
         ...obj,
@@ -772,16 +837,16 @@ const renderFontFamilyVariants = (variants: FontFamilyVariant[], tokenName: stri
         name: `<span class="example-font-sample" style="font-family: '${name}'">${name}</span>`,
       };
     }),
-  );
+  });
 
 const renderColorScalePicker = (name: string, inverseName: string, defaultValue: string) =>
-  `<input type="color" oninput='themeBuilder.handleColor(event.currentTarget, ${JSON.stringify(name)}, ${JSON.stringify(inverseName)})' value="${defaultValue}">`;
+  `<input type="color" oninput='themeBuilder2.handleColor(event.currentTarget, ${JSON.stringify(name)}, ${JSON.stringify(inverseName)})' value="${defaultValue}">`;
 
 const renderColorSamplePicker = (name: string, inverseName: string, colors: { name: string; color: string }[]) =>
   `<details><summary>Show preset colors</summary><utrecht-button-group>${colors
     .map(
       ({ name: colorName, color }) =>
-        `<utrecht-button onclick='themeBuilder.handleColor(event.currentTarget, ${JSON.stringify(name)}, ${JSON.stringify(inverseName)})' value="${color}"><utrecht-color-sample color="${color}"></utrecht-color-sample> ${colorName}</utrecht-button>`,
+        `<utrecht-button onclick='themeBuilder2.handleColor(event.currentTarget, ${JSON.stringify(name)}, ${JSON.stringify(inverseName)})' value="${color}"><utrecht-color-sample color="${color}"></utrecht-color-sample> ${colorName}</utrecht-button>`,
     )
     .join('\n')}</utrecht-button-group></details>`;
 
@@ -824,6 +889,7 @@ const renderColorScaleExample = (name: string) => {
 };
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+  <basis-theme-stylesheet></basis-theme-stylesheet>
   <utrecht-page-header>
     <utrecht-heading-1>Frameless Theme Builder</utrecht-heading-1>
   </utrecht-page-header>
@@ -1130,23 +1196,6 @@ const handleColor = (target: HTMLInputElement, name: string, inverseName: string
   setCssVariables(toCssVariables(tokens));
 };
 
-const setToken = (input: HTMLButtonElement | HTMLInputElement, { unit }: { unit?: string } = {}) => {
-  const tokenName = input.name;
-  let tokenValue = input.value;
-
-  if (typeof unit === 'string') {
-    tokenValue = `${tokenValue}${unit}`;
-  }
-
-  // Convert Design Token name to CSS custom property
-  const cssName = toCssName(tokenName);
-
-  // Convert Design Token alias to CSS variable
-  const cssValue = toCssValue(tokenValue);
-  // console.log(cssName, cssValue);
-  document.documentElement.style.setProperty(cssName, cssValue);
-};
-
 [
   { inputId: 'primary-input', name: 'primary', inverseName: 'primary-inverse' },
   { inputId: 'secondary-input', name: 'secondary', inverseName: 'primary-inverse' },
@@ -1159,12 +1208,10 @@ const setToken = (input: HTMLButtonElement | HTMLInputElement, { unit }: { unit?
 });
 declare global {
   interface Window {
-    themeBuilder: { [index: string]: any };
+    themeBuilder2: { [index: string]: any };
   }
 }
 
-window.themeBuilder = {
+window.themeBuilder2 = {
   handleColor,
-  setToken,
-  setTokens,
 };

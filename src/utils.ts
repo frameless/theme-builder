@@ -8,6 +8,11 @@ export const toCssValue = (tokenValue: string): string =>
 export const toCssVariables = (tokens: { [index: string]: string }) =>
   Object.fromEntries(Object.entries(tokens).map(([name, value]) => [toCssName(name), toCssValue(value)]));
 
+export const cssVariablesToString = (cssVariables: { [index: string]: string }) =>
+  Object.entries(cssVariables)
+    .map(([name, value]) => `${name}: ${value}`)
+    .join(';\n');
+
 export const styleAttribute = (tokens: { [index: string]: string }) =>
   Object.entries(toCssVariables(tokens))
     .map(([name, value]) => `${name}: ${value}`)
