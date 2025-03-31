@@ -1,3 +1,5 @@
+import { variants } from './design-token-options';
+import { VariantsMap } from './types';
 import { cssVariablesToString, toCssVariables } from './utils';
 
 interface FlatTokens {
@@ -13,6 +15,8 @@ declare global {
 class BasisThemeStylesheet extends HTMLElement {
   sheet: CSSStyleSheet;
   map: Map<string, FlatTokens>;
+  parameters: URLSearchParams;
+  variantsMap: VariantsMap;
   constructor() {
     super();
 
@@ -21,6 +25,14 @@ class BasisThemeStylesheet extends HTMLElement {
     this.map = new Map();
     sheet.replaceSync('');
     window.themeBuilder = this;
+    this.parameters = new URLSearchParams();
+    this.variantsMap = new Map(variants.map((group) => [group.id, group]));
+
+    for (const [key, value] of new URL(location.href).searchParams) {
+      if (this.variantsMap.has(key) && this.variantsMap.get(key)?.variants.some(({ id }) => id === value)) {
+        this.setGroupOption(key, value);
+      }
+    }
 
     console.log(
       Array.from(new Map<string, FlatTokens>([['', { 'basis.foo.bar': '42px' }]]).values()).map((tokens) =>
@@ -57,6 +69,30 @@ class BasisThemeStylesheet extends HTMLElement {
     const tokens = JSON.parse(input.value) as { [index: string]: string };
 
     this.toggleTokens(input.name, tokens);
+  }
+
+  setGroupOption(groupId: string, optionId: string) {
+    const group = this.variantsMap.get(groupId);
+
+    if (!group) {
+      return;
+    }
+
+    const option = group.variants.find(({ id }) => id === optionId) || { flatTokens: {} };
+
+    if (!option) {
+      return;
+    }
+    this.parameters.set(groupId, optionId);
+    history.replaceState({}, document.title, `?${this.parameters}`);
+
+    this.toggleTokens(groupId, option.flatTokens);
+  }
+
+  clickGroupOption(groupId: string, optionId: string) {
+    this.setGroupOption(groupId, optionId);
+
+    history.replaceState({}, document.title, `?${this.parameters}`);
   }
 }
 

@@ -85,8 +85,8 @@ const renderGroup = (groupId: string, appearance?: string) => {
 const renderVariants = ({ id, variants }: VariantOptionGroup, appearance = 'subtle-button') =>
   `<ul>${variants
     .map(
-      ({ flatTokens, name, recommended }) =>
-        `<li><utrecht-button type="button" name="${id}" appearance="${appearance}" value='${JSON.stringify(flatTokens)}' onclick="themeBuilder.setTokens(event.currentTarget)">${name}</utrecht-button>${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}</li>`,
+      ({ id: optionId, name, recommended }) =>
+        `<li><utrecht-button type="button" name="${id}" appearance="${appearance}" value="${optionId}" onclick="themeBuilder.clickGroupOption(event.currentTarget.name, event.currentTarget.value)">${name}</utrecht-button>${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}</li>`,
     )
     .join('\n')}</ul>`;
 
