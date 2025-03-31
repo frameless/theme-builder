@@ -1,6 +1,8 @@
 import { generateRadixColors } from './generateRadixColors.js';
 import { defineCustomElements } from '@utrecht/web-component-library-stencil/loader/index.js';
 import { toCssName, styleAttribute, setCssVariables, toCssVariables } from './utils.js';
+import { ComponentVariant, VariantOptionGroup, VariantsMap } from './types.js';
+import { variants } from './design-token-options.js';
 import './story-canvas.js';
 import './basis-theme-stylesheet.js';
 import '@utrecht/page-layout-css';
@@ -12,100 +14,6 @@ import './fluid.css';
 
 defineCustomElements();
 
-const primaryButton1 = {
-  'utrecht.button.primary-action.background-color': '{basis.color.primary.interactive-1}',
-  'utrecht.button.primary-action.border-color': '{basis.color.primary.border-2}',
-  'utrecht.button.primary-action.color': '{basis.color.primary.text-2}',
-  'utrecht.button.primary-action.hover.background-color': '{basis.color.primary.interactive-2}',
-  'utrecht.button.primary-action.hover.border-color': '{basis.color.primary.border-3}',
-  'utrecht.button.primary-action.hover.color': '{basis.color.primary.text-2}',
-  'utrecht.button.primary-action.active.background-color': '{basis.color.primary.interactive-3}',
-  'utrecht.button.primary-action.active.border-color': '{basis.color.primary.border-3}',
-  'utrecht.button.primary-action.active.color': '{basis.color.primary.text-2}',
-};
-
-const primaryButton2 = {
-  ...primaryButton1,
-  'utrecht.button.primary-action.border-color': '{basis.color.transparent}',
-};
-
-const primaryButton3 = {
-  'utrecht.button.primary-action.background-color': '{basis.color.primary-inverse.interactive-1}',
-  'utrecht.button.primary-action.border-color': '{basis.color.primary-inverse.border-2}',
-  'utrecht.button.primary-action.color': '{basis.color.primary-inverse.text-2}',
-  'utrecht.button.primary-action.hover.background-color': '{basis.color.primary-inverse.interactive-2}',
-  'utrecht.button.primary-action.hover.border-color': '{basis.color.primary-inverse.border-3}',
-  'utrecht.button.primary-action.hover.color': '{basis.color.primary-inverse.text-2}',
-  'utrecht.button.primary-action.active.background-color': '{basis.color.primary-inverse.interactive-3}',
-  'utrecht.button.primary-action.active.border-color': '{basis.color.primary-inverse.border-3}',
-  'utrecht.button.primary-action.active.color': '{basis.color.primary-inverse.text-2}',
-};
-
-const primaryButton4 = {
-  ...primaryButton3,
-  'utrecht.button.primary-action.border-color': '{basis.color.transparent}',
-  'utrecht.button.primary-action.hover.border-color': '{basis.color.transparent}',
-  'utrecht.button.primary-action.active.border-color': '{basis.color.transparent}',
-};
-
-const primaryButton5 = {
-  ...primaryButton1,
-  'utrecht.button.primary-action.background-color': '{basis.color.transparent}',
-};
-
-const primaryButton6 = {
-  ...primaryButton5,
-  'utrecht.button.primary-action.background-color': '{basis.color.transparent}',
-  'utrecht.button.primary-action.border-color': '{basis.color.transparent}',
-};
-
-interface FlatTokens {
-  [index: string]: string;
-}
-
-interface ComponentVariant {
-  flatTokens: FlatTokens;
-  name: string;
-  recommended?: boolean;
-}
-
-interface VariantOptionGroup {
-  id: string;
-  variants: ComponentVariant[];
-}
-
-// const updateKeys = <T>(object: { [index: string]: T }, callback: (arg: string) => string) =>
-// Object.fromEntries(Object.entries(object).map(([key, value]) => [callback(key), value]));
-
-const updateKeysValues = (object: { [index: string]: string }, callback: (arg: string) => string) =>
-  Object.fromEntries(Object.entries(object).map(([key, value]) => [callback(key), callback(value)]));
-
-const secondaryButton1 = updateKeysValues(primaryButton1, (arg: string) => arg.replace('primary', 'secondary'));
-const secondaryButton2 = updateKeysValues(primaryButton2, (arg: string) => arg.replace('primary', 'secondary'));
-const secondaryButton3 = updateKeysValues(primaryButton3, (arg: string) => arg.replace('primary', 'secondary'));
-const secondaryButton4 = updateKeysValues(primaryButton4, (arg: string) => arg.replace('primary', 'secondary'));
-
-const subtleButton1 = updateKeysValues(primaryButton1, (arg: string) => arg.replace('primary-action', 'subtle'));
-const subtleButton2 = updateKeysValues(primaryButton2, (arg: string) => arg.replace('primary-action', 'subtle'));
-const subtleButton3 = updateKeysValues(primaryButton3, (arg: string) => arg.replace('primary-action', 'subtle'));
-const subtleButton4 = updateKeysValues(primaryButton4, (arg: string) => arg.replace('primary-action', 'subtle'));
-const subtleButton5 = updateKeysValues(primaryButton5, (arg: string) => arg.replace('primary-action', 'subtle'));
-const subtleButton6 = updateKeysValues(primaryButton6, (arg: string) => arg.replace('primary-action', 'subtle'));
-
-const aaTargetSize = {
-  'basis.pointer-target.min-block-size': '24px',
-  'basis.pointer-target.min-inline-size': '24px',
-};
-const aaaTargetSize = {
-  'basis.pointer-target.min-block-size': '44px',
-  'basis.pointer-target.min-inline-size': '44px',
-};
-
-const materialTargetSize = {
-  'basis.pointer-target.min-block-size': '48px',
-  'basis.pointer-target.min-inline-size': '48px',
-};
-
 const buttonWithoutPadding = {
   'utrecht.button.padding-inline-start': '0',
   'utrecht.button.padding-inline-end': '0',
@@ -113,659 +21,7 @@ const buttonWithoutPadding = {
   'utrecht.button.padding-block-end': '0',
 };
 
-const formControlPaddingBlockZero = {
-  'basis.form-control.padding-block-start': '0',
-  'basis.form-control.padding-block-end': '0',
-};
-const formControlPaddingBlockSmall = {
-  'basis.form-control.padding-block-start': '{basis.space.block.sm}',
-  'basis.form-control.padding-block-end': '{basis.space.block.sm}',
-};
-const formControlPaddingBlockMedium = {
-  'basis.form-control.padding-block-start': '{basis.space.block.md}',
-  'basis.form-control.padding-block-end': '{basis.space.block.md}',
-};
-const formControlPaddingBlockLarge = {
-  'basis.form-control.padding-block-start': '{basis.space.block.lg}',
-  'basis.form-control.padding-block-end': '{basis.space.block.lg}',
-};
-
-const formControlPaddingInlineZero = {
-  'basis.form-control.padding-inline-start': '0',
-  'basis.form-control.padding-inline-end': '0',
-};
-const formControlPaddingInlineSmall = {
-  'basis.form-control.padding-inline-start': '{basis.space.inline.sm}',
-  'basis.form-control.padding-inline-end': '{basis.space.inline.sm}',
-};
-const formControlPaddingInlineMedium = {
-  'basis.form-control.padding-inline-start': '{basis.space.inline.md}',
-  'basis.form-control.padding-inline-end': '{basis.space.inline.md}',
-};
-const formControlPaddingInlineLarge = {
-  'basis.form-control.padding-inline-start': '{basis.space.inline.lg}',
-  'basis.form-control.padding-inline-end': '{basis.space.inline.lg}',
-};
-
-const headingColorVariants: VariantOptionGroup = {
-  id: 'heading',
-  variants: [
-    {
-      flatTokens: {
-        'utrecht.heading-1.color': '{basis.color.text.text-2}',
-        'utrecht.heading-2.color': '{basis.color.text.text-2}',
-        'utrecht.heading-3.color': '{basis.color.text.text-2}',
-        'utrecht.heading-4.color': '{basis.color.text.text-2}',
-        'utrecht.heading-5.color': '{basis.color.text.text-2}',
-        'utrecht.heading-6.color': '{basis.color.text.text-2}',
-      },
-      name: 'Text color',
-      recommended: true,
-    },
-    {
-      flatTokens: {
-        'utrecht.heading-1.color': '{basis.color.primary.text-2}',
-        'utrecht.heading-2.color': '{basis.color.primary.text-2}',
-        'utrecht.heading-3.color': '{basis.color.primary.text-2}',
-        'utrecht.heading-4.color': '{basis.color.primary.text-2}',
-        'utrecht.heading-5.color': '{basis.color.primary.text-2}',
-        'utrecht.heading-6.color': '{basis.color.primary.text-2}',
-      },
-      name: 'Primary color',
-    },
-    {
-      flatTokens: {
-        'utrecht.heading-1.color': '{basis.color.primary.fill-2}',
-        'utrecht.heading-2.color': '{basis.color.primary.fill-2}',
-        'utrecht.heading-3.color': '{basis.color.primary.fill-2}',
-        'utrecht.heading-4.color': '{basis.color.primary.fill-2}',
-        'utrecht.heading-5.color': '{basis.color.primary.fill-2}',
-        'utrecht.heading-6.color': '{basis.color.primary.fill-2}',
-      },
-      name: 'Primary fill color',
-    },
-    {
-      flatTokens: {
-        'utrecht.heading-1.color': '{basis.color.secondary.text-2}',
-        'utrecht.heading-2.color': '{basis.color.secondary.text-2}',
-        'utrecht.heading-3.color': '{basis.color.secondary.text-2}',
-        'utrecht.heading-4.color': '{basis.color.secondary.text-2}',
-        'utrecht.heading-5.color': '{basis.color.secondary.text-2}',
-        'utrecht.heading-6.color': '{basis.color.secondary.text-2}',
-      },
-      name: 'Secondary color',
-    },
-    {
-      flatTokens: {
-        'utrecht.heading-1.color': '{basis.color.secondary.fill-2}',
-        'utrecht.heading-2.color': '{basis.color.secondary.fill-2}',
-        'utrecht.heading-3.color': '{basis.color.secondary.fill-2}',
-        'utrecht.heading-4.color': '{basis.color.secondary.fill-2}',
-        'utrecht.heading-5.color': '{basis.color.secondary.fill-2}',
-        'utrecht.heading-6.color': '{basis.color.secondary.fill-2}',
-      },
-      name: 'Secondary fill color',
-    },
-  ],
-};
-
-const primaryButtonVariants: VariantOptionGroup = {
-  id: 'primary-button',
-  variants: [
-    {
-      flatTokens: primaryButton1,
-      name: 'Plain with border',
-    },
-    {
-      flatTokens: primaryButton2,
-      name: 'Plain without border',
-    },
-    {
-      flatTokens: primaryButton3,
-      name: 'Inverse with border',
-    },
-    {
-      flatTokens: primaryButton4,
-      name: 'Inverse without border',
-      recommended: true,
-    },
-  ],
-};
-
-const secondaryButtonVariants: VariantOptionGroup = {
-  id: 'secondary-button',
-  variants: [
-    {
-      flatTokens: secondaryButton1,
-      name: 'Plain with border',
-      recommended: true,
-    },
-    {
-      flatTokens: secondaryButton2,
-      name: 'Plain without border',
-    },
-    {
-      flatTokens: secondaryButton3,
-      name: 'Inverse with border',
-    },
-    {
-      flatTokens: secondaryButton4,
-      name: 'Inverse without border',
-    },
-  ],
-};
-
-const subtleButtonVariants: VariantOptionGroup = {
-  id: 'subtle-button',
-  variants: [
-    {
-      flatTokens: subtleButton1,
-      name: 'Plain with border',
-    },
-    {
-      flatTokens: subtleButton2,
-      name: 'Plain without border',
-    },
-    {
-      flatTokens: subtleButton3,
-      name: 'Inverse with border',
-    },
-    {
-      flatTokens: subtleButton4,
-      name: 'Inverse without border',
-    },
-    {
-      flatTokens: subtleButton5,
-      name: 'Transparent with border',
-    },
-    {
-      flatTokens: subtleButton6,
-      name: 'Transparent without border',
-      recommended: true,
-    },
-  ],
-};
-
-const pointerTargetVariants: VariantOptionGroup = {
-  id: 'pointer-target',
-  variants: [
-    {
-      flatTokens: aaTargetSize,
-      name: 'WCAG Level AA: 24px',
-    },
-    {
-      flatTokens: aaaTargetSize,
-      name: 'WCAG Level AAA: 44px',
-      recommended: true,
-    },
-    {
-      flatTokens: materialTargetSize,
-      name: 'Material Design: 48px',
-    },
-  ],
-};
-
-const buttonBorderRadiusVariants: VariantOptionGroup = {
-  id: 'buttonBorderRadius',
-  variants: [
-    {
-      flatTokens: {
-        'utrecht.button.border-radius': '0',
-      },
-      name: 'Square corners',
-    },
-    {
-      flatTokens: {
-        'utrecht.button.border-radius': '{basis.border-radius.sm}',
-      },
-      name: 'Small',
-      recommended: true,
-    },
-    {
-      flatTokens: {
-        'utrecht.button.border-radius': '{basis.border-radius.md}',
-      },
-      name: 'Medium',
-    },
-    {
-      flatTokens: {
-        'utrecht.button.border-radius': '{basis.border-radius.lg}',
-      },
-      name: 'Large',
-    },
-    {
-      flatTokens: {
-        'utrecht.button.border-radius': '{basis.border-radius.round}',
-      },
-      name: 'Round',
-    },
-  ],
-};
-
-const formControlPaddingBlockVariants: VariantOptionGroup = {
-  id: 'formControlPaddingBlock',
-  variants: [
-    {
-      flatTokens: formControlPaddingBlockZero,
-      name: 'No padding',
-    },
-    {
-      flatTokens: formControlPaddingBlockSmall,
-      name: 'Small',
-    },
-    {
-      flatTokens: formControlPaddingBlockMedium,
-      name: 'Medium',
-      recommended: true,
-    },
-    {
-      flatTokens: formControlPaddingBlockLarge,
-      name: 'Large',
-    },
-  ],
-};
-
-const formControlPaddingInlineVariants: VariantOptionGroup = {
-  id: 'formControlPaddingInline',
-  variants: [
-    {
-      flatTokens: formControlPaddingInlineZero,
-      name: 'No padding',
-    },
-    {
-      flatTokens: formControlPaddingInlineSmall,
-      name: 'Small',
-    },
-    {
-      flatTokens: formControlPaddingInlineMedium,
-      name: 'Medium',
-      recommended: true,
-    },
-    {
-      flatTokens: formControlPaddingInlineLarge,
-      name: 'Large',
-    },
-  ],
-};
-
-const formControlBorderWidthVariants: VariantOptionGroup = {
-  id: 'formControlBorderWidth',
-  variants: [
-    {
-      flatTokens: {
-        'basis.form-control.border-width': '{basis.border-width.sm}',
-      },
-      name: 'Small',
-      recommended: true,
-    },
-    {
-      flatTokens: {
-        'basis.form-control.border-width': '{basis.border-width.md}',
-      },
-      name: 'Medium',
-    },
-  ],
-};
-
-const buttonBorderWidthVariants: VariantOptionGroup = {
-  id: 'buttonBorderWidth',
-  variants: [
-    {
-      flatTokens: {
-        'utrecht.button.border-width': '{basis.border-width.sm}',
-      },
-      name: 'Small',
-      recommended: true,
-    },
-    {
-      flatTokens: {
-        'utrecht.button.border-width': '{basis.border-width.md}',
-      },
-      name: 'Medium',
-    },
-  ],
-};
-
-const dataBadgeAppearanceVariants: VariantOptionGroup = {
-  id: 'dataBadgeAppearance',
-  variants: [
-    {
-      flatTokens: {
-        'utrecht.data-badge.background-color': '{basis.color.primary.interactive-1}',
-        'utrecht.data-badge.border-color': '{basis.color.transparent}',
-        'utrecht.data-badge.border-width': '{basis.border-width.sm}',
-        'utrecht.data-badge.color': '{basis.color.primary.text-2}',
-      },
-      name: 'Subtle',
-    },
-    {
-      flatTokens: {
-        'utrecht.data-badge.background-color': '{basis.color.primary.interactive-1}',
-        'utrecht.data-badge.border-color': '{basis.color.primary.border-2}',
-        'utrecht.data-badge.border-width': '{basis.border-width.sm}',
-        'utrecht.data-badge.color': '{basis.color.primary.text-2}',
-      },
-      name: 'With border',
-      recommended: true,
-    },
-    {
-      flatTokens: {
-        'utrecht.data-badge.background-color': '{basis.color.primary-inverse.interactive-1}',
-        'utrecht.data-badge.border-color': '{basis.color.transparent}',
-        'utrecht.data-badge.border-width': '0',
-        'utrecht.data-badge.color': '{basis.color.primary-inverse.text-2}',
-      },
-      name: 'Inverse',
-    },
-  ],
-};
-
-const numberBadgeAppearanceVariants: VariantOptionGroup = {
-  id: 'numberBadgeAppearance',
-  variants: [
-    {
-      flatTokens: {
-        'utrecht.number-badge.background-color': '{basis.color.primary.interactive-1}',
-        'utrecht.number-badge.border-color': '{basis.color.transparent}',
-        'utrecht.number-badge.border-width': '{basis.border-width.sm}',
-        'utrecht.number-badge.color': '{basis.color.primary.text-2}',
-      },
-      name: 'Subtle',
-    },
-    {
-      flatTokens: {
-        'utrecht.number-badge.background-color': '{basis.color.primary.interactive-1}',
-        'utrecht.number-badge.border-color': '{basis.color.primary.border-2}',
-        'utrecht.number-badge.border-width': '{basis.border-width.sm}',
-        'utrecht.number-badge.color': '{basis.color.primary.text-2}',
-      },
-      name: 'With border',
-    },
-    {
-      flatTokens: {
-        'utrecht.number-badge.background-color': '{basis.color.primary-inverse.interactive-1}',
-        'utrecht.number-badge.border-color': '{basis.color.transparent}',
-        'utrecht.number-badge.border-width': '0',
-        'utrecht.number-badge.color': '{basis.color.primary-inverse.text-2}',
-      },
-      name: 'Inverse',
-      recommended: true,
-    },
-  ],
-};
-
-const pageFooterAppearanceVariants: VariantOptionGroup = {
-  id: 'pageFooterAppearance',
-  variants: [
-    {
-      flatTokens: {
-        'utrecht.page-footer.content.background-color': '{basis.color.text.interactive-1}',
-        'utrecht.page-footer.border-color': '{basis.color.text.border-1}',
-        'utrecht.page-footer.color': '{basis.color.text.text-2}',
-      },
-      name: 'Text',
-    },
-    {
-      flatTokens: {
-        'utrecht.page-footer.content.background-color': '{basis.color.text-inverse.interactive-1}',
-        'utrecht.page-footer.border-color': '{basis.color.text-inverse.border-1}',
-        'utrecht.page-footer.color': '{basis.color.text-inverse.text-2}',
-      },
-      name: 'Text inverse',
-    },
-    {
-      flatTokens: {
-        'utrecht.page-footer.content.background-color': '{basis.color.primary.interactive-1}',
-        'utrecht.page-footer.border-color': '{basis.color.primary.border-1}',
-        'utrecht.page-footer.color': '{basis.color.primary.text-2}',
-      },
-      name: 'Primary',
-      recommended: true,
-    },
-    {
-      flatTokens: {
-        'utrecht.page-footer.content.background-color': '{basis.color.primary-inverse.interactive-1}',
-        'utrecht.page-footer.border-color': '{basis.color.primary-inverse.border-1}',
-        'utrecht.page-footer.color': '{basis.color.primary-inverse.text-2}',
-      },
-      name: 'Primary inverse',
-    },
-    {
-      flatTokens: {
-        'utrecht.page-footer.content.background-color': '{basis.color.secondary.interactive-1}',
-        'utrecht.page-footer.border-color': '{basis.color.secondary.border-1}',
-        'utrecht.page-footer.color': '{basis.color.secondary.text-2}',
-      },
-      name: 'Secondary',
-    },
-    {
-      flatTokens: {
-        'utrecht.page-footer.content.background-color': '{basis.color.secondary-inverse.interactive-1}',
-        'utrecht.page-footer.border-color': '{basis.color.secondary-inverse.border-1}',
-        'utrecht.page-footer.color': '{basis.color.secondary-inverse.text-2}',
-      },
-      name: 'Secondary inverse',
-    },
-  ],
-};
-
-const pageFooterSizeVariants: VariantOptionGroup = {
-  id: 'pageFooterSize',
-  variants: [
-    {
-      flatTokens: {
-        'utrecht.page-footer.background-color': '{basis.color.transparent}',
-        'utrecht.page-footer.max-inline-size': '{utrecht.page-footer.content.max-inline-size}',
-        'utrecht.page-footer.content.max-inline-size': '{basis.page.max-inline-size}',
-      },
-      name: 'Centered',
-    },
-    {
-      flatTokens: {
-        'utrecht.page-footer.background-color': '{utrecht.page-footer.content.background-color}',
-        'utrecht.page-footer.max-inline-size': '100%',
-        'utrecht.page-footer.content.max-inline-size': '{basis.page.max-inline-size}',
-      },
-      name: 'Full width',
-      recommended: true,
-    },
-  ],
-};
-
-const pageSizeVariants: VariantOptionGroup = {
-  id: 'pageSize',
-  variants: [
-    {
-      flatTokens: {
-        'basis.page.max-inline-size': '1140px',
-      },
-      name: '1140px',
-    },
-    {
-      flatTokens: {
-        'basis.page.max-inline-size': '1200px',
-      },
-      name: '1200px',
-    },
-  ],
-};
-
-const spaceBlockVariants: VariantOptionGroup = {
-  id: 'spaceBlock',
-  variants: [
-    {
-      flatTokens: {
-        'basis.space.block.6xl': '160px',
-        'basis.space.block.5xl': '64px',
-        'basis.space.block.4xl': '32px',
-        'basis.space.block.3xl': '24px',
-        'basis.space.block.2xl': '20px',
-        'basis.space.block.xl': '16px',
-        'basis.space.block.lg': '12px',
-        'basis.space.block.md': '8px',
-        'basis.space.block.sm': '4px',
-        'basis.space.block.xs': '2px',
-        'basis.space.block.2xs': '1px',
-      },
-      name: 'Default',
-      recommended: true,
-    },
-    {
-      flatTokens: {
-        'basis.space.block.6xl': `${160 * 0.75}px`,
-        'basis.space.block.5xl': `${64 * 0.75}px`,
-        'basis.space.block.4xl': `${32 * 0.75}px`,
-        'basis.space.block.3xl': `${24 * 0.75}px`,
-        'basis.space.block.2xl': `${20 * 0.75}px`,
-        'basis.space.block.xl': `${16 * 0.75}px`,
-        'basis.space.block.lg': `${12 * 0.75}px`,
-        'basis.space.block.md': `${8 * 0.75}px`,
-        'basis.space.block.sm': `${4 * 0.75}px`,
-        'basis.space.block.xs': '2px',
-        'basis.space.block.2xs': '1px',
-      },
-      name: 'Compact (75%)',
-    },
-    {
-      flatTokens: {
-        'basis.space.block.6xl': `${160 * 0.5}px`,
-        'basis.space.block.5xl': `${64 * 0.5}px`,
-        'basis.space.block.4xl': `${32 * 0.5}px`,
-        'basis.space.block.3xl': `${24 * 0.5}px`,
-        'basis.space.block.2xl': `${20 * 0.5}px`,
-        'basis.space.block.xl': `${16 * 0.5}px`,
-        'basis.space.block.lg': `${12 * 0.5}px`,
-        'basis.space.block.md': `${8 * 0.5}px`,
-        'basis.space.block.sm': `${4 * 0.5}px`,
-        'basis.space.block.xs': '2px',
-        'basis.space.block.2xs': '1px',
-      },
-      name: 'Small (50%)',
-    },
-  ],
-};
-
-const spaceInlineVariants: VariantOptionGroup = {
-  id: 'spaceInline',
-  variants: [
-    {
-      flatTokens: {
-        'basis.space.inline.6xl': '160px',
-        'basis.space.inline.5xl': '64px',
-        'basis.space.inline.4xl': '32px',
-        'basis.space.inline.3xl': '24px',
-        'basis.space.inline.2xl': '20px',
-        'basis.space.inline.xl': '16px',
-        'basis.space.inline.lg': '12px',
-        'basis.space.inline.md': '8px',
-        'basis.space.inline.sm': '4px',
-        'basis.space.inline.xs': '2px',
-        'basis.space.inline.2xs': '1px',
-      },
-      name: 'Default',
-      recommended: true,
-    },
-    {
-      flatTokens: {
-        'basis.space.inline.6xl': `${160 * 0.75}px`,
-        'basis.space.inline.5xl': `${64 * 0.75}px`,
-        'basis.space.inline.4xl': `${32 * 0.75}px`,
-        'basis.space.inline.3xl': `${24 * 0.75}px`,
-        'basis.space.inline.2xl': `${20 * 0.75}px`,
-        'basis.space.inline.xl': `${16 * 0.75}px`,
-        'basis.space.inline.lg': `${12 * 0.75}px`,
-        'basis.space.inline.md': `${8 * 0.75}px`,
-        'basis.space.inline.sm': `${4 * 0.75}px`,
-        'basis.space.inline.xs': '2px',
-        'basis.space.inline.2xs': '1px',
-      },
-      name: 'Compact (75%)',
-    },
-    {
-      flatTokens: {
-        'basis.space.inline.6xl': `${160 * 0.5}px`,
-        'basis.space.inline.5xl': `${64 * 0.5}px`,
-        'basis.space.inline.4xl': `${32 * 0.5}px`,
-        'basis.space.inline.3xl': `${24 * 0.5}px`,
-        'basis.space.inline.2xl': `${20 * 0.5}px`,
-        'basis.space.inline.xl': `${16 * 0.5}px`,
-        'basis.space.inline.lg': `${12 * 0.5}px`,
-        'basis.space.inline.md': `${8 * 0.5}px`,
-        'basis.space.inline.sm': `${4 * 0.5}px`,
-        'basis.space.inline.xs': '2px',
-        'basis.space.inline.2xs': '1px',
-      },
-      name: 'Small (50%)',
-    },
-  ],
-};
-
-// TODO: Include these as default values in the Basis Theme
-const basisAlertTokens = {
-  'utrecht.alert.border-color': '{basis.color.text.border-1}',
-  'utrecht.alert.info.border-color': '{basis.color.info.border-1}',
-  'utrecht.alert.error.border-color': '{basis.color.error.border-1}',
-  'utrecht.alert.ok.border-color': '{basis.color.success.border-1}',
-  'utrecht.alert.warning.border-color': '{basis.color.warning.border-1}',
-};
-const alertAppearanceVariants: VariantOptionGroup = {
-  id: 'alertAppearance',
-  variants: [
-    {
-      flatTokens: {
-        ...basisAlertTokens,
-        'utrecht.alert.border-width': '0',
-      },
-      name: 'No border',
-    },
-    {
-      flatTokens: {
-        ...basisAlertTokens,
-        'utrecht.alert.border-width': '{basis.border-width.sm}',
-      },
-      name: 'Small border',
-    },
-    {
-      flatTokens: {
-        ...basisAlertTokens,
-        'utrecht.alert.border-width': '{basis.border-width.md}',
-      },
-      name: 'Medium border',
-      recommended: true,
-    },
-  ],
-};
-
-const formControlBorderRadius: VariantOptionGroup = {
-  id: 'formControlBorderRadius',
-  variants: [
-    {
-      flatTokens: {
-        'basis.form-control.border-radius': '0',
-      },
-      name: 'Square corners',
-      recommended: true,
-    },
-    {
-      flatTokens: {
-        'basis.form-control.border-radius': '{basis.border-radius.sm}',
-      },
-      name: 'Small',
-    },
-    {
-      flatTokens: {
-        'basis.form-control.border-radius': '{basis.border-radius.md}',
-      },
-      name: 'Medium',
-    },
-    {
-      flatTokens: {
-        'basis.form-control.border-radius': '{basis.border-radius.lg}',
-      },
-      name: 'Large',
-    },
-  ],
-};
+const variantsMap: VariantsMap = new Map(variants.map((group) => [group.id, group]));
 
 interface FontFamilyVariant {
   name: string;
@@ -816,13 +72,23 @@ const codeFonts: FontFamilyVariant[] = [
   },
 ];
 
-const renderVariants = ({ id, variants }: VariantOptionGroup, appearance = 'subtle-button') => `<ul>${variants
-  .map(
-    ({ flatTokens, name, recommended }) =>
-      `<li><utrecht-button type="button" name="${id}" appearance="${appearance}" value='${JSON.stringify(flatTokens)}' onclick="themeBuilder.setTokens(event.currentTarget)">${name}</utrecht-button>${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}</li>`,
-  )
-  .join('\n')}
-      </ul>`;
+const renderGroup = (groupId: string, appearance?: string) => {
+  const group = variantsMap.get(groupId);
+  if (!group) {
+    const errorMessage = `Group not found: ${groupId}`;
+    console.error(errorMessage);
+    return `<utrecht-alert type="error">${errorMessage}</utrecht-alert>`;
+  }
+  return renderVariants(group, appearance);
+};
+
+const renderVariants = ({ id, variants }: VariantOptionGroup, appearance = 'subtle-button') =>
+  `<ul>${variants
+    .map(
+      ({ flatTokens, name, recommended }) =>
+        `<li><utrecht-button type="button" name="${id}" appearance="${appearance}" value='${JSON.stringify(flatTokens)}' onclick="themeBuilder.setTokens(event.currentTarget)">${name}</utrecht-button>${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}</li>`,
+    )
+    .join('\n')}</ul>`;
 
 const renderFontFamilyVariants = (variants: FontFamilyVariant[], tokenName: string) =>
   renderVariants({
@@ -831,6 +97,7 @@ const renderFontFamilyVariants = (variants: FontFamilyVariant[], tokenName: stri
       const { name } = obj;
       return {
         ...obj,
+        id: name,
         flatTokens: {
           [tokenName]: `"${name}"`,
         },
@@ -996,7 +263,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </div>
     <div>
       <p>Heading color:</p>
-      ${renderVariants(headingColorVariants)}
+      ${renderGroup('heading-color')}
     </div>
     <div>
       <example-story-canvas>
@@ -1011,14 +278,14 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <utrecht-textbox></utrecht-textbox>
       </example-story-canvas>
       <p>Form control border radius:</p>
-      ${renderVariants(formControlBorderRadius)}
+      ${renderGroup('form-control-border-radius')}
     </div>
     <div>
       <example-story-canvas>
         <utrecht-textbox></utrecht-textbox>
       </example-story-canvas>
       <p>Form control border width:</p>
-      ${renderVariants(formControlBorderWidthVariants)}
+      ${renderGroup('form-control-border-width')}
     </div>
     <div>
       <figure>
@@ -1033,33 +300,33 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
         <figcaption>Textarea without minimum pointer target size, demonstrating the padding needed for readability</figcaption>
       </figure>
       <p>Form control padding above and below:</p>
-      ${renderVariants(formControlPaddingBlockVariants)}
+      ${renderGroup('form-control-padding-block')}
       <p>Form control padding left and right:</p>
-      ${renderVariants(formControlPaddingInlineVariants)}
+      ${renderGroup('form-control-padding-inline')}
     </div>
     <utrecht-heading-2>Button</utrecht-heading-2>
     <div>
       <p>Button border radius:</p>
-      ${renderVariants(buttonBorderRadiusVariants)}
+      ${renderGroup('button-border-radius')}
     </div>
     <div>
       <p>Button border width:</p>
       <example-story-canvas>
         <utrecht-textbox></utrecht-textbox>
       </example-story-canvas>
-      ${renderVariants(buttonBorderWidthVariants)}
+      ${renderGroup('button-border-width')}
     </div>
     <div>
       <p>Primary button style:</p>
-      ${renderVariants(primaryButtonVariants, 'primary-action-button')}
+      ${renderGroup('primary-button-appearance', 'primary-action-button')}
     </div>
     <div>
       <p>Secondary button style:</p>
-      ${renderVariants(secondaryButtonVariants, 'secondary-action-button')}
+      ${renderGroup('secondary-button-appearance', 'secondary-action-button')}
     </div>
     <div>
       <p>Subtle button style:</p>
-      ${renderVariants(subtleButtonVariants, 'subtle-button')}
+      ${renderGroup('subtle-button-appearance', 'subtle-button')}
     </div>
     <utrecht-heading-2>Data badge</utrecht-heading-2>
     <example-story-canvas>
@@ -1067,7 +334,7 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
     </example-story-canvas>
     <div>
       <p>Data badge style:</p>
-      ${renderVariants(dataBadgeAppearanceVariants)}
+      ${renderGroup('data-badge-appearance')}
     </div>
     <utrecht-heading-2>Number badge</utrecht-heading-2>
     <example-story-canvas>
@@ -1075,7 +342,7 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
     </example-story-canvas>
     <div>
       <p>Number badge style:</p>
-      ${renderVariants(numberBadgeAppearanceVariants)}
+      ${renderGroup('number-badge-appearance')}
     </div>
     <utrecht-heading-2>Alert</utrecht-heading-2>
     <example-story-canvas>
@@ -1085,7 +352,7 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
     </example-story-canvas>
     <div>
       <p>Alert style:</p>
-      ${renderVariants(alertAppearanceVariants)}
+      ${renderGroup('alert-appearance')}
     </div>
     <utrecht-heading-2>Page Footer</utrecht-heading-2>
     <example-story-canvas>
@@ -1095,15 +362,15 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
     </example-story-canvas>
     <div>
       <p>Page Footer style:</p>
-      ${renderVariants(pageFooterAppearanceVariants)}
+      ${renderGroup('page-footer-appearance')}
     </div>
     <div>
       <p>Page Footer size:</p>
-      ${renderVariants(pageFooterSizeVariants)}
+      ${renderGroup('page-footer-inline-size')}
     </div>
     <div>
       <p>Page width (in px):</p>
-      ${renderVariants(pageSizeVariants)}
+      ${renderGroup('page-inline-size')}
       <input hidden type="number" min="768" max="1920" name="basis.page.max-inline-size" oninput="themeBuilder.setToken(event.currentTarget, { unit: 'px' })">
     </div>
     <div>
@@ -1116,16 +383,16 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
         </example-story-canvas>
         <figcaption>Button without padding, demonstrating the minimum pointer target size</figcaption>
       </figure>
-      ${renderVariants(pointerTargetVariants)}
+      ${renderGroup('pointer-target-size')}
     </div>
     <utrecht-heading-2>Space</utrecht-heading-2>
     <div>
       <p>Vertical space inside components:</p>
-      ${renderVariants(spaceBlockVariants)}
+      ${renderGroup('space-block')}
     </div>
     <div>
       <p>Horizontal space inside components:</p>
-      ${renderVariants(spaceInlineVariants)}
+      ${renderGroup('space-inline')}
     </div>
     <utrecht-heading-2>Responsive layout</utrecht-heading-2>
     <div>
