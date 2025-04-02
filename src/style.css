@@ -2,3 +2,32 @@
   display: inline-flex;
   flex-wrap: wrap;
 }
+
+.utrecht-page-layout {
+  display: block;
+  scroll-snap-type: block proximity;
+
+  block-size: 100%;
+  inline-size: 100%;
+  position: relative;
+  overflow-block: auto;
+  overflow-inline: auto;
+  overflow-x: auto;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  margin-inline-end: 0;
+  margin-inline-start: 0;
+  padding-block-end: 0;
+  padding-block-start: 0;
+  padding-inline-end: 0;
+  padding-inline-start: 0;
+}
+
+.example-story {
+  scroll-snap-align: start;
+}
+
+utrecht-page-header,
+.utrecht-page-header {
+  scroll-snap-align: start;
+}

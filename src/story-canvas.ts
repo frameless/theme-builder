@@ -1,4 +1,24 @@
 customElements.define(
+  'example-story',
+  class ExampleStory extends HTMLElement {
+    constructor() {
+      super();
+      const style = this.ownerDocument.createElement('style');
+      style.textContent = `
+      .example-story {
+        scroll-snap-align: start;
+      }`;
+      const shadow = this.attachShadow({ mode: 'closed' });
+      shadow.appendChild(style);
+      const div = this.ownerDocument.createElement('div');
+      div.className = 'example-story';
+      div.appendChild(this.ownerDocument.createElement('slot'));
+      shadow.appendChild(div);
+    }
+  },
+);
+
+customElements.define(
   'example-story-canvas',
   class ExampleStoryCanvas extends HTMLElement {
     constructor() {

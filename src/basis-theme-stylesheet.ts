@@ -1,6 +1,7 @@
 import { variants } from './design-token-options';
+import { generateRadixColors } from './generateRadixColors';
 import { VariantsMap } from './types';
-import { cssVariablesToString, toCssVariables } from './utils';
+import { cssVariablesToString, setCssVariables, toCssVariables } from './utils';
 
 interface FlatTokens {
   [index: string]: string;
@@ -28,17 +29,46 @@ class BasisThemeStylesheet extends HTMLElement {
     this.parameters = new URLSearchParams();
     this.variantsMap = new Map(variants.map((group) => [group.id, group]));
 
-    for (const [key, value] of new URL(location.href).searchParams) {
+    const initialParams = new URL(location.href).searchParams;
+    for (const [key, value] of initialParams) {
       if (this.variantsMap.has(key) && this.variantsMap.get(key)?.variants.some(({ id }) => id === value)) {
         this.setGroupOption(key, value);
       }
     }
 
-    console.log(
-      Array.from(new Map<string, FlatTokens>([['', { 'basis.foo.bar': '42px' }]]).values()).map((tokens) =>
-        cssVariablesToString(toCssVariables(tokens)),
-      ),
-    );
+    const knownTokens = [
+      'basis.typography.font-family.default',
+      'basis.typography.font-family.heading',
+      'basis.typography.font-family.code',
+    ];
+
+    knownTokens.forEach((tokenName) => {
+      const tokenValue = initialParams.get(tokenName);
+      if (tokenValue) {
+        this.setToken(tokenName, tokenValue);
+      }
+    });
+
+    [
+      'basis.color.primary',
+      'basis.color.secondary',
+      'basis.color.text',
+      'basis.color.info',
+      'basis.color.warning',
+      'basis.color.error',
+      'basis.color.success',
+      'basis.color.highlight',
+      'basis.color.mark',
+      'basis.color.selected',
+    ].forEach((scale) => {
+      if (typeof initialParams.get(`${scale}.seed`) === 'string') {
+        this.setSeedColor({
+          name: `${scale}`,
+          inverseName: `${scale}-inverse`,
+          value: initialParams.get(`${scale}.seed`) || '',
+        });
+      }
+    });
   }
 
   connectedCallback() {
@@ -55,9 +85,9 @@ class BasisThemeStylesheet extends HTMLElement {
     let properties = Array.from(this.map.values())
       .map((tokens) => cssVariablesToString(toCssVariables(tokens)))
       .join(';\n');
-    console.log(Array.from(this.map.values()));
+
     let css = `.basis-theme {\n${properties}\n}`;
-    console.log(css);
+
     this.sheet?.replaceSync(css);
   }
 
@@ -69,6 +99,11 @@ class BasisThemeStylesheet extends HTMLElement {
     const tokens = JSON.parse(input.value) as { [index: string]: string };
 
     this.toggleTokens(input.name, tokens);
+  }
+
+  setToken(name: string, value: string) {
+    this.toggleTokens(name, { [name]: value });
+    this.setParameter(name, value);
   }
 
   setGroupOption(groupId: string, optionId: string) {
@@ -83,16 +118,89 @@ class BasisThemeStylesheet extends HTMLElement {
     if (!option) {
       return;
     }
-    this.parameters.set(groupId, optionId);
-    history.replaceState({}, document.title, `?${this.parameters}`);
+    this.setParameter(groupId, optionId);
 
     this.toggleTokens(groupId, option.flatTokens);
+  }
+
+  setParameter(key: string, value: string) {
+    this.parameters.set(key, value);
+    history.replaceState({}, document.title, `?${this.parameters}`);
   }
 
   clickGroupOption(groupId: string, optionId: string) {
     this.setGroupOption(groupId, optionId);
 
     history.replaceState({}, document.title, `?${this.parameters}`);
+  }
+
+  handleColorInput(target: HTMLInputElement, name: string, inverseName: string) {
+    const value = target.value;
+    if (typeof value !== 'string') {
+      return;
+    }
+
+    this.setParameter(`${name}.seed`, value);
+
+    this.setSeedColor({
+      name,
+      inverseName,
+      value,
+    });
+  }
+
+  setSeedColor({ name, value, inverseName }: { name: string; value: string; inverseName?: string }) {
+    const radixTheme = generateRadixColors({
+      appearance: 'light',
+      accent: value,
+      gray: '#EEEEEE',
+      background: '#FFFFFF',
+    });
+
+    const inverseTheme = generateRadixColors({
+      appearance: 'dark',
+      accent: value,
+      gray: '#111111',
+      background: '#000000',
+    });
+    const { accentScale } = radixTheme;
+    const { accentScale: inverseAccentScale } = inverseTheme;
+
+    const createScaleObject = (scale: Array<string>, prefix = ''): { [index: string]: string } =>
+      scale.reduce((obj, color, index) => {
+        let colorNumber = index + 1;
+        let scalePrefix = 'color';
+        if ([0, 1].includes(index)) {
+          scalePrefix = 'bg-';
+          colorNumber = index + 1;
+        } else if ([2, 3, 4].includes(index)) {
+          scalePrefix = 'interactive-';
+          colorNumber = index - 1;
+        } else if ([5, 6, 7].includes(index)) {
+          scalePrefix = 'border-';
+          colorNumber = index - 4;
+        } else if ([8, 9].includes(index)) {
+          scalePrefix = 'fill-';
+          colorNumber = index - 7;
+        } else if ([10, 11].includes(index)) {
+          scalePrefix = 'text-';
+          colorNumber = index - 9;
+        }
+        return {
+          ...obj,
+          [`${prefix}${scalePrefix}${colorNumber}`]: color,
+        };
+      }, {});
+
+    const scaleTokens = createScaleObject(accentScale, `${name}.`);
+    const inverseScaleTokens = createScaleObject(inverseAccentScale, `${inverseName}.`);
+
+    const tokens = {
+      ...scaleTokens,
+      ...inverseScaleTokens,
+    };
+
+    setCssVariables(toCssVariables(tokens));
   }
 }
 
