@@ -3,7 +3,7 @@ export const toCssName = (tokenName: string): string => `--${tokenName.replace(/
 
 // Convert Design Token alias to CSS variable
 export const toCssValue = (tokenValue: string): string =>
-  tokenValue.replace(/\{([^}]+)\}/, 'var(--$1)').replace(/\./g, '-');
+  tokenValue.replace(/\{([^}]+)\}/g, (_, reference) => `var(--${reference.replace(/\./g, '-')})`);
 
 export const toCssVariables = (tokens: { [index: string]: string }) =>
   Object.fromEntries(Object.entries(tokens).map(([name, value]) => [toCssName(name), toCssValue(value)]));
@@ -30,9 +30,5 @@ export const setTokens = (input: HTMLButtonElement | HTMLInputElement) => {
   const cssVariables = Object.fromEntries(
     Object.entries(tokens).map(([name, value]) => [toCssName(name), toCssValue(value)]),
   );
-  console.log(cssVariables);
-  // Object.entries(cssVariables).forEach(([name, value]) => {
-  //   document.documentElement.style.setProperty(name, value);
-  // });
   setCssVariables(cssVariables);
 };

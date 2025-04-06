@@ -18,12 +18,16 @@ class BasisThemeStylesheet extends HTMLElement {
   map: Map<string, FlatTokens>;
   parameters: URLSearchParams;
   variantsMap: VariantsMap;
+  _eventHandler: (evt: Event) => void;
+  _designTokenValueListeners: Set<Element>;
+  _flatTokensCache: FlatTokens;
   constructor() {
     super();
 
     const sheet = new CSSStyleSheet();
     this.sheet = sheet;
     this.map = new Map();
+    this._flatTokensCache = {};
     sheet.replaceSync('');
     window.themeBuilder = this;
     this.parameters = new URLSearchParams();
@@ -69,16 +73,37 @@ class BasisThemeStylesheet extends HTMLElement {
         });
       }
     });
+
+    this._designTokenValueListeners = new Set();
+    this._eventHandler = (evt) => this.handleRequestDesignTokenValue(evt);
   }
 
   connectedCallback() {
     if (this.sheet) {
       this.ownerDocument.adoptedStyleSheets.push(this.sheet);
     }
+    this.ownerDocument.addEventListener('subscribeDesignTokenValue', this._eventHandler, true);
+    this.ownerDocument.addEventListener('unsubscribeDesignTokenValue', this._eventHandler, true);
   }
 
   disconnectedCallback() {
     // TODO: Remove from adoptedStyleSheets
+    this.ownerDocument.removeEventListener('subscribeDesignTokenValue', this._eventHandler, true);
+    this.ownerDocument.removeEventListener('unsubscribeDesignTokenValue', this._eventHandler, true);
+  }
+
+  handleRequestDesignTokenValue(evt: Event) {
+    if (evt.type === 'subscribeDesignTokenValue' && evt.target instanceof Element) {
+      this._designTokenValueListeners.add(evt.target);
+      // Set initial value
+      const tokenName = !!evt.target && (evt.target as unknown).name;
+      if (typeof tokenName === 'string' && this._flatTokensCache.hasOwnProperty(tokenName)) {
+        evt.target.value = this._flatTokensCache[tokenName];
+      }
+    }
+    if (evt.type === 'unsubscribeDesignTokenValue' && evt.target instanceof Element) {
+      this._designTokenValueListeners.delete(evt.target);
+    }
   }
 
   update() {
@@ -87,8 +112,23 @@ class BasisThemeStylesheet extends HTMLElement {
       .join(';\n');
 
     let css = `.basis-theme {\n${properties}\n}`;
-
+    console.log(css);
     this.sheet?.replaceSync(css);
+
+    this._flatTokensCache = Array.from(this.map.values()).reduce((map, tokens) => ({ ...map, ...tokens }), {});
+
+    if (!this._designTokenValueListeners) {
+      return;
+    }
+    for (let key in this._flatTokensCache) {
+      const value = this._flatTokensCache[key];
+
+      this._designTokenValueListeners.forEach((el) => {
+        if (el.name === key) {
+          el.value = value;
+        }
+      });
+    }
   }
 
   toggleTokens(id: string, tokens: FlatTokens) {

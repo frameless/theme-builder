@@ -1,0 +1,1957 @@
+{
+  "Color": {
+    "8-10a70f": {
+      "$value": "#112"
+    },
+    "8-3eea164": {
+      "$value": "rgba(37, 38, 45, .9)"
+    },
+    "8-63167c38": {
+      "$value": "rgb(.7057692308, 73.4, 109.3942307692)"
+    },
+    "8-921ad3e1": {
+      "$value": "#154273"
+    },
+    "8-4747536f": {
+      "$value": "rgb(0, 91.4773869347, 148)"
+    },
+    "8-902e9cef": {
+      "$value": "#01689b"
+    },
+    "8-88552a58": {
+      "$value": "rgba(1, 104, 155, .2)"
+    },
+    "8-82503c8c": {
+      "$value": "rgba(1, 104, 155, .95)"
+    },
+    "8-94962980": {
+      "$value": "#1b5e84"
+    },
+    "8-90219c42": {
+      "$value": "#007bb6"
+    },
+    "8-930bd88b": {
+      "$value": "#0e77b5"
+    },
+    "8-90219c62": {
+      "$value": "#007bc7"
+    },
+    "8-980d2f29": {
+      "$value": "#3c5193"
+    },
+    "8-964be4b5": {
+      "$value": "#2b7bb9"
+    },
+    "8-9adce0c1": {
+      "$value": "#697882"
+    },
+    "8-e5be0537": {
+      "$value": "rgb(77.2, 149.3, 185)"
+    },
+    "8-967a8df7": {
+      "$value": "#2da8e0"
+    },
+    "8-9800f9a2": {
+      "$value": "#3b94d9"
+    },
+    "8-e9fd1bfe": {
+      "$value": "#cbd2e3"
+    },
+    "8-b190883e": {
+      "$value": "#CBD2E3"
+    },
+    "8-a0afd849": {
+      "$value": "rgb(216.9, 232.35, 240)"
+    },
+    "8-e00c200": {
+      "$value": "rgb(217.4423076923, 242.4, 254.7576923077)"
+    },
+    "1-dfb87329": {
+      "$value": "rgba(0, 0, 0, 0)"
+    },
+    "1-8c30d39f": {
+      "$value": "ButtonText"
+    },
+    "1-10a32d": {
+      "$value": "#000"
+    },
+    "1-5601056a": {
+      "$value": "currentColor"
+    },
+    "1-998924d9": {
+      "$value": "rgba(0, 0, 0, .075)"
+    },
+    "1-d36788c7": {
+      "$value": "rgba(0, 0, 0, .15)"
+    },
+    "1-99899938": {
+      "$value": "rgba(0, 0, 0, .175)"
+    },
+    "1-d36793eb": {
+      "$value": "rgba(0, 0, 0, .44)"
+    },
+    "1-d3686604": {
+      "$value": "rgba(0, 0, 0, 0.3)"
+    },
+    "1-d3686661": {
+      "$value": "rgba(0, 0, 0, 0.6)"
+    },
+    "1-1755ec50": {
+      "$value": "rgba(0, 0, 0, .7)"
+    },
+    "1-1755ebf3": {
+      "$value": "rgba(0, 0, 0, .4)"
+    },
+    "1-d36797ea": {
+      "$value": "rgba(0, 0, 0, .56)"
+    },
+    "1-1755ec12": {
+      "$value": "rgba(0, 0, 0, .5)"
+    },
+    "1-d367a6cf": {
+      "$value": "rgba(0, 0, 0, .95)"
+    },
+    "1-1755ebb5": {
+      "$value": "rgba(0, 0, 0, .2)"
+    },
+    "1-1755ebd4": {
+      "$value": "rgba(0, 0, 0, .3)"
+    },
+    "1-991c5d52": {
+      "$value": "transparent"
+    },
+    "1-99a45fda": {
+      "$value": "rgba(0, 0, 0, 0.45)"
+    },
+    "1-1755ec31": {
+      "$value": "rgba(0, 0, 0, .6)"
+    },
+    "1-d3678c69": {
+      "$value": "rgba(0, 0, 0, .24)"
+    },
+    "2-10a70e": {
+      "$value": "#111"
+    },
+    "2-91e11443": {
+      "$value": "#111111"
+    },
+    "2-920b660c": {
+      "$value": "#141414"
+    },
+    "2-3e70cf1e": {
+      "$value": "rgba(50, 50, 50, .8)"
+    },
+    "2-10aed0": {
+      "$value": "#333"
+    },
+    "2-98d27f3d": {
+      "$value": "#535353"
+    },
+    "2-634c8aeb": {
+      "$value": "dimgray"
+    },
+    "2-10c616": {
+      "$value": "#999"
+    },
+    "2-e45063cb": {
+      "$value": "#a9a9a9"
+    },
+    "2-e5bf2899": {
+      "$value": "#b4b4b4"
+    },
+    "2-116900": {
+      "$value": "#ccc"
+    },
+    "2-eab4be27": {
+      "$value": "#e1e1e1"
+    },
+    "2-eafb4676": {
+      "$value": "#e6e6e6"
+    },
+    "2-eb0961b9": {
+      "$value": "#e7e7e7"
+    },
+    "2-ec8641ca": {
+      "$value": "#f3f3f3"
+    },
+    "0-1174a3": {
+      "$value": "#fff"
+    },
+    "0-88f8c9a7": {
+      "$value": "hsla(0, 0%, 100%, .56)"
+    },
+    "0-88f8d88c": {
+      "$value": "hsla(0, 0%, 100%, .95)"
+    },
+    "0-fc290ef3": {
+      "$value": "hsla(0, 0%, 100%, .7)"
+    },
+    "0-fc290eb5": {
+      "$value": "hsla(0, 0%, 100%, .5)"
+    },
+    "0-8864785": {
+      "$value": "rgba(255, 255, 255, 0.4)"
+    },
+    "0-fc290f12": {
+      "$value": "hsla(0, 0%, 100%, .8)"
+    },
+    "0-fc290ed4": {
+      "$value": "hsla(0, 0%, 100%, .6)"
+    },
+    "0-fc290f31": {
+      "$value": "hsla(0, 0%, 100%, .9)"
+    },
+    "0-b6e8a423": {
+      "$value": "#FFFFFF"
+    },
+    "4-ea9fcae8": {
+      "$value": "#e17000"
+    },
+    "4-ef5323d8": {
+      "$value": "#ffb612"
+    },
+    "4-f0f1552e": {
+      "$value": "rgb(255, 137.48, 21)"
+    },
+    "4-ef54922c": {
+      "$value": "#ffe9b7"
+    },
+    "4-ef1cca90": {
+      "$value": "#fbead9"
+    },
+    "4-ef54f430": {
+      "$value": "#fff4dc"
+    },
+    "10-e439f696": {
+      "$value": "#a90061"
+    },
+    "10-e9d75410": {
+      "$value": "#ca005d"
+    },
+    "10-10c1b9": {
+      "$value": "#848"
+    },
+    "10-ef3c539f": {
+      "$value": "#ff0084"
+    },
+    "10-e959e534": {
+      "$value": "#d93274"
+    },
+    "3-e66e9dcd": {
+      "$value": "#aa2529"
+    },
+    "3-e77b7d97": {
+      "$value": "#c63c2c"
+    },
+    "3-e921c678": {
+      "$value": "#d52b1e"
+    },
+    "3-eae40d9d": {
+      "$value": "#e62528"
+    },
+    "3-ecdaa578": {
+      "$value": "#f9dfdd"
+    },
+    "6-596655b9": {
+      "$value": "rgb(39.2020408163, 92.8469387755, 8.2530612245)"
+    },
+    "6-95bec6bb": {
+      "$value": "#39870c"
+    },
+    "6-e783e2b1": {
+      "$value": "#c5f2b2"
+    }
+  },
+  "FontSizes": {
+    "fontSize-30": {
+      "$value": "0",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0"
+      }
+    },
+    "fontSize-c85a": {
+      "$value": "2em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "2em"
+      }
+    },
+    "fontSize-c499": {
+      "$value": "1em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1em"
+      }
+    },
+    "fontSize-d82d": {
+      "$value": "80%",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "80%"
+      }
+    },
+    "fontSize-d507": {
+      "$value": "75%",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "75%"
+      }
+    },
+    "fontSize-170054": {
+      "$value": "100%",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "100%"
+      }
+    },
+    "fontSize-dbee": {
+      "$value": "90%",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "90%"
+      }
+    },
+    "fontSize-170415": {
+      "$value": "110%",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "110%"
+      }
+    },
+    "fontSize-1707d6": {
+      "$value": "120%",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "120%"
+      }
+    },
+    "fontSize-b4245e4a": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2.0272865295,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "2.0272865295rem"
+      }
+    },
+    "fontSize-3c3cb3de": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.8020324707,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.8020324707rem"
+      }
+    },
+    "fontSize-828acac": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.423828125,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.423828125rem"
+      }
+    },
+    "fontSize-96800d35": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.265625,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.265625rem"
+      }
+    },
+    "fontSize-2a2f231": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.7,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".7rem"
+      }
+    },
+    "fontSize-df0c8a97": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.595,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".595rem"
+      }
+    },
+    "fontSize-17fec9": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1rem"
+      }
+    },
+    "fontSize-69f2d0bb": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.8888888889,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0.8888888889rem"
+      }
+    },
+    "fontSize-b4025bd2": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.6018066406,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.6018066406rem"
+      }
+    },
+    "fontSize-b9f01a43": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.125,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.125rem"
+      }
+    },
+    "fontSize-1a44a4": {
+      "$type": "dimension",
+      "$value": {
+        "value": 6,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "6rem"
+      }
+    },
+    "fontSize-171eed": {
+      "$type": "dimension",
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "16px"
+      }
+    },
+    "fontSize-2a3daef": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.9,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".9rem"
+      }
+    },
+    "fontSize-322267a9": {
+      "$value": "var(--logo-text-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--logo-text-size)"
+      }
+    },
+    "fontSize-15c431": {
+      "$value": ".7em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".7em"
+      }
+    },
+    "fontSize-177cc6": {
+      "$type": "dimension",
+      "$value": {
+        "value": 20,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "20px"
+      }
+    },
+    "fontSize-6c948e7c": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2.8865075782,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "2.8865075782rem"
+      }
+    },
+    "fontSize-15c070": {
+      "$value": ".6em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".6em"
+      }
+    },
+    "fontSize-2a36690": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.8,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".8rem"
+      }
+    },
+    "fontSize-6477283e": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.5101977836,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.5101977836rem"
+      }
+    },
+    "fontSize-13c48e11": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2.2806973457,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "2.2806973457rem"
+      }
+    },
+    "fontSize-170867": {
+      "$type": "dimension",
+      "$value": {
+        "value": 10,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "10px"
+      }
+    },
+    "fontSize-3c0c50bd": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2.565784514,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "2.565784514rem"
+      }
+    },
+    "fontSize-519fc98e": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.75,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".75rem"
+      }
+    },
+    "fontSize-563f7fe2": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.5,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.5rem"
+      }
+    },
+    "fontSize-15c7f2": {
+      "$value": ".8em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".8em"
+      }
+    },
+    "fontSize-178448": {
+      "$type": "dimension",
+      "$value": {
+        "value": 22,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "22px"
+      }
+    },
+    "fontSize-17f4e6": {
+      "$type": "dimension",
+      "$value": {
+        "value": 31,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "31px"
+      }
+    },
+    "fontSize-178087": {
+      "$type": "dimension",
+      "$value": {
+        "value": 21,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "21px"
+      }
+    },
+    "fontSize-172a30": {
+      "$type": "dimension",
+      "$value": {
+        "value": 19,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "19px"
+      }
+    },
+    "fontSize-17f8a7": {
+      "$type": "dimension",
+      "$value": {
+        "value": 32,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "32px"
+      }
+    },
+    "fontSize-187488": {
+      "$type": "dimension",
+      "$value": {
+        "value": 44,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "44px"
+      }
+    },
+    "fontSize-170fe9": {
+      "$type": "dimension",
+      "$value": {
+        "value": 12,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "12px"
+      }
+    },
+    "fontSize-170c28": {
+      "$type": "dimension",
+      "$value": {
+        "value": 11,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "11px"
+      }
+    },
+    "fontSize-2c8311d": {
+      "$value": "1.2em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.2em"
+      }
+    },
+    "fontSize-921fdca5": {
+      "$value": "clamp(16px, 3vw, 24px)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "clamp(16px, 3vw, 24px)"
+      }
+    },
+    "fontSize-c5f9": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1px"
+      }
+    },
+    "fontSize-17266f": {
+      "$type": "dimension",
+      "$value": {
+        "value": 18,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "18px"
+      }
+    },
+    "fontSize-1713aa": {
+      "$type": "dimension",
+      "$value": {
+        "value": 13,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "13px"
+      }
+    },
+    "fontSize-2a28193": {
+      "$value": ".85em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".85em"
+      }
+    },
+    "fontSize-e3b81652": {
+      "$value": ".8125em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".8125em"
+      }
+    },
+    "fontSize-715a51df": {
+      "$value": "1.125em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.125em"
+      }
+    },
+    "fontSize-51ade4d0": {
+      "$value": ".875em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".875em"
+      }
+    },
+    "fontSize-8c87ffe3": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4.1098906729,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "4.1098906729rem"
+      }
+    },
+    "fontSize-8207a79c": {
+      "$value": "1.11111em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.11111em"
+      }
+    },
+    "fontSize-a97ff93b": {
+      "$type": "dimension",
+      "$value": {
+        "value": 20.25,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "20.25px"
+      }
+    },
+    "fontSize-800dd570": {
+      "$value": "clamp(22.78px, 3.6vw, 28.83px)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "clamp(22.78px, 3.6vw, 28.83px)"
+      }
+    },
+    "fontSize-2732daa7": {
+      "$value": "clamp(22.78px, 3.2vw, 25.63px)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "clamp(22.78px, 3.2vw, 25.63px)"
+      }
+    },
+    "fontSize-8a36954d": {
+      "$value": "clamp(18px, 2.53vw, 20.25px)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "clamp(18px, 2.53vw, 20.25px)"
+      }
+    },
+    "fontSize-227e414f": {
+      "$value": "clamp(14.22px, 2vw, 16px)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "clamp(14.22px, 2vw, 16px)"
+      }
+    },
+    "fontSize-a15dbeb8": {
+      "$value": "clamp(16px, 2.25vw, 18px)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "clamp(16px, 2.25vw, 18px)"
+      }
+    },
+    "fontSize-178809": {
+      "$type": "dimension",
+      "$value": {
+        "value": 23,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "23px"
+      }
+    }
+  },
+  "FontFamily": {
+    "fontFamily-87924d2c": {
+      "$type": "fontFamily",
+      "$value": ["monospace", "monospace"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "monospace, monospace"
+      }
+    },
+    "fontFamily-1d29d1c9": {
+      "$type": "fontFamily",
+      "$value": ["RO Icons"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"RO Icons\""
+      }
+    },
+    "fontFamily-859ddc4e": {
+      "$type": "fontFamily",
+      "$value": ["RO Sans"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"RO Sans\""
+      }
+    },
+    "fontFamily-2e57bfc6": {
+      "$type": "fontFamily",
+      "$value": ["RO Serif"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"RO Serif\""
+      }
+    },
+    "fontFamily-be6b8ab6": {
+      "$type": "fontFamily",
+      "$value": ["RijksSans"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"RijksSans\""
+      }
+    },
+    "fontFamily-1815cdb6": {
+      "$type": "fontFamily",
+      "$value": ["Meta Sans"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"Meta Sans\""
+      }
+    },
+    "fontFamily-538a5b73": {
+      "$type": "fontFamily",
+      "$value": ["RO Sans", "Calibri", "sans-serif"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"RO Sans\", Calibri, sans-serif"
+      }
+    },
+    "fontFamily-acadbaf3": {
+      "$type": "fontFamily",
+      "$value": ["RijksSans", "Calibri", "sans-serif"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "RijksSans, Calibri, sans-serif"
+      }
+    },
+    "fontFamily-3b1ffad3": {
+      "$type": "fontFamily",
+      "$value": ["object-fit: cover;"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"object-fit: cover;\""
+      }
+    },
+    "fontFamily-cd8dbdef": {
+      "$type": "fontFamily",
+      "$value": ["Helvetica Neue", "Arial", "Helvetica", "sans-serif"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"Helvetica Neue\", Arial, Helvetica, sans-serif"
+      }
+    },
+    "fontFamily-6499e770": {
+      "$type": "fontFamily",
+      "$value": ["object-fit: contain;"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"object-fit: contain;\""
+      }
+    },
+    "fontFamily-473b3be3": {
+      "$type": "fontFamily",
+      "$value": ["Helvetica", "Arial", "Calibri", "sans-serif"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "Helvetica, Arial, Calibri, sans-serif"
+      }
+    },
+    "fontFamily-12679788": {
+      "$type": "fontFamily",
+      "$value": ["var(--font-family)"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--font-family)"
+      }
+    },
+    "fontFamily-8d8b16fa": {
+      "$type": "fontFamily",
+      "$value": ["RO Sans", "Calibri", "Verdana", "sans-serif"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"RO Sans\", Calibri, Verdana, sans-serif"
+      }
+    }
+  },
+  "LineHeight": {
+    "lineHeight-30": {
+      "$type": "number",
+      "$value": 0,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0"
+      }
+    },
+    "lineHeight-31": {
+      "$type": "number",
+      "$value": 1,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1"
+      }
+    },
+    "lineHeight-16f901": {
+      "$type": "number",
+      "$value": 1.15,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.15"
+      }
+    },
+    "lineHeight-acde1ee3": {
+      "$type": "number",
+      "$value": 1.2331754607,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.2331754607"
+      }
+    },
+    "lineHeight-871bfaa4": {
+      "$type": "number",
+      "$value": 1.3873223933,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.3873223933"
+      }
+    },
+    "lineHeight-473538d0": {
+      "$type": "number",
+      "$value": 1.4046639232,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.4046639232"
+      }
+    },
+    "lineHeight-6f60b621": {
+      "$type": "number",
+      "$value": 1.1851851852,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.1851851852"
+      }
+    },
+    "lineHeight-51d11d8b": {
+      "$type": "number",
+      "$value": 1.3827160494,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.3827160494"
+      }
+    },
+    "lineHeight-5828a08e": {
+      "$type": "dimension",
+      "$value": {
+        "value": 22.4,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "22.4px"
+      }
+    },
+    "lineHeight-5852df8f": {
+      "$type": "dimension",
+      "$value": {
+        "value": 25.2,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "25.2px"
+      }
+    },
+    "lineHeight-179ace": {
+      "$type": "dimension",
+      "$value": {
+        "value": 28,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "28px"
+      }
+    },
+    "lineHeight-bdb8": {
+      "$type": "number",
+      "$value": 1.5,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.5"
+      }
+    },
+    "lineHeight-563f14bd": {
+      "$type": "number",
+      "$value": 1.6875,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.6875"
+      }
+    },
+    "lineHeight-1f43367d": {
+      "$type": "number",
+      "$value": 1.2485901539,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.2485901539"
+      }
+    },
+    "lineHeight-56d664f4": {
+      "$type": "dimension",
+      "$value": {
+        "value": 19.2,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "19.2px"
+      }
+    },
+    "lineHeight-581a908f": {
+      "$type": "dimension",
+      "$value": {
+        "value": 21.6,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "21.6px"
+      }
+    },
+    "lineHeight-178bca": {
+      "$type": "dimension",
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "24px"
+      }
+    },
+    "lineHeight-7183ad00": {
+      "$type": "number",
+      "$value": 1.40625,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.40625"
+      }
+    },
+    "lineHeight-15adab": {
+      "$value": ".1em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".1em"
+      }
+    },
+    "lineHeight-2c826f7": {
+      "$type": "number",
+      "$value": 1.125,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.125"
+      }
+    },
+    "lineHeight-403f5bd": {
+      "$type": "number",
+      "$value": 1.3333333333,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.3333333333"
+      }
+    },
+    "lineHeight-cd0cbb68": {
+      "$type": "number",
+      "$value": 0.9865403685,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".9865403685"
+      }
+    },
+    "lineHeight-2c8311d": {
+      "$value": "1.2em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.2em"
+      }
+    },
+    "lineHeight-d663cc88": {
+      "$value": "var(--logo-text-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--logo-text-line-height)"
+      }
+    },
+    "lineHeight-9f6e2e36": {
+      "$type": "number",
+      "$value": 1.0925163847,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.0925163847"
+      }
+    },
+    "lineHeight-674512ff": {
+      "$type": "number",
+      "$value": 1.5802469136,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.5802469136"
+      }
+    },
+    "lineHeight-b0b51b67": {
+      "$type": "number",
+      "$value": 0.8660985403,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".8660985403"
+      }
+    },
+    "lineHeight-187488": {
+      "$type": "dimension",
+      "$value": {
+        "value": 44,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "44px"
+      }
+    },
+    "lineHeight-27c8c578": {
+      "$type": "number",
+      "$value": 1.1587886163,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.1587886163"
+      }
+    },
+    "lineHeight-563f7fe2": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.5,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.5rem"
+      }
+    },
+    "lineHeight-7221f27a": {
+      "$type": "number",
+      "$value": 1.0961559651,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.0961559651"
+      }
+    },
+    "lineHeight-2a56f63": {
+      "$type": "number",
+      "$value": 0.9743608578,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".9743608578"
+      }
+    },
+    "lineHeight-a066b83e": {
+      "$type": "number",
+      "$value": 1.7777777778,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.7777777778"
+      }
+    },
+    "lineHeight-bdb4": {
+      "$type": "number",
+      "$value": 1.1,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.1"
+      }
+    },
+    "lineHeight-bdb7": {
+      "$type": "number",
+      "$value": 1.4,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.4"
+      }
+    },
+    "lineHeight-c3c6d829": {
+      "$type": "number",
+      "$value": 1.8728852309,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.8728852309"
+      }
+    },
+    "lineHeight-bdb5": {
+      "$type": "number",
+      "$value": 1.2,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.2"
+      }
+    },
+    "lineHeight-170867": {
+      "$type": "dimension",
+      "$value": {
+        "value": 10,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "10px"
+      }
+    },
+    "lineHeight-178448": {
+      "$type": "dimension",
+      "$value": {
+        "value": 22,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "22px"
+      }
+    },
+    "lineHeight-b2edce1f": {
+      "$type": "number",
+      "$value": 0.9364426155,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".9364426155"
+      }
+    },
+    "lineHeight-8f0eeb3e": {
+      "$type": "number",
+      "$value": 1.0534979424,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.0534979424"
+      }
+    },
+    "lineHeight-45935cee": {
+      "$type": "number",
+      "$value": 1.5607376924,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.5607376924"
+      }
+    },
+    "lineHeight-da0ebe17": {
+      "$type": "number",
+      "$value": 1.1098579146,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.1098579146"
+      }
+    },
+    "lineHeight-2c834de": {
+      "$value": "1.3em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.3em"
+      }
+    },
+    "lineHeight-42f5060b": {
+      "$type": "number",
+      "$value": 1.0949196361,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.0949196361"
+      }
+    },
+    "lineHeight-2c82f14": {
+      "$type": "number",
+      "$value": 1.375,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.375"
+      }
+    },
+    "lineHeight-7178c6bc": {
+      "$value": "1.375em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.375em"
+      }
+    },
+    "lineHeight-17970d": {
+      "$type": "dimension",
+      "$value": {
+        "value": 27,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "27px"
+      }
+    },
+    "lineHeight-c3198477": {
+      "$value": "calc(1.6 * 1em - (1em - 1rem) / 1.8)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "calc(1.6 * 1em - (1em - 1rem) / 1.8)"
+      }
+    },
+    "lineHeight-1eafe9e2": {
+      "$value": "calc(1.45 * 1em - (1em - 1rem) / 1.8)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "calc(1.45 * 1em - (1em - 1rem) / 1.8)"
+      }
+    }
+  },
+  "Gradient": {
+    "gradient-6b4291e1": {
+      "$value": "-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(50%, rgba(0, 0, 0, 0)), color-stop(80%, rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.6)))"
+    },
+    "gradient-922598b2": {
+      "$value": "linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.3) 80%, rgba(0, 0, 0, 0.6) 100%)"
+    },
+    "gradient-1918afc2": {
+      "$value": "linear-gradient(-45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent)"
+    },
+    "gradient-4e7cb9ca": {
+      "$value": "-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.45)), to(rgba(0, 0, 0, 0)))"
+    },
+    "gradient-503d1da1": {
+      "$value": "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 100%)"
+    },
+    "gradient-19c696e6": {
+      "$value": "-webkit-gradient(linear, left top, left bottom, from(#e6e6e6), to(rgba(0, 0, 0, 0)))"
+    },
+    "gradient-986724b2": {
+      "$value": "linear-gradient(180deg, #e6e6e6 0%, rgba(0, 0, 0, 0) 100%)"
+    },
+    "gradient-e5181b46": {
+      "$value": "-webkit-gradient(linear, left bottom, left top, from(#e6e6e6), to(rgba(0, 0, 0, 0)))"
+    },
+    "gradient-bcd53890": {
+      "$value": "linear-gradient(0deg, #e6e6e6, rgba(0, 0, 0, 0))"
+    }
+  },
+  "BoxShadow": {
+    "boxShadow-cb7dad19": {
+      "$type": "shadow",
+      "$value": {
+        "color": "#fff",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 2,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0 0 0 2px #fff"
+      }
+    },
+    "boxShadow-4da8683e": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .075)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 0.125,
+          "unit": "rem"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 0.25,
+          "unit": "rem"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0 .125rem .25rem rgba(0, 0, 0, .075)"
+      }
+    },
+    "boxShadow-8e76cfe1": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .15)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 0.5,
+          "unit": "rem"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "rem"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0 .5rem 1rem rgba(0, 0, 0, .15)"
+      }
+    },
+    "boxShadow-4f35e8a6": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .175)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "rem"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 3,
+          "unit": "rem"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0 1rem 3rem rgba(0, 0, 0, .175)"
+      }
+    },
+    "boxShadow-be27967c": {
+      "$type": "shadow",
+      "$value": {
+        "color": "#fff",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 2,
+          "unit": "px"
+        },
+        "inset": true
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "inset 0 0 0 2px #fff"
+      }
+    },
+    "boxShadow-15af0b42": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .44)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0 0 0 1px rgba(0, 0, 0, .44)"
+      }
+    },
+    "boxShadow-46a2a2e9": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, 0)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0 0 0 0 rgba(0, 0, 0, 0)"
+      }
+    },
+    "boxShadow-3d5c7bbb": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .4)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 7,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0 1px 7px rgba(0, 0, 0, .4)"
+      }
+    },
+    "boxShadow-d9165096": {
+      "$type": "shadow",
+      "$value": {
+        "color": "#b4b4b4",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 5,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0 0 5px #b4b4b4"
+      }
+    },
+    "boxShadow-a85add7c": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .2)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 2,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 5,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0 2px 5px rgba(0, 0, 0, .2)"
+      }
+    },
+    "boxShadow-a2973cb3": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .4)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 3,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 14,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0 3px 14px rgba(0, 0, 0, .4)"
+      }
+    },
+    "boxShadow-a849fc79": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "#141414",
+          "offsetX": {
+            "$type": "dimension",
+            "value": 5,
+            "unit": "px"
+          },
+          "offsetY": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        },
+        {
+          "color": "#141414",
+          "offsetX": {
+            "$type": "dimension",
+            "value": -5,
+            "unit": "px"
+          },
+          "offsetY": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "5px 0 0 #141414, -5px 0 0 #141414"
+      }
+    },
+    "boxShadow-1298d6e1": {
+      "$type": "shadow",
+      "$value": {
+        "color": "#000",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 2,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1px 1px 2px #000"
+      }
+    },
+    "boxShadow-eb5fe140": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .24)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 3,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 6,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0 3px 6px rgba(0, 0, 0, .24)"
+      }
+    },
+    "boxShadow-df42b5d1": {
+      "$type": "shadow",
+      "$value": {
+        "color": "var(--default-button-color)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 12,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 12,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": true
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "inset 12px 12px var(--default-button-color)"
+      }
+    }
+  },
+  "Radius": {
+    "radius-30": {
+      "$value": "0"
+    },
+    "radius-e040": {
+      "$value": "8px"
+    },
+    "radius-c5f9": {
+      "$value": "1px"
+    },
+    "radius-d13c": {
+      "$value": "4px"
+    },
+    "radius-3c847039": {
+      "$value": "0.25rem"
+    },
+    "radius-ccea": {
+      "$value": "50%"
+    },
+    "radius-170054": {
+      "$value": "100%"
+    },
+    "radius-c238": {
+      "$value": "0px"
+    },
+    "radius-171eed": {
+      "$value": "16px"
+    },
+    "radius-c9ba": {
+      "$value": "2px"
+    },
+    "radius-c1974478": {
+      "$value": "0 0 4px 4px"
+    },
+    "radius-cd7b": {
+      "$value": "3px"
+    }
+  },
+  "Duration": {
+    "duration-c573": {
+      "$type": "duration",
+      "$value": {
+        "value": 300,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".3s"
+      }
+    },
+    "duration-c1b2": {
+      "$type": "duration",
+      "$value": {
+        "value": 200,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".2s"
+      }
+    },
+    "duration-bdf1": {
+      "$type": "duration",
+      "$value": {
+        "value": 100,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".1s"
+      }
+    },
+    "duration-17005f": {
+      "$type": "duration",
+      "$value": {
+        "value": 1000,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1s"
+      }
+    },
+    "duration-ccf5": {
+      "$type": "duration",
+      "$value": {
+        "value": 500,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "500ms"
+      }
+    },
+    "duration-1774be": {
+      "$type": "duration",
+      "$value": {
+        "value": 2000,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "2s"
+      }
+    },
+    "duration-c24d": {
+      "$type": "duration",
+      "$value": {
+        "value": 250,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".25s"
+      }
+    },
+    "duration-be8c": {
+      "$type": "duration",
+      "$value": {
+        "value": 150,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".15s"
+      }
+    },
+    "duration-c934": {
+      "$type": "duration",
+      "$value": {
+        "value": 400,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".4s"
+      }
+    }
+  },
+  "Easing": {
+    "easing-2f63ee": {
+      "$value": [0.25, 0.1, 0.25, 1],
+      "$type": "cubicBezier",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "ease"
+      }
+    },
+    "easing-a68fc3f2": {
+      "$value": [0.465, 0.183, 0.153, 0.946],
+      "$type": "cubicBezier",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "cubic-bezier(0.465, 0.183, 0.153, 0.946)"
+      }
+    },
+    "easing-cb945a2e": {
+      "$value": [0.25, 0.46, 0.45, 0.94],
+      "$type": "cubicBezier",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+      }
+    },
+    "easing-ea6c7565": {
+      "$value": [0.42, 0, 0.58, 1],
+      "$type": "cubicBezier",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "ease-in-out"
+      }
+    },
+    "easing-8adea364": {
+      "$value": [0.42, 0, 1, 1],
+      "$type": "cubicBezier",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "ease-in"
+      }
+    },
+    "easing-d0f5e0ef": {
+      "$value": [0, 0, 0.58, 1],
+      "$type": "cubicBezier",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "ease-out"
+      }
+    },
+    "easing-be468f25": {
+      "$value": [0, 0, 1, 1],
+      "$type": "cubicBezier",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "linear"
+      }
+    },
+    "easing-8b76a773": {
+      "$value": [0, 0, 0.25, 1],
+      "$type": "cubicBezier",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "cubic-bezier(0, 0, 0.25, 1)"
+      }
+    },
+    "easing-cd345b31": {
+      "$value": [0.44, 0, 1, 1],
+      "$type": "cubicBezier",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "cubic-bezier(0.44, 0, 1, 1)"
+      }
+    }
+  }
+}

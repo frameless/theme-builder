@@ -1,0 +1,2483 @@
+{
+  "Color": {
+    "2-908e85fb": {
+      "$value": "#080808"
+    },
+    "2-909ca13e": {
+      "$value": "#090909"
+    },
+    "2-91d2f900": {
+      "$value": "#101010"
+    },
+    "2-9243d6e2": {
+      "$value": "#18191A"
+    },
+    "2-10aaef": {
+      "$value": "#222"
+    },
+    "2-93b297e6": {
+      "$value": "#232323"
+    },
+    "2-93dce9af": {
+      "$value": "#262626"
+    },
+    "2-94781953": {
+      "$value": "#2A2B2C"
+    },
+    "2-10aed0": {
+      "$value": "#333"
+    },
+    "2-962d6670": {
+      "$value": "#3A3B3C"
+    },
+    "2-10b2b1": {
+      "$value": "#444"
+    },
+    "2-10b692": {
+      "$value": "#555"
+    },
+    "2-990aec48": {
+      "$value": "#575756"
+    },
+    "2-9b93d253": {
+      "$value": "#5e5e5e"
+    },
+    "2-10ba73": {
+      "$value": "#666"
+    },
+    "2-9c131e1c": {
+      "$value": "#706f6f"
+    },
+    "2-9c12a5dc": {
+      "$value": "#706F6F"
+    },
+    "2-9c12c7ae": {
+      "$value": "#707070"
+    },
+    "2-9c2efe34": {
+      "$value": "#727272"
+    },
+    "2-9c3d1977": {
+      "$value": "#737373"
+    },
+    "2-10be54": {
+      "$value": "#777"
+    },
+    "2-308adf": {
+      "$value": "grey"
+    },
+    "2-9e2ad3a0": {
+      "$value": "#878787"
+    },
+    "2-10c235": {
+      "$value": "#888"
+    },
+    "2-a0978324": {
+      "$value": "#8c8c8c"
+    },
+    "2-9f99986e": {
+      "$value": "#929292"
+    },
+    "2-10c616": {
+      "$value": "#999"
+    },
+    "2-a25aeb84": {
+      "$value": "#9d9d9d"
+    },
+    "2-c9b17c70": {
+      "$value": "rgba(158, 158, 158, .3)"
+    },
+    "2-c9b17cec": {
+      "$value": "rgba(158, 158, 158, .7)"
+    },
+    "2-c9b17c32": {
+      "$value": "rgba(158, 158, 158, .1)"
+    },
+    "2-11613e": {
+      "$value": "#aaa"
+    },
+    "2-e6aef80c": {
+      "$value": "#adadad"
+    },
+    "2-aeeb36f3": {
+      "$value": "#B1B2B3"
+    },
+    "2-ca37d30d": {
+      "$value": "silver"
+    },
+    "2-e7bafe05": {
+      "$value": "#c9c9c9"
+    },
+    "2-116900": {
+      "$value": "#ccc"
+    },
+    "2-e929c2d3": {
+      "$value": "#d4d4d4"
+    },
+    "2-e937de16": {
+      "$value": "#d5d5d5"
+    },
+    "2-b337819a": {
+      "$value": "#DADADA"
+    },
+    "2-eba48d9a": {
+      "$value": "#dadada"
+    },
+    "2-116ce1": {
+      "$value": "#ddd"
+    },
+    "2-ead0f4ad": {
+      "$value": "#e3e3e3"
+    },
+    "2-eadf0ff0": {
+      "$value": "#e4e4e4"
+    },
+    "2-eaed2b33": {
+      "$value": "#e5e5e5"
+    },
+    "2-eafb4676": {
+      "$value": "#e6e6e6"
+    },
+    "2-eb0961b9": {
+      "$value": "#e7e7e7"
+    },
+    "2-eb177cfc": {
+      "$value": "#e8e8e8"
+    },
+    "2-ed67f5fa": {
+      "$value": "#ebebeb"
+    },
+    "2-1170c2": {
+      "$value": "#eee"
+    },
+    "2-ec6a0b44": {
+      "$value": "#f1f1f1"
+    },
+    "2-eca27850": {
+      "$value": "#f5f5f5"
+    },
+    "2-ecbeaed6": {
+      "$value": "#f7f7f7"
+    },
+    "2-ecccca19": {
+      "$value": "#f8f8f8"
+    },
+    "2-ecdae55c": {
+      "$value": "#f9f9f9"
+    },
+    "8-91f05870": {
+      "$value": "#122b40"
+    },
+    "8-901f2037": {
+      "$value": "#00365F"
+    },
+    "8-4d872ec": {
+      "$value": "#00365fd9"
+    },
+    "8-901f2057": {
+      "$value": "#00365f"
+    },
+    "8-93c20945": {
+      "$value": "#245269"
+    },
+    "8-9649d930": {
+      "$value": "#3C4551"
+    },
+    "8-27e9033c": {
+      "$value": "rgba(62, 69, 81, .3)"
+    },
+    "8-27e903b8": {
+      "$value": "rgba(62, 69, 81, .7)"
+    },
+    "8-27e902fe": {
+      "$value": "rgba(62, 69, 81, .1)"
+    },
+    "8-9389f2ae": {
+      "$value": "#204d74"
+    },
+    "8-902032b8": {
+      "$value": "#005A9B"
+    },
+    "8-9020aaf8": {
+      "$value": "#005a9b"
+    },
+    "8-93b3f20d": {
+      "$value": "#23527c"
+    },
+    "8-94969a1f": {
+      "$value": "#1b6d85"
+    },
+    "8-93fad47a": {
+      "$value": "#286090"
+    },
+    "8-93c241ee": {
+      "$value": "#245A96"
+    },
+    "8-954d7d08": {
+      "$value": "#31708f"
+    },
+    "8-9675be37": {
+      "$value": "#2e6da4"
+    },
+    "8-c70cf892": {
+      "$value": "rgba(0, 188, 212, .3)"
+    },
+    "8-c70cf90e": {
+      "$value": "rgba(0, 188, 212, .7)"
+    },
+    "8-c70cf854": {
+      "$value": "rgba(0, 188, 212, .1)"
+    },
+    "8-93e0bfb0": {
+      "$value": "#269abc"
+    },
+    "8-956a68e2": {
+      "$value": "#337ab7"
+    },
+    "8-9a6c0a79": {
+      "$value": "#617189"
+    },
+    "8-d170cb1c": {
+      "$value": "rgba(96, 125, 139, .3)"
+    },
+    "8-d170cb98": {
+      "$value": "rgba(96, 125, 139, .7)"
+    },
+    "8-d170cade": {
+      "$value": "rgba(96, 125, 139, .1)"
+    },
+    "8-3b9ece78": {
+      "$value": "rgba(63, 81, 181, .3)"
+    },
+    "8-3b9ecef4": {
+      "$value": "rgba(63, 81, 181, .7)"
+    },
+    "8-3b9ece3a": {
+      "$value": "rgba(63, 81, 181, .1)"
+    },
+    "8-93605d33": {
+      "$value": "rgba(3, 169, 244, .3)"
+    },
+    "8-93605daf": {
+      "$value": "rgba(3, 169, 244, .7)"
+    },
+    "8-93605cf5": {
+      "$value": "rgba(3, 169, 244, .1)"
+    },
+    "8-95610e20": {
+      "$value": "#31b0d5"
+    },
+    "8-9711a269": {
+      "$value": "#428bca"
+    },
+    "8-96893f61": {
+      "$value": "#2eaae0"
+    },
+    "8-95b03979": {
+      "$value": "#3875d7"
+    },
+    "8-975c7a78": {
+      "$value": "#46b8da"
+    },
+    "8-9b7db39e": {
+      "$value": "#5bc0de"
+    },
+    "8-9ac663fc": {
+      "$value": "#66afe9"
+    },
+    "8-3336a14b": {
+      "$value": "rgba(102, 175, 233, .6)"
+    },
+    "8-991adb60": {
+      "$value": "#5897fb"
+    },
+    "8-e427d162": {
+      "$value": "#a6e1ec"
+    },
+    "8-e6cbe33d": {
+      "$value": "#afd9ee"
+    },
+    "8-e856e5e2": {
+      "$value": "#bce8f1"
+    },
+    "8-e79fe538": {
+      "$value": "#c7ddef"
+    },
+    "8-e7755b0f": {
+      "$value": "#c4e3f3"
+    },
+    "8-e9716128": {
+      "$value": "#d9edf7"
+    },
+    "8-b5eabd30": {
+      "$value": "#F4F5F6"
+    },
+    "8-ec9460d0": {
+      "$value": "#f4f5f6"
+    },
+    "8-ecb09f03": {
+      "$value": "#f6f9fc"
+    },
+    "1-10a32d": {
+      "$value": "#000"
+    },
+    "1-991c5d52": {
+      "$value": "transparent"
+    },
+    "1-9ae5cf0a": {
+      "$value": "rgba(0, 0, 0, 0.063)"
+    },
+    "1-d36865e5": {
+      "$value": "rgba(0, 0, 0, 0.2)"
+    },
+    "1-1755ebd4": {
+      "$value": "rgba(0, 0, 0, .3)"
+    },
+    "1-1755ec50": {
+      "$value": "rgba(0, 0, 0, .7)"
+    },
+    "1-1755eb96": {
+      "$value": "rgba(0, 0, 0, .1)"
+    },
+    "1-d3678c88": {
+      "$value": "rgba(0, 0, 0, .25)"
+    },
+    "1-998924d9": {
+      "$value": "rgba(0, 0, 0, .075)"
+    },
+    "1-99898673": {
+      "$value": "rgba(0, 0, 0, .125)"
+    },
+    "1-d36788c7": {
+      "$value": "rgba(0, 0, 0, .15)"
+    },
+    "1-99899938": {
+      "$value": "rgba(0, 0, 0, .175)"
+    },
+    "1-d3678506": {
+      "$value": "rgba(0, 0, 0, .05)"
+    },
+    "1-1755ebb5": {
+      "$value": "rgba(0, 0, 0, .2)"
+    },
+    "1-1755ec12": {
+      "$value": "rgba(0, 0, 0, .5)"
+    },
+    "1-1755ec31": {
+      "$value": "rgba(0, 0, 0, .6)"
+    },
+    "1-dfb87329": {
+      "$value": "rgba(0, 0, 0, 0)"
+    },
+    "1-9798360a": {
+      "$value": "rgba(0, 0, 0, .0001)"
+    },
+    "1-5978fff": {
+      "$value": "black"
+    },
+    "1-d3686642": {
+      "$value": "rgba(0, 0, 0, 0.5)"
+    },
+    "1-c1d14dda": {
+      "$value": "rgba(0, 0, 0, 0.0001)"
+    },
+    "1-901dabe3": {
+      "$value": "#000000"
+    },
+    "3-9c65593c": {
+      "$value": "#761c19"
+    },
+    "3-9dfe3f22": {
+      "$value": "#843534"
+    },
+    "3-dba18014": {
+      "$value": "rgba(121, 85, 72, .3)"
+    },
+    "3-dba18090": {
+      "$value": "rgba(121, 85, 72, .7)"
+    },
+    "3-dba17fd6": {
+      "$value": "rgba(121, 85, 72, .1)"
+    },
+    "3-e68adbcf": {
+      "$value": "#ac2925"
+    },
+    "3-e43bd6d9": {
+      "$value": "#a94442"
+    },
+    "3-e7a504a7": {
+      "$value": "#c9302c"
+    },
+    "3-e9143294": {
+      "$value": "#d43f3a"
+    },
+    "3-e95ad188": {
+      "$value": "#d9534f"
+    },
+    "3-6eea46ca": {
+      "$value": "rgba(244, 67, 54, .3)"
+    },
+    "3-6eea4746": {
+      "$value": "rgba(244, 67, 54, .7)"
+    },
+    "3-6eea468c": {
+      "$value": "rgba(244, 67, 54, .1)"
+    },
+    "3-ef3fd082": {
+      "$value": "#ff6d2c"
+    },
+    "3-ea13643c": {
+      "$value": "#ce8483"
+    },
+    "3-eaddc540": {
+      "$value": "#e4b9b9"
+    },
+    "3-eaddc556": {
+      "$value": "#e4b9c0"
+    },
+    "3-ed6710ad": {
+      "$value": "#ebccd1"
+    },
+    "3-ed6710c0": {
+      "$value": "#ebcccc"
+    },
+    "3-ec77fd31": {
+      "$value": "#f2dede"
+    },
+    "3-ef54f43f": {
+      "$value": "#fff4f4"
+    },
+    "6-93d02f4a": {
+      "$value": "#255625"
+    },
+    "6-964a49a3": {
+      "$value": "#2b542c"
+    },
+    "6-5e0cf03": {
+      "$value": "green"
+    },
+    "6-980e2a23": {
+      "$value": "#3c763d"
+    },
+    "6-95bebbab": {
+      "$value": "#398439"
+    },
+    "6-972e476e": {
+      "$value": "#449d44"
+    },
+    "6-99d6cae5": {
+      "$value": "#4cae4c"
+    },
+    "6-1464f0bc": {
+      "$value": "rgba(76, 175, 80, .3)"
+    },
+    "6-1464f138": {
+      "$value": "rgba(76, 175, 80, .7)"
+    },
+    "6-1464f07e": {
+      "$value": "rgba(76, 175, 80, .1)"
+    },
+    "6-9b8b6f15": {
+      "$value": "#5cb85c"
+    },
+    "6-9ad42335": {
+      "$value": "#67b168"
+    },
+    "6-e74b104f": {
+      "$value": "#c1e2b3"
+    },
+    "6-e7bbcc57": {
+      "$value": "#c9e2b3"
+    },
+    "6-e8f1ebd6": {
+      "$value": "#d0e9c6"
+    },
+    "6-e94678dc": {
+      "$value": "#d6e9c6"
+    },
+    "6-ebeb33c3": {
+      "$value": "#dff0d8"
+    },
+    "4-9ab196b0": {
+      "$value": "#66512c"
+    },
+    "4-9fed1647": {
+      "$value": "#985f0d"
+    },
+    "4-a07a6e89": {
+      "$value": "#8a6d3b"
+    },
+    "4-e923d792": {
+      "$value": "#d58512"
+    },
+    "4-d40b9050": {
+      "$value": "rgba(255, 152, 0, .3)"
+    },
+    "4-d40b90cc": {
+      "$value": "rgba(255, 152, 0, .7)"
+    },
+    "4-d40b9012": {
+      "$value": "rgba(255, 152, 0, .1)"
+    },
+    "4-ef40049f": {
+      "$value": "#ff8400"
+    },
+    "4-ed616574": {
+      "$value": "#ec971f"
+    },
+    "4-ed8fb097": {
+      "$value": "#eea236"
+    },
+    "4-e73b1e6c": {
+      "$value": "#c0a16b"
+    },
+    "4-ec5a6781": {
+      "$value": "#f0ad4e"
+    },
+    "4-ecbe2373": {
+      "$value": "#f7e1b5"
+    },
+    "4-ef0eb6db": {
+      "$value": "#faebcc"
+    },
+    "4-ef0e770a": {
+      "$value": "#faf2cc"
+    },
+    "5-11746d": {
+      "$value": "#ff0"
+    },
+    "5-c1e4f1c1": {
+      "$value": "rgba(205, 220, 57, .3)"
+    },
+    "5-c1e4f23d": {
+      "$value": "rgba(205, 220, 57, .7)"
+    },
+    "5-c1e4f183": {
+      "$value": "rgba(205, 220, 57, .1)"
+    },
+    "5-877be0b6": {
+      "$value": "rgba(255, 235, 59, .3)"
+    },
+    "5-877be132": {
+      "$value": "rgba(255, 235, 59, .7)"
+    },
+    "5-877be078": {
+      "$value": "rgba(255, 235, 59, .1)"
+    },
+    "5-ec8679ae": {
+      "$value": "#f3eaac"
+    },
+    "5-ecbedf25": {
+      "$value": "#f7ecb5"
+    },
+    "5-ef2abca0": {
+      "$value": "#fcf8e3"
+    },
+    "0-1174a3": {
+      "$value": "#fff"
+    },
+    "0-6bdcc29": {
+      "$value": "white"
+    },
+    "0-7c255632": {
+      "$value": "rgba(255, 255, 255, .3)"
+    },
+    "0-7c2556ae": {
+      "$value": "rgba(255, 255, 255, .7)"
+    },
+    "0-7c2555f4": {
+      "$value": "rgba(255, 255, 255, .1)"
+    },
+    "0-8856a29": {
+      "$value": "rgba(255, 255, 255, .15)"
+    },
+    "0-8429f75": {
+      "$value": "rgba(255, 255, 255, 0.15)"
+    },
+    "0-ef55b023": {
+      "$value": "#ffffff"
+    },
+    "0-b6e8a423": {
+      "$value": "#FFFFFF"
+    },
+    "10-e788744b": {
+      "$value": "#c7254e"
+    },
+    "10-b24d9cec": {
+      "$value": "#D12152"
+    },
+    "10-e8e8b0cc": {
+      "$value": "#d12152"
+    },
+    "10-eae39d5d": {
+      "$value": "#e61659"
+    },
+    "10-a2a20aed": {
+      "$value": "rgba(233, 30, 99, .3)"
+    },
+    "10-a2a20b69": {
+      "$value": "rgba(233, 30, 99, .7)"
+    },
+    "10-a2a20aaf": {
+      "$value": "rgba(233, 30, 99, .1)"
+    },
+    "10-ef2a40f0": {
+      "$value": "#fce6ed"
+    },
+    "10-ecdacb10": {
+      "$value": "#f9f2f4"
+    },
+    "7-90219a91": {
+      "$value": "#007c57"
+    },
+    "7-9021626b": {
+      "$value": "#00856A"
+    },
+    "7-9021628b": {
+      "$value": "#00856a"
+    },
+    "7-11911e8c": {
+      "$value": "rgba(0, 150, 136, .3)"
+    },
+    "7-11911f08": {
+      "$value": "rgba(0, 150, 136, .7)"
+    },
+    "7-11911e4e": {
+      "$value": "rgba(0, 150, 136, .1)"
+    },
+    "7-90257db5": {
+      "$value": "#00A685"
+    },
+    "9-d692fc2c": {
+      "$value": "rgba(156, 39, 176, .3)"
+    },
+    "9-d692fca8": {
+      "$value": "rgba(156, 39, 176, .7)"
+    },
+    "9-d692fbee": {
+      "$value": "rgba(156, 39, 176, .1)"
+    }
+  },
+  "FontSizes": {
+    "fontSize-30": {
+      "$value": "0",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0"
+      }
+    },
+    "fontSize-3cd90100": {
+      "$value": "0.875em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0.875em"
+      }
+    },
+    "fontSize-14554eb6": {
+      "$value": "var(--font-size-primary)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--font-size-primary)"
+      }
+    },
+    "fontSize-b98481c4": {
+      "$value": "var(--font-size-secondary)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--font-size-secondary)"
+      }
+    },
+    "fontSize-17266f": {
+      "$type": "dimension",
+      "$value": {
+        "value": 18,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "18px"
+      }
+    },
+    "fontSize-c85a": {
+      "$value": "2em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "2em"
+      }
+    },
+    "fontSize-d82d": {
+      "$value": "80%",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "80%"
+      }
+    },
+    "fontSize-d507": {
+      "$value": "75%",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "75%"
+      }
+    },
+    "fontSize-c499": {
+      "$value": "1em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1em"
+      }
+    },
+    "fontSize-170867": {
+      "$type": "dimension",
+      "$value": {
+        "value": 10,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "10px"
+      }
+    },
+    "fontSize-17176b": {
+      "$type": "dimension",
+      "$value": {
+        "value": 14,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "14px"
+      }
+    },
+    "fontSize-d146": {
+      "$value": "65%",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "65%"
+      }
+    },
+    "fontSize-1807ab": {
+      "$type": "dimension",
+      "$value": {
+        "value": 36,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "36px"
+      }
+    },
+    "fontSize-17f125": {
+      "$type": "dimension",
+      "$value": {
+        "value": 30,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "30px"
+      }
+    },
+    "fontSize-178bca": {
+      "$type": "dimension",
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "24px"
+      }
+    },
+    "fontSize-170fe9": {
+      "$type": "dimension",
+      "$value": {
+        "value": 12,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "12px"
+      }
+    },
+    "fontSize-171eed": {
+      "$type": "dimension",
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "16px"
+      }
+    },
+    "fontSize-178087": {
+      "$type": "dimension",
+      "$value": {
+        "value": 21,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "21px"
+      }
+    },
+    "fontSize-d8c8": {
+      "$value": "85%",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "85%"
+      }
+    },
+    "fontSize-dbee": {
+      "$value": "90%",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "90%"
+      }
+    },
+    "fontSize-56ba4135": {
+      "$type": "dimension",
+      "$value": {
+        "value": 17.5,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "17.5px"
+      }
+    },
+    "fontSize-170054": {
+      "$value": "100%",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "100%"
+      }
+    },
+    "fontSize-1713aa": {
+      "$type": "dimension",
+      "$value": {
+        "value": 13,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "13px"
+      }
+    },
+    "fontSize-195985": {
+      "$type": "dimension",
+      "$value": {
+        "value": 63,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "63px"
+      }
+    },
+    "fontSize-177cc6": {
+      "$type": "dimension",
+      "$value": {
+        "value": 20,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "20px"
+      }
+    },
+    "fontSize-1707d6": {
+      "$value": "120%",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "120%"
+      }
+    },
+    "fontSize-171319": {
+      "$value": "150%",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "150%"
+      }
+    },
+    "fontSize-170871": {
+      "$value": "125%",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "125%"
+      }
+    },
+    "fontSize-17934c": {
+      "$type": "dimension",
+      "$value": {
+        "value": 26,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "26px"
+      }
+    },
+    "fontSize-6969efa8": {
+      "$value": "var(--font-size-tertiary)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--font-size-tertiary)"
+      }
+    },
+    "fontSize-563d3dc8": {
+      "$value": "1.25em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.25em"
+      }
+    },
+    "fontSize-5c89f8ac": {
+      "$value": "var(--font-size-feedback-form)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--font-size-feedback-form)"
+      }
+    },
+    "fontSize-178f8b": {
+      "$type": "dimension",
+      "$value": {
+        "value": 25,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "25px"
+      }
+    },
+    "fontSize-5640dcff": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.8,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.8rem"
+      }
+    },
+    "fontSize-563ff441": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.6,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.6rem"
+      }
+    },
+    "fontSize-3a6c9174": {
+      "$value": "var(--site-alert-text-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--site-alert-text-font-size)"
+      }
+    },
+    "fontSize-d541644c": {
+      "$value": "var(--font-size-date)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--font-size-date)"
+      }
+    },
+    "fontSize-187328": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "2rem"
+      }
+    },
+    "fontSize-cc1b": {
+      "$value": "3em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "3em"
+      }
+    },
+    "fontSize-cfdc": {
+      "$value": "4em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "4em"
+      }
+    },
+    "fontSize-d39d": {
+      "$value": "5em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "5em"
+      }
+    },
+    "fontSize-d75e": {
+      "$value": "6em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "6em"
+      }
+    },
+    "fontSize-db1f": {
+      "$value": "7em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "7em"
+      }
+    },
+    "fontSize-dee0": {
+      "$value": "8em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "8em"
+      }
+    },
+    "fontSize-e2a1": {
+      "$value": "9em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "9em"
+      }
+    },
+    "fontSize-170707": {
+      "$value": "10em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "10em"
+      }
+    },
+    "fontSize-518f6ff3": {
+      "$value": ".625em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".625em"
+      }
+    },
+    "fontSize-2a20d34": {
+      "$value": ".75em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".75em"
+      }
+    },
+    "fontSize-51ade4d0": {
+      "$value": ".875em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".875em"
+      }
+    },
+    "fontSize-2c83c60": {
+      "$value": "1.5em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.5em"
+      }
+    }
+  },
+  "FontFamily": {
+    "fontFamily-a4680bc3": {
+      "$type": "fontFamily",
+      "$value": ["sans-serif"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "sans-serif"
+      }
+    },
+    "fontFamily-87924d2c": {
+      "$type": "fontFamily",
+      "$value": ["monospace", "monospace"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "monospace, monospace"
+      }
+    },
+    "fontFamily-57f29588": {
+      "$type": "fontFamily",
+      "$value": ["Glyphicons Halflings"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"Glyphicons Halflings\""
+      }
+    },
+    "fontFamily-5092b093": {
+      "$type": "fontFamily",
+      "$value": ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"Helvetica Neue\", Helvetica, Arial, sans-serif"
+      }
+    },
+    "fontFamily-bac3148e": {
+      "$type": "fontFamily",
+      "$value": ["Menlo", "Monaco", "Consolas", "Courier New", "monospace"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "Menlo, Monaco, Consolas, \"Courier New\", monospace"
+      }
+    },
+    "fontFamily-684317d": {
+      "$type": "fontFamily",
+      "$value": ["serif"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "serif"
+      }
+    },
+    "fontFamily-61": {
+      "$type": "fontFamily",
+      "$value": ["a"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "a"
+      }
+    },
+    "fontFamily-f88f3aa8": {
+      "$type": "fontFamily",
+      "$value": ["Glyphicons Halflings"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "'Glyphicons Halflings'"
+      }
+    },
+    "fontFamily-9417051a": {
+      "$type": "fontFamily",
+      "$value": ["Corbel", "sans-serif"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "Corbel, sans-serif"
+      }
+    },
+    "fontFamily-66d1436b": {
+      "$type": "fontFamily",
+      "$value": ["Cantarell", "sans-serif"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"Cantarell\", sans-serif"
+      }
+    },
+    "fontFamily-284125f2": {
+      "$type": "fontFamily",
+      "$value": ["Open Sans", "sans-serif"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"Open Sans\", sans-serif"
+      }
+    },
+    "fontFamily-1e5c09e1": {
+      "$type": "fontFamily",
+      "$value": ["Corbel", "Cantarell", "Open Sans", "sans-serif"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "Corbel, \"Cantarell\", \"Open Sans\", sans-serif"
+      }
+    },
+    "fontFamily-dfcd75bb": {
+      "$type": "fontFamily",
+      "$value": ["Corbel", "Cantarell", "Open Sans", "sans-serif"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"Corbel\", \"Cantarell\", \"Open Sans\", sans-serif"
+      }
+    },
+    "fontFamily-14f27bce": {
+      "$type": "fontFamily",
+      "$value": ["var(--fa-style-family, \"Font Awesome 6 Free\")"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--fa-style-family, \"Font Awesome 6 Free\")"
+      }
+    },
+    "fontFamily-33721540": {
+      "$type": "fontFamily",
+      "$value": ["Font Awesome 6 Free"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"Font Awesome 6 Free\""
+      }
+    },
+    "fontFamily-4b759760": {
+      "$type": "fontFamily",
+      "$value": ["Font Awesome 6 Brands"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"Font Awesome 6 Brands\""
+      }
+    },
+    "fontFamily-b731285f": {
+      "$type": "fontFamily",
+      "$value": ["Font Awesome 5 Brands"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"Font Awesome 5 Brands\""
+      }
+    },
+    "fontFamily-fe8bd9ff": {
+      "$type": "fontFamily",
+      "$value": ["Font Awesome 5 Free"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"Font Awesome 5 Free\""
+      }
+    },
+    "fontFamily-27c88ed0": {
+      "$type": "fontFamily",
+      "$value": ["FontAwesome"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "\"FontAwesome\""
+      }
+    }
+  },
+  "LineHeight": {
+    "lineHeight-30": {
+      "$type": "number",
+      "$value": 0,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0"
+      }
+    },
+    "lineHeight-31": {
+      "$type": "number",
+      "$value": 1,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1"
+      }
+    },
+    "lineHeight-194e42": {
+      "$type": "dimension",
+      "$value": {
+        "value": 60,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "60px"
+      }
+    },
+    "lineHeight-c206bce7": {
+      "$type": "number",
+      "$value": 1.2,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "normal"
+      }
+    },
+    "lineHeight-37a34871": {
+      "$type": "number",
+      "$value": 1.42857143,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.42857143"
+      }
+    },
+    "lineHeight-bdb4": {
+      "$type": "number",
+      "$value": 1.1,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.1"
+      }
+    },
+    "lineHeight-bdb7": {
+      "$type": "number",
+      "$value": 1.4,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.4"
+      }
+    },
+    "lineHeight-180029": {
+      "$type": "dimension",
+      "$value": {
+        "value": 34,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "34px"
+      }
+    },
+    "lineHeight-17f125": {
+      "$type": "dimension",
+      "$value": {
+        "value": 30,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "30px"
+      }
+    },
+    "lineHeight-187c0a": {
+      "$type": "dimension",
+      "$value": {
+        "value": 46,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "46px"
+      }
+    },
+    "lineHeight-bdb8": {
+      "$type": "number",
+      "$value": 1.5,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.5"
+      }
+    },
+    "lineHeight-ef5ae856": {
+      "$type": "number",
+      "$value": 1.3333333,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.3333333"
+      }
+    },
+    "lineHeight-177cc6": {
+      "$type": "dimension",
+      "$value": {
+        "value": 20,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "20px"
+      }
+    },
+    "lineHeight-bdb6": {
+      "$type": "number",
+      "$value": 1.3,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.3"
+      }
+    },
+    "lineHeight-c499": {
+      "$value": "1em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1em"
+      }
+    },
+    "lineHeight-179ace": {
+      "$type": "dimension",
+      "$value": {
+        "value": 28,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "28px"
+      }
+    },
+    "lineHeight-bcc5c5c9": {
+      "$type": "number",
+      "$value": 1.428571429,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.428571429"
+      }
+    },
+    "lineHeight-1a44a4": {
+      "$type": "dimension",
+      "$value": {
+        "value": 6,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "6rem"
+      }
+    },
+    "lineHeight-71849d9f": {
+      "$type": "number",
+      "$value": 1.42857,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.42857"
+      }
+    },
+    "lineHeight-195985": {
+      "$type": "dimension",
+      "$value": {
+        "value": 63,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "63px"
+      }
+    },
+    "lineHeight-15adab": {
+      "$value": ".1em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".1em"
+      }
+    },
+    "lineHeight-f81738c5": {
+      "$value": ".08333em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".08333em"
+      }
+    },
+    "lineHeight-f646a583": {
+      "$value": ".07143em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".07143em"
+      }
+    },
+    "lineHeight-29ede9b": {
+      "$value": ".05em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".05em"
+      }
+    },
+    "lineHeight-f1291368": {
+      "$value": ".04167em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".04167em"
+      }
+    },
+    "lineHeight-ef7261cb": {
+      "$value": ".03125em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".03125em"
+      }
+    },
+    "lineHeight-c85a": {
+      "$value": "2em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "2em"
+      }
+    }
+  },
+  "Gradient": {
+    "gradient-80ede167": {
+      "$value": "-webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent)"
+    },
+    "gradient-3ebd3954": {
+      "$value": "-o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent)"
+    },
+    "gradient-8c1d94c9": {
+      "$value": "linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent)"
+    },
+    "gradient-9be4ca8c": {
+      "$value": "-webkit-linear-gradient(left, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%)"
+    },
+    "gradient-1085c8bf": {
+      "$value": "-o-linear-gradient(left, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%)"
+    },
+    "gradient-11cd5a3a": {
+      "$value": "linear-gradient(to right, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%)"
+    },
+    "gradient-cb864b30": {
+      "$value": "-webkit-linear-gradient(left, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%)"
+    },
+    "gradient-40274963": {
+      "$value": "-o-linear-gradient(left, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%)"
+    },
+    "gradient-416edade": {
+      "$value": "linear-gradient(to right, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%)"
+    },
+    "gradient-a5241633": {
+      "$value": "-webkit-linear-gradient(top, #fff 50%, #eee 100%)"
+    },
+    "gradient-b8ec4ee6": {
+      "$value": "-o-linear-gradient(top, #fff 50%, #eee 100%)"
+    },
+    "gradient-a7a494ec": {
+      "$value": "linear-gradient(to bottom, #fff 50%, #eee 100%)"
+    },
+    "gradient-60264610": {
+      "$value": "-webkit-linear-gradient(top, #eee 50%, #ccc 100%)"
+    },
+    "gradient-73ee7ec3": {
+      "$value": "-o-linear-gradient(top, #eee 50%, #ccc 100%)"
+    },
+    "gradient-62a6c4c9": {
+      "$value": "linear-gradient(to bottom, #eee 50%, #ccc 100%)"
+    },
+    "gradient-557f92f2": {
+      "$value": "-webkit-linear-gradient(top, #fff 0%, #eee 50%)"
+    },
+    "gradient-8b545c65": {
+      "$value": "-o-linear-gradient(top, #fff 0%, #eee 50%)"
+    },
+    "gradient-1526beb": {
+      "$value": "linear-gradient(to bottom, #fff 0%, #eee 50%)"
+    },
+    "gradient-f349cb73": {
+      "$value": "-webkit-linear-gradient(top, #eee 50%, #fff 100%)"
+    },
+    "gradient-7120426": {
+      "$value": "-o-linear-gradient(top, #eee 50%, #fff 100%)"
+    },
+    "gradient-f5ca4a2c": {
+      "$value": "linear-gradient(to bottom, #eee 50%, #fff 100%)"
+    },
+    "gradient-733f87ff": {
+      "$value": "-webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent)"
+    },
+    "gradient-d7088cf2": {
+      "$value": "-o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent)"
+    },
+    "gradient-373b815d": {
+      "$value": "linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent)"
+    },
+    "gradient-b0893ad1": {
+      "$value": "-webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%)"
+    },
+    "gradient-eb76abbe": {
+      "$value": "-o-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%)"
+    },
+    "gradient-d2f16463": {
+      "$value": "linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%)"
+    },
+    "gradient-1f4a3e8f": {
+      "$value": "-webkit-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%)"
+    },
+    "gradient-5a37af7c": {
+      "$value": "-o-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%)"
+    },
+    "gradient-41b26821": {
+      "$value": "linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%)"
+    }
+  },
+  "BoxShadow": {
+    "boxShadow-1ef246f9": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .25)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": -1,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": true
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "inset 0 -1px 0 rgba(0, 0, 0, .25)"
+      }
+    },
+    "boxShadow-df910f58": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .075)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": true
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "inset 0 1px 1px rgba(0, 0, 0, .075)"
+      }
+    },
+    "boxShadow-7a47e93f": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "rgba(0, 0, 0, .075)",
+          "offsetX": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "$type": "dimension",
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "$type": "dimension",
+            "value": 1,
+            "unit": "px"
+          },
+          "spread": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": true
+        },
+        {
+          "color": "rgba(102, 175, 233, .6)",
+          "offsetX": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "$type": "dimension",
+            "value": 8,
+            "unit": "px"
+          },
+          "spread": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)"
+      }
+    },
+    "boxShadow-65726da7": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "rgba(0, 0, 0, .075)",
+          "offsetX": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "$type": "dimension",
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "$type": "dimension",
+            "value": 1,
+            "unit": "px"
+          },
+          "spread": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": true
+        },
+        {
+          "color": "#67b168",
+          "offsetX": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "$type": "dimension",
+            "value": 6,
+            "unit": "px"
+          },
+          "spread": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168"
+      }
+    },
+    "boxShadow-b1d968de": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "rgba(0, 0, 0, .075)",
+          "offsetX": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "$type": "dimension",
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "$type": "dimension",
+            "value": 1,
+            "unit": "px"
+          },
+          "spread": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": true
+        },
+        {
+          "color": "#c0a16b",
+          "offsetX": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "$type": "dimension",
+            "value": 6,
+            "unit": "px"
+          },
+          "spread": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #c0a16b"
+      }
+    },
+    "boxShadow-b4b1aeae": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "rgba(0, 0, 0, .075)",
+          "offsetX": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "$type": "dimension",
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "$type": "dimension",
+            "value": 1,
+            "unit": "px"
+          },
+          "spread": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": true
+        },
+        {
+          "color": "#ce8483",
+          "offsetX": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "$type": "dimension",
+            "value": 6,
+            "unit": "px"
+          },
+          "spread": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483"
+      }
+    },
+    "boxShadow-7af9f778": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .125)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 3,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 5,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": true
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "inset 0 3px 5px rgba(0, 0, 0, .125)"
+      }
+    },
+    "boxShadow-97c99d93": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .175)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 6,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 12,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0 6px 12px rgba(0, 0, 0, .175)"
+      }
+    },
+    "boxShadow-83387faa": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(255, 255, 255, .1)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": true
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "inset 0 1px 0 rgba(255, 255, 255, .1)"
+      }
+    },
+    "boxShadow-e7d0c04f": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "rgba(255, 255, 255, .1)",
+          "offsetX": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "$type": "dimension",
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": true
+        },
+        {
+          "color": "rgba(255, 255, 255, .1)",
+          "offsetX": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "$type": "dimension",
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": {
+            "$type": "dimension",
+            "value": 0,
+            "unit": "px"
+          },
+          "inset": false
+        }
+      ],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1)"
+      }
+    },
+    "boxShadow-9b9d5f56": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .1)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 2,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": true
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "inset 0 1px 2px rgba(0, 0, 0, .1)"
+      }
+    },
+    "boxShadow-1ef24338": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .15)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": -1,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": true
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "inset 0 -1px 0 rgba(0, 0, 0, .15)"
+      }
+    },
+    "boxShadow-47108e84": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .05)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0 1px 1px rgba(0, 0, 0, .05)"
+      }
+    },
+    "boxShadow-5188cea7": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .05)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": true
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "inset 0 1px 1px rgba(0, 0, 0, .05)"
+      }
+    },
+    "boxShadow-5eef00de": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .5)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 3,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 9,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0 3px 9px rgba(0, 0, 0, .5)"
+      }
+    },
+    "boxShadow-b2e2d891": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .5)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 5,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 15,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0 5px 15px rgba(0, 0, 0, .5)"
+      }
+    },
+    "boxShadow-73e60caf": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .2)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 5,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 10,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0 5px 10px rgba(0, 0, 0, .2)"
+      }
+    },
+    "boxShadow-e2c6a688": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .05)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": -1,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "-1px 1px 1px rgba(0, 0, 0, .05)"
+      }
+    },
+    "boxShadow-35db731b": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, .05)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 1,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1px 1px 1px rgba(0, 0, 0, .05)"
+      }
+    },
+    "boxShadow-768e8685": {
+      "$type": "shadow",
+      "$value": {
+        "color": "#ddd",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 0,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 25,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": 10,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0 0 25px 10px #ddd"
+      }
+    }
+  },
+  "Radius": {
+    "radius-30": {
+      "$value": "0"
+    },
+    "radius-dc7f": {
+      "$value": "7px"
+    },
+    "radius-d13c": {
+      "$value": "4px"
+    },
+    "radius-ccea": {
+      "$value": "50%"
+    },
+    "radius-17fec9": {
+      "$value": "1rem"
+    },
+    "radius-d8be": {
+      "$value": "6px"
+    },
+    "radius-cd7b": {
+      "$value": "3px"
+    },
+    "radius-1f5c8878": {
+      "$value": "4px 4px 0 0"
+    },
+    "radius-c5f9": {
+      "$value": "1px"
+    },
+    "radius-171b2c": {
+      "$value": "15px"
+    },
+    "radius-29fc759": {
+      "$value": ".25em"
+    },
+    "radius-170867": {
+      "$value": "10px"
+    },
+    "radius-e927767a": {
+      "$value": "5px 5px 0 0"
+    },
+    "radius-c1974478": {
+      "$value": "0 0 4px 4px"
+    },
+    "radius-f67d837a": {
+      "$value": "0 0 5px 5px"
+    },
+    "radius-4d879c68": {
+      "$value": "0 4px 4px"
+    },
+    "radius-bf496678": {
+      "$value": "4px 0 0 4px"
+    },
+    "radius-a122678": {
+      "$value": "0 4px 4px 0"
+    },
+    "radius-814629e0": {
+      "$value": "1rem 1rem 0 0"
+    },
+    "radius-60e551e0": {
+      "$value": "0 0 1rem 1rem"
+    },
+    "radius-a7fb3de0": {
+      "$value": "0 1rem 1rem 0"
+    },
+    "radius-2e47a319": {
+      "$value": "0 1rem 1rem 1rem"
+    },
+    "radius-36e843a8": {
+      "$value": "var(--fa-border-radius, .1em)"
+    },
+    "radius-15adab": {
+      "$value": ".1em"
+    }
+  },
+  "Duration": {
+    "duration-1707e1": {
+      "$type": "duration",
+      "$value": {
+        "value": 1200,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1.2s"
+      }
+    },
+    "duration-c1b2": {
+      "$type": "duration",
+      "$value": {
+        "value": 200,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".2s"
+      }
+    },
+    "duration-30": {
+      "$type": "duration",
+      "$value": {
+        "value": 0,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0s"
+      }
+    },
+    "duration-ccf5": {
+      "$type": "duration",
+      "$value": {
+        "value": 500,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".5s"
+      }
+    },
+    "duration-c934": {
+      "$type": "duration",
+      "$value": {
+        "value": 400,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0.4s"
+      }
+    },
+    "duration-be8c": {
+      "$type": "duration",
+      "$value": {
+        "value": 150,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "150ms"
+      }
+    },
+    "duration-c60e": {
+      "$type": "duration",
+      "$value": {
+        "value": 350,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".35s"
+      }
+    },
+    "duration-d0b6": {
+      "$type": "duration",
+      "$value": {
+        "value": 600,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".6s"
+      }
+    },
+    "duration-1774be": {
+      "$type": "duration",
+      "$value": {
+        "value": 2000,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "2s"
+      }
+    },
+    "duration-c573": {
+      "$type": "duration",
+      "$value": {
+        "value": 300,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".3s"
+      }
+    },
+    "duration-17005f": {
+      "$type": "duration",
+      "$value": {
+        "value": 1000,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1s"
+      }
+    },
+    "duration-452f2b3b": {
+      "$value": "var(--fa-animation-duration, 2s)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--fa-animation-duration, 2s)"
+      }
+    },
+    "duration-31": {
+      "$type": "duration",
+      "$value": {
+        "value": 1,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1ms"
+      }
+    }
+  },
+  "Easing": {
+    "easing-ea6c7565": {
+      "$value": [0.42, 0, 0.58, 1],
+      "$type": "cubicBezier",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "ease-in-out"
+      }
+    },
+    "easing-be468f25": {
+      "$value": [0, 0, 1, 1],
+      "$type": "cubicBezier",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "linear"
+      }
+    },
+    "easing-2f63ee": {
+      "$value": [0.25, 0.1, 0.25, 1],
+      "$type": "cubicBezier",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "ease"
+      }
+    },
+    "easing-d0f5e0ef": {
+      "$value": [0, 0, 0.58, 1],
+      "$type": "cubicBezier",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "ease-out"
+      }
+    },
+    "easing-3586487c": {
+      "$value": "var(--fa-animation-timing, ease-in-out)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--fa-animation-timing, ease-in-out)"
+      }
+    },
+    "easing-92c095b5": {
+      "$value": "var(--fa-animation-timing, cubic-bezier(.28, .84, .42, 1))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--fa-animation-timing, cubic-bezier(.28, .84, .42, 1))"
+      }
+    },
+    "easing-3d758ddc": {
+      "$value": [0.28, 0.84, 0.42, 1],
+      "$type": "cubicBezier",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "cubic-bezier(.28, .84, .42, 1)"
+      }
+    },
+    "easing-4f7fc79": {
+      "$value": "var(--fa-animation-timing, cubic-bezier(.4, 0, .6, 1))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--fa-animation-timing, cubic-bezier(.4, 0, .6, 1))"
+      }
+    },
+    "easing-46eaf298": {
+      "$value": [0.4, 0, 0.6, 1],
+      "$type": "cubicBezier",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "cubic-bezier(.4, 0, .6, 1)"
+      }
+    },
+    "easing-b176f58c": {
+      "$value": "var(--fa-animation-timing, linear)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--fa-animation-timing, linear)"
+      }
+    },
+    "easing-eba533bf": {
+      "$value": "var(--fa-animation-timing, steps(8))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--fa-animation-timing, steps(8))"
+      }
+    },
+    "easing-5532a492": {
+      "$value": "steps(8)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "steps(8)"
+      }
+    }
+  }
+}

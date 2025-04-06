@@ -1,9 +1,13 @@
+import type { ColorOption, ExampleColorPresetInput } from './color-preset-input.js';
 import { defineCustomElements } from '@utrecht/web-component-library-stencil/loader/index.js';
 import { toCssName, styleAttribute } from './utils.js';
 import { ComponentVariant, VariantOptionGroup, VariantsMap } from './types.js';
 import { variants } from './design-token-options.js';
 import './story-canvas.js';
 import './basis-theme-stylesheet.js';
+import './example-design-token-value.js';
+import './example-border-width.js';
+import './color-preset-input.js';
 import '@utrecht/page-layout-css';
 import '@utrecht/body-css';
 import '@utrecht/root-css';
@@ -175,12 +179,21 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </utrecht-page-header>
   <utrecht-page-body>
     <form class="scroll-snap-container">
+    <div>
+      <p>Website for preset colors:</p>
+      <select id="url-input">
+        <option></option>
+        <option value="rijksoverheid.nl">rijksoverheid.nl</option>
+        <option value="purmerend.nl">purmerend.nl</option>
+        <option value="rotterdam.nl">rotterdam.nl</option>
+      </select>
+    </div>
     <utrecht-heading-2>Colors</utrecht-heading-2>
     <example-story>
       <utrecht-heading-3>Primary color</utrecht-heading-3>
       <div>
         ${renderColorScalePicker('basis.color.primary', 'basis.color.primary-inverse', '#FF0000')}
-        ${renderColorSamplePicker('basis.color.primary', 'basis.color.primary-inverse', radixColors)}
+        <example-color-preset-input name="basis.color.primary" inverse="basis.color.primary-inverse"></example-color-preset-input>
         ${renderColorScaleExample('basis.color.primary')}
         ${renderColorScaleExample('basis.color.primary-inverse')}
         <example-story-canvas>
@@ -191,6 +204,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <example-story>
       <utrecht-heading-3>Secondary color</utrecht-heading-3>
       ${renderColorScalePicker('basis.color.secondary', 'basis.color.secondary-inverse', '#00FF00')}
+      <example-color-preset-input name="basis.color.secondary" inverse="basis.color.secondary-inverse"></example-color-preset-input>
       <example-story-canvas>
         <utrecht-button type="button" appearance="secondary-action-button">Secondary action</utrecht-button>
       </example-story-canvas>
@@ -206,6 +220,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       </example-story-canvas>
       <div>
         ${renderColorScalePicker('basis.color.text', 'basis.color.text-inverse', '#000000')}
+        <example-color-preset-input name="basis.color.text" inverse="basis.color.text-inverse"></example-color-preset-input>
         ${renderColorScaleExample('basis.color.text')}
         ${renderColorScaleExample('basis.color.text-inverse')}
       </div>
@@ -460,6 +475,39 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
       </div>
     </example-story>
 
+    <example-story>
+      <utrecht-heading-2>Border width</utrecht-heading-2>
+      ${renderGroup('border-width-scale')}
+      <table>
+        <tbody>
+          <tr>
+            <th>Small</th>
+            <td><example-border-width-sample orientation="inline" style="--example-border-width: var(--basis-border-width-sm)"></example-border-width-sample></td>
+            <td><example-border-width-sample orientation="block" style="--example-border-width: var(--basis-border-width-sm)"></example-border-width-sample></td>
+            <td><example-design-token-value name="basis.border-width.sm"></example-design-token-value></td>
+          </tr>
+          <tr>
+            <th>Medium</th>
+            <td><example-border-width-sample orientation="inline" style="--example-border-width: var(--basis-border-width-md)"></example-border-width-sample></td>
+            <td><example-border-width-sample orientation="block" style="--example-border-width: var(--basis-border-width-md)"></example-border-width-sample></td>
+            <td><example-design-token-value name="basis.border-width.md"></example-design-token-value></td>
+          </tr>
+          <tr>
+            <th>Large</th>
+            <td><example-border-width-sample orientation="inline" style="--example-border-width: var(--basis-border-width-lg)"></example-border-width-sample></td>
+            <td><example-border-width-sample orientation="block" style="--example-border-width: var(--basis-border-width-lg)"></example-border-width-sample></td>
+            <td><example-design-token-value name="basis.border-width.lg"></example-design-token-value></td>
+          </tr>
+          <tr>
+            <th>Extra large</th>
+            <td><example-border-width-sample orientation="inline" style="--example-border-width: var(--basis-border-width-xl)"></example-border-width-sample></td>
+            <td><example-border-width-sample orientation="block" style="--example-border-width: var(--basis-border-width-xl)"></example-border-width-sample></td>
+            <td><example-design-token-value name="basis.border-width.xl"></example-design-token-value></td>
+          </tr>
+        </body>
+      </table>
+    </example-story>
+
     </form>
   </utrecht-page-body>
 
@@ -478,8 +526,58 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
     window.themeBuilder.handleColorInput(el, name, inverseName);
   }
 });
+
+interface DesignToken {
+  $value: string;
+}
+interface DesignTokenMap {
+  [index: string]: DesignToken;
+}
+
+interface ProjectWallaceJSON {
+  Color: DesignTokenMap;
+  FontSizes: DesignTokenMap;
+  FontFamily: DesignTokenMap;
+  LineHeight: DesignTokenMap;
+  Gradient: DesignTokenMap;
+  BoxShadow: DesignTokenMap;
+  Radius: DesignTokenMap;
+  Duration: DesignTokenMap;
+  Easing: DesignTokenMap;
+}
+
+const domainInput = document.getElementById('url-input');
+if (domainInput) {
+  domainInput.addEventListener('input', (evt) => {
+    if (evt.currentTarget instanceof HTMLSelectElement) {
+      const url = evt.currentTarget.value.replace(/[./]+/g, '.');
+      fetch(`/design-tokens/${url}.json`)
+        .then((response) => response.json())
+        .then((json: ProjectWallaceJSON) => {
+          const colors = Object.entries(json.Color).map(([name, { $value }]) => ({
+            name,
+            color: $value,
+          }));
+
+          setPresetColors(colors);
+        });
+    }
+  });
+}
+
+const setPresetColors = (colors: ColorOption[]) => {
+  Array.from(document.querySelectorAll<ExampleColorPresetInput>('example-color-preset-input')).forEach((el) => {
+    el.colors = colors;
+  });
+};
+
+setPresetColors(radixColors);
+
+window.setPresetColors = setPresetColors;
+
 declare global {
   interface Window {
     themeBuilder2: { [index: string]: any };
+    setPresetColors: typeof setPresetColors;
   }
 }

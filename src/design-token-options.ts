@@ -783,4 +783,50 @@ export const variants: VariantOptionGroup[] = [
       },
     ],
   },
+  {
+    id: 'border-width-scale',
+    variants: [
+      {
+        id: 'default-rem',
+        flatTokens: {
+          'basis.border-width.sm': '0.0625rem',
+          'basis.border-width.md': '0.125rem',
+          'basis.border-width.lg': '0.1875rem',
+          'basis.border-width.xl': '0.25rem',
+        },
+        recommended: true,
+        name: 'Default (root font size relative)',
+      },
+      {
+        id: 'default-px',
+        flatTokens: {
+          'basis.border-width.sm': '1px',
+          'basis.border-width.md': '2px',
+          'basis.border-width.lg': '3px',
+          'basis.border-width.xl': '4px',
+        },
+        name: 'Default (pixels)',
+      },
+      {
+        id: 'heavy',
+        flatTokens: {
+          'basis.border-width.sm': '2px',
+          'basis.border-width.md': '3px',
+          'basis.border-width.lg': '5px',
+          'basis.border-width.xl': '8px',
+        },
+        name: 'Heavy (pixels)',
+      },
+      {
+        id: 'heavy-rem',
+        flatTokens: {
+          'basis.border-width.sm': '0.125rem',
+          'basis.border-width.md': '0.1875rem',
+          'basis.border-width.lg': '0.3125rem',
+          'basis.border-width.xl': '0.5rem',
+        },
+        name: 'Heavy (root font size relative)',
+      },
+    ],
+  },
 ];
