@@ -47,6 +47,18 @@ const primaryButton6 = {
   'utrecht.button.primary-action.border-color': '{basis.color.transparent}',
 };
 
+const primaryButton7 = {
+  'utrecht.button.primary-action.background-color': '{basis.color.primary.fill-1}',
+  'utrecht.button.primary-action.border-color': '{basis.color.transparent}',
+  'utrecht.button.primary-action.color': '{basis.color.primary.bg-1}',
+  'utrecht.button.primary-action.hover.background-color': '{basis.color.primary.fill-2}',
+  'utrecht.button.primary-action.hover.border-color': '{basis.color.transparent}',
+  'utrecht.button.primary-action.hover.color': '{basis.color.primary.bg-1}',
+  'utrecht.button.primary-action.active.background-color': '{basis.color.primary.fill-2}',
+  'utrecht.button.primary-action.active.border-color': '{basis.color.transparent}',
+  'utrecht.button.primary-action.active.color': '{basis.color.primary.bg-1}',
+};
+
 // const updateKeys = <T>(object: { [index: string]: T }, callback: (arg: string) => string) =>
 // Object.fromEntries(Object.entries(object).map(([key, value]) => [callback(key), value]));
 
@@ -87,10 +99,6 @@ const materialTargetSize = {
   'basis.pointer-target.min-inline-size': '48px',
 };
 
-const formControlPaddingBlockZero = {
-  'basis.form-control.padding-block-start': '0',
-  'basis.form-control.padding-block-end': '0',
-};
 const formControlPaddingBlockSmall = {
   'basis.form-control.padding-block-start': '{basis.space.block.sm}',
   'basis.form-control.padding-block-end': '{basis.space.block.sm}',
@@ -104,10 +112,6 @@ const formControlPaddingBlockLarge = {
   'basis.form-control.padding-block-end': '{basis.space.block.lg}',
 };
 
-const formControlPaddingInlineZero = {
-  'basis.form-control.padding-inline-start': '0',
-  'basis.form-control.padding-inline-end': '0',
-};
 const formControlPaddingInlineSmall = {
   'basis.form-control.padding-inline-start': '{basis.space.inline.sm}',
   'basis.form-control.padding-inline-end': '{basis.space.inline.sm}',
@@ -200,6 +204,11 @@ export const variants: VariantOptionGroup[] = [
         id: 'primary-borderless',
         flatTokens: primaryButton2,
         name: 'Plain without border',
+      },
+      {
+        id: 'primary-fill',
+        flatTokens: primaryButton7,
+        name: 'Plain with fill',
       },
       {
         id: 'primary-inverse',
@@ -342,11 +351,6 @@ export const variants: VariantOptionGroup[] = [
     id: 'form-control-padding-block',
     variants: [
       {
-        id: 'zero',
-        flatTokens: formControlPaddingBlockZero,
-        name: 'No padding',
-      },
-      {
         id: 'sm',
         flatTokens: formControlPaddingBlockSmall,
         name: 'Small',
@@ -367,11 +371,6 @@ export const variants: VariantOptionGroup[] = [
   {
     id: 'form-control-padding-inline',
     variants: [
-      {
-        id: 'zero',
-        flatTokens: formControlPaddingInlineZero,
-        name: 'No padding',
-      },
       {
         id: 'sm',
         flatTokens: formControlPaddingInlineSmall,
@@ -609,6 +608,40 @@ export const variants: VariantOptionGroup[] = [
     id: 'space-block',
     variants: [
       {
+        id: 'xs',
+        flatTokens: {
+          'basis.space.block.6xl': `${160 * 0.5}px`,
+          'basis.space.block.5xl': `${64 * 0.5}px`,
+          'basis.space.block.4xl': `${32 * 0.5}px`,
+          'basis.space.block.3xl': `${24 * 0.5}px`,
+          'basis.space.block.2xl': `${20 * 0.5}px`,
+          'basis.space.block.xl': `${16 * 0.5}px`,
+          'basis.space.block.lg': `${12 * 0.5}px`,
+          'basis.space.block.md': `${8 * 0.5}px`,
+          'basis.space.block.sm': `${4 * 0.5}px`,
+          'basis.space.block.xs': '2px',
+          'basis.space.block.2xs': '1px',
+        },
+        name: 'Small (50%)',
+      },
+      {
+        id: 'sm',
+        flatTokens: {
+          'basis.space.block.6xl': `${160 * 0.75}px`,
+          'basis.space.block.5xl': `${64 * 0.75}px`,
+          'basis.space.block.4xl': `${32 * 0.75}px`,
+          'basis.space.block.3xl': `${24 * 0.75}px`,
+          'basis.space.block.2xl': `${20 * 0.75}px`,
+          'basis.space.block.xl': `${16 * 0.75}px`,
+          'basis.space.block.lg': `${12 * 0.75}px`,
+          'basis.space.block.md': `${8 * 0.75}px`,
+          'basis.space.block.sm': `${4 * 0.75}px`,
+          'basis.space.block.xs': '2px',
+          'basis.space.block.2xs': '1px',
+        },
+        name: 'Compact (75%)',
+      },
+      {
         id: 'md',
         flatTokens: {
           'basis.space.block.6xl': '160px',
@@ -627,38 +660,21 @@ export const variants: VariantOptionGroup[] = [
         recommended: true,
       },
       {
-        id: 'xs',
+        id: 'lg',
         flatTokens: {
-          'basis.space.block.6xl': `${160 * 0.75}px`,
-          'basis.space.block.5xl': `${64 * 0.75}px`,
-          'basis.space.block.4xl': `${32 * 0.75}px`,
-          'basis.space.block.3xl': `${24 * 0.75}px`,
-          'basis.space.block.2xl': `${20 * 0.75}px`,
-          'basis.space.block.xl': `${16 * 0.75}px`,
-          'basis.space.block.lg': `${12 * 0.75}px`,
-          'basis.space.block.md': `${8 * 0.75}px`,
-          'basis.space.block.sm': `${4 * 0.75}px`,
+          'basis.space.block.6xl': `${160 * 1.25}px`,
+          'basis.space.block.5xl': `${64 * 1.25}px`,
+          'basis.space.block.4xl': `${32 * 1.25}px`,
+          'basis.space.block.3xl': `${24 * 1.25}px`,
+          'basis.space.block.2xl': `${20 * 1.25}px`,
+          'basis.space.block.xl': `${16 * 1.25}px`,
+          'basis.space.block.lg': `${12 * 1.25}px`,
+          'basis.space.block.md': `${8 * 1.25}px`,
+          'basis.space.block.sm': `${4 * 1.25}px`,
           'basis.space.block.xs': '2px',
           'basis.space.block.2xs': '1px',
         },
-        name: 'Compact (75%)',
-      },
-      {
-        id: 'sm',
-        flatTokens: {
-          'basis.space.block.6xl': `${160 * 0.5}px`,
-          'basis.space.block.5xl': `${64 * 0.5}px`,
-          'basis.space.block.4xl': `${32 * 0.5}px`,
-          'basis.space.block.3xl': `${24 * 0.5}px`,
-          'basis.space.block.2xl': `${20 * 0.5}px`,
-          'basis.space.block.xl': `${16 * 0.5}px`,
-          'basis.space.block.lg': `${12 * 0.5}px`,
-          'basis.space.block.md': `${8 * 0.5}px`,
-          'basis.space.block.sm': `${4 * 0.5}px`,
-          'basis.space.block.xs': '2px',
-          'basis.space.block.2xs': '1px',
-        },
-        name: 'Small (50%)',
+        name: 'Large (125%)',
       },
     ],
   },
@@ -666,22 +682,21 @@ export const variants: VariantOptionGroup[] = [
     id: 'space-inline',
     variants: [
       {
-        id: 'md',
+        id: 'xs',
         flatTokens: {
-          'basis.space.inline.6xl': '160px',
-          'basis.space.inline.5xl': '64px',
-          'basis.space.inline.4xl': '32px',
-          'basis.space.inline.3xl': '24px',
-          'basis.space.inline.2xl': '20px',
-          'basis.space.inline.xl': '16px',
-          'basis.space.inline.lg': '12px',
-          'basis.space.inline.md': '8px',
-          'basis.space.inline.sm': '4px',
+          'basis.space.inline.6xl': `${160 * 0.5}px`,
+          'basis.space.inline.5xl': `${64 * 0.5}px`,
+          'basis.space.inline.4xl': `${32 * 0.5}px`,
+          'basis.space.inline.3xl': `${24 * 0.5}px`,
+          'basis.space.inline.2xl': `${20 * 0.5}px`,
+          'basis.space.inline.xl': `${16 * 0.5}px`,
+          'basis.space.inline.lg': `${12 * 0.5}px`,
+          'basis.space.inline.md': `${8 * 0.5}px`,
+          'basis.space.inline.sm': `${4 * 0.5}px`,
           'basis.space.inline.xs': '2px',
           'basis.space.inline.2xs': '1px',
         },
-        name: 'Default',
-        recommended: true,
+        name: 'Small (50%)',
       },
       {
         id: 'sm',
@@ -701,21 +716,39 @@ export const variants: VariantOptionGroup[] = [
         name: 'Compact (75%)',
       },
       {
-        id: 'xs',
+        id: 'md',
         flatTokens: {
-          'basis.space.inline.6xl': `${160 * 0.5}px`,
-          'basis.space.inline.5xl': `${64 * 0.5}px`,
-          'basis.space.inline.4xl': `${32 * 0.5}px`,
-          'basis.space.inline.3xl': `${24 * 0.5}px`,
-          'basis.space.inline.2xl': `${20 * 0.5}px`,
-          'basis.space.inline.xl': `${16 * 0.5}px`,
-          'basis.space.inline.lg': `${12 * 0.5}px`,
-          'basis.space.inline.md': `${8 * 0.5}px`,
-          'basis.space.inline.sm': `${4 * 0.5}px`,
+          'basis.space.inline.6xl': '160px',
+          'basis.space.inline.5xl': '64px',
+          'basis.space.inline.4xl': '32px',
+          'basis.space.inline.3xl': '24px',
+          'basis.space.inline.2xl': '20px',
+          'basis.space.inline.xl': '16px',
+          'basis.space.inline.lg': '12px',
+          'basis.space.inline.md': '8px',
+          'basis.space.inline.sm': '4px',
           'basis.space.inline.xs': '2px',
           'basis.space.inline.2xs': '1px',
         },
-        name: 'Small (50%)',
+        name: 'Default',
+        recommended: true,
+      },
+      {
+        id: 'lg',
+        flatTokens: {
+          'basis.space.inline.6xl': `${160 * 1.25}px`,
+          'basis.space.inline.5xl': `${64 * 1.25}px`,
+          'basis.space.inline.4xl': `${32 * 1.25}px`,
+          'basis.space.inline.3xl': `${24 * 1.25}px`,
+          'basis.space.inline.2xl': `${20 * 1.25}px`,
+          'basis.space.inline.xl': `${16 * 1.25}px`,
+          'basis.space.inline.lg': `${12 * 1.25}px`,
+          'basis.space.inline.md': `${8 * 1.25}px`,
+          'basis.space.inline.sm': `${4 * 1.25}px`,
+          'basis.space.inline.xs': '2px',
+          'basis.space.inline.2xs': '1px',
+        },
+        name: 'Large (125%)',
       },
     ],
   },
@@ -826,6 +859,50 @@ export const variants: VariantOptionGroup[] = [
           'basis.border-width.xl': '0.5rem',
         },
         name: 'Heavy (root font size relative)',
+      },
+    ],
+  },
+  {
+    id: 'font-size-scale',
+    variants: [
+      {
+        id: 'default',
+        flatTokens: {
+          'basis.typography.font-size.sm': '0.875rem',
+          'basis.typography.font-size.md': '1rem',
+          'basis.typography.font-size.lg': '1.25rem',
+          'basis.typography.font-size.xl': '1.5rem',
+          'basis.typography.font-size.2xl': '2rem',
+          'basis.typography.font-size.3xl': '2.5rem',
+          'basis.typography.font-size.4xl': '3rem',
+        },
+        name: 'Default',
+      },
+      {
+        id: 'compact-sm',
+        flatTokens: {
+          'basis.typography.font-size.sm': `${14.6 / 16}rem`,
+          'basis.typography.font-size.md': `${16 / 16}rem`,
+          'basis.typography.font-size.lg': `${17.6 / 16}rem`,
+          'basis.typography.font-size.xl': `${19.4 / 16}rem`,
+          'basis.typography.font-size.2xl': `${21.3 / 16}rem`,
+          'basis.typography.font-size.3xl': `${23.4 / 16}rem`,
+          'basis.typography.font-size.4xl': `${25.8 / 16}rem`,
+        },
+        name: 'Compact and small',
+      },
+      {
+        id: 'compact-lg',
+        flatTokens: {
+          'basis.typography.font-size.sm': `${14.2 / 16}rem`,
+          'basis.typography.font-size.md': `${16 / 16}rem`,
+          'basis.typography.font-size.lg': `${18 / 16}rem`,
+          'basis.typography.font-size.xl': `${20.3 / 16}rem`,
+          'basis.typography.font-size.2xl': `${22.8 / 16}rem`,
+          'basis.typography.font-size.3xl': `${25.6 / 16}rem`,
+          'basis.typography.font-size.4xl': `${28.8 / 16}rem`,
+        },
+        name: 'Compact and large',
       },
     ],
   },

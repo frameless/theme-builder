@@ -31,3 +31,10 @@ utrecht-page-header,
 .utrecht-page-header {
   scroll-snap-align: start;
 }
+
+.example-truncated-line-of-text {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre;
+}

@@ -1,4 +1,5 @@
 import { variants } from './design-token-options';
+import { ExampleDesignTokenValue } from './example-design-token-value';
 import { generateRadixColors } from './generateRadixColors';
 import { VariantsMap } from './types';
 import { cssVariablesToString, setCssVariables, toCssVariables } from './utils';
@@ -19,7 +20,7 @@ class BasisThemeStylesheet extends HTMLElement {
   parameters: URLSearchParams;
   variantsMap: VariantsMap;
   _eventHandler: (evt: Event) => void;
-  _designTokenValueListeners: Set<Element>;
+  _designTokenValueListeners: Set<ExampleDesignTokenValue>;
   _flatTokensCache: FlatTokens;
   constructor() {
     super();
@@ -94,14 +95,16 @@ class BasisThemeStylesheet extends HTMLElement {
 
   handleRequestDesignTokenValue(evt: Event) {
     if (evt.type === 'subscribeDesignTokenValue' && evt.target instanceof Element) {
-      this._designTokenValueListeners.add(evt.target);
       // Set initial value
-      const tokenName = !!evt.target && (evt.target as unknown).name;
-      if (typeof tokenName === 'string' && this._flatTokensCache.hasOwnProperty(tokenName)) {
-        evt.target.value = this._flatTokensCache[tokenName];
+      if (evt.target instanceof ExampleDesignTokenValue) {
+        this._designTokenValueListeners.add(evt.target);
+        const tokenName = evt.target.name;
+        if (typeof tokenName === 'string' && this._flatTokensCache.hasOwnProperty(tokenName)) {
+          evt.target.value = this._flatTokensCache[tokenName];
+        }
       }
     }
-    if (evt.type === 'unsubscribeDesignTokenValue' && evt.target instanceof Element) {
+    if (evt.type === 'unsubscribeDesignTokenValue' && evt.target instanceof ExampleDesignTokenValue) {
       this._designTokenValueListeners.delete(evt.target);
     }
   }

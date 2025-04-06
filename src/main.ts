@@ -126,14 +126,6 @@ const renderFontFamilyVariants = (variants: FontFamilyVariant[], tokenName: stri
 const renderColorScalePicker = (name: string, inverseName: string, defaultValue: string) =>
   `<input type="color" oninput='themeBuilder.handleColorInput(event.currentTarget, ${JSON.stringify(name)}, ${JSON.stringify(inverseName)})' value="${defaultValue}">`;
 
-const renderColorSamplePicker = (name: string, inverseName: string, colors: { name: string; color: string }[]) =>
-  `<details><summary>Show preset colors</summary><utrecht-button-group>${colors
-    .map(
-      ({ name: colorName, color }) =>
-        `<utrecht-button onclick='themeBuilder.handleColorInput(event.currentTarget, ${JSON.stringify(name)}, ${JSON.stringify(inverseName)})' value="${color}"><utrecht-color-sample color="${color}"></utrecht-color-sample> ${colorName}</utrecht-button>`,
-    )
-    .join('\n')}</utrecht-button-group></details>`;
-
 const radixColors = [
   { name: 'voilet', color: '#5315f6' },
   { name: 'Gray', color: '#3f5676' },
@@ -476,9 +468,15 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
     </example-story>
 
     <example-story>
-      <utrecht-heading-2>Border width</utrecht-heading-2>
+      <utrecht-heading-2>Border width scale</utrecht-heading-2>
       ${renderGroup('border-width-scale')}
       <table>
+        <thead>
+          <th>Border size</th>
+          <th>Example 1</th>
+          <th>Example 2</th>
+          <th>Value</th>
+        </thead>
         <tbody>
           <tr>
             <th>Small</th>
@@ -503,6 +501,53 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
             <td><example-border-width-sample orientation="inline" style="--example-border-width: var(--basis-border-width-xl)"></example-border-width-sample></td>
             <td><example-border-width-sample orientation="block" style="--example-border-width: var(--basis-border-width-xl)"></example-border-width-sample></td>
             <td><example-design-token-value name="basis.border-width.xl"></example-design-token-value></td>
+          </tr>
+        </body>
+      </table>
+    <example-story>
+      <utrecht-heading-2>Font size scale</utrecht-heading-2>
+      ${renderGroup('font-size-scale')}
+      <table>
+        <thead>
+          <th>Font size</th>
+          <th>Value</th>
+          <th>Example</th>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Small</th>
+            <td><example-design-token-value name="basis.typography.font-size.sm"></example-design-token-value></td>
+            <td><span class="example-truncated-line-of-text" style="font-size: var(--basis-typography-font-size-sm);">The Quick Brown Fox Jumps Over The Lazy Dog</span></td>
+          </tr>
+          <tr>
+            <th>Medium</th>
+            <td><example-design-token-value name="basis.typography.font-size.md"></example-design-token-value></td>
+            <td><span class="example-truncated-line-of-text" style="font-size: var(--basis-typography-font-size-md);">The Quick Brown Fox Jumps Over The Lazy Dog</span></td>
+          </tr>
+          <tr>
+            <th>Large</th>
+            <td><example-design-token-value name="basis.typography.font-size.lg"></example-design-token-value></td>
+            <td><span class="example-truncated-line-of-text" style="font-size: var(--basis-typography-font-size-lg);">The Quick Brown Fox Jumps Over The Lazy Dog</span></td>
+          </tr>
+          <tr>
+            <th>Extra large</th>
+            <td><example-design-token-value name="basis.typography.font-size.xl"></example-design-token-value></td>
+            <td><span class="example-truncated-line-of-text" style="font-size: var(--basis-typography-font-size-xl);">The Quick Brown Fox Jumps Over The Lazy Dog</span></td>
+          </tr>
+          <tr>
+            <th>2XL</th>
+            <td><example-design-token-value name="basis.typography.font-size.2xl"></example-design-token-value></td>
+            <td><span class="example-truncated-line-of-text" style="font-size: var(--basis-typography-font-size-2xl);">The Quick Brown Fox Jumps Over The Lazy Dog</span></td>
+          </tr>
+          <tr>
+            <th>3XL</th>
+            <td><example-design-token-value name="basis.typography.font-size.3xl"></example-design-token-value></td>
+            <td><span class="example-truncated-line-of-text" style="font-size: var(--basis-typography-font-size-3xl);">The Quick Brown Fox Jumps Over The Lazy Dog</span></td>
+          </tr>
+          <tr>
+            <th>4XL</th>
+            <td><example-design-token-value name="basis.typography.font-size.4xl"></example-design-token-value></td>
+            <td><span class="example-truncated-line-of-text" style="font-size: var(--basis-typography-font-size-4xl);">The Quick Brown Fox Jumps Over The Lazy Dog</span></td>
           </tr>
         </body>
       </table>
