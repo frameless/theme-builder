@@ -6,11 +6,15 @@ import { variants } from './design-token-options.js';
 import './story-canvas.js';
 import './basis-theme-stylesheet.js';
 import './example-design-token-value.js';
+import './example-font-family-details.js';
 import './example-border-width.js';
+import './example-single-line-of-text.js';
+import './example-design-tokens-table.js';
 import './color-preset-input.js';
 import '@utrecht/page-layout-css';
 import '@utrecht/body-css';
 import '@utrecht/root-css';
+import '@utrecht/table-css';
 import './style.css';
 import './basis-theme.css';
 import './fluid.css';
@@ -86,12 +90,12 @@ const renderGroup = (groupId: string, appearance?: string) => {
 };
 
 const renderVariants = ({ id, variants }: VariantOptionGroup, appearance = 'subtle-button') =>
-  `<ul>${variants
+  `<utrecht-button-group direction="column">${variants
     .map(
       ({ id: optionId, name, recommended }) =>
-        `<li><utrecht-button type="button" name="${id}" appearance="${appearance}" value="${optionId}" onclick="themeBuilder.clickGroupOption(event.currentTarget.name, event.currentTarget.value)">${name}</utrecht-button>${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}</li>`,
+        `<div><utrecht-button type="button" name="${id}" appearance="${appearance}" value="${optionId}" onclick="themeBuilder.clickGroupOption(event.currentTarget.name, event.currentTarget.value)">${name}</utrecht-button>${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}</div>`,
     )
-    .join('\n')}</ul>`;
+    .join('\n')}</utrecht-button-group>`;
 
 const renderTokens = ({ variants }: VariantOptionGroup, appearance = 'subtle-button') =>
   `<ul>${variants
@@ -167,7 +171,7 @@ const renderColorScaleExample = (name: string) => {
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <basis-theme-stylesheet></basis-theme-stylesheet>
   <utrecht-page-header>
-    <utrecht-heading-1>Frameless Theme Builder</utrecht-heading-1>
+    <utrecht-heading-1>Theme Builder</utrecht-heading-1>
   </utrecht-page-header>
   <utrecht-page-body>
     <form class="scroll-snap-container">
@@ -175,6 +179,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <p>Website for preset colors:</p>
       <select id="url-input">
         <option></option>
+        <option value="loket.digitaal.utrecht.nl">loket.digitaal.utrecht.nl</option>
         <option value="rijksoverheid.nl">rijksoverheid.nl</option>
         <option value="purmerend.nl">purmerend.nl</option>
         <option value="rotterdam.nl">rotterdam.nl</option>
@@ -220,58 +225,62 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
     <example-story>
       <utrecht-heading-3>Info color</utrecht-heading-3>
+      <div>
+        ${renderColorScalePicker('basis.color.info', 'basis.color.info-inverse', '#0000FF')}
+      <example-color-preset-input name="basis.color.info" inverse="basis.color.info-inverse"></example-color-preset-input>
+        ${renderColorScaleExample('basis.color.info')}
+        ${renderColorScaleExample('basis.color.info-inverse')}
+      </div>
       <example-story-canvas>
         <utrecht-alert type="info">
           <utrecht-paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</utrecht-paragraph>
         </utrecht-alert>
       </example-story-canvas>
-      <div>
-        ${renderColorScalePicker('basis.color.info', 'basis.color.info-inverse', '#0000FF')}
-        ${renderColorScaleExample('basis.color.info')}
-        ${renderColorScaleExample('basis.color.info-inverse')}
-      </div>
     </example-story>
 
     <example-story>
       <utrecht-heading-3>Success color</utrecht-heading-3>
+      <div>
+        ${renderColorScalePicker('basis.color.success', 'basis.color.success-inverse', '#228B22')}
+      <example-color-preset-input name="basis.color.success" inverse="basis.color.success-inverse"></example-color-preset-input>
+        ${renderColorScaleExample('basis.color.success')}
+        ${renderColorScaleExample('basis.color.success-inverse')}
+      </div>
       <example-story-canvas>
         <utrecht-alert type="ok">
           <utrecht-paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</utrecht-paragraph>
         </utrecht-alert>
       </example-story-canvas>
-      <div>
-        ${renderColorScalePicker('basis.color.success', 'basis.color.success-inverse', '#228B22')}
-        ${renderColorScaleExample('basis.color.success')}
-        ${renderColorScaleExample('basis.color.success-inverse')}
-      </div>
     </example-story>
 
     <example-story>
       <utrecht-heading-3>Warning color</utrecht-heading-3>
+      <div>
+        ${renderColorScalePicker('basis.color.warning', 'basis.color.warning-inverse', '#FF8C00')}
+      <example-color-preset-input name="basis.color.warning" inverse="basis.color.warning-inverse"></example-color-preset-input>
+        ${renderColorScaleExample('basis.color.warning')}
+        ${renderColorScaleExample('basis.color.warning-inverse')}
+      </div>
       <example-story-canvas>
         <utrecht-alert type="warning">
           <utrecht-paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</utrecht-paragraph>
         </utrecht-alert>
       </example-story-canvas>
-      <div>
-        ${renderColorScalePicker('basis.color.warning', 'basis.color.warning-inverse', '#FF8C00')}
-        ${renderColorScaleExample('basis.color.warning')}
-        ${renderColorScaleExample('basis.color.warning-inverse')}
-      </div>
     </example-story>
 
     <example-story>
       <utrecht-heading-3>Error color</utrecht-heading-3>
+      <div>
+        ${renderColorScalePicker('basis.color.error', 'basis.color.error-inverse', '#FF0000')}
+        <example-color-preset-input name="basis.color.error" inverse="basis.color.error-inverse"></example-color-preset-input>
+        ${renderColorScaleExample('basis.color.error')}
+        ${renderColorScaleExample('basis.color.error-inverse')}
+      </div>
       <example-story-canvas>
         <utrecht-alert type="error">
           <utrecht-paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</utrecht-paragraph>
         </utrecht-alert>
       </example-story-canvas>
-      <div>
-        ${renderColorScalePicker('basis.color.error', 'basis.color.error-inverse', '#FF0000')}
-        ${renderColorScaleExample('basis.color.error')}
-        ${renderColorScaleExample('basis.color.error-inverse')}
-      </div>
     </example-story>
 
     <utrecht-heading-2>Fonts</utrecht-heading-2>
@@ -280,6 +289,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <utrecht-heading-3>Default font family:</utrecht-heading-3>
         ${renderFontFamilyVariants(fontFamilies, 'basis.typography.font-family.default')}
       </div>
+      <example-font-family-details value=""></example-font-family-details>
     </example-story>
 
     <example-story>
@@ -300,6 +310,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <utrecht-heading-6>Heading 6</utrecht-heading-6>
         <utrecht-paragraph><span style="display: block; overflow: hidden; text-overflow: ellipsis; white-space: pre;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></utrecht-paragraph>
       </example-story-canvas>
+      <example-font-family-details value=""></example-font-family-details>
     </example-story>
 
 
@@ -310,6 +321,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <example-story-canvas>
         <utrecht-code-block>&lt;input type="url" value="https://example.fi/"></utrecht-code-block>
       </example-story-canvas>
+      <example-font-family-details value=""></example-font-family-details>
     </example-story>
 
 
@@ -318,7 +330,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <utrecht-heading-3>Form control border radius:</utrecht-heading-3>
       ${renderGroup('form-control-border-radius')}
       <example-story-canvas>
-        <utrecht-textbox></utrecht-textbox>
+        <utrecht-textbox value="Hello, world!"></utrecht-textbox>
       </example-story-canvas>
     </example-story>
 
@@ -326,7 +338,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <utrecht-heading-3>Form control border width:</utrecht-heading-3>
       ${renderGroup('form-control-border-width')}
       <example-story-canvas>
-        <utrecht-textbox></utrecht-textbox>
+        <utrecht-textbox value="Hello, world!"></utrecht-textbox>
       </example-story-canvas>
     </example-story>
 
@@ -448,16 +460,50 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
       ${renderGroup('pointer-target-size')}
     </example-story>
 
+    <utrecht-heading-2>Space</utrecht-heading-2>
     <example-story>
-      <utrecht-heading-2>Space</utrecht-heading-2>
+      <utrecht-heading-3>Vertical space inside components</utrecht-heading-3>
       <div>
-        <p>Vertical space inside components:</p>
         ${renderGroup('space-block')}
       </div>
+      <details>
+      <summary>Bekijk alle <utrecht-code>basis.space.block</utrecht-code> design tokens</summary>
+        <example-design-tokens-table tokens="${[
+          'basis.space.block.6xl',
+          'basis.space.block.5xl',
+          'basis.space.block.4xl',
+          'basis.space.block.3xl',
+          'basis.space.block.2xl',
+          'basis.space.block.xl',
+          'basis.space.block.lg',
+          'basis.space.block.md',
+          'basis.space.block.sm',
+          'basis.space.block.xs',
+          'basis.space.block.2xs',
+        ].join(' ')}"></example-design-tokens-table>
+      </details>
+    </example-story>
+    <example-story>
+      <utrecht-heading-3>Horizontal space inside components</utrecht-heading-3>
       <div>
-        <p>Horizontal space inside components:</p>
         ${renderGroup('space-inline')}
       </div>
+      <details>
+        <summary>Bekijk alle <utrecht-code>basis.space.inline</utrecht-code> design tokens</summary>
+        <example-design-tokens-table tokens="${[
+          'basis.space.inline.6xl',
+          'basis.space.inline.5xl',
+          'basis.space.inline.4xl',
+          'basis.space.inline.3xl',
+          'basis.space.inline.2xl',
+          'basis.space.inline.xl',
+          'basis.space.inline.lg',
+          'basis.space.inline.md',
+          'basis.space.inline.sm',
+          'basis.space.inline.xs',
+          'basis.space.inline.2xs',
+        ].join(' ')}"></example-design-tokens-table>
+      </details>
     </example-story>
 
     <example-story>

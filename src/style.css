@@ -3,7 +3,7 @@
   flex-wrap: wrap;
 }
 
-.utrecht-page-layout {
+.utrecht-page-layout--snap {
   display: block;
   scroll-snap-type: block proximity;
 
@@ -37,4 +37,39 @@ utrecht-page-header,
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: pre;
+}
+
+.column-gap-xs,
+.column-gap-sm,
+.column-gap-md,
+.column-gap-lg,
+.column-gap-xl {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-gap-xs {
+  row-gap: var(--basis-space-column-xs);
+}
+
+.column-gap-sm {
+  row-gap: var(--basis-space-column-sm);
+}
+
+.column-gap-md {
+  row-gap: var(--basis-space-column-md);
+}
+
+.column-gap-lg {
+  row-gap: var(--basis-space-column-lg);
+}
+
+.column-gap-xl {
+  row-gap: var(--basis-space-column-xl);
+}
+
+:root {
+  --utrecht-page-body-content-padding-inline-start: var(--basis-space-inline-md);
+  --utrecht-page-body-content-padding-inline-end: var(--basis-space-inline-md);
+  --utrecht-icon-size: 1em; /* TODO: Should this become the default icon size in the component, as fallback value? */
 }

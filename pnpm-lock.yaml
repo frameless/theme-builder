@@ -20,6 +20,9 @@ importers:
       '@utrecht/root-css':
         specifier: 1.2.0
         version: 1.2.0
+      '@utrecht/table-css':
+        specifier: 1.5.0
+        version: 1.5.0
       '@utrecht/web-component-library-stencil':
         specifier: 3.1.0
         version: 3.1.0
@@ -672,6 +675,9 @@ packages:
 
   '@utrecht/root-css@1.2.0':
     resolution: {integrity: sha512-zdg+EozmNtZGDnM68O2lE+VpfvAfcG3//q6w1hNOI58+4khQp/q+9wxlgV4CS73HcfiF+xjQ32WgvJ60P/j/Jg==}
+
+  '@utrecht/table-css@1.5.0':
+    resolution: {integrity: sha512-3MDnjDUEz/5fD7oKKRuzYSVtH0wY3WvJPUo1BrMR2Fxzh5b/me5GAbbR9uhcGryLcVb+Cs8OQ/Ar2VJAgkvfYg==}
 
   '@utrecht/web-component-library-stencil@3.1.0':
     resolution: {integrity: sha512-mlPDbOXoawJEwpjXcHZLNVnrAXvZX/CW3DBVn593GFM9wsuK3xK9uLauAF789pMpA+6dqP6L6q7xaa5C8V5EMA==}
@@ -4247,6 +4253,8 @@ snapshots:
   '@utrecht/page-layout-css@1.1.0': {}
 
   '@utrecht/root-css@1.2.0': {}
+
+  '@utrecht/table-css@1.5.0': {}
 
   '@utrecht/web-component-library-stencil@3.1.0':
     dependencies:

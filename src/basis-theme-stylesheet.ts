@@ -2,7 +2,7 @@ import { variants } from './design-token-options';
 import { ExampleDesignTokenValue } from './example-design-token-value';
 import { generateRadixColors } from './generateRadixColors';
 import { VariantsMap } from './types';
-import { cssVariablesToString, setCssVariables, toCssVariables } from './utils';
+import { cssVariablesToString, toCssVariables } from './utils';
 
 interface FlatTokens {
   [index: string]: string;
@@ -118,6 +118,12 @@ class BasisThemeStylesheet extends HTMLElement {
     console.log(css);
     this.sheet?.replaceSync(css);
 
+    try {
+      localStorage.setItem('theme-builder-css', css);
+    } catch (e) {
+      console.error('Failed to store CSS in localStorage.');
+    }
+
     this._flatTokensCache = Array.from(this.map.values()).reduce((map, tokens) => ({ ...map, ...tokens }), {});
 
     if (!this._designTokenValueListeners) {
@@ -161,6 +167,7 @@ class BasisThemeStylesheet extends HTMLElement {
     if (!option) {
       return;
     }
+
     this.setParameter(groupId, optionId);
 
     this.toggleTokens(groupId, option.flatTokens);
@@ -190,6 +197,7 @@ class BasisThemeStylesheet extends HTMLElement {
       inverseName,
       value,
     });
+    this.update();
   }
 
   setSeedColor({ name, value, inverseName }: { name: string; value: string; inverseName?: string }) {
@@ -243,7 +251,7 @@ class BasisThemeStylesheet extends HTMLElement {
       ...inverseScaleTokens,
     };
 
-    setCssVariables(toCssVariables(tokens));
+    this.toggleTokens(name, tokens);
   }
 }
 

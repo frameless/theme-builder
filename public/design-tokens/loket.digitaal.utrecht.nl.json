@@ -1,0 +1,1255 @@
+{
+  "Color": {
+    "1-10a32d": {
+      "$value": "#000"
+    },
+    "1-991c5d52": {
+      "$value": "transparent"
+    },
+    "1-a50be50": {
+      "$value": "GrayText"
+    },
+    "1-8c2a64cf": {
+      "$value": "ButtonFace"
+    },
+    "1-51ecedde": {
+      "$value": "buttonborder"
+    },
+    "1-8c30d39f": {
+      "$value": "ButtonText"
+    },
+    "1-5601056a": {
+      "$value": "currentColor"
+    },
+    "1-ae7a7558": {
+      "$value": "canvas"
+    },
+    "1-57464e85": {
+      "$value": "canvastext"
+    },
+    "1-77df6178": {
+      "$value": "Canvas"
+    },
+    "1-ce099ec5": {
+      "$value": "CanvasText"
+    },
+    "1-473c6827": {
+      "$value": "linktext"
+    },
+    "1-79e2d133": {
+      "$value": "activetext"
+    },
+    "1-4b084067": {
+      "$value": "LinkText"
+    },
+    "1-b406d357": {
+      "$value": "visitedtext"
+    },
+    "1-4ed7ac94": {
+      "$value": "Highlight"
+    },
+    "1-8b6efbe1": {
+      "$value": "HighlightText"
+    },
+    "1-5cea0fa": {
+      "$value": "field"
+    },
+    "1-4b77d927": {
+      "$value": "fieldtext"
+    },
+    "1-d3678c88": {
+      "$value": "rgba(0, 0, 0, .25)"
+    },
+    "1-d7658cb4": {
+      "$value": "highlight"
+    },
+    "1-5bcfcc01": {
+      "$value": "highlightText"
+    },
+    "1-1755ebb5": {
+      "$value": "rgba(0, 0, 0, .2)"
+    },
+    "1-1755ebd4": {
+      "$value": "rgba(0, 0, 0, .3)"
+    },
+    "2-948630d3": {
+      "$value": "#1a1a1a"
+    },
+    "2-93dce9af": {
+      "$value": "#262626"
+    },
+    "2-10aed0": {
+      "$value": "#333"
+    },
+    "2-99d069f3": {
+      "$value": "#4d4d4d"
+    },
+    "2-10ba73": {
+      "$value": "#666"
+    },
+    "2-9c2efe34": {
+      "$value": "#727272"
+    },
+    "2-9c594ffd": {
+      "$value": "#757575"
+    },
+    "2-9ec5ff81": {
+      "$value": "#7a7a7a"
+    },
+    "2-11613e": {
+      "$value": "#aaa"
+    },
+    "2-ca37d30d": {
+      "$value": "silver"
+    },
+    "2-116900": {
+      "$value": "#ccc"
+    },
+    "2-116ce1": {
+      "$value": "#ddd"
+    },
+    "2-eafb4676": {
+      "$value": "#e6e6e6"
+    },
+    "2-ed67f5fa": {
+      "$value": "#ebebeb"
+    },
+    "2-1170c2": {
+      "$value": "#eee"
+    },
+    "2-ec782687": {
+      "$value": "#f2f2f2"
+    },
+    "2-eca27850": {
+      "$value": "#f5f5f5"
+    },
+    "8-920c47c2": {
+      "$value": "#143252"
+    },
+    "8-94ce07f0": {
+      "$value": "#1f4b7a"
+    },
+    "8-94a3096b": {
+      "$value": "#1c4181"
+    },
+    "8-93c21c75": {
+      "$value": "#24578f"
+    },
+    "8-9408ffda": {
+      "$value": "#2964a3"
+    },
+    "8-9022907f": {
+      "$value": "#009ed4"
+    },
+    "8-2e305a": {
+      "$value": "blue"
+    },
+    "8-90213011": {
+      "$value": "#006dff"
+    },
+    "8-956a7470": {
+      "$value": "#337dcc"
+    },
+    "8-9b78cda1": {
+      "$value": "#5c97d6"
+    },
+    "8-e6afd9c2": {
+      "$value": "#adcbeb"
+    },
+    "8-e9466a34": {
+      "$value": "#d6e5f5"
+    },
+    "8-eadf1b62": {
+      "$value": "#e4e7ec"
+    },
+    "3-10b9b3": {
+      "$value": "#600"
+    },
+    "3-bf8ca470": {
+      "$value": "maroon"
+    },
+    "3-10c4f6": {
+      "$value": "#900"
+    },
+    "3-1162a0": {
+      "$value": "#c00"
+    },
+    "3-e69ab253": {
+      "$value": "#ad643b"
+    },
+    "3-1b891": {
+      "$value": "red"
+    },
+    "3-e92fa5b6": {
+      "$value": "#d63433"
+    },
+    "3-eb8ec4ed": {
+      "$value": "#da4e51"
+    },
+    "3-ef548745": {
+      "$value": "#ffe6e6"
+    },
+    "4-9ab19a00": {
+      "$value": "#665200"
+    },
+    "4-ea09d3b5": {
+      "$value": "#cca300"
+    },
+    "4-117410": {
+      "$value": "#fc0"
+    },
+    "4-ef52af58": {
+      "$value": "#ffa600"
+    },
+    "4-ef3fd3d2": {
+      "$value": "#ff6e00"
+    },
+    "4-ef5327aa": {
+      "$value": "#ffb70b"
+    },
+    "4-ef540cd5": {
+      "$value": "#ffd633"
+    },
+    "4-ef552720": {
+      "$value": "#ffeb99"
+    },
+    "4-ef553b55": {
+      "$value": "#ffefd5"
+    },
+    "6-5e0cf03": {
+      "$value": "green"
+    },
+    "6-99d09a73": {
+      "$value": "#4d6336"
+    },
+    "6-9a6ccd2c": {
+      "$value": "#617e44"
+    },
+    "6-a00fc04f": {
+      "$value": "#99d000"
+    },
+    "6-956f66e8": {
+      "$value": "#32ab27"
+    },
+    "6-9ddace34": {
+      "$value": "#80a659"
+    },
+    "6-ea0be783": {
+      "$value": "#ccdbbd"
+    },
+    "6-eafbf334": {
+      "$value": "#e6edde"
+    },
+    "0-1174a3": {
+      "$value": "#fff"
+    },
+    "0-5274f026": {
+      "$value": "hsla(0, 0%, 100%, 0)"
+    },
+    "10-e8402985": {
+      "$value": "#bc3983"
+    },
+    "10-ec444b0b": {
+      "$value": "#f02198"
+    },
+    "9-9c65d3c0": {
+      "$value": "#762cd1"
+    }
+  },
+  "FontSizes": {
+    "fontSize-2295ba1d": {
+      "$value": "var(--utrecht-badge-counter-font-size, var(--utrecht-badge-font-size))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-badge-counter-font-size, var(--utrecht-badge-font-size))"
+      }
+    },
+    "fontSize-1e194f65": {
+      "$value": "var(--utrecht-badge-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-badge-font-size)"
+      }
+    },
+    "fontSize-2bd8f446": {
+      "$value": "var(--utrecht-badge-font-size, inherit)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-badge-font-size, inherit)"
+      }
+    },
+    "fontSize-8d1ff8b7": {
+      "$value": "var(--utrecht-blockquote-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-blockquote-font-size)"
+      }
+    },
+    "fontSize-5dc47c66": {
+      "$value": "var(--utrecht-blockquote-attribution-font-size, inherit)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-blockquote-attribution-font-size, inherit)"
+      }
+    },
+    "fontSize-9771b0e0": {
+      "$value": "var(--utrecht-blockquote-content-font-size, inherit)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-blockquote-content-font-size, inherit)"
+      }
+    },
+    "fontSize-596f2cad": {
+      "$value": "var(--utrecht-breadcrumb-nav-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-breadcrumb-nav-font-size)"
+      }
+    },
+    "fontSize-74456de0": {
+      "$value": "var(--_utrecht-button-font-size, var(--utrecht-document-font-family, inherit))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--_utrecht-button-font-size, var(--utrecht-document-font-family, inherit))"
+      }
+    },
+    "fontSize-ae24d8e3": {
+      "$value": "var(--utrecht-document-font-family, inherit)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-document-font-family, inherit)"
+      }
+    },
+    "fontSize-7bda217e": {
+      "$value": "var(--utrecht-calendar-navigation-label-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-calendar-navigation-label-font-size)"
+      }
+    },
+    "fontSize-c9c478d2": {
+      "$value": "var(--utrecht-code-font-size, inherit)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-code-font-size, inherit)"
+      }
+    },
+    "fontSize-ab6924d3": {
+      "$value": "var(--utrecht-code-block-font-size, var(--utrecht-code-font-size, inherit))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-code-block-font-size, var(--utrecht-code-font-size, inherit))"
+      }
+    },
+    "fontSize-27d84e75": {
+      "$value": "var(--utrecht-data-list-item-key-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-data-list-item-key-font-size)"
+      }
+    },
+    "fontSize-b572d0e3": {
+      "$value": "var(--utrecht-data-list-item-value-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-data-list-item-value-font-size)"
+      }
+    },
+    "fontSize-bfd97880": {
+      "$value": "var(--utrecht-document-font-size, inherit)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-document-font-size, inherit)"
+      }
+    },
+    "fontSize-c1916e89": {
+      "$value": "var(--utrecht-figure-caption-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-figure-caption-font-size)"
+      }
+    },
+    "fontSize-23079c05": {
+      "$value": "var(--utrecht-form-field-description-font-size, inherit)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-form-field-description-font-size, inherit)"
+      }
+    },
+    "fontSize-8ded650b": {
+      "$value": "var(--utrecht-form-field-error-message-font-size, inherit)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-form-field-error-message-font-size, inherit)"
+      }
+    },
+    "fontSize-b5cf267d": {
+      "$value": "var(--utrecht-form-fieldset-legend-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-form-fieldset-legend-font-size)"
+      }
+    },
+    "fontSize-5ae4cc9b": {
+      "$value": "var(--utrecht-form-label-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-form-label-font-size)"
+      }
+    },
+    "fontSize-a26c792a": {
+      "$value": "var(--utrecht-heading-1-font-size, revert)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-1-font-size, revert)"
+      }
+    },
+    "fontSize-8a0e4f89": {
+      "$value": "var(--utrecht-heading-2-font-size, revert)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-2-font-size, revert)"
+      }
+    },
+    "fontSize-71b025e8": {
+      "$value": "var(--utrecht-heading-3-font-size, revert)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-3-font-size, revert)"
+      }
+    },
+    "fontSize-5951fc47": {
+      "$value": "var(--utrecht-heading-4-font-size, revert)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-4-font-size, revert)"
+      }
+    },
+    "fontSize-40f3d2a6": {
+      "$value": "var(--utrecht-heading-5-font-size, revert)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-5-font-size, revert)"
+      }
+    },
+    "fontSize-2895a905": {
+      "$value": "var(--utrecht-heading-6-font-size, revert)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-6-font-size, revert)"
+      }
+    },
+    "fontSize-d5af5465": {
+      "$value": "var(--utrecht-icon-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-icon-size)"
+      }
+    },
+    "fontSize-30b17e4a": {
+      "$value": "var(--utrecht-button-font-size, var(--utrecht-document-font-family))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-button-font-size, var(--utrecht-document-font-family))"
+      }
+    },
+    "fontSize-6de55628": {
+      "$value": "var(--utrecht-document-font-family)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-document-font-family)"
+      }
+    },
+    "fontSize-7bb43538": {
+      "$value": "var(--utrecht-listbox-option-group-label-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-listbox-option-group-label-font-size)"
+      }
+    },
+    "fontSize-b3101f23": {
+      "$value": "var(--utrecht-ordered-list-font-size, var(--utrecht-unordered-list-font-size, var(--utrecht-document-font-size, inherit)))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-ordered-list-font-size, var(--utrecht-unordered-list-font-size, var(--utrecht-document-font-size, inherit)))"
+      }
+    },
+    "fontSize-bbd977bb": {
+      "$value": "var(--utrecht-unordered-list-font-size, var(--utrecht-document-font-size, inherit))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-unordered-list-font-size, var(--utrecht-document-font-size, inherit))"
+      }
+    },
+    "fontSize-a17a41eb": {
+      "$value": "var(--utrecht-document-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-document-font-size)"
+      }
+    },
+    "fontSize-cb53e32": {
+      "$value": "var(--utrecht-pagination-font-size, var(--utrecht-document-font-family))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-pagination-font-size, var(--utrecht-document-font-family))"
+      }
+    },
+    "fontSize-7f090046": {
+      "$value": "var(--utrecht-paragraph-font-size, var(--utrecht-document-font-size, inherit))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-paragraph-font-size, var(--utrecht-document-font-size, inherit))"
+      }
+    },
+    "fontSize-ee040eaa": {
+      "$value": "var(--utrecht-paragraph-lead-font-size, var(--utrecht-paragraph-font-size, inherit))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-paragraph-lead-font-size, var(--utrecht-paragraph-font-size, inherit))"
+      }
+    },
+    "fontSize-2cd5ff11": {
+      "$value": "var(--utrecht-paragraph-font-size, inherit)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-paragraph-font-size, inherit)"
+      }
+    },
+    "fontSize-95f86775": {
+      "$value": "var(--utrecht-paragraph-small-font-size, var(--utrecht-paragraph-font-size, inherit))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-paragraph-small-font-size, var(--utrecht-paragraph-font-size, inherit))"
+      }
+    },
+    "fontSize-c6bf7e50": {
+      "$value": "var(--utrecht-pre-heading-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-pre-heading-font-size)"
+      }
+    },
+    "fontSize-360146f5": {
+      "$value": "var(--utrecht-search-bar-section-title-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-search-bar-section-title-font-size)"
+      }
+    },
+    "fontSize-fb23962a": {
+      "$value": "var(--utrecht-select-font-size, var(--utrecht-form-control-font-size))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-select-font-size, var(--utrecht-form-control-font-size))"
+      }
+    },
+    "fontSize-c69ba492": {
+      "$value": "var(--utrecht-form-control-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-form-control-font-size)"
+      }
+    },
+    "fontSize-8377d0f1": {
+      "$value": "var(--utrecht-table-font-size, inherit)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-table-font-size, inherit)"
+      }
+    },
+    "fontSize-898d2ca1": {
+      "$value": "var(--utrecht-table-caption-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-table-caption-font-size)"
+      }
+    },
+    "fontSize-dd8e1865": {
+      "$value": "var(--utrecht-table-header-cell-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-table-header-cell-font-size)"
+      }
+    },
+    "fontSize-2e41b9df": {
+      "$value": "var(--utrecht-textarea-font-size, var(--utrecht-form-control-font-size, inherit))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-textarea-font-size, var(--utrecht-form-control-font-size, inherit))"
+      }
+    },
+    "fontSize-490f21b9": {
+      "$value": "var(--utrecht-form-control-font-size, inherit)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-form-control-font-size, inherit)"
+      }
+    },
+    "fontSize-3f0671dd": {
+      "$value": "var(--utrecht-textbox-font-size, var(--utrecht-form-control-font-size, inherit))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-textbox-font-size, var(--utrecht-form-control-font-size, inherit))"
+      }
+    },
+    "fontSize-e2ba12b9": {
+      "$value": "var(--utrecht-toptask-link-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-toptask-link-font-size)"
+      }
+    },
+    "fontSize-7c09fa2a": {
+      "$value": "var(--utrecht-product-list-item-font-size, 20px)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-product-list-item-font-size, 20px)"
+      }
+    },
+    "fontSize-177cc6": {
+      "$type": "dimension",
+      "$value": {
+        "value": 20,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "20px"
+      }
+    },
+    "fontSize-ceb57133": {
+      "$value": "var(--utrecht-product-list-pagination-info-font-size, 18px)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-product-list-pagination-info-font-size, 18px)"
+      }
+    },
+    "fontSize-17266f": {
+      "$type": "dimension",
+      "$value": {
+        "value": 18,
+        "unit": "px"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "18px"
+      }
+    },
+    "fontSize-629011fd": {
+      "$value": "var(--utrecht-link-list-link-phone-font-size, 2em)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-link-list-link-phone-font-size, 2em)"
+      }
+    },
+    "fontSize-c85a": {
+      "$value": "2em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "2em"
+      }
+    },
+    "fontSize-44db1380": {
+      "$value": "var(--utrecht-figure--figcaption-font-size)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-figure--figcaption-font-size)"
+      }
+    }
+  },
+  "FontFamily": {
+    "fontFamily-92e5db00": {
+      "$type": "fontFamily",
+      "$value": [
+        "var(--utrecht-badge-counter-font-family, var(--utrecht-badge-font-family, var(--utrecht-document-font-family, sans-serif)))"
+      ],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-badge-counter-font-family, var(--utrecht-badge-font-family, var(--utrecht-document-font-family, sans-serif)))"
+      }
+    },
+    "fontFamily-8c793993": {
+      "$type": "fontFamily",
+      "$value": ["var(--utrecht-badge-font-family, var(--utrecht-document-font-family, sans-serif))"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-badge-font-family, var(--utrecht-document-font-family, sans-serif))"
+      }
+    },
+    "fontFamily-b1648651": {
+      "$type": "fontFamily",
+      "$value": ["var(--utrecht-document-font-family, sans-serif)"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-document-font-family, sans-serif)"
+      }
+    },
+    "fontFamily-a4680bc3": {
+      "$type": "fontFamily",
+      "$value": ["sans-serif"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "sans-serif"
+      }
+    },
+    "fontFamily-6de55628": {
+      "$type": "fontFamily",
+      "$value": ["var(--utrecht-document-font-family)"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-document-font-family)"
+      }
+    },
+    "fontFamily-ae24d8e3": {
+      "$type": "fontFamily",
+      "$value": ["var(--utrecht-document-font-family, inherit)"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-document-font-family, inherit)"
+      }
+    },
+    "fontFamily-54c3a46a": {
+      "$type": "fontFamily",
+      "$value": ["var(--_utrecht-button-font-family, var(--utrecht-document-font-family))"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--_utrecht-button-font-family, var(--utrecht-document-font-family))"
+      }
+    },
+    "fontFamily-502e7e02": {
+      "$type": "fontFamily",
+      "$value": ["var(--utrecht-code-font-family, monospace)", "monospace"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-code-font-family, monospace), monospace"
+      }
+    },
+    "fontFamily-aaa60c03": {
+      "$type": "fontFamily",
+      "$value": ["monospace"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "monospace"
+      }
+    },
+    "fontFamily-793e9304": {
+      "$type": "fontFamily",
+      "$value": ["var(--utrecht-form-fieldset-legend-font-family, var(--utrecht-document-font-family))"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-form-fieldset-legend-font-family, var(--utrecht-document-font-family))"
+      }
+    },
+    "fontFamily-dc15d5ec": {
+      "$type": "fontFamily",
+      "$value": [
+        "var(--utrecht-heading-1-font-family, var(--utrecht-heading-font-family, var(--utrecht-document-font-family)))"
+      ],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-1-font-family, var(--utrecht-heading-font-family, var(--utrecht-document-font-family)))"
+      }
+    },
+    "fontFamily-2abe91fb": {
+      "$type": "fontFamily",
+      "$value": ["var(--utrecht-heading-font-family, var(--utrecht-document-font-family))"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-font-family, var(--utrecht-document-font-family))"
+      }
+    },
+    "fontFamily-4a9ce72d": {
+      "$type": "fontFamily",
+      "$value": [
+        "var(--utrecht-heading-2-font-family, var(--utrecht-heading-font-family, var(--utrecht-document-font-family)))"
+      ],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-2-font-family, var(--utrecht-heading-font-family, var(--utrecht-document-font-family)))"
+      }
+    },
+    "fontFamily-b923f86e": {
+      "$type": "fontFamily",
+      "$value": [
+        "var(--utrecht-heading-3-font-family, var(--utrecht-heading-font-family, var(--utrecht-document-font-family)))"
+      ],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-3-font-family, var(--utrecht-heading-font-family, var(--utrecht-document-font-family)))"
+      }
+    },
+    "fontFamily-27ab09af": {
+      "$type": "fontFamily",
+      "$value": [
+        "var(--utrecht-heading-4-font-family, var(--utrecht-heading-font-family, var(--utrecht-document-font-family)))"
+      ],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-4-font-family, var(--utrecht-heading-font-family, var(--utrecht-document-font-family)))"
+      }
+    },
+    "fontFamily-96321af0": {
+      "$type": "fontFamily",
+      "$value": [
+        "var(--utrecht-heading-5-font-family, var(--utrecht-heading-font-family, var(--utrecht-document-font-family)))"
+      ],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-5-font-family, var(--utrecht-heading-font-family, var(--utrecht-document-font-family)))"
+      }
+    },
+    "fontFamily-4b92c31": {
+      "$type": "fontFamily",
+      "$value": [
+        "var(--utrecht-heading-6-font-family, var(--utrecht-heading-font-family, var(--utrecht-document-font-family)))"
+      ],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-6-font-family, var(--utrecht-heading-font-family, var(--utrecht-document-font-family)))"
+      }
+    },
+    "fontFamily-3a826d": {
+      "$type": "fontFamily",
+      "$value": ["var(--utrecht-button-font-family, var(--utrecht-document-font-family))"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-button-font-family, var(--utrecht-document-font-family))"
+      }
+    },
+    "fontFamily-ea4de855": {
+      "$type": "fontFamily",
+      "$value": ["var(--utrecht-pagination-font-family, var(--utrecht-document-font-family))"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-pagination-font-family, var(--utrecht-document-font-family))"
+      }
+    },
+    "fontFamily-227962c0": {
+      "$type": "fontFamily",
+      "$value": ["var(--utrecht-paragraph-font-family, var(--utrecht-document-font-family, inherit))"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-paragraph-font-family, var(--utrecht-document-font-family, inherit))"
+      }
+    },
+    "fontFamily-f657fa5e": {
+      "$type": "fontFamily",
+      "$value": [
+        "var(--utrecht-pre-heading-font-family, var(--utrecht-heading-font-family, var(--utrecht-document-font-family)))"
+      ],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-pre-heading-font-family, var(--utrecht-heading-font-family, var(--utrecht-document-font-family)))"
+      }
+    },
+    "fontFamily-e0bec6b0": {
+      "$type": "fontFamily",
+      "$value": ["var(--utrecht-select-font-family, var(--utrecht-form-control-font-family))"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-select-font-family, var(--utrecht-form-control-font-family))"
+      }
+    },
+    "fontFamily-d038ab0f": {
+      "$type": "fontFamily",
+      "$value": ["var(--utrecht-form-control-font-family)"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-form-control-font-family)"
+      }
+    },
+    "fontFamily-52d5487": {
+      "$type": "fontFamily",
+      "$value": ["var(--utrecht-table-font-family, var(--utrecht-document-font-family))"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-table-font-family, var(--utrecht-document-font-family))"
+      }
+    },
+    "fontFamily-9ce86b5e": {
+      "$type": "fontFamily",
+      "$value": ["var(--utrecht-table-caption-font-family)"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-table-caption-font-family)"
+      }
+    },
+    "fontFamily-5a9a262e": {
+      "$type": "fontFamily",
+      "$value": ["var(--utrecht-textarea-font-family, var(--utrecht-form-control-font-family))"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-textarea-font-family, var(--utrecht-form-control-font-family))"
+      }
+    },
+    "fontFamily-20a5e770": {
+      "$type": "fontFamily",
+      "$value": ["var(--utrecht-textbox-font-family, var(--utrecht-form-control-font-family))"],
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-textbox-font-family, var(--utrecht-form-control-font-family))"
+      }
+    }
+  },
+  "LineHeight": {
+    "lineHeight-31": {
+      "$type": "number",
+      "$value": 1,
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1"
+      }
+    },
+    "lineHeight-782808c9": {
+      "$value": "var(--utrecht-badge-line-height, 1em)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-badge-line-height, 1em)"
+      }
+    },
+    "lineHeight-c499": {
+      "$value": "1em",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1em"
+      }
+    },
+    "lineHeight-1a4a1e56": {
+      "$value": "var(--_utrecht-button-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--_utrecht-button-line-height)"
+      }
+    },
+    "lineHeight-b6d7b133": {
+      "$value": "var(--utrecht-calendar-table-weeks-item-line-height, inherit)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-calendar-table-weeks-item-line-height, inherit)"
+      }
+    },
+    "lineHeight-1db3df58": {
+      "$value": "var(--utrecht-code-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-code-line-height)"
+      }
+    },
+    "lineHeight-cb6acdf6": {
+      "$value": "var(--utrecht-code-block-line-height, var(--utrecht-code-line-height))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-code-block-line-height, var(--utrecht-code-line-height))"
+      }
+    },
+    "lineHeight-46241974": {
+      "$value": "var(--utrecht-data-list-item-key-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-data-list-item-key-line-height)"
+      }
+    },
+    "lineHeight-d727b862": {
+      "$value": "var(--utrecht-data-list-item-value-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-data-list-item-value-line-height)"
+      }
+    },
+    "lineHeight-c63971e1": {
+      "$value": "var(--utrecht-document-line-height, inherit)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-document-line-height, inherit)"
+      }
+    },
+    "lineHeight-56158488": {
+      "$value": "var(--utrecht-figure-caption-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-figure-caption-line-height)"
+      }
+    },
+    "lineHeight-728d9f85": {
+      "$value": "var(--utrecht-form-field-description-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-form-field-description-line-height)"
+      }
+    },
+    "lineHeight-e4e9513f": {
+      "$value": "var(--utrecht-form-field-error-message-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-form-field-error-message-line-height)"
+      }
+    },
+    "lineHeight-31c50f7c": {
+      "$value": "var(--utrecht-form-fieldset-legend-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-form-fieldset-legend-line-height)"
+      }
+    },
+    "lineHeight-85a59b41": {
+      "$value": "var(--utrecht-heading-1-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-1-line-height)"
+      }
+    },
+    "lineHeight-678364e0": {
+      "$value": "var(--utrecht-heading-2-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-2-line-height)"
+      }
+    },
+    "lineHeight-49612e7f": {
+      "$value": "var(--utrecht-heading-3-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-3-line-height)"
+      }
+    },
+    "lineHeight-2b3ef81e": {
+      "$value": "var(--utrecht-heading-4-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-4-line-height)"
+      }
+    },
+    "lineHeight-d1cc1bd": {
+      "$value": "var(--utrecht-heading-5-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-5-line-height)"
+      }
+    },
+    "lineHeight-eefa8b5c": {
+      "$value": "var(--utrecht-heading-6-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-heading-6-line-height)"
+      }
+    },
+    "lineHeight-12a15b77": {
+      "$value": "var(--utrecht-listbox-option-group-label-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-listbox-option-group-label-line-height)"
+      }
+    },
+    "lineHeight-666707e5": {
+      "$value": "var(--utrecht-ordered-list-font-size, var(--utrecht-unordered-list-line-height, var(--utrecht-document-line-height, inherit)))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-ordered-list-font-size, var(--utrecht-unordered-list-line-height, var(--utrecht-document-line-height, inherit)))"
+      }
+    },
+    "lineHeight-b6876c39": {
+      "$value": "var(--utrecht-unordered-list-line-height, var(--utrecht-document-line-height, inherit))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-unordered-list-line-height, var(--utrecht-document-line-height, inherit))"
+      }
+    },
+    "lineHeight-ce59b744": {
+      "$value": "var(--utrecht-paragraph-line-height, var(--utrecht-document-line-height, inherit))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-paragraph-line-height, var(--utrecht-document-line-height, inherit))"
+      }
+    },
+    "lineHeight-6e19cdca": {
+      "$value": "var(--utrecht-paragraph-lead-line-height, var(--utrecht-paragraph-line-height, inherit))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-paragraph-lead-line-height, var(--utrecht-paragraph-line-height, inherit))"
+      }
+    },
+    "lineHeight-e62e9832": {
+      "$value": "var(--utrecht-paragraph-line-height, inherit)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-paragraph-line-height, inherit)"
+      }
+    },
+    "lineHeight-df4ec915": {
+      "$value": "var(--utrecht-paragraph-small-line-height, var(--utrecht-paragraph-line-height, inherit))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-paragraph-small-line-height, var(--utrecht-paragraph-line-height, inherit))"
+      }
+    },
+    "lineHeight-c7febe8f": {
+      "$value": "var(--utrecht-pre-heading-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-pre-heading-line-height)"
+      }
+    },
+    "lineHeight-6df0f1f4": {
+      "$value": "var(--utrecht-search-bar-section-title-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-search-bar-section-title-line-height)"
+      }
+    },
+    "lineHeight-1ba37212": {
+      "$value": "var(--utrecht-table-line-height, inherit)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-table-line-height, inherit)"
+      }
+    },
+    "lineHeight-e1a1ca0": {
+      "$value": "var(--utrecht-table-caption-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-table-caption-line-height)"
+      }
+    },
+    "lineHeight-14b93807": {
+      "$value": "var(--utrecht-table-cell-line-height, inherit)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-table-cell-line-height, inherit)"
+      }
+    },
+    "lineHeight-c56997": {
+      "$value": "var(--utrecht-textarea-line-height, initial)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-textarea-line-height, initial)"
+      }
+    },
+    "lineHeight-6e50d3a4": {
+      "$value": "var(--utrecht-textbox-line-height, var(--utrecht-form-control-line-height, initial))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-textbox-line-height, var(--utrecht-form-control-line-height, initial))"
+      }
+    },
+    "lineHeight-db2db3b1": {
+      "$value": "var(--utrecht-form-control-line-height, initial)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-form-control-line-height, initial)"
+      }
+    },
+    "lineHeight-cfa5dcb8": {
+      "$value": "var(--utrecht-toptask-link-line-height)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-toptask-link-line-height)"
+      }
+    }
+  },
+  "Gradient": {
+    "gradient-cdd5949f": {
+      "$value": "radial-gradient(circle, var(--_utrecht-radio-button-color, transparent) calc(var(--_utrecht-radio-button-icon-size, 50%) - 5%), var(--_utrecht-radio-button-background-color, currentColor) var(--_utrecht-radio-button-icon-size, 50%))"
+    },
+    "gradient-54eefc1c": {
+      "$value": "linear-gradient(90deg, #fff, #fff)"
+    },
+    "gradient-9f7888b4": {
+      "$value": "linear-gradient(90deg, rgba(0, 0, 0, .25), hsla(0, 0%, 100%, 0))"
+    },
+    "gradient-b382f688": {
+      "$value": "linear-gradient(270deg, rgba(0, 0, 0, .25), hsla(0, 0%, 100%, 0))"
+    },
+    "gradient-6ea318bc": {
+      "$value": "linear-gradient(45deg, var(--utrecht-color-red-40), var(--utrecht-color-red-40) 50%, #d63433 50%)"
+    },
+    "gradient-800ffb3e": {
+      "$value": "linear-gradient(90deg, var(--base-color), var(--highlight-color), var(--base-color))"
+    }
+  },
+  "BoxShadow": {
+    "boxShadow-30": {
+      "$value": "0",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "0"
+      }
+    },
+    "boxShadow-c9dccc4": {
+      "$value": "var(--utrecht-alert-dialog-box-shadow)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-alert-dialog-box-shadow)"
+      }
+    },
+    "boxShadow-bff9336d": {
+      "$value": "var(--_utrecht-focus-ring-box-shadow)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--_utrecht-focus-ring-box-shadow)"
+      }
+    },
+    "boxShadow-f08cb02f": {
+      "$value": "var(--utrecht-form-toggle-thumb-box-shadow)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-form-toggle-thumb-box-shadow)"
+      }
+    },
+    "boxShadow-55762768": {
+      "$value": "var(--utrecht-form-toggle-thumb-disabled-box-shadow, 0)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-form-toggle-thumb-disabled-box-shadow, 0)"
+      }
+    },
+    "boxShadow-990c08f3": {
+      "$type": "shadow",
+      "$value": {
+        "color": "var(--utrecht-map-marker-box-shadow-color)",
+        "offsetX": {
+          "$type": "dimension",
+          "value": 13,
+          "unit": "px"
+        },
+        "offsetY": {
+          "$type": "dimension",
+          "value": 3,
+          "unit": "px"
+        },
+        "blur": {
+          "$type": "dimension",
+          "value": 3,
+          "unit": "px"
+        },
+        "spread": {
+          "$type": "dimension",
+          "value": -2,
+          "unit": "px"
+        },
+        "inset": false
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "13px 3px 3px -2px var(--utrecht-map-marker-box-shadow-color)"
+      }
+    }
+  },
+  "Radius": {
+    "radius-30": {
+      "$value": "0"
+    },
+    "radius-4bdabd3e": {
+      "$value": "var(--utrecht-alert-border-radius, 0)"
+    },
+    "radius-5b5c703d": {
+      "$value": "var(--utrecht-alert-dialog-border-radius, 0)"
+    },
+    "radius-7cb87abd": {
+      "$value": "var(--utrecht-badge-counter-border-radius, var(--utrecht-badge-border-radius, .5ch))"
+    },
+    "radius-89a407f1": {
+      "$value": "var(--utrecht-badge-border-radius, .5ch)"
+    },
+    "radius-15bc6c": {
+      "$value": ".5ch"
+    },
+    "radius-b2d96a20": {
+      "$value": "var(--utrecht-button-border-radius)"
+    },
+    "radius-5fafb3f8": {
+      "$value": "var(--utrecht-color-sample-border-radius, 0)"
+    },
+    "radius-fa7ca727": {
+      "$value": "var(--utrecht-checkbox-border-radius, 0)"
+    },
+    "radius-7edb0281": {
+      "$value": "var(--utrecht-drawer-border-radius)"
+    },
+    "radius-b7560642": {
+      "$value": "var(--utrecht-form-toggle-border-radius, 999rem)"
+    },
+    "radius-648318e1": {
+      "$value": "999rem"
+    },
+    "radius-b2fa022e": {
+      "$value": "var(--utrecht-form-toggle-thumb-border-radius, 50%)"
+    },
+    "radius-ccea": {
+      "$value": "50%"
+    },
+    "radius-b9becfee": {
+      "$value": "var(--utrecht-form-toggle-track-border-radius, var(--utrecht-form-toggle-border-radius))"
+    },
+    "radius-7c00f7": {
+      "$value": "var(--utrecht-form-toggle-border-radius)"
+    },
+    "radius-db3bd787": {
+      "$value": "var(--utrecht-listbox-border-radius)"
+    },
+    "radius-9b96157f": {
+      "$value": "var(--utrecht-mapcontrolbutton-border-radius)"
+    },
+    "radius-170054": {
+      "$value": "100%"
+    },
+    "radius-5849576a": {
+      "$value": "var(--utrecht-pagination-relative-link-border-radius)"
+    },
+    "radius-1333d0ad": {
+      "$value": "var(--utrecht-pagination-page-link-border-radius)"
+    },
+    "radius-c6b4e46a": {
+      "$value": "var(--utrecht-select-border-radius, var(--utrecht-form-control-border-radius, 0))"
+    },
+    "radius-e87d59f8": {
+      "$value": "var(--utrecht-form-control-border-radius, 0)"
+    },
+    "radius-40f4bb2c": {
+      "$value": "var(--utrecht-textarea-border-radius, var(--utrecht-form-control-border-radius, 0))"
+    },
+    "radius-336b6baa": {
+      "$value": "var(--utrecht-textbox-border-radius, var(--utrecht-form-control-border-radius, 0))"
+    },
+    "radius-51595409": {
+      "$value": ".25rem"
+    },
+    "radius-517e0f61": {
+      "$value": "var(--utrecht-modal-dialog-border-radius, 3px)"
+    },
+    "radius-cd7b": {
+      "$value": "3px"
+    }
+  },
+  "Duration": {
+    "duration-452f2b3c": {
+      "$value": "min(var(--utrecht-motion-max-animation-duration, var(--_utrecht-backdrop-fade-in-animation-duration)), var(--_utrecht-backdrop-fade-in-animation-duration, 0))",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "min(var(--utrecht-motion-max-animation-duration, var(--_utrecht-backdrop-fade-in-animation-duration)), var(--_utrecht-backdrop-fade-in-animation-duration, 0))"
+      }
+    },
+    "duration-452f2b3b": {
+      "$value": "var(--utrecht-navigation-link-mobile-transition-duration, .3s)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-navigation-link-mobile-transition-duration, .3s)"
+      }
+    },
+    "duration-17005f": {
+      "$type": "duration",
+      "$value": {
+        "value": 1000,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "1s"
+      }
+    },
+    "duration-c573": {
+      "$type": "duration",
+      "$value": {
+        "value": 300,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "com.projectwallace.css-authored-as": ".3s"
+      }
+    }
+  },
+  "Easing": {
+    "easing-ea6c7565": {
+      "$value": [0.42, 0, 0.58, 1],
+      "$type": "cubicBezier",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "ease-in-out"
+      }
+    },
+    "easing-be468f25": {
+      "$value": [0, 0, 1, 1],
+      "$type": "cubicBezier",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "linear"
+      }
+    },
+    "easing-8079e05b": {
+      "$value": "var(--utrecht-navigation-link-mobile-transition-timing-function, ease-in-out)",
+      "$extensions": {
+        "com.projectwallace.css-authored-as": "var(--utrecht-navigation-link-mobile-transition-timing-function, ease-in-out)"
+      }
+    }
+  }
+}
