@@ -16,7 +16,7 @@ import '@utrecht/body-css';
 import '@utrecht/root-css';
 import '@utrecht/table-css';
 import './style.css';
-import './basis-theme.css';
+import '@nl-design-system-unstable/basis-design-tokens/dist/theme.css';
 import './fluid.css';
 
 defineCustomElements();

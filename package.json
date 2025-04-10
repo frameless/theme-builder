@@ -84,6 +84,7 @@
     "watch:style-dictionary": "pnpm --filter @frameless/design-tokens run watch:style-dictionary"
   },
   "dependencies": {
+    "@nl-design-system-unstable/basis-design-tokens": "3.0.0",
     "@radix-ui/colors": "3.0.0",
     "@utrecht/body-css": "1.2.0",
     "@utrecht/page-layout-css": "1.1.0",

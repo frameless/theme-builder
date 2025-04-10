@@ -8,7 +8,7 @@ import '@utrecht/page-layout-css';
 import '@utrecht/body-css';
 import '@utrecht/root-css';
 import './style.css';
-import './basis-theme.css';
+import '@nl-design-system-unstable/basis-design-tokens/dist/theme.css';
 import './fluid.css';
 
 defineCustomElements();
