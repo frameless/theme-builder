@@ -1,62 +1,19 @@
 import postcss from 'postcss';
 import type { AcceptedPlugin } from 'postcss';
-import { findCss } from './findcss';
-import { readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { ScrapedWebsite } from './scrape-websites';
+import set from 'lodash-es/set';
+import type { DesignTokenTree } from '@nl-design-system-unstable/tokens-lib/dist/design-tokens';
+import { designTokens, Mapping } from './mappings';
 
-interface Mapping {
-  name: string;
-  selector: string;
-  property: string;
-}
-
-const designTokens = [
-  {
-    name: 'basis.border-radius.md',
-    selector: ':root',
-    property: '--root-border-radius',
-  },
-  {
-    name: 'basis.border-width.md',
-    selector: ':root',
-    property: '--root-border-width',
-  },
-  {
-    name: 'utrecht.body.line-height',
-    selector: 'body',
-    property: 'line-height',
-  },
-  {
-    name: 'utrecht.body.font-family',
-    selector: 'body',
-    property: 'font-family',
-  },
-  {
-    name: 'basis.border-width.md',
-    selector: ':root',
-    property: '--root-border-width',
-  },
-  {
-    name: 'utrecht.heading-1.color',
-    selector: ':root',
-    property: '--root-heading-1-color',
-  },
-  {
-    name: 'utrecht.heading-2.color',
-    selector: ':root',
-    property: '--root-heading-2-color',
-  },
-  {
-    name: 'utrecht.heading-3.color',
-    selector: ':root',
-    property: '--root-heading-3-color',
-  },
-  {
-    name: 'utrecht.heading-4.color',
-    selector: ':root',
-    property: '--root-heading-4-color',
-  },
-];
+const treeTokens = (tokens: FlatTokens): DesignTokenTree => {
+  const tree: DesignTokenTree = {};
+  for (let key in tokens) {
+    const item = tokens[key];
+    set(tree, key, { $value: item });
+  }
+  return tree;
+};
 
 const map = designTokens.reduce((map, item) => {
   let arr = map.get(item.selector);
@@ -102,8 +59,10 @@ export const findCssVariables = (fileName: string): AcceptedPlugin => {
         });
       }
     });
-    console.log(tokens);
-    writeFile(fileName, JSON.stringify(tokens, null, 2));
+
+    const tree = treeTokens(tokens);
+    writeFile(fileName, JSON.stringify(tree, null, 2));
+    console.log(`Generated ${fileName}`);
   };
 };
 
@@ -115,11 +74,14 @@ const init = async () => {
   // // Store file for debuggin purpose
   // await writeFile('./dump.css', css);
 
-  const scrapedWebsites = JSON.parse(await readFile('./scraped.json', 'utf-8')) as ScrapedWebsite[];
+  await mkdir('./dist/', { recursive: true });
+  await mkdir('./tmp/', { recursive: true });
+
+  const scrapedWebsites = JSON.parse(await readFile('./tmp/scraped.json', 'utf-8')) as ScrapedWebsite[];
 
   scrapedWebsites.forEach(({ css, url }) => {
     try {
-      const fileName = `${new URL(url).hostname}.tokens.json`;
+      const fileName = `./dist/${new URL(url).hostname}.tokens.json`;
 
       postcss([findCssVariables(fileName)])
         // .process(css, { from, to })
