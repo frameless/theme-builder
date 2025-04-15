@@ -1,0 +1,24 @@
+{
+  "name": "@frameless/opengemeenten-theme",
+  "author": "Frameless",
+  "description": "Website with NL Design System theme builder interface",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "keywords": [
+    "nl-design-system"
+  ],
+  "private": true,
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/theme-builder.git",
+    "directory": "packages/opengemeenten-theme"
+  },
+  "version": "0.0.0",
+  "devDependencies": {
+    "p-limit": "6.2.0",
+    "postcss": "8.5.3",
+    "tsx": "4.19.3"
+  },
+  "scripts": {
+    "start": "tsx src/index.ts"
+  }
+}
