@@ -25,6 +25,11 @@ const map = designTokens.reduce((map, item) => {
   return map;
 }, new Map<string, Mapping[]>());
 
+const cssVariableMap = designTokens.reduce((map, item) => {
+  map.set(item.property, item.name);
+  return map;
+}, new Map<string, string>());
+
 interface FlatTokens {
   [index: string]: string;
 }
@@ -54,14 +59,36 @@ export const findCssVariables = (fileName: string): AcceptedPlugin => {
                 console.warn(`Collision: ${mapping.name}\nOld: ${oldValue}\nNew: ${newValue}`);
               }
             }
-            tokens[mapping.name] = customPropertyNode.value;
+            tokens[mapping.name] = customPropertyNode.value.trim();
           }
         });
       }
     });
 
+    for (let key in tokens) {
+      const value = tokens[key];
+
+      tokens[key] = value.replace(/var\(([^)]+)\)/g, (_, property) => {
+        const tokenRef = cssVariableMap.get(property);
+        return tokenRef ? `{${tokenRef}}` : _;
+      });
+    }
+
+    // TODO: Remove this workaround for Style Dictionary adding extra quote marks in CSS
+    tokens['basis.typography.font-family.default'] = tokens['basis.typography.font-family.default'].replace(/"/g, '');
+    tokens['basis.typography.font-family.heading'] = tokens['basis.typography.font-family.heading'].replace(/"/g, '');
+
     const tree = treeTokens(tokens);
-    writeFile(fileName, JSON.stringify(tree, null, 2));
+    writeFile(
+      fileName,
+      JSON.stringify(
+        {
+          ['opengemeenten']: tree,
+        },
+        null,
+        2,
+      ),
+    );
     console.log(`Generated ${fileName}`);
   };
 };

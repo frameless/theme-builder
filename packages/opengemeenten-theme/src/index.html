@@ -1,86 +1,102 @@
 <!doctype html>
-<script type="module" defer>
-  import { defineCustomElements } from 'https://unpkg.com/@utrecht/web-component-library-stencil@3.3.0/dist/esm/loader.js';
-  defineCustomElements();
-  const themes = [
-    { prefix: 'barneveld', tokensFile: 'www.barneveld.nl' },
-    { prefix: 'bergen', tokensFile: 'www.bergen-nh.nl' },
-    { prefix: 'bloemendaal', tokensFile: 'www.bloemendaal.nl' },
-    { prefix: 'bunnik', tokensFile: 'www.bunnik.nl' },
-    { prefix: 'castricum', tokensFile: 'www.castricum.nl' },
-    { prefix: 'debilt', tokensFile: 'www.debilt.nl' },
-    { prefix: 'dijkenwaard', tokensFile: 'www.dijkenwaard.nl' },
-    { prefix: 'ede', tokensFile: 'www.ede.nl' },
-    { prefix: 'ermelo', tokensFile: 'www.ermelo.nl' },
-    { prefix: 'harderwijk', tokensFile: 'www.harderwijk.nl' },
-    { prefix: 'heemskerk', tokensFile: 'www.heemskerk.nl' },
-    { prefix: 'heemstede', tokensFile: 'www.heemstede.nl' },
-    { prefix: 'heiloo', tokensFile: 'www.heiloo.nl' },
-    { prefix: 'houten', tokensFile: 'www.houten.nl' },
-    { prefix: 'heusden', tokensFile: 'www.heusden.nl' },
-    { prefix: 'katwijk', tokensFile: 'www.katwijk.nl' },
-    { prefix: 'medemblik', tokensFile: 'www.medemblik.nl' },
-    { prefix: 'nieuwegein', tokensFile: 'www.nieuwegein.nl' },
-    { prefix: 'nissewaard', tokensFile: 'www.nissewaard.nl' },
-    { prefix: 'rhenen', tokensFile: 'www.rhenen.nl' },
-    { prefix: 'schouwen', tokensFile: 'www.schouwen-duiveland.nl' },
-    { prefix: 'soest', tokensFile: 'www.soest.nl' },
-    { prefix: 'tholen', tokensFile: 'www.tholen.nl' },
-    { prefix: 'uitgeest', tokensFile: 'www.uitgeest.nl' },
-    { prefix: 'veenendaal', tokensFile: 'www.veenendaal.nl' },
-    { prefix: 'voerendaal', tokensFile: 'www.voerendaal.nl' },
-    { prefix: 'gemeentewestland', tokensFile: 'www.gemeentewestland.nl' },
-    { prefix: 'wijkbijduurstede', tokensFile: 'www.wijkbijduurstede.nl' },
-    { prefix: 'woudenberg', tokensFile: 'www.woudenberg.nl' },
-    { prefix: 'zeewolde', tokensFile: 'www.zeewolde.nl' },
-    { prefix: 'zeist', tokensFile: 'www.zeist.nl' },
-  ];
+<html lang="nl" dir="ltr">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Cabin:ital,wght@0,400..700;1,400..700&family=Exo:ital,wght@0,100..900;1,100..900&family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans+Narrow:wght@400;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <script type="module" defer>
+      import { defineCustomElements } from 'https://unpkg.com/@utrecht/web-component-library-stencil@3.3.0/dist/esm/loader.js';
+      defineCustomElements();
+      const themes = [
+        { prefix: 'barneveld', tokensFile: 'www.barneveld.nl' },
+        { prefix: 'bergen', tokensFile: 'www.bergen-nh.nl' },
+        { prefix: 'bloemendaal', tokensFile: 'www.bloemendaal.nl' },
+        { prefix: 'bunnik', tokensFile: 'www.bunnik.nl' },
+        { prefix: 'castricum', tokensFile: 'www.castricum.nl' },
+        { prefix: 'debilt', tokensFile: 'www.debilt.nl' },
+        { prefix: 'dijkenwaard', tokensFile: 'www.dijkenwaard.nl' },
+        { prefix: 'ede', tokensFile: 'www.ede.nl' },
+        { prefix: 'ermelo', tokensFile: 'www.ermelo.nl' },
+        { prefix: 'harderwijk', tokensFile: 'www.harderwijk.nl' },
+        { prefix: 'heemskerk', tokensFile: 'www.heemskerk.nl' },
+        { prefix: 'heemstede', tokensFile: 'www.heemstede.nl' },
+        { prefix: 'heiloo', tokensFile: 'www.heiloo.nl' },
+        { prefix: 'houten', tokensFile: 'www.houten.nl' },
+        { prefix: 'heusden', tokensFile: 'www.heusden.nl' },
+        { prefix: 'katwijk', tokensFile: 'www.katwijk.nl' },
+        { prefix: 'medemblik', tokensFile: 'www.medemblik.nl' },
+        { prefix: 'nieuwegein', tokensFile: 'www.nieuwegein.nl' },
+        { prefix: 'nissewaard', tokensFile: 'www.nissewaard.nl' },
+        { prefix: 'rhenen', tokensFile: 'www.rhenen.nl' },
+        { prefix: 'schouwen', tokensFile: 'www.schouwen-duiveland.nl' },
+        { prefix: 'soest', tokensFile: 'www.soest.nl' },
+        { prefix: 'tholen', tokensFile: 'www.tholen.nl' },
+        { prefix: 'uitgeest', tokensFile: 'www.uitgeest.nl' },
+        { prefix: 'veenendaal', tokensFile: 'www.veenendaal.nl' },
+        { prefix: 'voerendaal', tokensFile: 'www.voerendaal.nl' },
+        { prefix: 'gemeentewestland', tokensFile: 'www.gemeentewestland.nl' },
+        { prefix: 'wijkbijduurstede', tokensFile: 'www.wijkbijduurstede.nl' },
+        { prefix: 'woudenberg', tokensFile: 'www.woudenberg.nl' },
+        { prefix: 'zeewolde', tokensFile: 'www.zeewolde.nl' },
+        { prefix: 'zeist', tokensFile: 'www.zeist.nl' },
+      ];
 
-  const table = document.createElement('table');
+      const table = document.createElement('table');
 
-  themes.forEach(({ prefix, tokensFile }) => {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = `../dist/${prefix}/theme.css`;
-    document.head.appendChild(link);
+      themes.forEach(({ prefix, tokensFile }) => {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = `../dist/${prefix}/theme.css`;
+        document.head.appendChild(link);
 
-    const fragment = `
-        <tr class="${prefix}-theme">
-          <th>${tokensFile}</th>
+        const fragment = `
+        <tr class="${prefix}-theme" style="font-family: var(--basis-typography-font-family-default)">
+          <th><utrecht-url-data>${tokensFile}</utrecht-url-data></th>
           <td>
             <utrecht-button-link href="https://${tokensFile}" target="demo">Bezoek ${tokensFile}</utrecht-button-link>
           </td>
-          <td>
+          <td hidden>
             <utrecht-button-link appearance="primary-action-button" href="https://${tokensFile}" target="demo">Bezoek ${tokensFile}</utrecht-button-link>
           </td>
           <td>
-            <utrecht-heading level="1">De snelle vos</utrecht-heading>
+            <utrecht-heading level="1">The Quick Brown Fox ...</utrecht-heading>
           </td>
           <td>
-            <utrecht-heading level="2">De snelle vos</utrecht-heading>
+            <utrecht-heading level="2">The Quick Brown Fox ...</utrecht-heading>
           </td>
           <td>
-            <utrecht-heading level="3">De snelle vos</utrecht-heading>
+            <utrecht-heading level="3">The Quick Brown Fox ...</utrecht-heading>
           </td>
           <td>
-            <utrecht-heading level="4">De snelle vos</utrecht-heading>
+            <utrecht-heading level="4">The Quick Brown Fox ...</utrecht-heading>
+          </td>
+          <td hidden>
+            <utrecht-paragraph appearance="lead">The Quick Brown Fox ...</utrecht-paragraph>
           </td>
           <td>
-            <utrecht-paragraph appearance="lead">De snelle vos</utrecht-paragraph>
-          </td>
-          <td>
-            <utrecht-paragraph>De snelle vos</utrecht-paragraph>
+            <utrecht-paragraph>The Quick Brown Fox ...</utrecht-paragraph>
           </td>
         </tr>`;
-    table.insertAdjacentHTML('beforeend', fragment);
-  });
-  document.body.appendChild(table);
-</script>
-<style>
-  td,
-  th {
-    white-space: pre;
-    padding: 0.5em;
-    text-align: start;
-  }
-</style>
+        table.insertAdjacentHTML('beforeend', fragment);
+      });
+      document.body.appendChild(table);
+    </script>
+    <style>
+      td,
+      th {
+        padding: 0.5em;
+        text-align: start;
+      }
+      td > *,
+      th > * {
+        white-space: pre;
+      }
+    </style>
+    <!-- TODO: Include missing fonts: Exo, Maax, Georgia, Circular Std, Open Sans Condensed, Netto Pro, MuseoSans -->
+  </body>
+</html>
