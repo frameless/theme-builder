@@ -37,6 +37,9 @@
     </svg>
     <script type="module" defer>
       import { defineCustomElements } from 'https://unpkg.com/@utrecht/web-component-library-stencil@3.3.0/dist/esm/loader.js';
+      import './example-text-block.js';
+      import './example-screenreader-only.js';
+
       defineCustomElements();
       const themes = [
         { prefix: 'barneveld', tokensFile: 'www.barneveld.nl' },
@@ -100,7 +103,10 @@
 
         const fragment = `
         <tr class="${prefix}-theme" style="font-family: var(--basis-typography-font-family-default)">
-          <th><utrecht-url-data>${tokensFile}</utrecht-url-data></th>
+          <th><utrecht-link href="https://${tokensFile}" target="demo"><utrecht-url-data>${tokensFile}</utrecht-url-data></utrecht-link></th>
+          <td>
+            <utrecht-button>Click me</utrecht-button>
+          </td>
           <td>
             <utrecht-button-link href="https://${tokensFile}" target="demo">Bezoek ${tokensFile}</utrecht-button-link>
           </td>
@@ -111,7 +117,7 @@
             <utrecht-button-link appearance="secondary-action-button" href="https://${tokensFile}" target="demo">Bezoek ${tokensFile}</utrecht-button-link>
           </td>
           <td>
-            <div style="min-inline-size: 200px"><utrecht-textbox value="Hello world"></utrecht-textbox></div>
+            <div style="min-inline-size: 200px"><utrecht-textbox value="Hello world" placeholder="Vul iets in..."></utrecht-textbox></div>
           </td>
           <td>
             <utrecht-heading level="1">The Quick Brown Fox ...</utrecht-heading>
@@ -130,6 +136,27 @@
           </td>
           <td>
             <utrecht-paragraph>The Quick Brown Fox ...</utrecht-paragraph>
+          </td>
+          <td>
+            <utrecht-spotlight-section style="zoom: 20%">The Quick Brown Fox ...</utrecht-spotlight-section>
+          </td>
+          <td>
+            <utrecht-spotlight-section appearance="info" style="zoom: 20%">The Quick Brown Fox ...</utrecht-spotlight-section>
+          </td>
+          <td>
+            <utrecht-spotlight-section appearance="success" style="zoom: 20%">The Quick Brown Fox ...</utrecht-spotlight-section>
+          </td>
+          <td>
+            <utrecht-spotlight-section appearance="warning" style="zoom: 20%">The Quick Brown Fox ...</utrecht-spotlight-section>
+          </td>
+          <td>
+            <utrecht-spotlight-section appearance="error" style="zoom: 20%">The Quick Brown Fox ...</utrecht-spotlight-section>
+          </td>
+          <td>
+            <utrecht-page-header style="zoom: 20%">The Quick Brown Fox ...</utrecht-page-header>
+          </td>
+          <td>
+            <utrecht-page-footer style="zoom: 20%">The Quick Brown Fox ...</utrecht-page-footer>
           </td>
         </tr>`;
         table.insertAdjacentHTML('beforeend', fragment);
@@ -171,6 +198,7 @@
         max-inline-size: 1280px;
         max-block-size: 1024px;
         outline: 1px solid black;
+        overflow-block: auto;
         /* zoom: 50%; */
       }
     </style>

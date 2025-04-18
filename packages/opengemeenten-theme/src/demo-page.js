@@ -10,6 +10,38 @@ class DemoPageElement extends HTMLElement {
           <utrecht-paragraph><slot name="page-header"></slot></utrecht-paragraph>
         </utrecht-page-header>
         <utrecht-page-body>
+          <example-text-block>
+
+    <utrecht-spotlight-section appearance="warning">
+      <div class="notification__icon" aria-hidden="true">
+        <utrecht-icon><svg viewBox="0 0 32 32" class="icon" role="img">
+          <use href="/_assets/317130fbcbb12622b6e28e3bfff3cb16/Icons/Notification.svg#warning"></use>
+        </svg></utrecht-icon>
+      </div>
+      <div class="notification__text rte-content margin-first-none">
+        <example-screenreader-only> Waarschuwing: </example-screenreader-only>
+
+        <utrecht-heading level="2" class="notification__title header">Storing contant betalen in De Binding</utrecht-heading>
+
+        <utrecht-paragraph>
+          Het is op dit moment niet mogelijk om contant te betalen in De Binding. U kunt wel pinnen. Onze excuses voor
+          het ongemak.
+        </utrecht-paragraph>
+
+        <utrecht-button-group>
+          <utrecht-link
+            href="/calamiteiten/contant-betalen-niet-mogelijk-in-de-binding"
+            class="link"
+            aria-label="Lees meer over Storing contant betalen in De Binding"
+            ><span class="link__label">Meer informatie</span></utrecht-link
+          >
+        </utrecht-button-group>
+      </div>
+
+      <button type="button" class="close-button">
+        <span class="screenreader--only"> Sluiten </span>
+      </button>
+    </utrecht-spotlight-section>
           <div class="column-gap-xl">
             <!-- bron: https://www.zeist.nl/ondernemen/subsidies-of-financiele-steun-ondernemers/steun-voor-ondernemers -->
             <section class="main-column column" id="main" aria-label="hoofdkolom">
@@ -130,9 +162,10 @@ class DemoPageElement extends HTMLElement {
               </div>
             </section>
           </div>
+          </example-text-block>
         </utrecht-page-body>
         <utrecht-page-footer>
-          <utrecht-paragraph><slot name="page-footer"></slot></utrecht-paragraph>
+          <slot name="page-footer"></slot>
         </utrecht-page-footer>
       </div>`;
   }

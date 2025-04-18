@@ -4,6 +4,13 @@
     "tokenSetOrder": ["opengemeenten"]
   },
   "opengemeenten": {
+    "basis": {
+      "form-control": {
+        "background-color": { "$value": "#ffffff" },
+        "border-color": { "$value": "#000000" },
+        "border-width": { "$value": "0.125rem" }
+      }
+    },
     "utrecht": {
       "button": {
         "hover": {
@@ -60,21 +67,36 @@
         }
       },
       "link": {
+        "active": {
+          "color": { "$value": "{utrecht.link.hover.color}" }
+        },
         "hover": {
           "text-decoration-thickness": {
             "$value": "{utrecht.link.text-decoration-thickness}"
           }
         },
         "focus": {
+          "color": { "$value": "{utrecht.link.hover.color}" },
           "text-decoration-thickness": {
             "$value": "{utrecht.link.text-decoration-thickness}"
           }
         },
         "focus-visible": {
+          "color": { "$value": "{utrecht.link.hover.color}" },
           "text-decoration-thickness": {
             "$value": "{utrecht.link.text-decoration-thickness}"
           }
         }
+      },
+      "spotlight-section": {
+        "border-width": { "$value": "0.125rem" },
+        "padding-block-start": { "$value": "1.75rem" },
+        "padding-block-end": { "$value": "2rem" },
+        "padding-inline-start": { "$value": "2rem" },
+        "padding-inline-end": { "$value": "2rem" }
+      },
+      "icon": {
+        "size": { "$value": "1em", "$comment": "https://github.com/nl-design-system/utrecht/issues/2794" }
       }
     }
   }

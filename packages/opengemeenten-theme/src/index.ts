@@ -55,10 +55,8 @@ export const findCssVariables = (fileName: string): AcceptedPlugin => {
 
     css.walk((node) => {
       if (node.type === 'rule') {
-        if (node.parent.type === 'atrule' && node.parent.name === 'media') {
-          // Skip responsive values in `@media` blocks
-          return;
-        }
+        const media =
+          node.parent.type === 'atrule' && node.parent.name === 'media' ? `${node.parent.params}` : undefined;
 
         splitSelectors(node.selector).forEach((selector) => {
           const interestingMappings = map.get(selector);
@@ -67,27 +65,29 @@ export const findCssVariables = (fileName: string): AcceptedPlugin => {
           // const customPropertyNodes = node.nodes.filter(
           //   (node) => node.type === 'decl' && customProperties.includes(node.prop),
           // );
-          interestingMappings?.forEach((mapping) => {
-            const customPropertyNode = node.nodes.findLast(
-              (node) => node.type === 'decl' && node.prop === mapping.property,
-            );
+          interestingMappings
+            ?.filter((mapping) => mapping.media === media)
+            .forEach((mapping) => {
+              const customPropertyNode = node.nodes.findLast(
+                (node) => node.type === 'decl' && node.prop === mapping.property,
+              );
 
-            if (customPropertyNode) {
-              if (tokens.hasOwnProperty(mapping.name)) {
-                const newValue = customPropertyNode.value;
-                const oldValue = tokens[mapping.name].$value;
-                if (newValue !== oldValue) {
-                  console.warn(
-                    `Collision: ${mapping.name}\nOld:\n\t${oldValue}\n\t${tokens[mapping.name].$comment}\n\nNew:\n\t${newValue}\n\t${selector}\n`,
-                  );
+              if (customPropertyNode) {
+                if (tokens.hasOwnProperty(mapping.name)) {
+                  const newValue = customPropertyNode.value;
+                  const oldValue = tokens[mapping.name].$value;
+                  if (newValue !== oldValue) {
+                    console.warn(
+                      `Collision: ${mapping.name}\nOld:\n\t${oldValue}\n\t${tokens[mapping.name].$comment}\n\nNew:\n\t${newValue}\n\t${selector}\n`,
+                    );
+                  }
                 }
+                tokens[mapping.name] = {
+                  $comment: selector,
+                  $value: customPropertyNode.value.trim(),
+                };
               }
-              tokens[mapping.name] = {
-                $comment: selector,
-                $value: customPropertyNode.value.trim(),
-              };
-            }
-          });
+            });
         });
       }
     });

@@ -2,6 +2,7 @@ export interface Mapping {
   name: string;
   selector: string;
   property: string;
+  media?: string;
 }
 
 export const designTokens = [
@@ -21,7 +22,9 @@ export const designTokens = [
   { name: 'og.color.transformation.lightest', selector: ':root', property: '--lightestTransformation' },
   { name: 'og.color.primary.default', selector: ':root', property: '--root-color--primary' },
   { name: 'og.color.primary-dark', selector: ':root', property: '--root-color--primary-dark' },
+  { name: 'og.color.primary-darkest', selector: ':root', property: '--root-color--primary-darkest' },
   { name: 'og.color.primary-light', selector: ':root', property: '--root-color--primary-light' },
+  { name: 'og.color.primary-lightest', selector: ':root', property: '--root-color--primary-lightest' },
   { name: 'og.color.primary.hue', selector: ':root', property: '--root-color--primary-hue' },
   { name: 'og.color.primary.saturation', selector: ':root', property: '--root-color--primary-saturation' },
   { name: 'og.color.primary.lightness', selector: ':root', property: '--root-color--primary-lightness' },
@@ -31,13 +34,25 @@ export const designTokens = [
     property: '--root-color--primary-lightness-dark',
   },
   {
+    name: 'og.color.primary.lightness-darkest',
+    selector: ':root',
+    property: '--root-color--primary-lightness-darkest',
+  },
+  {
     name: 'og.color.primary.lightness-light',
     selector: ':root',
     property: '--root-color--primary-lightness-light',
   },
+  {
+    name: 'og.color.primary.lightness-lightest',
+    selector: ':root',
+    property: '--root-color--primary-lightness-lightest',
+  },
   { name: 'og.color.secondary.default', selector: ':root', property: '--root-color--secondary' },
   { name: 'og.color.secondary-dark', selector: ':root', property: '--root-color--secondary-dark' },
+  { name: 'og.color.secondary-darkest', selector: ':root', property: '--root-color--secondary-darkest' },
   { name: 'og.color.secondary-light', selector: ':root', property: '--root-color--secondary-light' },
+  { name: 'og.color.secondary-lightest', selector: ':root', property: '--root-color--secondary-lightest' },
   { name: 'og.color.secondary.hue', selector: ':root', property: '--root-color--secondary-hue' },
   {
     name: 'og.color.secondary.saturation',
@@ -51,13 +66,25 @@ export const designTokens = [
     property: '--root-color--secondary-lightness-dark',
   },
   {
+    name: 'og.color.secondary.lightness-darkest',
+    selector: ':root',
+    property: '--root-color--secondary-lightness-darkest',
+  },
+  {
     name: 'og.color.secondary.lightness-light',
     selector: ':root',
     property: '--root-color--secondary-lightness-light',
   },
+  {
+    name: 'og.color.secondary.lightness-lightest',
+    selector: ':root',
+    property: '--root-color--secondary-lightness-lightest',
+  },
   { name: 'og.color.support.default', selector: ':root', property: '--root-color--support' },
   { name: 'og.color.support-dark', selector: ':root', property: '--root-color--support-dark' },
+  { name: 'og.color.support-darkest', selector: ':root', property: '--root-color--support-darkest' },
   { name: 'og.color.support-light', selector: ':root', property: '--root-color--support-light' },
+  { name: 'og.color.support-lightest', selector: ':root', property: '--root-color--support-lightest' },
   { name: 'og.color.support.hue', selector: ':root', property: '--root-color--support-hue' },
   { name: 'og.color.support.saturation', selector: ':root', property: '--root-color--support-saturation' },
   { name: 'og.color.support.lightness', selector: ':root', property: '--root-color--support-lightness' },
@@ -67,13 +94,25 @@ export const designTokens = [
     property: '--root-color--support-lightness-dark',
   },
   {
+    name: 'og.color.support.lightness-darkest',
+    selector: ':root',
+    property: '--root-color--support-lightness-darkest',
+  },
+  {
     name: 'og.color.support.lightness-light',
     selector: ':root',
     property: '--root-color--support-lightness-light',
   },
+  {
+    name: 'og.color.support.lightness-lightest',
+    selector: ':root',
+    property: '--root-color--support-lightness-lightest',
+  },
   { name: 'og.color.contrast.default', selector: ':root', property: '--root-color--contrast' },
   { name: 'og.color.contrast-dark', selector: ':root', property: '--root-color--contrast-dark' },
+  { name: 'og.color.contrast-darkest', selector: ':root', property: '--root-color--contrast-darkest' },
   { name: 'og.color.contrast-light', selector: ':root', property: '--root-color--contrast-light' },
+  { name: 'og.color.contrast-lightest', selector: ':root', property: '--root-color--contrast-lightest' },
   { name: 'og.color.contrast.hue', selector: ':root', property: '--root-color--contrast-hue' },
   { name: 'og.color.contrast.saturation', selector: ':root', property: '--root-color--contrast-saturation' },
   { name: 'og.color.contrast.lightness', selector: ':root', property: '--root-color--contrast-lightness' },
@@ -83,9 +122,19 @@ export const designTokens = [
     property: '--root-color--contrast-lightness-dark',
   },
   {
+    name: 'og.color.contrast.lightness-darkest',
+    selector: ':root',
+    property: '--root-color--contrast-lightness-darkest',
+  },
+  {
     name: 'og.color.contrast.lightness-light',
     selector: ':root',
     property: '--root-color--contrast-lightness-light',
+  },
+  {
+    name: 'og.color.contrast.lightness-lightest',
+    selector: ':root',
+    property: '--root-color--contrast-lightness-lightest',
   },
   { name: 'og.color.grey.default', selector: ':root', property: '--root-color--grey' },
   { name: 'og.color.grey-dark', selector: ':root', property: '--root-color--grey-dark' },
@@ -377,6 +426,46 @@ export const designTokens = [
     property: '--root-heading-4-line-height',
   },
   {
+    name: 'utrecht.heading-1.margin-block-start',
+    selector: 'h1',
+    property: 'margin-top',
+  },
+  {
+    name: 'utrecht.heading-2.margin-block-start',
+    selector: 'h2',
+    property: 'margin-top',
+  },
+  {
+    name: 'utrecht.heading-3.margin-block-start',
+    selector: 'h3',
+    property: 'margin-top',
+  },
+  {
+    name: 'utrecht.heading-4.margin-block-start',
+    selector: 'h4',
+    property: 'margin-top',
+  },
+  {
+    name: 'utrecht.heading-5.margin-block-start',
+    selector: 'h5',
+    property: 'margin-top',
+  },
+  {
+    name: 'utrecht.heading-6.margin-block-start',
+    selector: 'h6',
+    property: 'margin-top',
+  },
+  {
+    name: 'utrecht.separator.margin-block-start',
+    selector: 'hr',
+    property: 'margin-top',
+  },
+  {
+    name: 'utrecht.separator.margin-block-end',
+    selector: 'hr',
+    property: 'margin-end',
+  },
+  {
     name: 'utrecht.paragraph.lead.color',
     selector: '.intro-text',
     property: '--color',
@@ -487,6 +576,17 @@ export const designTokens = [
     name: 'utrecht.button.line-height',
     selector: '.button',
     property: '--line-height',
+  },
+  {
+    name: 'utrecht.button.hover.background-color',
+    selector: '.button:hover',
+    property: '--background-color',
+  },
+  {
+    // Not an exact mapping
+    name: 'utrecht.button.hover.border-color',
+    selector: '.button:hover',
+    property: '--border-bottom-color',
   },
   // TODO: for .button-primary
   // --font-family
@@ -617,6 +717,18 @@ export const designTokens = [
     // --font-size: var(--root-font-size);
   },
   {
+    // Not an exact match
+    name: 'utrecht.page-footer.color',
+    selector: '.footer__header',
+    property: '--color',
+  },
+  {
+    // Not an exact match
+    name: 'utrecht.page-footer.content.color',
+    selector: '.footer__header',
+    property: '--color',
+  },
+  {
     name: 'utrecht.page-footer.content.padding-block-start',
     selector: '.page-footer__container',
     property: 'padding-top',
@@ -665,6 +777,36 @@ export const designTokens = [
     name: 'basis.form-control.background-color',
     selector: 'input[type="text"]',
     property: 'background',
+  },
+  {
+    name: 'basis.form-control.read-only.background-color',
+    selector: 'input[type="text"][readonly]',
+    property: 'background-color',
+  },
+  {
+    name: 'basis.form-control.read-only.border-color',
+    selector: 'input[type="text"][readonly]',
+    property: 'border-color',
+  },
+  {
+    name: 'basis.form-control.disabled.background-color',
+    selector: 'input[type="text"]:disabled',
+    property: 'background-color',
+  },
+  {
+    name: 'basis.form-control.disabled.border-color',
+    selector: 'input[type="text"]:disabled',
+    property: 'border-color',
+  },
+  {
+    name: 'utrecht.link.color',
+    selector: ':root',
+    property: '--root-color-text-link',
+  },
+  {
+    name: 'utrecht.link.hover.color',
+    selector: ':root',
+    property: '--root-color-text-link--hover',
   },
   {
     name: 'utrecht.link.icon.size',
@@ -721,5 +863,87 @@ export const designTokens = [
     name: 'utrecht.focus.outline-offset',
     selector: 'input[type="text"]:focus',
     property: 'outline-offset',
+  },
+  {
+    name: 'utrecht.spotlight-section.border-color',
+    selector: '.follow-up',
+    property: '--color-border',
+  },
+  {
+    name: 'utrecht.spotlight-section.warning.background-color',
+    selector: '.notification.is-warning',
+    property: '--color-background',
+  },
+  {
+    name: 'utrecht.spotlight-section.warning.border-color',
+    selector: '.notification.is-warning',
+    property: '--color-border',
+  },
+  {
+    name: 'utrecht.spotlight-section.icon.warning.color',
+    selector: '.notification.is-warning .notification__icon .icon',
+    property: '--color-icon',
+  },
+  {
+    name: 'utrecht.spotlight-section.ok.background-color',
+    selector: '.notification.is-success',
+    property: '--color-background',
+  },
+  {
+    name: 'utrecht.spotlight-section.ok.border-color',
+    selector: '.notification.is-success',
+    property: '--color-border',
+  },
+  {
+    name: 'utrecht.spotlight-section.icon.ok.color',
+    selector: '.notification.is-success .notification__icon .icon',
+    property: '--color-icon',
+  },
+  {
+    name: 'utrecht.spotlight-section.info.background-color',
+    selector: '.notification.is-information',
+    property: '--color-background',
+  },
+  {
+    name: 'utrecht.spotlight-section.info.border-color',
+    selector: '.notification.is-information',
+    property: '--color-border',
+  },
+  {
+    name: 'utrecht.spotlight-section.icon.info.color',
+    selector: '.notification.is-information .notification__icon .icon',
+    property: '--color-icon',
+  },
+  {
+    name: 'utrecht.spotlight-section.error.background-color',
+    selector: '.notification.is-alert',
+    property: '--color-background',
+  },
+  {
+    name: 'utrecht.spotlight-section.error.border-color',
+    selector: '.notification.is-alert',
+    property: '--color-border',
+  },
+  {
+    name: 'utrecht.spotlight-section.icon.error.color',
+    selector: '.notification.is-alert .notification__icon .icon',
+    property: '--color-icon',
+  },
+  {
+    // 🆕 Temporary, until there is a new component
+    name: 'example.text-block.max-inline-size',
+    selector: '.flow--content',
+    property: 'max-width',
+    media: '(min-width: 62rem)',
+  },
+  {
+    name: 'utrecht.table.row.alternate-odd.background-color',
+    selector: ':root',
+    property: '--root-color-background--table-row-odd',
+  },
+  {
+    name: 'utrecht.table.row.alternate-even.background-color',
+    selector: ':root',
+    property: '--root-color-background--table-row-even',
   },
 ];
