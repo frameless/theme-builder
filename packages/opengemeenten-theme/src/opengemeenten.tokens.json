@@ -1,0 +1,81 @@
+{
+  "$themes": [],
+  "$metadata": {
+    "tokenSetOrder": ["opengemeenten"]
+  },
+  "opengemeenten": {
+    "utrecht": {
+      "button": {
+        "hover": {
+          "background-color": { "$value": "{utrecht.button.background-color}" },
+          "border-color": { "$value": "{utrecht.button.border-color}" },
+          "color": { "$value": "{utrecht.button.color}" }
+        },
+        "active": {
+          "background-color": { "$value": "{utrecht.button.hover.background-color}" },
+          "border-color": { "$value": "{utrecht.button.hover.border-color}" },
+          "color": { "$value": "{utrecht.button.hover.color}" }
+        },
+        "focus": {
+          "background-color": { "$value": "{utrecht.button.hover.background-color}" },
+          "border-color": { "$value": "{utrecht.button.hover.border-color}" },
+          "color": { "$value": "{utrecht.button.hover.color}" }
+        },
+        "primary-action": {
+          "background-color": { "$value": "{utrecht.button.background-color}" },
+          "border-color": { "$value": "{utrecht.button.border-color}" },
+          "color": { "$value": "{utrecht.button.color}" },
+          "hover": {
+            "background-color": { "$value": "{utrecht.button.primary-action.background-color}" },
+            "border-color": { "$value": "{utrecht.button.primary-action.border-color}" },
+            "color": { "$value": "{utrecht.button.primary-action.color}" }
+          },
+          "active": {
+            "background-color": { "$value": "{utrecht.button.primary-action.hover.background-color}" },
+            "border-color": { "$value": "{utrecht.button.primary-action.hover.border-color}" },
+            "color": { "$value": "{utrecht.button.primary-action.hover.color}" }
+          },
+          "focus": {
+            "background-color": { "$value": "{utrecht.button.primary-action.hover.background-color}" },
+            "border-color": { "$value": "{utrecht.button.primary-action.hover.border-color}" },
+            "color": { "$value": "{utrecht.button.primary-action.hover.color}" }
+          }
+        },
+        "secondary-action": {
+          "hover": {
+            "background-color": { "$value": "{utrecht.button.secondary-action.background-color}" },
+            "border-color": { "$value": "{utrecht.button.secondary-action.border-color}" },
+            "color": { "$value": "{utrecht.button.secondary-action.color}" }
+          },
+          "active": {
+            "background-color": { "$value": "{utrecht.button.secondary-action.hover.background-color}" },
+            "border-color": { "$value": "{utrecht.button.secondary-action.hover.border-color}" },
+            "color": { "$value": "{utrecht.button.secondary-action.hover.color}" }
+          },
+          "focus": {
+            "background-color": { "$value": "{utrecht.button.secondary-action.hover.background-color}" },
+            "border-color": { "$value": "{utrecht.button.secondary-action.hover.border-color}" },
+            "color": { "$value": "{utrecht.button.secondary-action.hover.color}" }
+          }
+        }
+      },
+      "link": {
+        "hover": {
+          "text-decoration-thickness": {
+            "$value": "{utrecht.link.text-decoration-thickness}"
+          }
+        },
+        "focus": {
+          "text-decoration-thickness": {
+            "$value": "{utrecht.link.text-decoration-thickness}"
+          }
+        },
+        "focus-visible": {
+          "text-decoration-thickness": {
+            "$value": "{utrecht.link.text-decoration-thickness}"
+          }
+        }
+      }
+    }
+  }
+}

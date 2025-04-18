@@ -262,22 +262,22 @@ export const designTokens = [
   {
     name: 'utrecht.heading-1.color',
     selector: ':root',
-    property: '--utrecht-heading-1-color',
+    property: '--root-heading-1-color',
   },
   {
     name: 'utrecht.heading-2.color',
     selector: ':root',
-    property: '--utrecht-heading-2-color',
+    property: '--root-heading-2-color',
   },
   {
     name: 'utrecht.heading-3.color',
     selector: ':root',
-    property: '--utrecht-heading-3-color',
+    property: '--root-heading-3-color',
   },
   {
     name: 'utrecht.heading-4.color',
     selector: ':root',
-    property: '--utrecht-heading-4-color',
+    property: '--root-heading-4-color',
   },
   // --root-heading-1-color-link: var(--root-color-text-link);
   // --root-heading-2-color-link: var(--root-color-text-link);
@@ -377,6 +377,42 @@ export const designTokens = [
     property: '--root-heading-4-line-height',
   },
   {
+    name: 'utrecht.paragraph.lead.color',
+    selector: '.intro-text',
+    property: '--color',
+  },
+  {
+    name: 'utrecht.paragraph.lead.font-size',
+    selector: '.intro-text',
+    property: '--font-size',
+  },
+  {
+    name: 'utrecht.paragraph.lead.font-weight',
+    selector: '.intro-text',
+    property: '--font-weight',
+  },
+  {
+    name: 'utrecht.paragraph.lead.line-height',
+    selector: '.intro-text',
+    property: '--line-height',
+  },
+  {
+    name: 'utrecht.heading-2.font-size',
+    selector: ':root',
+    property: '--root-heading-2-size',
+  },
+  {
+    name: 'utrecht.heading-3.font-size',
+    selector: ':root',
+    property: '--root-heading-3-size',
+  },
+  {
+    name: 'utrecht.heading-4.font-size',
+    selector: ':root',
+    property: '--root-heading-4-size',
+  },
+
+  {
     name: 'utrecht.button.background-color',
     selector: '.button',
     property: '--background-color',
@@ -451,5 +487,239 @@ export const designTokens = [
     name: 'utrecht.button.line-height',
     selector: '.button',
     property: '--line-height',
+  },
+  // TODO: for .button-primary
+  // --font-family
+  // --font-style
+  // --border-radius
+  {
+    name: 'utrecht.button.primary-action.background-color',
+    selector: '.button-primary',
+    property: '--background-color',
+  },
+  {
+    // Not an exact mapping
+    name: 'utrecht.button.primary-action.border-color',
+    selector: '.button-primary',
+    property: '--border-bottom-color',
+  },
+  {
+    name: 'utrecht.button.primary-action.color',
+    selector: '.button-primary',
+    property: '--color',
+  },
+  {
+    name: 'utrecht.button.primary-action.font-size',
+    selector: '.button-primary',
+    property: '--font-size',
+  },
+  {
+    name: 'utrecht.button.primary-action.font-weight',
+    selector: '.button-primary',
+    property: '--font-weight',
+  },
+  {
+    name: 'utrecht.button.primary-action.line-height',
+    selector: '.button-primary',
+    property: '--line-height',
+  },
+  // TODO: for .button-secondary
+  // --font-family
+  // --font-style
+  // --border-radius
+  {
+    name: 'utrecht.button.secondary-action.background-color',
+    selector: '.button-secondary',
+    property: '--background-color',
+  },
+  {
+    // Not an exact mapping
+    name: 'utrecht.button.secondary-action.border-color',
+    selector: '.button-secondary',
+    property: '--border-bottom-color',
+  },
+  {
+    name: 'utrecht.button.secondary-action.color',
+    selector: '.button-secondary',
+    property: '--color',
+  },
+  {
+    name: 'utrecht.button.secondary-action.font-size',
+    selector: '.button-secondary',
+    property: '--font-size',
+  },
+  {
+    name: 'utrecht.button.secondary-action.font-weight',
+    selector: '.button-secondary',
+    property: '--font-weight',
+  },
+  {
+    name: 'utrecht.button.secondary-action.line-height',
+    selector: '.button-secondary',
+    property: '--line-height',
+  },
+  {
+    name: 'utrecht.button.primary-action.hover.background-color',
+    selector: '.button-primary:hover, .button-primary:focus, .button-primary:active',
+    property: '--background-color',
+  },
+  {
+    name: 'utrecht.button.primary-action.hover.background-color',
+    selector: '.button-primary:hover, .button-primary:focus, .button-primary:active',
+    property: '--background-color',
+  },
+  {
+    // Not an exact mapping
+    // TODO:
+    // --border-top-color: var(--root-color--primary-dark);
+    // --border-right-color: var(--root-color--primary-dark);
+    // --border-bottom-color: var(--root-color--primary-darkest);
+    // --border-left-color: var(--root-color--primary-dark);
+    name: 'utrecht.button.secondary-action.hover.border-color',
+    selector: '.button-secondary:hover, .button-secondary:focus, .button-secondary:active',
+    property: '--border-bottom-color',
+  },
+  {
+    name: 'utrecht.button.secondary-action.hover.background-color',
+    selector: '.button-secondary:hover, .button-secondary:focus, .button-secondary:active',
+    property: '--background-color',
+  },
+  {
+    // Not an exact mapping
+    // TODO:
+    // --border-top-color: var(--root-color--secondary-dark);
+    // --border-right-color: var(--root-color--secondary-dark);
+    // --border-bottom-color: var(--root-color--secondary-darkest);
+    // --border-left-color: var(--root-color--secondary-dark);
+    name: 'utrecht.button.secondary-action.hover.border-color',
+    selector: '.button-secondary:hover, .button-secondary:focus, .button-secondary:active',
+    property: '--border-bottom-color',
+  },
+  {
+    name: 'basis.page.max-inline-size',
+    selector: '.flow--frame .flow--content .flow--maximum-width',
+    property: 'max-width',
+  },
+  {
+    name: 'utrecht.page-header.background-color',
+    selector: '.page-header',
+    property: '--color-background',
+    // TODO for `.page-header`
+    // --font-size: var(--root-font-size);
+    // --height: var(--root-page-header-height);
+    // --box-shadow: var(--root-box-shadow);
+  },
+  {
+    name: 'utrecht.page-footer.background-color',
+    selector: '.page-footer',
+    property: '--color-background',
+    // TODO for `.page-footer`
+    // --font-size: var(--root-font-size);
+  },
+  {
+    name: 'utrecht.page-footer.content.padding-block-start',
+    selector: '.page-footer__container',
+    property: 'padding-top',
+  },
+  {
+    name: 'utrecht.page-footer.content.padding-block-end',
+    selector: '.page-footer__container',
+    property: 'padding-bottom',
+  },
+  {
+    name: 'basis.form-control.padding-block-start',
+    selector: 'input[type="text"]',
+    property: 'padding',
+  },
+  {
+    name: 'basis.form-control.padding-block-end',
+    selector: 'input[type="text"]',
+    property: 'padding',
+  },
+  {
+    name: 'basis.form-control.padding-inline-start',
+    selector: 'input[type="text"]',
+    property: 'padding',
+  },
+  {
+    name: 'basis.form-control.padding-inline-end',
+    selector: 'input[type="text"]',
+    property: 'padding',
+  },
+  {
+    name: 'basis.form-control.max-inline-size',
+    selector: 'input[type="text"]',
+    property: 'max-width',
+  },
+  {
+    name: 'basis.form-control.border-color',
+    selector: 'input[type="text"]',
+    property: 'border-color',
+  },
+  {
+    name: 'basis.form-control.border-width',
+    selector: 'input[type="text"]',
+    property: 'border-width',
+  },
+  {
+    name: 'basis.form-control.background-color',
+    selector: 'input[type="text"]',
+    property: 'background',
+  },
+  {
+    name: 'utrecht.link.icon.size',
+    selector: '.link .icon',
+    property: '--height',
+  },
+  {
+    name: 'utrecht.link.column-gap',
+    selector: '.link .icon--after',
+    property: 'margin-left',
+  },
+  {
+    name: 'utrecht.paragraph.margin-block-start',
+    selector: 'p',
+    property: 'margin-top',
+  },
+  {
+    name: 'utrecht.paragraph.margin-block-end',
+    selector: 'p',
+    property: 'margin-bottom',
+  },
+  {
+    name: 'utrecht.unordered-list.margin-block-start',
+    selector: 'ul',
+    property: 'margin-top',
+  },
+  {
+    name: 'utrecht.unordered-list.margin-block-end',
+    selector: 'ul',
+    property: 'margin-bottom',
+  },
+  {
+    name: 'utrecht.ordered-list.margin-block-start',
+    selector: 'ol',
+    property: 'margin-top',
+  },
+  {
+    name: 'utrecht.ordered-list.margin-block-end',
+    selector: 'ol',
+    property: 'margin-bottom',
+  },
+  {
+    name: 'utrecht.blockquote.margin-block-start',
+    selector: 'blockquote[type="cite"]',
+    property: 'margin-top',
+  },
+  {
+    name: 'utrecht.blockquote.margin-block-end',
+    selector: 'blockquote[type="cite"]',
+    property: 'margin-bottom',
+  },
+  {
+    // Not an exact mapping
+    name: 'utrecht.focus.outline-offset',
+    selector: 'input[type="text"]:focus',
+    property: 'outline-offset',
   },
 ];

@@ -108,52 +108,52 @@ const createConfig = ({
     },
     source,
     platforms: {
-      ...(backwardsCompatible ? legacyPlatforms : {}),
-      js: {
-        transformGroup: transformGroup,
-        transforms: ['name/camel'],
-        buildPath,
-        files: [
-          {
-            destination: 'variables.cjs',
-            format: 'javascript/module-flat',
-          },
-          {
-            destination: 'variables.mjs',
-            format: 'javascript/es6',
-          },
-        ],
-      },
-      tokenTree: {
-        transformGroup: transformGroup,
-        transforms: ['name/camel'],
-        buildPath,
-        files: [
-          {
-            format: 'javascript/module',
-            destination: 'tokens.cjs',
-          },
-        ],
-      },
-      json: {
-        transformGroup: transformGroup,
-        transforms: ['name/camel'],
-        buildPath,
-        files: [
-          {
-            destination: 'tokens.json',
-            format: 'json',
-          },
-          {
-            destination: 'list.json',
-            format: 'json/list',
-          },
-          {
-            destination: 'variables.json',
-            format: 'json/flat',
-          },
-        ],
-      },
+      // ...(backwardsCompatible ? legacyPlatforms : {}),
+      // js: {
+      //   transformGroup: transformGroup,
+      //   transforms: ['name/camel'],
+      //   buildPath,
+      //   files: [
+      //     {
+      //       destination: 'variables.cjs',
+      //       format: 'javascript/module-flat',
+      //     },
+      //     {
+      //       destination: 'variables.mjs',
+      //       format: 'javascript/es6',
+      //     },
+      //   ],
+      // },
+      // tokenTree: {
+      //   transformGroup: transformGroup,
+      //   transforms: ['name/camel'],
+      //   buildPath,
+      //   files: [
+      //     {
+      //       format: 'javascript/module',
+      //       destination: 'tokens.cjs',
+      //     },
+      //   ],
+      // },
+      // json: {
+      //   transformGroup: transformGroup,
+      //   transforms: ['name/camel'],
+      //   buildPath,
+      //   files: [
+      //     {
+      //       destination: 'tokens.json',
+      //       format: 'json',
+      //     },
+      //     {
+      //       destination: 'list.json',
+      //       format: 'json/list',
+      //     },
+      //     {
+      //       destination: 'variables.json',
+      //       format: 'json/flat',
+      //     },
+      //   ],
+      // },
       css: {
         transformGroup: transformGroup,
         transforms: ['name/kebab'],
@@ -167,74 +167,74 @@ const createConfig = ({
               outputReferences: true,
             },
           },
-          {
-            destination: 'variables.css',
-            format: 'css/variables',
-            options: {
-              selector: `:root`,
-              outputReferences: true,
-            },
-          },
+          // {
+          //   destination: 'variables.css',
+          //   format: 'css/variables',
+          //   options: {
+          //     selector: `:root`,
+          //     outputReferences: true,
+          //   },
+          // },
         ],
       },
-      scss: {
-        transformGroup: transformGroup,
-        transforms: ['name/kebab'],
-        buildPath,
-        files: [
-          {
-            destination: '_variables.scss',
-            format: 'scss/variables',
-            options: {
-              outputReferences: true,
-              themeable: true,
-            },
-          },
-        ],
-      },
-      'scss-theme-mixin': {
-        transforms: ['name/kebab'],
-        buildPath,
-        files: [
-          {
-            destination: '_mixin.scss',
-            format: 'css/variables',
-            options: {
-              selector: `@mixin ${themeName}`,
-              outputReferences: true,
-            },
-          },
-        ],
-      },
-      less: {
-        transformGroup: transformGroup,
-        transforms: ['name/kebab'],
-        buildPath,
-        files: [
-          {
-            destination: 'variables.less',
-            format: 'less/variables',
-            options: {
-              outputReferences: true,
-            },
-          },
-        ],
-      },
-      typescript: {
-        transforms: ['name/camel'],
-        transformGroup: 'js',
-        buildPath,
-        files: [
-          {
-            format: 'typescript/es6-declarations',
-            destination: 'variables.d.ts',
-          },
-          {
-            format: 'typescript/module-declarations',
-            destination: 'tokens.d.ts',
-          },
-        ],
-      },
+      // scss: {
+      //   transformGroup: transformGroup,
+      //   transforms: ['name/kebab'],
+      //   buildPath,
+      //   files: [
+      //     {
+      //       destination: '_variables.scss',
+      //       format: 'scss/variables',
+      //       options: {
+      //         outputReferences: true,
+      //         themeable: true,
+      //       },
+      //     },
+      //   ],
+      // },
+      // 'scss-theme-mixin': {
+      //   transforms: ['name/kebab'],
+      //   buildPath,
+      //   files: [
+      //     {
+      //       destination: '_mixin.scss',
+      //       format: 'css/variables',
+      //       options: {
+      //         selector: `@mixin ${themeName}`,
+      //         outputReferences: true,
+      //       },
+      //     },
+      //   ],
+      // },
+      // less: {
+      //   transformGroup: transformGroup,
+      //   transforms: ['name/kebab'],
+      //   buildPath,
+      //   files: [
+      //     {
+      //       destination: 'variables.less',
+      //       format: 'less/variables',
+      //       options: {
+      //         outputReferences: true,
+      //       },
+      //     },
+      //   ],
+      // },
+      // typescript: {
+      //   transforms: ['name/camel'],
+      //   transformGroup: 'js',
+      //   buildPath,
+      //   files: [
+      //     {
+      //       format: 'typescript/es6-declarations',
+      //       destination: 'variables.d.ts',
+      //     },
+      //     {
+      //       format: 'typescript/module-declarations',
+      //       destination: 'tokens.d.ts',
+      //     },
+      //   ],
+      // },
     },
   };
 };
@@ -255,7 +255,11 @@ const build = async ({ tokensFile, prefix, buildPath }: { buildPath: string; tok
       className: `${prefix}-theme`,
     }),
     preprocessors: ['tokens-studio', 'dtcg-delegate'],
-    source: ['./node_modules/@nl-design-system-unstable/basis-design-tokens/figma/**/*.tokens.json', tokensFile],
+    source: [
+      './node_modules/@nl-design-system-unstable/basis-design-tokens/figma/**/*.tokens.json',
+      './src/*.tokens.json',
+      tokensFile,
+    ],
   });
 
   await sd.cleanAllPlatforms();
