@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@nl-design-system-unstable/basis-design-tokens@3.0.0/dist/variables.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/@utrecht/page-footer-css@2.1.0/dist/index.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@utrecht/heading-1-css/dist/index.css" />
+    <style>
+      frameless-heading:not(:defined),
+      utrecht-heading[level='1']:not(:defined) {
+        break-inside: avoid-column;
+        display: block;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        color: var(--utrecht-heading-1-color, var(--utrecht-heading-color, var(--utrecht-document-color, inherit)));
+        font-family: var(
+          --utrecht-heading-1-font-family,
+          var(--utrecht-heading-font-family, var(--utrecht-document-font-family))
+        );
+        font-size: var(--utrecht-heading-1-font-size, revert);
+        font-weight: var(--utrecht-heading-1-font-weight, var(--utrecht-heading-font-weight, bold));
+        line-height: var(--utrecht-heading-1-line-height);
+        margin-block-end: calc(var(--utrecht-space-around, 0) * var(--utrecht-heading-1-margin-block-end, 0));
+        margin-block-start: calc(var(--utrecht-space-around, 0) * var(--utrecht-heading-1-margin-block-start, 0));
+        page-break-after: avoid;
+      }
+    </style>
+    <title>Yolijn</title>
+  </head>
+  <body>
+    <utrecht-root>
+      <utrecht-body>
+        <utrecht-page-layout>
+          <utrecht-page-header>Header</utrecht-page-header>
+          <utrecht-page-body>
+            <frameless-heading level="1" role="heading" aria-level="1">Heading 1</frameless-heading>
+            <yolijn-element></yolijn-element>
+            <utrecht-heading level="1">Utrecht Heading 1</utrecht-heading>
+            <frameless-heading level="1">Heading 1</frameless-heading>
+            <!-- <form method="GET" action="./yolijn.html">
+              <frameless-form-field-slotted name="a">
+                <template shadowrootmode="open">
+                  <style>
+                    :host {
+                      display: contents;
+                    }
+                  </style>
+                  <div>Label: <slot name="label"></slot></div>
+                  <div>Description: <slot name="description"></slot></div>
+                  <div>Error message: <slot name="error-message"></slot></div>
+                  <div>
+                    <slot></slot>
+                  </div>
+                </template>
+                <label for="xxx" slot="label">First name</label>
+                <input id="xxx" type="text" name="firstname" />
+              </frameless-form-field-slotted>
+              <frameless-form-field-input>
+                <template shadowrootmode="open">
+                  <style>
+                    :host {
+                      display: contents;
+                    }
+                  </style>
+                  <div>
+                    <label for="input">
+                      <slot name="label"></slot>
+                    </label>
+                  </div>
+                  <div id="description">
+                    <slot name="description"></slot>
+                  </div>
+                  <div id="error">
+                    <slot name="error-message"></slot>
+                  </div>
+                  <div>
+                    <input name="b" id="input" aria-describedby="description error" />
+                  </div>
+                </template>
+                <span slot="label">First name</span>
+                <p slot="description">Give us your name...</p>
+                <p slot="error-message">NOW!! @&^#&!^*</p>
+              </frameless-form-field-input>
+              <frameless-form-field-input name="third">
+                <template shadowrootmode="open">
+                  <style>
+                    :host {
+                      display: contents;
+                    }
+                    :has-slotted {
+                      color: blue;
+                    }
+                  </style>
+                  <div>
+                    <label for="input">
+                      <slot name="label"></slot>
+                    </label>
+                  </div>
+                  <div id="description">
+                    desc
+                    <slot name="description"></slot>
+                  </div>
+                  <div id="error">
+                    <slot name="error-message"></slot>
+                  </div>
+                  <div>
+                    <input name="b" value="x" id="input" aria-describedby="description error" />
+                  </div>
+                </template>
+                <span slot="label">Last name</span>
+                <p slot="description">Give us your name...</p>
+                <p slot="error-message">NOW!! @&^#&!^*</p>
+              </frameless-form-field-input>
+              <button type="submit">SUBMIT</button>
+            </form> -->
+            <style>
+              :root {
+                --frameless-card-background-color: lightblue;
+              }
+              robberts-fancy-card-as-link {
+                display: block;
+                border-radius: 1em;
+                box-shadow: 0.2em 0.2em 1em rbga(0 0 0 / 42%);
+                background-color: red;
+              }
+            </style>
+            <robberts-fancy-card-as-link hidden>
+              <template shadowrootmode="open">
+                <style>
+                  :host {
+                    /* display: contents; */
+                    /* position: relative; */
+                  }
+                  :host([hidden]) {
+                    display: none !important;
+                  }
+                  #card {
+                    background-color: var(--frameless-card-background-color);
+                    position: relative;
+                    height: fit-content;
+                    width: 200px;
+                  }
+                  /* #card:hover {
+                    outline: 2px solid currentColor;
+                  } */
+                  ::slotted([slot='link']:any-link) {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    height: 100%;
+                    width: 100%;
+                    cursor: pointer;
+                  }
+                  ::slotted([slot='link']:any-link:hover) {
+                    display: block;
+                    outline: 2px solid currentColor;
+                  }
+                </style>
+                <div id="card">
+                  <slot name="link"></slot>
+                  <div id="title"><slot name="title"></slot></div>
+                  <div id="body"><slot></slot></div>
+                </div>
+              </template>
+              <a href="https://example.com" slot="link" aria-labelledby="title"></a>
+              <utrecht-heading level="2" slot="title" id="title">Card title</utrecht-heading>
+              <p>En een hele mooie, maar niet al te lange, beschrijving.</p>
+            </robberts-fancy-card-as-link>
+          </utrecht-page-body>
+          <utrecht-page-footer>Footer</utrecht-page-footer>
+          <footer class="utrecht-page-footer">
+            <div class="utrecht-page-footer__content">Footer</div>
+          </footer>
+          <frameless-page-footer
+            ><template shadowrootmode="open"
+              ><link rel="stylesheet" href="https://unpkg.com/@utrecht/page-footer-css@2.1.0/dist/index.css" />
+              <style>
+                :host {
+                  display: contents;
+                }
+              </style>
+              <footer class="utrecht-page-footer">
+                <div class="utrecht-page-footer__content"><slot></slot></div></footer></template
+            >Footer</frameless-page-footer
+          >
+        </utrecht-page-layout>
+      </utrecht-body>
+    </utrecht-root>
+    <style>
+      .frameless-paragraph {
+        font-family: Monaco;
+      }
+    </style>
+    <div></div>
+    <frameless-paragraph>
+      <template shadowrootmode="open"> Hello World </template>
+    </frameless-paragraph>
+
+    <p class="frameless-paragraph">Nerdy paragraph</p>
+
+    <utrecht-button>Click me</utrecht-button>
+
+    <!--  -->
+
+    <frameless-rich-text>
+      <template shadowrootmode="open"><slot></slot></template>
+      <h1>lalala</h1>
+      <p>nog meer bla bla bla</p>
+      <p></p>
+      <h2></h2>
+    </frameless-rich-text>
+    <script type="module" src="/src/yolijn.ts"></script>
+  </body>
+</html>
