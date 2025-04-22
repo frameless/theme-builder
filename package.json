@@ -90,7 +90,7 @@
     "@utrecht/page-layout-css": "1.1.0",
     "@utrecht/root-css": "1.2.0",
     "@utrecht/table-css": "1.5.0",
-    "@utrecht/web-component-library-stencil": "3.1.0",
+    "@utrecht/web-component-library-stencil": "3.4.0",
     "bezier-easing": "2.1.0",
     "colorjs.io": "0.5.2",
     "http-server": "14.1.1"

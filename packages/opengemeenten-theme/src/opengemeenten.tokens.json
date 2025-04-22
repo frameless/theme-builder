@@ -97,6 +97,9 @@
       },
       "icon": {
         "size": { "$value": "1em", "$comment": "https://github.com/nl-design-system/utrecht/issues/2794" }
+      },
+      "toptask-link": {
+        "min-block-size": { "$value": "100%" }
       }
     }
   }
