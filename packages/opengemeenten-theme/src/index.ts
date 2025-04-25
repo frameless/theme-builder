@@ -125,14 +125,7 @@ export const findCssVariables = (fileName: string): AcceptedPlugin => {
   };
 };
 
-// const css = ':root { --color: red }';
-
 const init = async () => {
-  // const css = await findCss();
-
-  // // Store file for debuggin purpose
-  // await writeFile('./dump.css', css);
-
   await mkdir('./dist/', { recursive: true });
   await mkdir('./tmp/', { recursive: true });
 

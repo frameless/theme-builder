@@ -300,6 +300,7 @@ const init = async () => {
     { prefix: 'woudenberg', tokensFile: 'www.woudenberg.nl' },
     { prefix: 'zeewolde', tokensFile: 'www.zeewolde.nl' },
     { prefix: 'zeist', tokensFile: 'www.zeist.nl' },
+    { prefix: 'lenteveld', tokensFile: 'www.lenteveld.nl' },
   ];
   themes.forEach(({ prefix, tokensFile }) =>
     limit(() =>

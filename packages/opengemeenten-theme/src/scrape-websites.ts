@@ -12,7 +12,7 @@ export interface ScrapedWebsite {
  *
  * JSON.stringify(Array.from(document.querySelectorAll('.card a:link')).map(el => el.href), 2)
  */
-const domains = [
+let domains = [
   'https://www.barneveld.nl',
   'https://www.bergen-nh.nl/',
   'https://www.bloemendaal.nl/',
@@ -46,11 +46,14 @@ const domains = [
   'https://www.zeist.nl/',
 ];
 
+domains = ['https://www.lenteveld.nl/'];
+
 const init = async () => {
   const limit = pLimit(5);
 
   const scrapedCss = await Promise.all(
     domains.map(async (url) => {
+      console.log(`Scrape domain: ${url}`);
       const html = await limit(() => {
         console.log(url);
         return fetch(url).then((response) => response.text());
@@ -74,7 +77,7 @@ const init = async () => {
     }),
   );
 
-  writeFile('./scraped.json', JSON.stringify(scrapedCss, null, 2));
+  writeFile('./tmp/scraped.json', JSON.stringify(scrapedCss, null, 2));
 };
 
-// init();
+init();

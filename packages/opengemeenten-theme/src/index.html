@@ -7,8 +7,16 @@
       href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Cabin:ital,wght@0,400..700;1,400..700&family=Exo:ital,wght@0,100..900;1,100..900&family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans+Narrow:wght@400;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://unpkg.com/@nl-design-system-unstable/basis-design-tokens/dist/theme.css" />
   </head>
   <body>
+    <utrecht-breadcrumb-nav class="basis-theme">
+      <ol>
+        <li><a href="https://example.com">Home</a></li>
+        <li><a href="https://example.com/a/">Leven</a></li>
+        <li><a href="https://example.com/a/b/" aria-current="true">Afval</a></li>
+      </ol>
+    </utrecht-breadcrumb-nav>
     <svg style="display: none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <symbol id="close" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -84,11 +92,14 @@
     <example-svg-symbol-icon ref="url"></example-svg-symbol-icon>
     <script type="module" defer>
       import { defineCustomElements } from 'https://unpkg.com/@utrecht/web-component-library-stencil@3.4.0/dist/esm/loader.js';
+      import { defineUtrechtBreadcrumbNav } from './utrecht-breadcrumb-nav.js';
       import './example-text-block.js';
       import './example-screenreader-only.js';
 
+      defineUtrechtBreadcrumbNav();
       defineCustomElements();
       const themes = [
+        { prefix: 'lenteveld', tokensFile: 'www.lenteveld.nl', url: 'https://www.lenteveld.nl' },
         { prefix: 'barneveld', tokensFile: 'www.barneveld.nl', url: 'https://www.barneveld.nl' },
         { prefix: 'bergen', tokensFile: 'www.bergen-nh.nl', url: 'https://www.bergen-nh.nl' },
         { prefix: 'bloemendaal', tokensFile: 'www.bloemendaal.nl', url: 'https://www.bloemendaal.nl' },
@@ -214,16 +225,33 @@
       themes.forEach(({ prefix, tokensFile, url }) => {
         document.getElementById('demo-screen-list').insertAdjacentHTML(
           'beforeend',
-          `<div class="${prefix}-theme demo-screen">
-        <demo-page>
+          `<h2>${prefix}</h2><div class="${prefix}-theme demo-screen">
+          <demo-page>
+            <span slot="page-header"><a href="${url}">${prefix}</a></span>
+            <span slot="page-footer">© 2025 gemeente ${prefix}</span>
+          </demo-page>
+        </div>
+        <div class="${prefix}-theme demo-screen">
+        <demo-homepage>
           <span slot="page-header"><a href="${url}">${prefix}</a></span>
           <span slot="page-footer">© 2025 gemeente ${prefix}</span>
-        </demo-page>
+        </demo-homepage>
+        </div>
+        <div class="${prefix}-theme demo-screen">
+        <demo-form>
+          <span slot="page-header"><a href="${url}">${prefix}</a></span>
+          <span slot="page-footer">© 2025 gemeente ${prefix}</span>
+        </demo-form>
       </div>`,
         );
       });
     </script>
     <script type="module" src="./demo-page.js"></script>
+    <script type="module" src="./demo-homepage.js"></script>
+    <script type="module" src="./demo-form.js"></script>
+    <table>
+      <tbody id="table-rows"></tbody>
+    </table>
     <div id="table"></div>
     <div class="demo-screen-list" id="demo-screen-list"></div>
     <style>
@@ -242,8 +270,10 @@
         flex-direction: column;
       }
       .demo-screen {
+        position: relative;
         max-inline-size: 1280px;
         max-block-size: 1024px;
+        min-block-size: 1024px;
         outline: 1px solid black;
         overflow-block: auto;
         /* zoom: 50%; */

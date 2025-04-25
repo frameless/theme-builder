@@ -865,6 +865,11 @@
     "property": "border-color"
   },
   {
+    "name": "og.color.text",
+    "selector": ":root",
+    "property": "--root-color-text"
+  },
+  {
     "name": "utrecht.link.color",
     "selector": ":root",
     "property": "--root-color-text-link"
@@ -1101,5 +1106,45 @@
     "name": "utrecht.toptask-link.color",
     "selector": ".top-tasks-tile--normal .top-tasks-tile__header",
     "property": "--color"
+  },
+  {
+    "name": "utrecht.form-field.invalid.border-inline-start-width",
+    "selector": ".form-element.is-invalid",
+    "property": "border-left-width"
+  },
+  {
+    "name": "utrecht.form-field.invalid.padding-inline",
+    "selector": ".form-element.is-invalid",
+    "property": "padding-left"
+  },
+  {
+    "name": "utrecht.form-field.invalid.border-color",
+    "selector": ".form-element.is-invalid",
+    "property": "--color-border"
+  },
+  {
+    "name": "utrecht.form-field-error-message.color",
+    "selector": ".form-element .invalid-feedback",
+    "property": "--color-text"
+  },
+  {
+    "name": "utrecht.form-field-error-message.font-size",
+    "selector": ".form-element .invalid-feedback",
+    "property": "--font-size"
+  },
+  {
+    "name": "utrecht.form-field-error-message.font-style",
+    "selector": ".form-element .invalid-feedback",
+    "property": "--font-style"
+  },
+  {
+    "name": "utrecht.form-field-error-message.font-weight",
+    "selector": ".form-element .invalid-feedback",
+    "property": "--font-weight"
+  },
+  {
+    "name": "utrecht.form-field-error-message.line-height",
+    "selector": ".form-element .invalid-feedback",
+    "property": "--line-height"
   }
 ]
