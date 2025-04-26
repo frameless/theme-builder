@@ -91,6 +91,7 @@ class UtrechtBreadcrumbNav extends HTMLElement {
       value="${index + 1}"
     >
       <a
+        onmouseover="console.log(42);event.preventDefault()"
         ${current ? 'role="link"' : ''}
         class="utrecht-link utrecht-link--html-a utrecht-breadcrumb-nav__link utrecht-breadcrumb-nav__link--current utrecht-breadcrumb-nav__link--disabled"
         ${current ? 'aria-disabled="true"' : ''}
