@@ -246,6 +246,169 @@
     "property": "--root-color--green-lightness-light"
   },
   {
+    "name": "og.color.background.transparent",
+    "selector": ":root",
+    "property": "--root-color-background--transparent"
+  },
+  {
+    "name": "og.color.background.primary.hue",
+    "selector": ":root",
+    "property": "--root-color-background--primary-hue"
+  },
+  {
+    "name": "og.color.background.primary.saturation",
+    "selector": ":root",
+    "property": "--root-color-background--primary-saturation"
+  },
+  {
+    "name": "og.color.background.primary.lightness",
+    "selector": ":root",
+    "property": "--root-color-background--primary-lightness"
+  },
+  {
+    "name": "og.color.background.primary.lightness-dark",
+    "selector": ":root",
+    "property": "--root-color-background--primary-lightness-dark"
+  },
+  {
+    "name": "og.color.background.primary.lightness-light",
+    "selector": ":root",
+    "property": "--root-color-background--primary-lightness-light"
+  },
+  {
+    "name": "og.color.background.primary.default",
+    "selector": ":root",
+    "property": "--root-color-background--primary"
+  },
+  {
+    "name": "og.color.background.primary.dark",
+    "selector": ":root",
+    "property": "--root-color-background--primary-dark"
+  },
+  {
+    "name": "og.color.background.primary.light",
+    "selector": ":root",
+    "property": "--root-color-background--primary-light"
+  },
+  {
+    "name": "og.color.background.secondary.hue",
+    "selector": ":root",
+    "property": "--root-color-background--secondary-hue"
+  },
+  {
+    "name": "og.color.background.secondary.saturation",
+    "selector": ":root",
+    "property": "--root-color-background--secondary-saturation"
+  },
+  {
+    "name": "og.color.background.secondary.lightness",
+    "selector": ":root",
+    "property": "--root-color-background--secondary-lightness"
+  },
+  {
+    "name": "og.color.background.secondary.lightness-dark",
+    "selector": ":root",
+    "property": "--root-color-background--secondary-lightness-dark"
+  },
+  {
+    "name": "og.color.background.secondary.lightness-light",
+    "selector": ":root",
+    "property": "--root-color-background--secondary-lightness-light"
+  },
+  {
+    "name": "og.color.background.secondary.default",
+    "selector": ":root",
+    "property": "--root-color-background--secondary"
+  },
+  {
+    "name": "og.color.background.secondary.dark",
+    "selector": ":root",
+    "property": "--root-color-background--secondary-dark"
+  },
+  {
+    "name": "og.color.background.secondary.light",
+    "selector": ":root",
+    "property": "--root-color-background--secondary-light"
+  },
+  {
+    "name": "og.color.background.support.hue",
+    "selector": ":root",
+    "property": "--root-color-background--support-hue"
+  },
+  {
+    "name": "og.color.background.support.saturation",
+    "selector": ":root",
+    "property": "--root-color-background--support-saturation"
+  },
+  {
+    "name": "og.color.background.support.lightness",
+    "selector": ":root",
+    "property": "--root-color-background--support-lightness"
+  },
+  {
+    "name": "og.color.background.support.lightness-dark",
+    "selector": ":root",
+    "property": "--root-color-background--support-lightness-dark"
+  },
+  {
+    "name": "og.color.background.support.lightness-light",
+    "selector": ":root",
+    "property": "--root-color-background--support-lightness-light"
+  },
+  {
+    "name": "og.color.background.support.default",
+    "selector": ":root",
+    "property": "--root-color-background--support"
+  },
+  {
+    "name": "og.color.background.support.dark",
+    "selector": ":root",
+    "property": "--root-color-background--support-dark"
+  },
+  {
+    "name": "og.color.background.support.light",
+    "selector": ":root",
+    "property": "--root-color-background--support-light"
+  },
+  { "name": "og.color.background.grey.hue", "selector": ":root", "property": "--root-color-background--grey-hue" },
+  {
+    "name": "og.color.background.grey.saturation",
+    "selector": ":root",
+    "property": "--root-color-background--grey-saturation"
+  },
+  {
+    "name": "og.color.background.grey.lightness",
+    "selector": ":root",
+    "property": "--root-color-background--grey-lightness"
+  },
+  {
+    "name": "og.color.background.grey.lightness-dark",
+    "selector": ":root",
+    "property": "--root-color-background--grey-lightness-dark"
+  },
+  {
+    "name": "og.color.background.grey.lightness-light",
+    "selector": ":root",
+    "property": "--root-color-background--grey-lightness-light"
+  },
+  { "name": "og.color.background.grey.default", "selector": ":root", "property": "--root-color-background--grey" },
+  {
+    "name": "og.color.background.grey.dark",
+    "selector": ":root",
+    "property": "--root-color-background--grey-dark"
+  },
+  {
+    "name": "og.color.background.grey.light",
+    "selector": ":root",
+    "property": "--root-color-background--grey-light"
+  },
+  { "name": "og.color.darken-less", "selector": ":root", "property": "--root-color--darken-less" },
+  { "name": "og.color.darken", "selector": ":root", "property": "--root-color--darken" },
+  { "name": "og.color.lighten", "selector": ":root", "property": "--root-color--lighten" },
+  { "name": "og.color.lighten-less", "selector": ":root", "property": "--root-color--lighten-less" },
+  { "name": "og.color.lighten-more", "selector": ":root", "property": "--root-color--lighten-more" },
+
+  {
     "name": "utrecht.body.line-height",
     "selector": "body",
     "property": "line-height"
@@ -868,6 +1031,31 @@
     "name": "og.color.text",
     "selector": ":root",
     "property": "--root-color-text"
+  },
+  {
+    "name": "og.color.text-placeholder",
+    "selector": ":root",
+    "property": "--root-color-text-placeholder"
+  },
+  {
+    "name": "og.color.text-link",
+    "selector": ":root",
+    "property": "--root-color-text-link"
+  },
+  {
+    "name": "og.color.text-link-hover",
+    "selector": ":root",
+    "property": "--root-color-text-link--hover"
+  },
+  {
+    "name": "og.color.text-link-disabled",
+    "selector": ":root",
+    "property": "--root-color-text-link--disabled"
+  },
+  {
+    "name": "og.color.interaction",
+    "selector": ":root",
+    "property": "--root-color-interaction"
   },
   {
     "name": "utrecht.link.color",

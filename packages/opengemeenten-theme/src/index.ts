@@ -41,10 +41,12 @@ const map = designTokens.reduce((map, item) => {
   return map;
 }, new Map<string, Mapping[]>());
 
-const cssVariableMap = designTokens.reduce((map, item) => {
-  map.set(item.property, item.name);
-  return map;
-}, new Map<string, string>());
+const cssVariableMap = designTokens
+  .filter((item) => item.selector === ':root')
+  .reduce((map, item) => {
+    map.set(item.property, item.name);
+    return map;
+  }, new Map<string, string>());
 
 interface FlatTokens {
   [index: string]: { $value: string; $comment?: string };
@@ -95,7 +97,7 @@ export const findCssVariables = (fileName: string): AcceptedPlugin => {
     for (let key in tokens) {
       const value = tokens[key].$value;
 
-      tokens[key].$value = value.replace(/var\(([^)]+)\)/g, (_, property) => {
+      tokens[key].$value = value.replace(/var\(([^,)]+)(?:,[^)]+)?\)/gi, (_, property) => {
         const tokenRef = cssVariableMap.get(property);
         return tokenRef ? `{${tokenRef}}` : _;
       });
@@ -136,8 +138,10 @@ const init = async () => {
       const filePart = new URL(url).hostname;
       const fileName = `./dist/${filePart}.tokens.json`;
 
+      const cssPath = `./tmp/${filePart}.css`;
       await writeFile(`./tmp/${filePart}.css`, css);
 
+      console.log(`Created: ${cssPath}`);
       postcss([findCssVariables(fileName)])
         // .process(css, { from, to })
         .process(css)

@@ -46,7 +46,7 @@ let domains = [
   'https://www.zeist.nl/',
 ];
 
-domains = ['https://www.lenteveld.nl/'];
+domains = [...domains, 'https://www.lenteveld.nl/'];
 
 const init = async () => {
   const limit = pLimit(5);

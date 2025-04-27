@@ -225,7 +225,11 @@
       themes.forEach(({ prefix, tokensFile, url }) => {
         document.getElementById('demo-screen-list').insertAdjacentHTML(
           'beforeend',
-          `<h2>${prefix}</h2><div class="${prefix}-theme demo-screen">
+          `<h2>${prefix}</h2>
+        <div class="${prefix}-theme demo-screen">
+          <example-brand-docs></example-brand-docs>
+        </div>
+          <div class="${prefix}-theme demo-screen">
           <demo-page>
             <span slot="page-header"><a href="${url}">${prefix}</a></span>
             <span slot="page-footer">© 2025 gemeente ${prefix}</span>
@@ -249,6 +253,8 @@
     <script type="module" src="./demo-page.js"></script>
     <script type="module" src="./demo-homepage.js"></script>
     <script type="module" src="./demo-form.js"></script>
+    <script type="module" src="./example-brand-docs.js"></script>
+    <script type="module" src="./example-color-sample-figure.js"></script>
     <table>
       <tbody id="table-rows"></tbody>
     </table>
