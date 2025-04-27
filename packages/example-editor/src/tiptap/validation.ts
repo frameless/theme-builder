@@ -122,13 +122,13 @@ const isHeading1 = (node: Node): boolean => {
 
 const isUnderline = (mark: Mark): boolean => mark.type.name === 'underline';
 
-const hasUnderline = (node: Node): boolean => node.marks.some(isUnderline);
+// const hasUnderline = (node: Node): boolean => node.marks.some(isUnderline);
 
 const isBold = (mark: Mark): boolean => mark.type.name === 'bold';
 
 const hasBold = (node: Node): boolean => node.marks.some(isBold);
 
-const isItalic = (mark: Mark): boolean => mark.type.name === 'italic';
+// const isItalic = (mark: Mark): boolean => mark.type.name === 'italic';
 
 const hasItalic = (node: Node): boolean => node.marks.some(isBold);
 
@@ -265,6 +265,7 @@ const validateDocument = (doc: Node): Error[] => {
 export const Validation = Extension.create<ValidationOptions>({
   name: 'validation',
 
+  // @ts-ignore
   onUpdate({ editor, transaction }) {
     console.time('validation');
     let errors;

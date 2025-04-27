@@ -1,9 +1,9 @@
-import heading1css from 'http://unpkg.com/@utrecht/heading-1-css/dist/index.mjs';
-import heading2css from 'http://unpkg.com/@utrecht/heading-2-css/dist/index.mjs';
-import heading3css from 'http://unpkg.com/@utrecht/heading-3-css/dist/index.mjs';
-import heading4css from 'http://unpkg.com/@utrecht/heading-4-css/dist/index.mjs';
-import heading5css from 'http://unpkg.com/@utrecht/heading-5-css/dist/index.mjs';
-import heading6css from 'http://unpkg.com/@utrecht/heading-6-css/dist/index.mjs';
+import heading1css from '@utrecht/heading-1-css/dist/index.mjs';
+import heading2css from '@utrecht/heading-2-css/dist/index.mjs';
+import heading3css from '@utrecht/heading-3-css/dist/index.mjs';
+import heading4css from '@utrecht/heading-4-css/dist/index.mjs';
+import heading5css from '@utrecht/heading-5-css/dist/index.mjs';
+import heading6css from '@utrecht/heading-6-css/dist/index.mjs';
 
 const stylesheet = new CSSStyleSheet();
 stylesheet.replaceSync([heading1css, heading2css, heading3css, heading4css, heading5css, heading6css].join(''));

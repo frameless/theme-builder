@@ -1,4 +1,4 @@
-import css from 'http://unpkg.com/@utrecht/paragraph-css/dist/index.mjs';
+import css from '@utrecht/paragraph-css/dist/index.mjs';
 
 const stylesheet = new CSSStyleSheet();
 stylesheet.replaceSync(css);

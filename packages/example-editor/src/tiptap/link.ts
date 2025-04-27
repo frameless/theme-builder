@@ -1,5 +1,4 @@
-import { Mark, markPasteRule, mergeAttributes, PasteRuleMatch } from '@tiptap/core';
-import { find, registerCustomProtocol, reset } from 'linkifyjs';
+import { Mark, mergeAttributes } from '@tiptap/core';
 
 export interface LinkProtocolOptions {
   scheme: string;

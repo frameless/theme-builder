@@ -1,4 +1,4 @@
-import css from 'http://unpkg.com/@utrecht/ordered-list-css/dist/index.mjs';
+import css from '@utrecht/ordered-list-css/dist/index.mjs';
 
 const stylesheet = new CSSStyleSheet();
 stylesheet.replaceSync(css);

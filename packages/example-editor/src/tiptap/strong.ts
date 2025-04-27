@@ -6,7 +6,7 @@ export interface StrongOptions {
 
 declare module '@tiptap/core' {
   interface Commands<ReturnType> {
-    bold: {
+    strong: {
       setStrong: () => ReturnType;
       toggleStrong: () => ReturnType;
       unsetStrong: () => ReturnType;

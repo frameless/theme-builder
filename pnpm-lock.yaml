@@ -117,6 +117,39 @@ importers:
       '@tiptap/pm':
         specifier: 2.11.7
         version: 2.11.7
+      '@utrecht/heading-1-css':
+        specifier: 1.5.0
+        version: 1.5.0
+      '@utrecht/heading-2-css':
+        specifier: 1.5.0
+        version: 1.5.0
+      '@utrecht/heading-3-css':
+        specifier: 1.5.0
+        version: 1.5.0
+      '@utrecht/heading-4-css':
+        specifier: 1.5.0
+        version: 1.5.0
+      '@utrecht/heading-5-css':
+        specifier: 1.5.0
+        version: 1.5.0
+      '@utrecht/heading-6-css':
+        specifier: 1.5.0
+        version: 1.5.0
+      '@utrecht/link-css':
+        specifier: 1.6.0
+        version: 1.6.0
+      '@utrecht/ordered-list-css':
+        specifier: 1.5.1
+        version: 1.5.1
+      '@utrecht/paragraph-css':
+        specifier: 2.3.0
+        version: 2.3.0
+      '@utrecht/table-css':
+        specifier: 1.5.0
+        version: 1.5.0
+      '@utrecht/unordered-list-css':
+        specifier: 1.5.0
+        version: 1.5.0
       '@utrecht/web-component-library-stencil':
         specifier: 3.4.0
         version: 3.4.0
@@ -892,14 +925,44 @@ packages:
   '@utrecht/components@6.1.0':
     resolution: {integrity: sha512-4EXubBfxuRgO7jNiI5/E4Tk2BZGiWS3JwuYCDZf7QPMQ0fMtrHDh9SEm0UErJd+CxVVG7Bcy/fQvYXh1ormCNA==}
 
+  '@utrecht/heading-1-css@1.5.0':
+    resolution: {integrity: sha512-gDdpZvtTQzY2h4iFOFxOM5Te94/R/uAHTqZbt7Vk34nKhxSe379sKAP5RbScNeWVtR1WfOnLwHPhYfd8t4LLbg==}
+
+  '@utrecht/heading-2-css@1.5.0':
+    resolution: {integrity: sha512-CQNljKKmmyywLoZWoX5zUWqTGDJjdJTFwRdGjigU1PZ6MjjKHOpLHt42hBChV3codGxjkrAUoFh3KKNfK7LLqQ==}
+
+  '@utrecht/heading-3-css@1.5.0':
+    resolution: {integrity: sha512-opXNdnUpqUbBSoE49aMgck4uzVU2eO5H3NZnX9FdUmzSIMjmXjXTazyc+aedJWvfchZtcRyMJaiJkGoSoqm96Q==}
+
+  '@utrecht/heading-4-css@1.5.0':
+    resolution: {integrity: sha512-m6PinCZK9Zhsx3LKWWCY7MIMCJl6IGFY0vyAwyNIhadnqg+FqxLKVbIZRjzjYyojdTxhuDYl16pxWzYUJQ8mKg==}
+
+  '@utrecht/heading-5-css@1.5.0':
+    resolution: {integrity: sha512-AB6WtvpuAjx14d7hQxhrzUT+gE2Ftwz5kxZr1wGTNyHYr9a8D7b1+WI3GJn8EMnGuTR6+gMMNrZI/llhwXUA7w==}
+
+  '@utrecht/heading-6-css@1.5.0':
+    resolution: {integrity: sha512-TtLDie62GuS3KzwNurt/zd9hsS/N5/ubwDWqpQa5t7io6YR1esujelm49m8d+Jfjhnva3Hw9TPbtDQrv6gTw9A==}
+
+  '@utrecht/link-css@1.6.0':
+    resolution: {integrity: sha512-fdLo+YYwHA0Y2r5kww0EhoJnLKI1WMPYW9SjJT0asHzYBVWo2YuGqhlp4YlG4uHJPC1KyF201znOx4Pa7YF4Uw==}
+
+  '@utrecht/ordered-list-css@1.5.1':
+    resolution: {integrity: sha512-R8QIesxKw89lmhHbdrtYJmXsiTUQ4oyhg+ZqIh5OyrG19Njmp/FBRM5SRzJdTeeX24c+JQUM3phVZebKj0widg==}
+
   '@utrecht/page-layout-css@1.1.0':
     resolution: {integrity: sha512-nGPZHDvbhKn7wsMYSRWKqZIFq3PDmrjqA/b/GbeKHBTUTjDlnVa8qRsOL6uMPNEd/FXNHhV70ezfxFbVcbkyqA==}
+
+  '@utrecht/paragraph-css@2.3.0':
+    resolution: {integrity: sha512-Qo6iX7a0T1xVSxwtmtqdhv30kTNNTLz45OGrdkXMms4IiiXMMsYJ83K43aCY/d89GlH5lwKfyPb9CU64fzfCIQ==}
 
   '@utrecht/root-css@1.2.0':
     resolution: {integrity: sha512-zdg+EozmNtZGDnM68O2lE+VpfvAfcG3//q6w1hNOI58+4khQp/q+9wxlgV4CS73HcfiF+xjQ32WgvJ60P/j/Jg==}
 
   '@utrecht/table-css@1.5.0':
     resolution: {integrity: sha512-3MDnjDUEz/5fD7oKKRuzYSVtH0wY3WvJPUo1BrMR2Fxzh5b/me5GAbbR9uhcGryLcVb+Cs8OQ/Ar2VJAgkvfYg==}
+
+  '@utrecht/unordered-list-css@1.5.0':
+    resolution: {integrity: sha512-Hxoa0X91mRhZFWs7w3dusDEwesg+nQPAbaR7EoQz7MycbVJiyNuieowmhOXk1VOD/jxBryda1A405FvkTDTVxA==}
 
   '@utrecht/web-component-library-stencil@3.4.0':
     resolution: {integrity: sha512-RZ3gotTGoOa+u0lfANwpEEVI68cryBnMVtd3lOjWWYqMW4f1NQu8GoNw4xl1Gf8VeZlcfJE5SSlfNC/38/ozWw==}
@@ -4943,11 +5006,31 @@ snapshots:
     dependencies:
       clsx: 2.1.1
 
+  '@utrecht/heading-1-css@1.5.0': {}
+
+  '@utrecht/heading-2-css@1.5.0': {}
+
+  '@utrecht/heading-3-css@1.5.0': {}
+
+  '@utrecht/heading-4-css@1.5.0': {}
+
+  '@utrecht/heading-5-css@1.5.0': {}
+
+  '@utrecht/heading-6-css@1.5.0': {}
+
+  '@utrecht/link-css@1.6.0': {}
+
+  '@utrecht/ordered-list-css@1.5.1': {}
+
   '@utrecht/page-layout-css@1.1.0': {}
+
+  '@utrecht/paragraph-css@2.3.0': {}
 
   '@utrecht/root-css@1.2.0': {}
 
   '@utrecht/table-css@1.5.0': {}
+
+  '@utrecht/unordered-list-css@1.5.0': {}
 
   '@utrecht/web-component-library-stencil@3.4.0':
     dependencies:
