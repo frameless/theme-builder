@@ -1,4 +1,4 @@
-import { Node } from 'https://esm.sh/@tiptap/core';
+import { Node } from '@tiptap/core';
 
 export const Text = Node.create({
   group: 'inline',

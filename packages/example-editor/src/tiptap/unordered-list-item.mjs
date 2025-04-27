@@ -1,7 +1,7 @@
-import { mergeAttributes, Node } from 'https://esm.sh/@tiptap/core';
+import { mergeAttributes, Node } from '@tiptap/core';
 
-export const OrderedListItem = Node.create({
-  name: 'orderedListItem',
+export const UnorderedListItem = Node.create({
+  name: 'unorderedListItem',
 
   addOptions() {
     return {
@@ -18,13 +18,13 @@ export const OrderedListItem = Node.create({
   parseHTML() {
     return [
       {
-        tag: 'utrecht-ordered-list-item',
+        tag: 'utrecht-unordered-list-item',
       },
     ];
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ['utrecht-ordered-list-item', mergeAttributes(this.options.HTMLAttributes, HTMLAttributes), 0];
+    return ['utrecht-unordered-list-item', mergeAttributes(this.options.HTMLAttributes, HTMLAttributes), 0];
   },
 
   addKeyboardShortcuts() {

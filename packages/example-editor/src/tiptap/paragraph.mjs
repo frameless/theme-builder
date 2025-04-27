@@ -1,4 +1,4 @@
-import { mergeAttributes, Node } from 'https://esm.sh/@tiptap/core';
+import { mergeAttributes, Node } from '@tiptap/core';
 
 export const Paragraph = Node.create({
   name: 'paragraph',

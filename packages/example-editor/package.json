@@ -1,0 +1,31 @@
+{
+  "name": "@frameless/example-editor",
+  "author": "Frameless",
+  "description": "Rich text editor with NL Design System components",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "keywords": [
+    "nl-design-system"
+  ],
+  "private": true,
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:frameless/theme-builder.git",
+    "directory": "packages/example-editor"
+  },
+  "version": "0.0.0",
+  "scripts": {
+    "build": "tsc && vite build --base=\"${BASE_URL:=\"/\"}\"",
+    "dev": "vite",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "5.8.2",
+    "vite": "6.2.0"
+  },
+  "dependencies": {
+    "@tiptap/core": "2.11.7",
+    "@tiptap/pm": "2.11.7",
+    "@utrecht/web-component-library-stencil": "3.4.0",
+    "prosemirror-model": "1.25.1"
+  }
+}

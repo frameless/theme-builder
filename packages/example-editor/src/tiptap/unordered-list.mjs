@@ -1,4 +1,4 @@
-import { mergeAttributes, Node, wrappingInputRule } from 'https://esm.sh/@tiptap/core';
+import { mergeAttributes, Node, wrappingInputRule } from '@tiptap/core';
 
 const ListItemName = 'unordered-list-item';
 const TextStyleName = 'textStyle';

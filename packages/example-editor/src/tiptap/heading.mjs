@@ -1,11 +1,11 @@
-import { mergeAttributes, Node, textblockTypeInputRule } from 'https://esm.sh/@tiptap/core';
+import { mergeAttributes, Node, textblockTypeInputRule } from '@tiptap/core';
 
 export const Heading = Node.create({
   name: 'heading',
 
   addOptions() {
     return {
-      levels: [1, 2, 3, 4, 5, 6],
+      levels: [1, 2, 3, 4, 5, 6, 7],
       HTMLAttributes: {},
     };
   },
