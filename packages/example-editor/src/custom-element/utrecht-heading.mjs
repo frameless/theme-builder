@@ -8,12 +8,15 @@ import heading6css from 'http://unpkg.com/@utrecht/heading-6-css/dist/index.mjs'
 const stylesheet = new CSSStyleSheet();
 stylesheet.replaceSync([heading1css, heading2css, heading3css, heading4css, heading5css, heading6css].join(''));
 
+const hostStylesheet = new CSSStyleSheet();
+hostStylesheet.replaceSync(`:host { display: block; }`);
+
 export class UtrechtHeading extends HTMLElement {
   static observedAttributes = ['level'];
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: 'closed' });
-    this.shadow.adoptedStyleSheets.push(stylesheet);
+    this.shadow.adoptedStyleSheets.push(stylesheet, hostStylesheet);
     this.rerender();
   }
   attributeChangedCallback(name) {
