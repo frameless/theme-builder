@@ -1,13 +1,14 @@
-import { defineUtrechtParagraph } from './custom-element/utrecht-paragraph.mjs';
-import { defineUtrechtUnorderedList } from './custom-element/utrecht-unordered-list.mjs';
-import { defineUtrechtUnorderedListItem } from './custom-element/utrecht-unordered-list-item.mjs';
-import { defineUtrechtOrderedList } from './custom-element/utrecht-ordered-list.mjs';
-import { defineUtrechtOrderedListItem } from './custom-element/utrecht-ordered-list-item.mjs';
-import { defineUtrechtHeading } from './custom-element/utrecht-heading.mjs';
+import { defineUtrechtParagraph } from './custom-element/utrecht-paragraph.js';
+import { defineUtrechtUnorderedList } from './custom-element/utrecht-unordered-list.js';
+import { defineUtrechtUnorderedListItem } from './custom-element/utrecht-unordered-list-item.js';
+import { defineUtrechtOrderedList } from './custom-element/utrecht-ordered-list.js';
+import { defineUtrechtOrderedListItem } from './custom-element/utrecht-ordered-list-item.js';
+import { defineUtrechtHeading } from './custom-element/utrecht-heading.js';
 import { defineExampleEditorElement } from './tiptap/example-editor.js';
 import { defineUtrechtLink } from './custom-element/utrecht-link.ts';
 import { defineUtrechtSafeLink } from './custom-element/utrecht-safe-link.ts';
 import { defineCustomElements } from '@utrecht/web-component-library-stencil/loader';
+import type { ValidationEvent } from './tiptap/ValidationEvent.ts';
 import '@utrecht/root-css/dist/index.css';
 import '@utrecht/body-css/dist/index.css';
 import '@utrecht/page-layout-css/dist/index.css';
@@ -24,9 +25,13 @@ defineUtrechtLink();
 defineUtrechtSafeLink();
 defineCustomElements();
 
-document.addEventListener('validationError', (evt) => {
+document.addEventListener<any>('validationError', (evt: ValidationEvent) => {
   const result = document.getElementById('error-list');
-  while (result.lastChild) {
+
+  if (!result) {
+    return;
+  }
+  while (result?.lastChild) {
     result.removeChild(result.lastChild);
   }
   evt.detail.errors.forEach((e) => {
