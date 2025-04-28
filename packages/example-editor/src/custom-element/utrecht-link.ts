@@ -11,6 +11,7 @@ export class UtrechtLink extends HTMLElement {
     this.shadow.adoptedStyleSheets.push(stylesheet);
     const a = this.ownerDocument.createElement('a');
     a.setAttribute('href', this.getAttribute('href') || '');
+    a.setAttribute('target', this.getAttribute('target') || '');
     a.classList.add('utrecht-link');
     a.classList.add('utrecht-link--html-a');
     const slot = this.ownerDocument.createElement('slot');

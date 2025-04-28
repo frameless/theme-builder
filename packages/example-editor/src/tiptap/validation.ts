@@ -1,104 +1,25 @@
 import { Extension } from '@tiptap/core';
 import { Mark, Node } from 'prosemirror-model';
-
-class HeadingLevelValidError extends Error {
-  constructor() {
-    super('Invalid heading level');
-  }
-}
-class HeadingEmptyError extends Error {
-  constructor() {
-    super('Heading is empty');
-  }
-}
-class ParagraphEmptyError extends Error {
-  constructor() {
-    super('Paragraph is empty');
-  }
-}
-class PageStartsWithHeadingOneError extends Error {
-  constructor() {
-    super('Page must start with Heading 1');
-  }
-}
-class PageHasHeadingOneError extends Error {
-  constructor() {
-    super('Page must have Heading 1');
-  }
-}
-class NoUnderlineError extends Error {
-  constructor() {
-    super('Underline must not be used');
-  }
-}
-
-class StyleBoldInHeadingError extends Error {
-  constructor() {
-    super('Must not use bold inside a heading');
-  }
-}
-class StyleItalicInHeadingError extends Error {
-  constructor() {
-    super('Must not use italic inside a heading');
-  }
-}
-
-class PageHasMultipleHeadingOneError extends Error {
-  constructor() {
-    super('Must only have one Heading 1 per document');
-  }
-}
-
-class TableNeedsMultipleRowsError extends Error {
-  constructor() {
-    super('Table must have more than one row');
-  }
-}
-
-class EmptyTableHeaderError extends Error {
-  constructor() {
-    super('Table must have a header that contains text');
-  }
-}
-class LinkNameError extends Error {
-  constructor() {
-    super('Link must have meaningful link text');
-  }
-}
-class ImageMustHaveAltError extends Error {
-  constructor() {
-    super('Image must have meaningful alternative text');
-  }
-}
-
-class EmptyDefinitionTermError extends Error {
-  constructor() {
-    super('Definition term must not be empty');
-  }
-}
-
-class EmptyDefinitionDetailsError extends Error {
-  constructor() {
-    super('Definition value must not be empty');
-  }
-}
-class DefinitionListHasDefinitionTermError extends Error {
-  constructor() {
-    super('Definition list must have a key');
-  }
-}
-
-class DefinitionListHasDefinitionValueError extends Error {
-  constructor() {
-    super('Definition list must have a value');
-  }
-}
-
-class HeadingOrderError extends Error {
-  constructor() {
-    super('Heading order must be logical');
-  }
-}
+import {
+  DefinitionListHasDefinitionTermError,
+  DefinitionListHasDefinitionValueError,
+  EmptyDefinitionDetailsError,
+  EmptyDefinitionTermError,
+  EmptyTableHeaderError,
+  HeadingEmptyError,
+  HeadingLevelValidError,
+  HeadingOrderError,
+  ImageMustHaveAltError,
+  LinkNameError,
+  NoUnderlineError,
+  PageHasHeadingOneError,
+  PageHasMultipleHeadingOneError,
+  PageStartsWithHeadingOneError,
+  ParagraphEmptyError,
+  StyleBoldInHeadingError,
+  StyleItalicInHeadingError,
+  TableNeedsMultipleRowsError,
+} from './validation-error';
 
 export type ValidationOptions = {};
 
