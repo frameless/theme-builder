@@ -1,4 +1,4 @@
-import { writeFile } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 import pLimit from 'p-limit';
 
 export interface ScrapedWebsite {
@@ -77,6 +77,7 @@ const init = async () => {
     }),
   );
 
+  await mkdir('./tmp/', { recursive: true });
   writeFile('./tmp/scraped.json', JSON.stringify(scrapedCss, null, 2));
 };
 
