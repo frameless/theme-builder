@@ -1,0 +1,11 @@
+.example-portal-layout {
+  display: flex;
+  flex-direction: row;
+}
+
+.example-basis-theme-fixes {
+  /* original value `basis-interaction-color` is nearly invisible,
+  seems like that is not appropraite for a link on a white background? */
+  /* stylelint-disable-next-line */
+  --denhaag-sidenav-link-color: var(--basis-interaction-color-inverse) !important;
+}
