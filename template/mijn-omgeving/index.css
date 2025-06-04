@@ -6,6 +6,36 @@
 .example-basis-theme-fixes {
   /* original value `basis-interaction-color` is nearly invisible,
   seems like that is not appropraite for a link on a white background? */
-  /* stylelint-disable-next-line */
+
+  /* stylelint-disable */
+
+  /* sidenav fixes */
   --denhaag-sidenav-link-color: var(--basis-interaction-color-inverse) !important;
+
+  /* card case fixes */
+  --denhaag-card-mobile-width: 360px;
+  --denhaag-card-width: 360px;
+  --denhaag-card-height: 240px;
+  --denhaag-card-border-radius: var(--todo-case-card-border-radius);
+  --denhaag-card-case-primary-background-color: var(--todo-case-card-background-color);
+  --denhaag-card-case-secondary-background-color: var(--todo-case-card-decoration-folder-background-color);
+  --denhaag-card-case-background-background-color: var(--todo-case-card-decoration-folder-background-color);
+  --denhaag-card-case-paper-color: var(--todo-case-card-decoration-paper-background-color);
+  --denhaag-card-case-padding-block-start: var(--todo-case-card-padding-block);
+  --denhaag-card-case-padding-block-end: var(--todo-case-card-padding-block);
+  --denhaag-card-wrapper-padding-inline: var(--todo-case-card-padding-inline);
+
+  /* card case todo token with basis tokens fixes */
+  --todo-case-card-background-color: var(--basis-color-primary-interactive-2) !important;
+  --todo-case-card-decoration-folder-background-color: var(--basis-color-primary-interactive-3) !important;
+
+  /* stylelint-enable */
+}
+
+.example-case-card-grid {
+  column-gap: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 16px;
 }
