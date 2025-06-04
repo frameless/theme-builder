@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en" class="utrecht-root basis-theme example-basis-theme-fixes">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Steun voor ondernemers - Theme Builder</title>
+
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fira Sans -->
+    <!-- https://fonts.google.com/share?selection.family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700|Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900|Inclusive+Sans:ital,wght@0,300..700;1,300..700|Lexend:wght@100..900|Noto+Sans:ital,wght@0,100..900;1,100..900|Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800|Public+Sans:ital,wght@0,100..900;1,100..900|Source+Sans+3:ital,wght@0,200..900;1,200..900|Varta:wght@300..700|Work+Sans:ital,wght@0,100..900;1,100..900 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&family=Lexend:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Varta:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/@gemeente-denhaag/sidenav@latest/dist/index.css" />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body class="utrecht-body">
+    <div id="app" class="utrecht-page-layout">
+      <utrecht-page-header></utrecht-page-header>
+      <utrecht-page-body>
+        <div class="example-portal-layout">
+          <nav class="denhaag-sidenav">
+            <ul class="denhaag-sidenav__list">
+              <li class="denhaag-sidenav__item">
+                <a href="/#" aria-current="page" class="denhaag-sidenav__link denhaag-sidenav__link--current">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="tabler-icon tabler-icon-layout-grid"
+                  >
+                    <path d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
+                    <path d="M14 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
+                    <path d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
+                    <path d="M14 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
+                  </svg>
+                  Home</a
+                >
+              </li>
+            </ul>
+            <ul class="denhaag-sidenav__list">
+              <li class="denhaag-sidenav__item">
+                <a href="/#" class="denhaag-sidenav__link">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="tabler-icon tabler-icon-inbox"
+                  >
+                    <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
+                    <path d="M4 13h3l3 3h4l3 -3h3"></path>
+                  </svg>
+                  Berichten <utrecht-number-badge>4</utrecht-number-badge></a
+                >
+              </li>
+              <li class="denhaag-sidenav__item">
+                <a href="/#" class="denhaag-sidenav__link">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="tabler-icon tabler-icon-archive"
+                  >
+                    <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path>
+                    <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10"></path>
+                    <path d="M10 12l4 0"></path>
+                  </svg>
+                  Lopende zaken</a
+                >
+              </li>
+            </ul>
+            <ul class="denhaag-sidenav__list">
+              <li class="denhaag-sidenav__item">
+                <a href="/#" class="denhaag-sidenav__link">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="tabler-icon tabler-icon-currency-euro"
+                  >
+                    <path d="M17.2 7a6 7 0 1 0 0 10"></path>
+                    <path d="M13 10h-8m0 4h8"></path>
+                  </svg>
+                  Belastingzaken</a
+                >
+              </li>
+              <li class="denhaag-sidenav__item">
+                <a href="/#" class="denhaag-sidenav__link">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="tabler-icon tabler-icon-home"
+                  >
+                    <path d="M5 12l-2 0l9 -9l9 9l-2 0"></path>
+                    <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>
+                    <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path>
+                  </svg>
+                  WOZ</a
+                >
+              </li>
+              <li class="denhaag-sidenav__item">
+                <a href="/#" class="denhaag-sidenav__link">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="tabler-icon tabler-icon-parking"
+                  >
+                    <path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z"></path>
+                    <path d="M10 16v-8h2.667c.736 0 1.333 .895 1.333 2s-.597 2 -1.333 2h-2.667"></path>
+                  </svg>
+                  Parkeren</a
+                >
+              </li>
+              <li class="denhaag-sidenav__item">
+                <a href="/#" class="denhaag-sidenav__link">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="tabler-icon tabler-icon-building-community"
+                  >
+                    <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8"></path>
+                    <path d="M13 7l0 .01"></path>
+                    <path d="M17 7l0 .01"></path>
+                    <path d="M17 11l0 .01"></path>
+                    <path d="M17 15l0 .01"></path>
+                  </svg>
+                  Erfpacht</a
+                >
+              </li>
+            </ul>
+            <ul class="denhaag-sidenav__list">
+              <li class="denhaag-sidenav__item">
+                <a href="/#" class="denhaag-sidenav__link">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="tabler-icon tabler-icon-user"
+                  >
+                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                  </svg>
+                  Gegevens</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <div>
+            <utrecht-heading-1>Hallo Jeroen van Drouwen</utrecht-heading-1>
+            <utrecht-paragraph
+              >In ‘Mijn omgeving’ kunt u zelf uw persoonlijke zaken regelen wanneer het u uitkomt. U kunt bijvoorbeeld
+              uw rekeningen betalen en zien wanneer uw aanvraag klaar is.
+            </utrecht-paragraph>
+            <utrecht-heading-2>Wat moet ik regelen?</utrecht-heading-2>
+            Task list component
+            <utrecht-heading-2>Lopende zaken</utrecht-heading-2>
+            <div class="case-card-grid">
+              <denhaag-case-card dateTime="2025-04-09T09:39:22.006Z" href="https://example.com/">
+                <utrecht-heading-3 slot="heading">Hello world!</utrecht-heading-3>
+                <span slot="subtitle"> This impressive paella is a perfect party dish and a fun meal to cook. </span>
+              </denhaag-case-card>
+              <denhaag-case-card dateTime="2025-04-09T09:39:22.006Z" href="https://example.com/">
+                <utrecht-heading-3 slot="heading">Hello world!</utrecht-heading-3>
+                <span slot="subtitle"> This impressive paella is a perfect party dish and a fun meal to cook. </span>
+              </denhaag-case-card>
+              <denhaag-case-card dateTime="2025-04-09T09:39:22.006Z" href="https://example.com/">
+                <utrecht-heading-3 slot="heading">Hello world!</utrecht-heading-3>
+                <span slot="subtitle"> This impressive paella is a perfect party dish and a fun meal to cook. </span>
+              </denhaag-case-card>
+            </div>
+          </div>
+        </div>
+      </utrecht-page-body>
+      <utrecht-page-footer></utrecht-page-footer>
+    </div>
+    <script type="module" src="/src/form.ts"></script>
+    <script type="module" src="https://unpkg.com/@gemeente-denhaag/case-card-element@1.0.4/dist/index.mjs"></script>
+  </body>
+</html>
