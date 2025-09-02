@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.0",
+    "@jridgewell/resolve-uri": "3.1.2",
+    "@projectwallace/css-design-tokens": "0.5.0",
+    "css-tree": "3.1.0",
+    "hono": "^4.9.5",
+    "linkedom": "0.18.12",
+    "normalize-url": "8.0.2"
+  },
+  "devDependencies": {
+    "@types/css-tree": "2.3.10",
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.1",
+    "typescript": "^5.8.3"
+  }
+}

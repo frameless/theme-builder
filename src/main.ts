@@ -18,6 +18,7 @@ import '@utrecht/table-css';
 import './style.css';
 import '@nl-design-system-unstable/basis-design-tokens/dist/theme.css';
 import './fluid.css';
+import type { css_to_tokens } from '@projectwallace/css-design-tokens';
 
 defineCustomElements();
 
@@ -174,17 +175,30 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <utrecht-heading-1>Theme Builder</utrecht-heading-1>
   </utrecht-page-header>
   <utrecht-page-body>
+    <form id="url-input-form">
+      <fieldset>
+        <legend>Website for preset colors:</legend>
+        <label for="url-input">URL to scrape</label>
+        <input id="url-input" name="url-input" list="url-input-list" inputmode="url">
+        <datalist id="url-input-list">
+          <option value="loket.digitaal.utrecht.nl">loket.digitaal.utrecht.nl</option>
+          <option value="rijksoverheid.nl">rijksoverheid.nl</option>
+          <option value="purmerend.nl">purmerend.nl</option>
+          <option value="rotterdam.nl">rotterdam.nl</option>
+        </datalist>
+        <button type="submit">Scrape URL</button>
+        <p>or use a preset:</p>
+        <label>Preset URL</label>
+        <select id="url-preset-list">
+          <option value=""></option>
+          <option value="loket.digitaal.utrecht.nl">loket.digitaal.utrecht.nl</option>
+          <option value="rijksoverheid.nl">rijksoverheid.nl</option>
+          <option value="purmerend.nl">purmerend.nl</option>
+          <option value="rotterdam.nl">rotterdam.nl</option>
+        </select>
+      </fieldset>
+    </form>
     <form class="scroll-snap-container">
-    <div>
-      <p>Website for preset colors:</p>
-      <select id="url-input">
-        <option></option>
-        <option value="loket.digitaal.utrecht.nl">loket.digitaal.utrecht.nl</option>
-        <option value="rijksoverheid.nl">rijksoverheid.nl</option>
-        <option value="purmerend.nl">purmerend.nl</option>
-        <option value="rotterdam.nl">rotterdam.nl</option>
-      </select>
-    </div>
     <utrecht-heading-2>Colors</utrecht-heading-2>
     <example-story>
       <utrecht-heading-3>Primary color</utrecht-heading-3>
@@ -469,18 +483,18 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
       <details>
       <summary>Bekijk alle <utrecht-code>basis.space.block</utrecht-code> design tokens</summary>
         <example-design-tokens-table tokens="${[
-          'basis.space.block.6xl',
-          'basis.space.block.5xl',
-          'basis.space.block.4xl',
-          'basis.space.block.3xl',
-          'basis.space.block.2xl',
-          'basis.space.block.xl',
-          'basis.space.block.lg',
-          'basis.space.block.md',
-          'basis.space.block.sm',
-          'basis.space.block.xs',
-          'basis.space.block.2xs',
-        ].join(' ')}"></example-design-tokens-table>
+    'basis.space.block.6xl',
+    'basis.space.block.5xl',
+    'basis.space.block.4xl',
+    'basis.space.block.3xl',
+    'basis.space.block.2xl',
+    'basis.space.block.xl',
+    'basis.space.block.lg',
+    'basis.space.block.md',
+    'basis.space.block.sm',
+    'basis.space.block.xs',
+    'basis.space.block.2xs',
+  ].join(' ')}"></example-design-tokens-table>
       </details>
     </example-story>
     <example-story>
@@ -491,18 +505,18 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
       <details>
         <summary>Bekijk alle <utrecht-code>basis.space.inline</utrecht-code> design tokens</summary>
         <example-design-tokens-table tokens="${[
-          'basis.space.inline.6xl',
-          'basis.space.inline.5xl',
-          'basis.space.inline.4xl',
-          'basis.space.inline.3xl',
-          'basis.space.inline.2xl',
-          'basis.space.inline.xl',
-          'basis.space.inline.lg',
-          'basis.space.inline.md',
-          'basis.space.inline.sm',
-          'basis.space.inline.xs',
-          'basis.space.inline.2xs',
-        ].join(' ')}"></example-design-tokens-table>
+    'basis.space.inline.6xl',
+    'basis.space.inline.5xl',
+    'basis.space.inline.4xl',
+    'basis.space.inline.3xl',
+    'basis.space.inline.2xl',
+    'basis.space.inline.xl',
+    'basis.space.inline.lg',
+    'basis.space.inline.md',
+    'basis.space.inline.sm',
+    'basis.space.inline.xs',
+    'basis.space.inline.2xs',
+  ].join(' ')}"></example-design-tokens-table>
       </details>
     </example-story>
 
@@ -637,7 +651,7 @@ interface ProjectWallaceJSON {
   Easing: DesignTokenMap;
 }
 
-const domainInput = document.getElementById('url-input');
+const domainInput = document.getElementById('url-preset-list');
 if (domainInput) {
   domainInput.addEventListener('input', async (event) => {
     if (event.currentTarget instanceof HTMLSelectElement) {
@@ -656,6 +670,34 @@ if (domainInput) {
       }
     }
   });
+}
+
+const domainInputForm = document.getElementById('url-input-form');
+if (domainInputForm) {
+  domainInputForm.addEventListener('submit', async function (event) {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
+    const url = formData.get('url-input');
+
+    if (url && url.toString().trim() !== '') {
+      const button = form.querySelector('button[type=submit');
+      const buttonText = button?.textContent;
+      button.textContent = 'scraping…';
+      const fetchUrl = new URL(`http://localhost:3000`);
+      fetchUrl.pathname = '/api/get-css';
+      fetchUrl.searchParams.set('url', url.toString());
+      const response = await fetch(fetchUrl);
+      const tokens = await response.json() as ReturnType<typeof css_to_tokens>;
+      button.textContent = buttonText
+      const colors = Object.entries(tokens.color)
+        .map(([name, colorToken]) => ({
+          name,
+          color: colorToken.$extensions?.['com.projectwallace.css-authored-as']
+        }));
+      setPresetColors(colors);
+    }
+  })
 }
 
 const setPresetColors = (colors: ColorOption[]) => {
