@@ -639,19 +639,21 @@ interface ProjectWallaceJSON {
 
 const domainInput = document.getElementById('url-input');
 if (domainInput) {
-  domainInput.addEventListener('input', (evt) => {
-    if (evt.currentTarget instanceof HTMLSelectElement) {
-      const url = evt.currentTarget.value.replace(/[./]+/g, '.');
-      fetch(`/design-tokens/${url}.json`)
-        .then((response) => response.json())
-        .then((json: ProjectWallaceJSON) => {
-          const colors = Object.entries(json.Color).map(([name, { $value }]) => ({
-            name,
-            color: $value,
-          }));
+  domainInput.addEventListener('input', async (event) => {
+    if (event.currentTarget instanceof HTMLSelectElement) {
+      const url = event.currentTarget.value.replace(/[./]+/g, '.');
+      if (url) {
+        const response = await fetch(`/design-tokens/${url}.json`)
+        const json = await response.json() as ProjectWallaceJSON
+        const colors = Object.entries(json.Color).map(([name, { $value }]) => ({
+          name,
+          color: $value,
+        }));
 
-          setPresetColors(colors);
-        });
+        setPresetColors(colors);
+      } else {
+        setPresetColors(radixColors)
+      }
     }
   });
 }
