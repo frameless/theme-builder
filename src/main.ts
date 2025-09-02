@@ -679,9 +679,9 @@ if (domainInputForm) {
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
     const url = formData.get('url-input');
+    const button = form.querySelector('button[type=submit');
 
-    if (url && url.toString().trim() !== '') {
-      const button = form.querySelector('button[type=submit');
+    if (url && url.toString().trim() !== '' && button) {
       const buttonText = button?.textContent;
       button.textContent = 'scraping…';
       const fetchUrl = new URL(`http://localhost:3000`);
@@ -689,7 +689,7 @@ if (domainInputForm) {
       fetchUrl.searchParams.set('url', url.toString());
       const response = await fetch(fetchUrl);
       const tokens = await response.json() as ReturnType<typeof css_to_tokens>;
-      button.textContent = buttonText
+      button.textContent = buttonText;
       const colors = Object.entries(tokens.color)
         .map(([name, colorToken]) => ({
           name,
