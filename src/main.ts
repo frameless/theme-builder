@@ -693,7 +693,7 @@ if (domainInputForm) {
       const colors = Object.entries(tokens.color)
         .map(([name, colorToken]) => ({
           name,
-          color: colorToken.$extensions?.['com.projectwallace.css-authored-as']
+          color: colorToken.$extensions?.['com.projectwallace.css-authored-as'] || ''
         }));
       setPresetColors(colors);
     }
