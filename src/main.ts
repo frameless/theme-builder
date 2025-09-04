@@ -691,6 +691,8 @@ if (domainInputForm) {
       const tokens = await response.json() as ReturnType<typeof css_to_tokens>;
       button.textContent = buttonText;
       const colors = Object.entries(tokens.color)
+        // Filter out any non-color token (system colors or unparseable 'colors')
+        .filter(([, colorToken]) => colorToken.$type === 'color')
         .map(([name, colorToken]) => ({
           name,
           color: colorToken.$extensions?.['com.projectwallace.css-authored-as'] || ''
