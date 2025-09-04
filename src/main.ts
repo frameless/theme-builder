@@ -483,18 +483,18 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
       <details>
       <summary>Bekijk alle <utrecht-code>basis.space.block</utrecht-code> design tokens</summary>
         <example-design-tokens-table tokens="${[
-    'basis.space.block.6xl',
-    'basis.space.block.5xl',
-    'basis.space.block.4xl',
-    'basis.space.block.3xl',
-    'basis.space.block.2xl',
-    'basis.space.block.xl',
-    'basis.space.block.lg',
-    'basis.space.block.md',
-    'basis.space.block.sm',
-    'basis.space.block.xs',
-    'basis.space.block.2xs',
-  ].join(' ')}"></example-design-tokens-table>
+          'basis.space.block.6xl',
+          'basis.space.block.5xl',
+          'basis.space.block.4xl',
+          'basis.space.block.3xl',
+          'basis.space.block.2xl',
+          'basis.space.block.xl',
+          'basis.space.block.lg',
+          'basis.space.block.md',
+          'basis.space.block.sm',
+          'basis.space.block.xs',
+          'basis.space.block.2xs',
+        ].join(' ')}"></example-design-tokens-table>
       </details>
     </example-story>
     <example-story>
@@ -505,18 +505,18 @@ Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum e
       <details>
         <summary>Bekijk alle <utrecht-code>basis.space.inline</utrecht-code> design tokens</summary>
         <example-design-tokens-table tokens="${[
-    'basis.space.inline.6xl',
-    'basis.space.inline.5xl',
-    'basis.space.inline.4xl',
-    'basis.space.inline.3xl',
-    'basis.space.inline.2xl',
-    'basis.space.inline.xl',
-    'basis.space.inline.lg',
-    'basis.space.inline.md',
-    'basis.space.inline.sm',
-    'basis.space.inline.xs',
-    'basis.space.inline.2xs',
-  ].join(' ')}"></example-design-tokens-table>
+          'basis.space.inline.6xl',
+          'basis.space.inline.5xl',
+          'basis.space.inline.4xl',
+          'basis.space.inline.3xl',
+          'basis.space.inline.2xl',
+          'basis.space.inline.xl',
+          'basis.space.inline.lg',
+          'basis.space.inline.md',
+          'basis.space.inline.sm',
+          'basis.space.inline.xs',
+          'basis.space.inline.2xs',
+        ].join(' ')}"></example-design-tokens-table>
       </details>
     </example-story>
 
@@ -657,8 +657,8 @@ if (domainInput) {
     if (event.currentTarget instanceof HTMLSelectElement) {
       const url = event.currentTarget.value.replace(/[./]+/g, '.');
       if (url) {
-        const response = await fetch(`/design-tokens/${url}.json`)
-        const json = await response.json() as ProjectWallaceJSON
+        const response = await fetch(`/design-tokens/${url}.json`);
+        const json = (await response.json()) as ProjectWallaceJSON;
         const colors = Object.entries(json.Color).map(([name, { $value }]) => ({
           name,
           color: $value,
@@ -666,7 +666,7 @@ if (domainInput) {
 
         setPresetColors(colors);
       } else {
-        setPresetColors(radixColors)
+        setPresetColors(radixColors);
       }
     }
   });
@@ -688,18 +688,18 @@ if (domainInputForm) {
       fetchUrl.pathname = '/api/get-css';
       fetchUrl.searchParams.set('url', url.toString());
       const response = await fetch(fetchUrl);
-      const tokens = await response.json() as ReturnType<typeof css_to_tokens>;
+      const tokens = (await response.json()) as ReturnType<typeof css_to_tokens>;
       button.textContent = buttonText;
       const colors = Object.entries(tokens.color)
         // Filter out any non-color token (system colors or unparseable 'colors')
         .filter(([, colorToken]) => colorToken.$type === 'color')
         .map(([name, colorToken]) => ({
           name,
-          color: colorToken.$extensions?.['com.projectwallace.css-authored-as'] || ''
+          color: colorToken.$extensions?.['com.projectwallace.css-authored-as'] || '',
         }));
       setPresetColors(colors);
     }
-  })
+  });
 }
 
 const setPresetColors = (colors: ColorOption[]) => {
