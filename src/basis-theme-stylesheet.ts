@@ -80,11 +80,26 @@ class BasisThemeStylesheet extends HTMLElement {
   }
 
   connectedCallback() {
+    const self = this
+
     if (this.sheet) {
       this.ownerDocument.adoptedStyleSheets.push(this.sheet);
     }
     this.ownerDocument.addEventListener('subscribeDesignTokenValue', this._eventHandler, true);
     this.ownerDocument.addEventListener('unsubscribeDesignTokenValue', this._eventHandler, true);
+
+    // TODO: remove listeners
+    this.ownerDocument.addEventListener('fontpanelchange', event => {
+      self.setToken(event.detail.token, event.detail.value);
+    })
+    this.ownerDocument.addEventListener('fontpaneltoggle', event => {
+      if (event.detail.enabled) {
+        // TODO: set something sensical here
+        self.setToken(event.detail.token, event.detail.value);
+      } else {
+        self.removeToken(event.detail.token);
+      }
+    })
   }
 
   disconnectedCallback() {
@@ -155,6 +170,11 @@ class BasisThemeStylesheet extends HTMLElement {
     this.setParameter(name, value);
   }
 
+  removeToken(id: string) {
+    this.map.delete(id);
+    this.update();
+  }
+
   setGroupOption(groupId: string, optionId: string) {
     const group = this.variantsMap.get(groupId);
 
@@ -182,6 +202,27 @@ class BasisThemeStylesheet extends HTMLElement {
     this.setGroupOption(groupId, optionId);
 
     history.replaceState({}, document.title, `?${this.parameters}`);
+  }
+
+  handleFontInput(target: HTMLInputElement, name: string) {
+    const value = target.value;
+    if (typeof value !== 'string') {
+      return;
+    }
+    console.log('font input', name, value)
+
+    this.setToken(name, value);
+    this.update();
+  }
+
+  handleDimensionInput(target: HTMLInputElement, name: string) {
+    const value = target.value;
+    if (typeof value !== 'string') {
+      return;
+    }
+
+    this.setToken(name, value);
+    this.update();
   }
 
   handleColorInput(target: HTMLInputElement, name: string, inverseName: string) {

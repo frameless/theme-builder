@@ -32,8 +32,8 @@ customElements.define(
         border-style: solid;
         border-color: rgba(0, 0, 0, 0.1);
         box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px;
-        margin-block-end: 40px;
-        margin-block-start: 25px;
+        /*margin-block-end: 40px;
+        margin-block-start: 25px;*/
         padding-block-end: 30px;
         padding-block-start: 30px;
         padding-inline-end: 20px;

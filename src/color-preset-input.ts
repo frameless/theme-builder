@@ -60,12 +60,26 @@ export class ExampleColorPresetInput extends HTMLElement {
   }
 
   renderHTML(name: string, inverseName: string, colors: ColorOption[]) {
-    return `<details><summary>Show preset colors</summary><utrecht-button-group>${colors
-      .map(
-        ({ name: colorName, color }) =>
-          `<utrecht-button onclick='themeBuilder.handleColorInput(event.currentTarget, ${JSON.stringify(name)}, ${JSON.stringify(inverseName)})' value="${color}"${color === this._value ? ' pressed="true"' : ''}><utrecht-color-sample color="${color}"></utrecht-color-sample> ${colorName}</utrecht-button>`,
-      )
-      .join('\n')}</utrecht-button-group></details>`;
+    return `
+      <input type="color" list="${name}-list" onchange='themeBuilder.handleColorInput(event.currentTarget, ${JSON.stringify(name)}, ${JSON.stringify(inverseName)})'>
+      <datalist id="${name}-list">
+        ${colors.map(color => `
+          <option value="${color.color}"></option>`
+    ).join('\n')}
+      </datalist>
+      <select name="${name}" class="color-select" onchange='themeBuilder.handleColorInput(event.currentTarget, ${JSON.stringify(name)}, ${JSON.stringify(inverseName)})'>
+        <button>
+          <selectedcontent></selectedcontent>
+        </button>
+        ${colors.map(color => `
+          <option value="${color.color}" translate="no">
+            <span class="color-sample" style="background-color: ${color.color};" aria-hidden="true"></span>
+            <span class="color-name">${color.name}</span>
+            <span class="color-value">(${color.color})</span>
+          </option>`
+    ).join('\n')}
+      </select>
+    `
   }
 
   render() {
