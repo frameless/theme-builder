@@ -1,7 +1,8 @@
 import type { ColorOption, ExampleColorPresetInput } from './color-preset-input.js';
 import type { FontOption, ExampleFontPresetInput } from './font-preset-input.js';
-import type { DimensionOption, ExampleDimensionPresetInput } from './dimension-preset-input.js';
+import type { DimensionOption } from './dimension-preset-input.js';
 import { sortFn as sortCssUnit } from 'css-unit-sort';
+import type { FontPanel } from './font-panel.js';
 import { defineCustomElements } from '@utrecht/web-component-library-stencil/loader/index.js';
 import { toCssName, styleAttribute } from './utils.js';
 import { ComponentVariant, VariantOptionGroup, VariantsMap } from './types.js';
@@ -139,16 +140,16 @@ const renderColorScalePicker = (name: string, inverseName: string, defaultValue:
   `<input type="color" oninput='themeBuilder.handleColorInput(event.currentTarget, ${JSON.stringify(name)}, ${JSON.stringify(inverseName)})' value="${defaultValue}">`;
 
 const radixColors = [
-  { name: 'voilet', color: '#5315f6' },
-  { name: 'Gray', color: '#3f5676' },
-  { name: 'Pink', color: '#a60e52' },
-  { name: 'Red', color: '#a41e24' },
-  { name: 'Orange', color: '#6a2e13' },
-  { name: 'Yellow', color: '#8b3e18' },
-  { name: 'Green', color: '#645400' },
-  { name: 'Green', color: '#116227' },
-  { name: 'Sea green', color: '#006053' },
-  { name: 'Blue', color: '#00588f' },
+  { label: 'voilet', value: '#5315f6' },
+  { label: 'Gray', value: '#3f5676' },
+  { label: 'Pink', value: '#a60e52' },
+  { label: 'Red', value: '#a41e24' },
+  { label: 'Orange', value: '#6a2e13' },
+  { label: 'Yellow', value: '#8b3e18' },
+  { label: 'Green', value: '#645400' },
+  { label: 'Green', value: '#116227' },
+  { label: 'Sea green', value: '#006053' },
+  { label: 'Blue', value: '#00588f' },
 ];
 
 const renderColorScaleExample = (name: string) => {
@@ -767,8 +768,8 @@ if (domainInput) {
         const response = await fetch(`/design-tokens/${url}.json`);
         const json = (await response.json()) as ProjectWallaceJSON;
         const colors = Object.entries(json.Color).map(([name, { $value }]) => ({
-          name,
-          color: $value,
+          label: name,
+          value: $value,
         }));
 
         setPresetColors(colors);
@@ -777,9 +778,9 @@ if (domainInput) {
           .filter(([, token]) => {
             return !token.$value.at(0)!.includes('var(')
           })
-          .map(([name, token]) => ({
-            name: token.$value.at(0)!,
-            font: token.$value.at(0)!
+          .map(([, token]) => ({
+            label: token.$value.at(0)!,
+            value: token.$value.at(0)!
           }))
         setPresetFonts(families)
       } else {
@@ -813,8 +814,8 @@ if (domainInputForm) {
         // Filter out any non-color token (system colors or unparseable 'colors')
         .filter(([, colorToken]) => colorToken.$type === 'color')
         .map(([name, colorToken]) => ({
-          name,
-          color: colorToken.$extensions?.['com.projectwallace.css-authored-as'] || '',
+          label: name,
+          value: colorToken.$extensions?.['com.projectwallace.css-authored-as'] || '',
         }));
       setPresetColors(colors);
 
@@ -824,8 +825,8 @@ if (domainInputForm) {
           return fontToken.$type === 'fontFamily' && !fontToken.$value.at(0)!.includes('var(')
         })
         .map(([, fontToken]) => ({
-          name: fontToken.$value.at(0)!,
-          font: fontToken.$value.at(0)!,
+          label: fontToken.$value.at(0)!,
+          value: fontToken.$value.at(0)!,
         }))
       setPresetFonts(fontFamilies)
 
@@ -843,17 +844,22 @@ if (domainInputForm) {
           })
 
       // prevent the select from becoming empty if there are no suitable candidates
-      if (fontSizes.length > 0) {
-        setPresetFontSizes(fontSizes)
-      }
+      setPresetFontSizes(fontSizes)
     }
   });
 }
+
+document.addEventListener('change', event => {
+  console.log(event)
+})
 
 const setPresetColors = (colors: ColorOption[]) => {
   Array.from(document.querySelectorAll<ExampleColorPresetInput>('example-color-preset-input')).forEach((el) => {
     el.colors = colors;
   });
+  for (const panel of Array.from(document.querySelectorAll<FontPanel>('font-panel'))) {
+    panel.updateColorOptions(colors)
+  }
 };
 
 const setPresetFonts = (fonts: FontOption[]) => {
@@ -867,27 +873,25 @@ const setPresetFonts = (fonts: FontOption[]) => {
 };
 
 const setPresetFontSizes = (dimensions: DimensionOption[]) => {
-  Array.from(document.querySelectorAll<ExampleDimensionPresetInput>('example-dimension-preset-input')).forEach((el) => {
-    el.dimensions = dimensions;
-  });
-  document.dispatchEvent(new CustomEvent('PresetFontSizeChange', {
-    detail: dimensions,
-  }))
+  const panels = document.querySelectorAll<FontPanel>('font-panel')
+  for (const panel of Array.from(panels)) {
+    panel.updateFontSizeOptions(dimensions.map(d => d.value))
+  }
 };
 
 document.addEventListener('DOMContentLoaded', (event) => {
   const fonts = [
     {
-      name: 'Sans Serif',
-      font: 'sans-serif'
+      label: 'Sans Serif',
+      value: 'sans-serif'
     },
     {
-      name: 'Serif',
-      font: 'serif'
+      label: 'Serif',
+      value: 'serif'
     },
     {
-      name: 'System',
-      font: 'system-ui'
+      label: 'System',
+      value: 'system-ui'
     }
   ]
   const fontSizes = [

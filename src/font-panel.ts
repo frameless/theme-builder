@@ -1,128 +1,229 @@
+import type { ColorOption } from "./color-preset-input"
+import type { ExampleColorPresetInput } from "./color-preset-input"
+
 export class FontPanel extends HTMLElement {
 	static get observedAttributes() {
-		return ['family']
+		return ['family', 'weight', 'size', 'leading', 'italic']
 	}
 
-	_name: string | null = null;
-	_family: string | null = null;
-	_weight: string | null = null;
-	_leading: string | null = null
-	_italic: boolean = false;
+	private _name: string | null = null
 
 	constructor() {
 		super()
-
 		this.attachShadow({ mode: 'open' })
-		const template = (document.getElementById('font-panel-template') as HTMLTemplateElement)!.content.cloneNode(true)
-
-		this.shadowRoot?.appendChild(template)
+		this.render()
 	}
 
 	connectedCallback() {
-		const self = this
-
 		this._name = this.getAttribute('token')
+		this.setupEventListeners()
+		this.syncFormState()
+	}
 
-		// Reflect component state to inner components
-		const familySelect = this.shadowRoot?.querySelector<HTMLSelectElement>('select[name="font-family"]')
+	private render() {
+		if (!this.shadowRoot) return
 
-		if (familySelect && this.family) {
-			familySelect.value = this.family
-		}
-		this._upgradeProperty('family')
+		this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          display: grid;
+          grid-template-columns: 3fr 2fr;
+          gap: .5rem;
+        }
 
-		// =*=
-		const weightSelect = this.shadowRoot?.querySelector<HTMLSelectElement>('select[name="font-weight"]')
+        .sr-only {
+          display: none;
+        }
 
-		if (weightSelect && this.weight) {
-			weightSelect.value = this.weight
-		}
+        font-panel-group:has(select) label {
+          display: none;
+        }
 
-		const italic = this.getAttribute('italic')
-		this.italic = italic !== null
+        font-panel-group {
+          display: flex;
+          gap: 1ch;
+          align-items: center;
+        }
 
-		this._upgradeProperty('weight')
-		this._upgradeProperty('size')
-		this._upgradeProperty('leading')
-		this._upgradeProperty('style')
+        font-panel-misc {
+          display: flex;
+          gap: 1rem;
+					grid-column: 1 / -1;
+        }
 
-		this.shadowRoot?.addEventListener('togglebuttonchange', (event) => {
-			const target = event.target as HTMLSelectElement | HTMLInputElement
+				select {
+          width: 100%;
+          padding-block: .25lh;
+          padding-inline: .25ch;
+        }
+
+        font-panel-faux-label {
+          color: ButtonText;
+        }
+
+        example-font-preset-input {
+          width: 100%;
+        }
+      </style>
+
+      <font-panel-group token="font-family">
+        <label>Family</label>
+        <example-font-preset-input token="font-family" prop="family"></example-font-preset-input>
+      </font-panel-group>
+
+      <font-panel-group token="font-weight">
+        <label>Weight</label>
+        <select prop="weight" token="font-weight">
+          <option value="100">Thin (hairline)</option>
+          <option value="200">Extra light</option>
+          <option value="300">Light</option>
+          <option value="400">Normal</option>
+          <option value="500">Medium</option>
+          <option value="600">Semi Bold</option>
+          <option value="700" selected>Bold</option>
+          <option value="800">Extra Bold</option>
+          <option value="900">Black</option>
+        </select>
+      </font-panel-group>
+
+      <font-panel-group token="font-size">
+        <label>Size</label>
+        <font-panel-faux-label style="white-space: nowrap; font-weight: 900; font-size: 1.2em; line-height: 1;">
+          <small style="font-size:.7em">T</small>T
+        </font-panel-faux-label>
+        <select prop="size" token="font-size">
+          <option>1rem</option>
+          <option>2rem</option>
+        </select>
+      </font-panel-group>
+
+      <font-panel-group token="line-height">
+        <label>Line height</label>
+        <font-panel-faux-label style="white-space: nowrap; font-weight: 700; line-height: 1; letter-spacing: -.2em; line-height: 0;">
+          <sub>A</sub>
+          <sup>A</sup>
+        </font-panel-faux-label>
+        <select prop="leading" token="line-height">
+          <option>0</option>
+          <option>0.75</option>
+          <option selected>1</option>
+          <option>1.5</option>
+          <option>2</option>
+        </select>
+      </font-panel-group>
+
+      <font-panel-misc>
+        <font-panel-group token="font-style">
+          <label id="italic-label" class="sr-only">Italic?</label>
+          <toggle-button aria-labelledby="italic-label" token="font-style" prop="italic">
+            <span class="sr-only">Italic</span>
+            <span aria-hidden="true" style="font-size: 1.2em; font-style: italic;">T</span>
+          </toggle-button>
+        </font-panel-group>
+
+        <font-panel-group token="color">
+          <label>Color</label>
+					<example-color-preset-input name="basis.color.text" inverse="basis.color.text-inverse"></example-color-preset-input>
+        </font-panel-group>
+      </font-panel-misc>
+    `
+	}
+
+	private setupEventListeners() {
+		if (!this.shadowRoot) return
+
+		// Handle toggle button changes (italic)
+		this.shadowRoot.addEventListener('togglebuttonchange', (event) => {
+			const target = event.target as HTMLElement
 			const token = target.getAttribute('token')
 			const prop = target.getAttribute('prop')
-			if (!token) {
-				throw new Error('Form element must have a "token" sttribute')
-			}
-			if (!prop) {
-				throw new Error('Form element must have a "prop" attribute')
-			}
 
-			self.dispatchEvent(new CustomEvent('fontpaneltoggle', {
+			if (!token || !prop) return
+
+			this.dispatchEvent(new CustomEvent('fontpaneltoggle', {
 				detail: {
-					enabled: event.detail.pressed,
-					value: self._name,
-					token: `${self._name}.${token}`,
+					enabled: (event as CustomEvent).detail.pressed,
+					value: this._name,
+					token: `${this._name}.${token}`,
 				},
 				composed: true,
 				bubbles: true,
 			}))
 
-			if (prop in self) {
-				self[prop] = event.detail.pressed
+			// Update component property
+			if (prop === 'italic') {
+				this.italic = (event as CustomEvent).detail.pressed
 			}
 		})
 
-		this.shadowRoot?.addEventListener('change', (event) => {
+		// Handle select and input changes
+		this.shadowRoot.addEventListener('change', (event) => {
 			const target = event.target as HTMLSelectElement | HTMLInputElement
 			const token = target.getAttribute('token')
 			const prop = target.getAttribute('prop')
-			if (!token) {
-				throw new Error('Form element must have a "token" sttribute')
-			}
-			if (!prop) {
-				throw new Error('Form element must have a "prop" attribute')
-			}
 
-			if (target.tagName === 'SELECT') {
-				self.dispatchEvent(new CustomEvent('fontpanelchange', {
-					detail: {
-						value: target.value,
-						token: `${self._name}.${token}`
-					},
-					bubbles: true,
-					composed: true,
-				}))
+			if (!token || !prop) return
 
-				if (prop in self) {
-					self[prop] = target.value
-				}
-			}
-		})
+			this.dispatchEvent(new CustomEvent('fontpanelchange', {
+				detail: {
+					value: target.value,
+					token: `${this._name}.${token}`
+				},
+				bubbles: true,
+				composed: true,
+			}))
 
-		document.addEventListener('PresetFontSizeChange', (event) => {
-			console.log(event)
-			const select = self.shadowRoot.querySelector('font-panel-group[token="font-size"] select')
-			console.log(select)
-			select?.replaceChildren()
-			for (let { value } of event.detail) {
-				const option = document.createElement('option')
-				option.textContent = value
-				select?.appendChild(option)
-			}
+			// Update component property
+			this.updateProperty(prop, target.value)
 		})
 	}
 
-	_upgradeProperty(prop: string) {
-		if (this.hasOwnProperty(prop)) {
-			const value = this[prop]
-			delete this[prop]
-			this[prop] = value
+	private updateProperty(prop: string, value: string) {
+		switch (prop) {
+			case 'family':
+				this.family = value
+				break
+			case 'weight':
+				this.weight = value
+				break
+			case 'size':
+				this.size = value
+				break
+			case 'leading':
+				this.leading = value
+				break
 		}
 	}
 
-	set family(family: string | undefined) {
-		if (family) {
-			this.setAttribute('family', family)
+	private syncFormState() {
+		if (!this.shadowRoot) return
+
+		// Sync select values with attributes
+		const selects = this.shadowRoot.querySelectorAll('select[prop]')
+		selects.forEach(select => {
+			const prop = select.getAttribute('prop')
+			if (prop && this.hasAttribute(prop)) {
+				(select as HTMLSelectElement).value = this.getAttribute(prop) || ''
+			}
+		})
+
+		// Sync toggle button state for italic
+		const toggleButton = this.shadowRoot.querySelector('toggle-button[prop="italic"]')
+		if (toggleButton && this.hasAttribute('italic')) {
+			toggleButton.setAttribute('pressed', '')
+		}
+	}
+
+	attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+		if (oldValue !== newValue) {
+			this.syncFormState()
+		}
+	}
+
+	// Property getters and setters
+	set family(value: string | undefined) {
+		if (value) {
+			this.setAttribute('family', value)
 		} else {
 			this.removeAttribute('family')
 		}
@@ -132,9 +233,9 @@ export class FontPanel extends HTMLElement {
 		return this.getAttribute('family')
 	}
 
-	set weight(weight: string | number | undefined) {
-		if (weight) {
-			this.setAttribute('weight', weight.toString())
+	set weight(value: string | number | undefined) {
+		if (value) {
+			this.setAttribute('weight', value.toString())
 		} else {
 			this.removeAttribute('weight')
 		}
@@ -144,21 +245,9 @@ export class FontPanel extends HTMLElement {
 		return this.getAttribute('weight')
 	}
 
-	set leading(leading: string | undefined) {
-		if (leading) {
-			this.setAttribute('leading', leading)
-		} else {
-			this.removeAttribute('leading')
-		}
-	}
-
-	get leading(): string | null {
-		return this.getAttribute('leading')
-	}
-
-	set size(size: string | undefined) {
-		if (size) {
-			this.setAttribute('size', size)
+	set size(value: string | undefined) {
+		if (value) {
+			this.setAttribute('size', value)
 		} else {
 			this.removeAttribute('size')
 		}
@@ -168,8 +257,20 @@ export class FontPanel extends HTMLElement {
 		return this.getAttribute('size')
 	}
 
-	set italic(style: boolean | undefined) {
-		if (style) {
+	set leading(value: string | undefined) {
+		if (value) {
+			this.setAttribute('leading', value)
+		} else {
+			this.removeAttribute('leading')
+		}
+	}
+
+	get leading(): string | null {
+		return this.getAttribute('leading')
+	}
+
+	set italic(value: boolean | undefined) {
+		if (value) {
 			this.setAttribute('italic', '')
 		} else {
 			this.removeAttribute('italic')
@@ -178,6 +279,34 @@ export class FontPanel extends HTMLElement {
 
 	get italic(): boolean {
 		return this.hasAttribute('italic')
+	}
+
+	// Method to update font size options
+	updateFontSizeOptions(sizes: string[]) {
+		const select = this.shadowRoot?.querySelector('font-panel-group[token="font-size"] select') as HTMLSelectElement
+		if (!select) return
+
+		const currentValue = select.value
+		select.replaceChildren()
+
+		for (let size of sizes) {
+			const option = document.createElement('option')
+			option.value = size
+			option.textContent = size
+			select.appendChild(option)
+
+			// Restore selection if it still exists
+			if (size === currentValue) {
+				select.value = currentValue
+			}
+		}
+	}
+
+	updateColorOptions(colors: ColorOption[]) {
+		const input = this.shadowRoot?.querySelector('example-color-preset-input') as ExampleColorPresetInput
+		if (!input) return
+
+		input.colors = colors
 	}
 }
 

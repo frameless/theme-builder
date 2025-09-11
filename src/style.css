@@ -80,8 +80,7 @@ html {
 
 theme-builder-frame {
   display: block;
-
-  /* min-block-size: 50vh; */
+  min-block-size: 50vh;
   padding: 2em;
   scroll-snap-align: center;
   scroll-snap-type: proximity;
@@ -92,53 +91,4 @@ theme-builder-split-view {
   display: grid;
   gap: 2em;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-}
-
-.color-select,
-.font-select,
-::picker(select) {
-  appearance: base-select;
-}
-
-.color-sample {
-  aspect-ratio: 1;
-  display: inline-block;
-  height: 1em;
-  width: 1em;
-}
-
-
-.color-value {
-  color: rgb(from currentColor r g b / 70%);
-}
-
-.font-specimen {
-  color: graytext;
-}
-
-.font-select {
-  .font-specimen {
-    color: graytext;
-  }
-
-  option {
-    display: grid;
-    grid-template-columns: min-content 1fr;
-    padding: .25lh 1ch;
-
-    .font-name,
-    .font-specimen {
-      grid-column: 2;
-    }
-  }
-
-  option::checkmark {
-    grid-column: 1;
-  }
-
-  selectedcontent {
-    .font-specimen {
-      display: none;
-    }
-  }
 }

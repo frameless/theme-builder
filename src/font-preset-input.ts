@@ -18,14 +18,15 @@ const renderThings = () => {
 };
 
 export interface FontOption {
-  name: string;
-  font: string;
+  label: string;
+  value: string;
 }
 
 export class ExampleFontPresetInput extends HTMLElement {
   _name: string;
   _value: string;
   _fonts: FontOption[];
+
   constructor() {
     super();
 
@@ -39,7 +40,7 @@ export class ExampleFontPresetInput extends HTMLElement {
     document.addEventListener('PresetFontFamilyChange', (evt) => this._handlePresetChange(evt));
   }
 
-  _handlePresetChange(event: { detail: FontOption[] }) {
+  _handlePresetChange(event: CustomEvent<{ detail: FontOption[] }>) {
     this.fonts = event.detail
   }
 
@@ -103,9 +104,9 @@ export class ExampleFontPresetInput extends HTMLElement {
           <selectedcontent></selectedcontent>
         </button>
         ${fonts.map(font => `
-          <option value="${font.font}" translate="no">
-            <span class="font-name">${font.name}</span>
-            <span class="font-specimen" style="font-family: ${font.font}">AaBbCcDd 1234567890</span>
+          <option value="${font.value}" translate="no">
+            <span class="font-name">${font.label}</span>
+            <span class="font-specimen" style="font-family: ${font.value}">AaBbCcDd 1234567890</span>
           </option>`
     ).join('\n')}
       </select>

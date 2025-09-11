@@ -89,10 +89,10 @@ class BasisThemeStylesheet extends HTMLElement {
     this.ownerDocument.addEventListener('unsubscribeDesignTokenValue', this._eventHandler, true);
 
     // TODO: remove listeners
-    this.ownerDocument.addEventListener('fontpanelchange', event => {
+    this.ownerDocument.addEventListener('fontpanelchange', (event: CustomEvent<{ token: string; value: string; }>) => {
       self.setToken(event.detail.token, event.detail.value);
     })
-    this.ownerDocument.addEventListener('fontpaneltoggle', event => {
+    this.ownerDocument.addEventListener('fontpaneltoggle', (event: CustomEvent<{ enabled: boolean; token: string; value: string; }>) => {
       if (event.detail.enabled) {
         // TODO: set something sensical here
         self.setToken(event.detail.token, event.detail.value);
@@ -209,7 +209,6 @@ class BasisThemeStylesheet extends HTMLElement {
     if (typeof value !== 'string') {
       return;
     }
-    console.log('font input', name, value)
 
     this.setToken(name, value);
     this.update();

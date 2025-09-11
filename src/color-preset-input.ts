@@ -18,8 +18,8 @@ const renderThings = () => {
 };
 
 export interface ColorOption {
-  name: string;
-  color: string;
+  label: string;
+  value: string;
 }
 
 export class ExampleColorPresetInput extends HTMLElement {
@@ -61,24 +61,54 @@ export class ExampleColorPresetInput extends HTMLElement {
 
   renderHTML(name: string, inverseName: string, colors: ColorOption[]) {
     return `
-      <input type="color" list="${name}-list" onchange='themeBuilder.handleColorInput(event.currentTarget, ${JSON.stringify(name)}, ${JSON.stringify(inverseName)})'>
-      <datalist id="${name}-list">
-        ${colors.map(color => `
-          <option value="${color.color}"></option>`
-    ).join('\n')}
-      </datalist>
-      <select name="${name}" class="color-select" onchange='themeBuilder.handleColorInput(event.currentTarget, ${JSON.stringify(name)}, ${JSON.stringify(inverseName)})'>
+      <style>
+        select,
+        ::picker(select) {
+          appearance: base-select;
+          padding: .25ch 1ch;
+          background-color: Field;
+          color: FieldText;
+          border-radius: unset;
+          font-size: 90%;
+        }
+
+        option {
+          display: grid;
+          grid-template-columns: min-content min-content 1fr;
+        }
+
+        ::checkmark {
+          grid-column: 1;
+        }
+
+        .color-sample {
+          grid-column: 2;
+          aspect-ratio: 1;
+          display: inline-block;
+          height: 1em;
+          width: 1em;
+        }
+
+        .color-value {
+          color: rgb(from currentColor r g b / 70%);
+        }
+
+        .color-value,
+        .color-name {
+          grid-column: 3;
+        }
+      </style>
+      <select name="${name}" onchange='themeBuilder.handleColorInput(event.currentTarget, ${JSON.stringify(name)}, ${JSON.stringify(inverseName)})'>
         <button>
           <selectedcontent></selectedcontent>
         </button>
         ${colors.map(color => `
-          <option value="${color.color}" translate="no">
-            <span class="color-sample" style="background-color: ${color.color};" aria-hidden="true"></span>
-            <span class="color-name">${color.name}</span>
-            <span class="color-value">(${color.color})</span>
+          <option value="${color.value}" translate="no">
+            <span class="color-sample" style="background-color: ${color.value};" aria-hidden="true"></span>
+            <span class="color-name">${color.label}</span>
+            <span class="color-value">(${color.value})</span>
           </option>`
     ).join('\n')}
-      </select>
     `
   }
 
