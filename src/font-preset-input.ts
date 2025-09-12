@@ -37,6 +37,7 @@ export class ExampleFontPresetInput extends HTMLElement {
 
   connectedCallback() {
     this.render();
+    // this.attachShadow({ mode: 'open' })
     document.addEventListener('PresetFontFamilyChange', (evt) => this._handlePresetChange(evt));
   }
 
@@ -69,12 +70,14 @@ export class ExampleFontPresetInput extends HTMLElement {
           background-color: Field;
           color: FieldText;
           border-radius: unset;
-          font-size: 90%;
+          font-size: 95%;
+          width: 100%;
         }
 
         .font-select {
           .font-specimen {
             color: graytext;
+            font-size: 120%;
           }
 
           option {
@@ -85,6 +88,7 @@ export class ExampleFontPresetInput extends HTMLElement {
             .font-name,
             .font-specimen {
               grid-column: 2;
+              font-size-adjust: 0.5;
             }
           }
 
@@ -103,6 +107,7 @@ export class ExampleFontPresetInput extends HTMLElement {
         <button>
           <selectedcontent></selectedcontent>
         </button>
+        <option></option>
         ${fonts.map(font => `
           <option value="${font.value}" translate="no">
             <span class="font-name">${font.label}</span>

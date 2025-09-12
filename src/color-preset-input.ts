@@ -102,6 +102,7 @@ export class ExampleColorPresetInput extends HTMLElement {
         <button>
           <selectedcontent></selectedcontent>
         </button>
+        <option value="initial" selected>not set</option>
         ${colors.map(color => `
           <option value="${color.value}" translate="no">
             <span class="color-sample" style="background-color: ${color.value};" aria-hidden="true"></span>
@@ -109,6 +110,7 @@ export class ExampleColorPresetInput extends HTMLElement {
             <span class="color-value">(${color.value})</span>
           </option>`
     ).join('\n')}
+      </select>
     `
   }
 

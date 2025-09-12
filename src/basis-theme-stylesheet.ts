@@ -34,46 +34,46 @@ class BasisThemeStylesheet extends HTMLElement {
     this.parameters = new URLSearchParams();
     this.variantsMap = new Map(variants.map((group) => [group.id, group]));
 
-    const initialParams = new URL(location.href).searchParams;
-    for (const [key, value] of initialParams) {
-      if (this.variantsMap.has(key) && this.variantsMap.get(key)?.variants.some(({ id }) => id === value)) {
-        this.setGroupOption(key, value);
-      }
-    }
+    // const initialParams = new URL(location.href).searchParams;
+    // for (const [key, value] of initialParams) {
+    //   if (this.variantsMap.has(key) && this.variantsMap.get(key)?.variants.some(({ id }) => id === value)) {
+    //     this.setGroupOption(key, value);
+    //   }
+    // }
 
-    const knownTokens = [
-      'basis.typography.font-family.default',
-      'basis.typography.font-family.heading',
-      'basis.typography.font-family.code',
-    ];
+    // const knownTokens = [
+    //   'basis.typography.font-family.default',
+    //   'basis.typography.font-family.heading',
+    //   'basis.typography.font-family.code',
+    // ];
 
-    knownTokens.forEach((tokenName) => {
-      const tokenValue = initialParams.get(tokenName);
-      if (tokenValue) {
-        this.setToken(tokenName, tokenValue);
-      }
-    });
+    // knownTokens.forEach((tokenName) => {
+    //   const tokenValue = initialParams.get(tokenName);
+    //   if (tokenValue) {
+    //     this.setToken(tokenName, tokenValue);
+    //   }
+    // });
 
-    [
-      'basis.color.primary',
-      'basis.color.secondary',
-      'basis.color.text',
-      'basis.color.info',
-      'basis.color.warning',
-      'basis.color.error',
-      'basis.color.success',
-      'basis.color.highlight',
-      'basis.color.mark',
-      'basis.color.selected',
-    ].forEach((scale) => {
-      if (typeof initialParams.get(`${scale}.seed`) === 'string') {
-        this.setSeedColor({
-          name: `${scale}`,
-          inverseName: `${scale}-inverse`,
-          value: initialParams.get(`${scale}.seed`) || '',
-        });
-      }
-    });
+    // [
+    //   'basis.color.primary',
+    //   'basis.color.secondary',
+    //   'basis.color.text',
+    //   'basis.color.info',
+    //   'basis.color.warning',
+    //   'basis.color.error',
+    //   'basis.color.success',
+    //   'basis.color.highlight',
+    //   'basis.color.mark',
+    //   'basis.color.selected',
+    // ].forEach((scale) => {
+    //   if (typeof initialParams.get(`${scale}.seed`) === 'string') {
+    //     this.setSeedColor({
+    //       name: `${scale}`,
+    //       inverseName: `${scale}-inverse`,
+    //       value: initialParams.get(`${scale}.seed`) || '',
+    //     });
+    //   }
+    // });
 
     this._designTokenValueListeners = new Set();
     this._eventHandler = (evt) => this.handleRequestDesignTokenValue(evt);
@@ -90,15 +90,8 @@ class BasisThemeStylesheet extends HTMLElement {
 
     // TODO: remove listeners
     this.ownerDocument.addEventListener('fontpanelchange', (event: CustomEvent<{ token: string; value: string; }>) => {
+      console.log(event)
       self.setToken(event.detail.token, event.detail.value);
-    })
-    this.ownerDocument.addEventListener('fontpaneltoggle', (event: CustomEvent<{ enabled: boolean; token: string; value: string; }>) => {
-      if (event.detail.enabled) {
-        // TODO: set something sensical here
-        self.setToken(event.detail.token, event.detail.value);
-      } else {
-        self.removeToken(event.detail.token);
-      }
     })
   }
 
@@ -130,11 +123,11 @@ class BasisThemeStylesheet extends HTMLElement {
       .join(';\n');
 
     let css = `.basis-theme {\n${properties}\n}`;
-    console.log(css);
+    // console.log(css);
     this.sheet?.replaceSync(css);
 
     try {
-      localStorage.setItem('theme-builder-css', css);
+      // localStorage.setItem('theme-builder-css', css);
     } catch (e) {
       console.error('Failed to store CSS in localStorage.');
     }
@@ -194,14 +187,14 @@ class BasisThemeStylesheet extends HTMLElement {
   }
 
   setParameter(key: string, value: string) {
-    this.parameters.set(key, value);
-    history.replaceState({}, document.title, `?${this.parameters}`);
+    // this.parameters.set(key, value);
+    // history.replaceState({}, document.title, `?${this.parameters}`);
   }
 
   clickGroupOption(groupId: string, optionId: string) {
     this.setGroupOption(groupId, optionId);
 
-    history.replaceState({}, document.title, `?${this.parameters}`);
+    // history.replaceState({}, document.title, `?${this.parameters}`);
   }
 
   handleFontInput(target: HTMLInputElement, name: string) {
@@ -230,13 +223,14 @@ class BasisThemeStylesheet extends HTMLElement {
       return;
     }
 
-    this.setParameter(`${name}.seed`, value);
+    // this.setParameter(`${name}.seed`, value);
 
-    this.setSeedColor({
-      name,
-      inverseName,
-      value,
-    });
+    // this.setSeedColor({
+    //   name,
+    //   inverseName,
+    //   value,
+    // });
+    this.setToken(name, value);
     this.update();
   }
 

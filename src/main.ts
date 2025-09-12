@@ -17,7 +17,6 @@ import './example-design-tokens-table.js';
 import './color-preset-input.js';
 import './font-preset-input.js';
 import './font-panel.js';
-import './toggle-button.js'
 import './dimension-preset-input.js';
 import '@utrecht/page-layout-css';
 import '@utrecht/body-css';
@@ -207,15 +206,16 @@ const renderPresetForm = () => {
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <basis-theme-stylesheet></basis-theme-stylesheet>
-  <utrecht-page-header>
-    <utrecht-heading-1>Theme Builder</utrecht-heading-1>
-  </utrecht-page-header>
-  <utrecht-page-body>
+  <header>
+    <h1>Theme Builder</h1>
+  </header>
+  <div>
     <theme-builder-frame>
       ${renderPresetForm()}
     </theme-builder-frame>
+
     <theme-builder-frame>
-      <utrecht-heading-2>Document</utrecht-heading-2>
+      <h2>Document</h2>
       <theme-builder-split-view>
         <div>
           <fieldset>
@@ -223,19 +223,13 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <div>
               <label>
                 Text color
-                <example-color-preset-input htmlId="document-color" name="basis.color.text" inverse="basis.color.text-inverse"></example-color-preset-input>
+                <example-color-preset-input htmlId="document-color" name="basis.color.text.text-1" inverse="basis.color.text-inverse"></example-color-preset-input>
               </label>
             </div>
             <div>
               <label>
                 Background color
-                <example-color-preset-input htmlId="document-background" name="basis.document-background-color"></example-color-preset-input>
-              </label>
-            </div>
-            <div>
-              <label>
-                Accent color
-                <example-color-preset-input htmlId="document-primary" name="basis.color.primary" inverse="basis.color.primary-inverse"></example-color-preset-input>
+                <example-color-preset-input htmlId="document-background" name="basis.document.bg"></example-color-preset-input>
               </label>
             </div>
           </fieldset>
@@ -255,37 +249,50 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             </div>
           </fieldset>
         </div>
-        <example-story-canvas>
-          <utrecht-heading-2>My document</utrecht-heading-2>
-          <utrecht-paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </utrecht-paragraph>
-        </example-story-canvas>
+        <div class="basis-theme">
+          <example-story-canvas>
+            <utrecht-heading-2>My document</utrecht-heading-2>
+            <utrecht-paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </utrecht-paragraph>
+          </example-story-canvas>
+        </div>
       </theme-builder-split-view>
     </theme-builder-frame>
 
     <theme-builder-frame>
-      <utrecht-heading-2>Typography</utrecht-heading-2>
-      <utrecht-heading-3>Headings</utrecht-heading-3>
+      <h2>Typography</h2>
+      <h3>Headings</h3>
       <theme-builder-split-view>
         <fieldset>
             <legend>Basic Heading</legend>
-            <font-panel token="basis.heading"></font-panel>
+            <label>
+              Font-family
+              <example-font-preset-input name="basis.typography.font-family.heading"></example-font-preset-input>
+            </label>
+            <label>
+              Color
+              <example-color-preset-input name="basis.heading.color" inverse="basis.heading.color-inverse"></example-color-preset-input>
+            </label>
           </fieldset>
-          <example-story-canvas>
-            <utrecht-heading-1>heading level 1</utrecht-heading-1>
-            <utrecht-heading-2>heading level 2</utrecht-heading-2>
-            <utrecht-heading-3>heading level 3</utrecht-heading-3>
-            <utrecht-heading-4>heading level 4</utrecht-heading-4>
-          </example-story-canvas>
+          <div class="basis-theme">
+            <example-story-canvas>
+              <utrecht-heading-1>heading level 1</utrecht-heading-1>
+              <utrecht-heading-2>heading level 2</utrecht-heading-2>
+              <utrecht-heading-3>heading level 3</utrecht-heading-3>
+              <utrecht-heading-4>heading level 4</utrecht-heading-4>
+            </example-story-canvas>
+          </div>
         </theme-builder-split-view>
         <theme-builder-split-view>
           ${[1, 2, 3, 4].map(level => `
             <fieldset>
               <legend>Heading ${level}</legend>
-              <font-panel token="basis.heading.level-${level}"></font-panel>
+              <font-panel token="utrecht.heading-${level}"></font-panel>
             </fieldset>
-            <example-story-canvas>
-              <utrecht-heading-${level}>heading level ${level}</utrecht-heading-${level}>
-            </example-story-canvas>
+            <div class="basis-theme">
+              <example-story-canvas>
+                <utrecht-heading-${level}>heading level ${level}</utrecht-heading-${level}>
+              </example-story-canvas>
+            </div>
           `).join('')}
       </theme-builder-split-view>
       <theme-builder-split-view>
@@ -300,11 +307,169 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <font-panel token="basis.typography" italic></font-panel>
           </fieldset>
         </div>
-        <example-story-canvas>
-          <utrecht-paragraph>Lorem ipsum</utrecht-heading-1>
-          <utrecht-paragraph lead="true">Lorem ipsum lead</utrecht-heading-2>
-        </example-story-canvas>
+        <div class="basis-theme">
+          <example-story-canvas>
+            <utrecht-paragraph>Lorem ipsum</utrecht-heading-1>
+            <utrecht-paragraph lead="true">Lorem ipsum lead</utrecht-heading-2>
+          </example-story-canvas>
+        </div>
       </theme-builder-split-view>
+    </theme-builder-frame>
+
+    <theme-builder-frame>
+      <h2>Forms</h2>
+      <section>
+        <h3>Text Inputs</h3>
+        <theme-builder-split-view>
+          <div>
+            <fieldset>
+              <legend>Vertical Spacing</legend>
+              ${variantsMap.get('form-control-padding-block')?.variants.map(({ id, flatTokens, name, recommended }) => `
+                  <label for="form-control-padding-block-${id}">
+                  ${name}
+                    <input
+                      id="form-control-padding-block-${id}"
+                      type="radio"
+                      value="${id}"
+                      name="form-control-padding-block"
+                      onchange="themeBuilder.clickGroupOption(event.currentTarget.name, event.currentTarget.value)"
+                    >
+                    ${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}
+                  </label>
+                `).join('<br>')}
+            </fieldset>
+            <fieldset>
+              <legend>Horizontal Spacing</legend>
+              ${variantsMap.get('form-control-padding-inline')?.variants.map(({ id, flatTokens, name, recommended }) => `
+                  <label for="form-control-padding-inline-${id}">
+                    ${name}
+                    <input
+                      id="form-control-padding-inline-${id}"
+                      type="radio"
+                      value="${id}"
+                      name="form-control-padding-inline"
+                      onchange="themeBuilder.clickGroupOption(event.currentTarget.name, event.currentTarget.value)"
+                    >
+                    ${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}
+                  </label>
+                `).join('<br>')}
+            </fieldset>
+            <fieldset>
+              <legend>Radius</legend>
+              ${variantsMap.get('form-control-border-radius')?.variants.map(({ id, flatTokens, name, recommended }) => `
+                  <label for="form-control-border-radius-${id}">
+                    ${name}
+                    <input
+                      id="form-control-border-radius-${id}"
+                      type="radio"
+                      value="${id}"
+                      name="form-control-border-radius"
+                      onchange="themeBuilder.clickGroupOption(event.currentTarget.name, event.currentTarget.value)"
+                      >
+                    ${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}
+                  </label>
+                `).join('<br>')}
+            </fieldset>
+            <fieldset>
+              <legend>Border width</legend>
+              ${variantsMap.get('form-control-border-width')?.variants.map(({ id, flatTokens, name, recommended }) => `
+                  <label for="form-control-border-width-${id}">
+                    ${name}
+                    <input
+                      id="form-control-border-width-${id}"
+                      type="radio"
+                      value="${id}"
+                      name="form-control-border-width"
+                      onchange="themeBuilder.clickGroupOption(event.currentTarget.name, event.currentTarget.value)"
+                      >
+                    ${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}
+                  </label>
+                `).join('<br>')}
+            </fieldset>
+          </div>
+          <div class="basis-theme">
+            <example-story-canvas>
+              <utrecht-paragraph>Single-line input<utrecht-paragraph>
+              <utrecht-textbox value="Hello, world!"></utrecht-textbox>
+              <utrecht-paragraph>Multi-line input<utrecht-paragraph>
+              <utrecht-textarea value="Ut quos illum eligendi. Et aut optio vitae. Reiciendis consectetur ipsam illo laborum rem id. Quo vel iure optio commodi veniam nihil. Quae ipsa non qui. Rem dolores nulla commodi ratione cum.
+                Aut iste quam unde. Iure quidem et accusantium pariatur molestiae occaecati consequatur. Aut consectetur amet ea sint officia nesciunt ullam ut. Odio nulla rem neque et facere.
+                Necessitatibus debitis eos expedita dolor. Quam laudantium qui officia est et eos. Sunt dolores voluptatibus nisi similique quae consequatur est.
+                Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum et qui sed aperiam totam veritatis quos."></utrecht-textarea>
+            </example-story-canvas>
+          </div>
+        </theme-builder-split-view>
+      </section>
+      <section>
+        <h3>Checkboxes and radios</h3>
+        <theme-builder-split-view>
+          <fieldset>
+            <legend>Form accent colors</legend>
+            <example-color-preset-input name="basis.form-control.accent-color">
+          </fieldset>
+          <div class="basis-theme">
+            <example-story-canvas>
+              <label>
+                Radio: on
+                <input type="radio" name="test-123" value="0">
+              </label>
+              <label>
+                Radio: off
+                <input type="radio" name="test-123" value="1" checked>
+              </label>
+              <br>
+              <label>
+                Consent?
+                <input type="checkbox" name="test-456" value="1" checked>
+              </label>
+              <br>
+              <label>
+                Level:
+                <input type="range" min="0" max="10000" step="1000">
+              <label>
+            </example-story-canvas>
+          </div>
+        </theme-builder-split-view>
+      </section>
+    </theme-builder-frame>
+
+    <theme-builder-frame>
+      <h2>Action colors</h2>
+      <section>
+        <h3>Primary colors</h3>
+        <theme-builder-split-view>
+          <fieldset>
+            <legend>Primary Colors</legend>
+            <label>
+              Link
+              <example-color-preset-input name="example.color.action-2.color-default"></example-color-preset-input>
+            </label>
+            <br>
+            <label>
+              Button background
+              <example-color-preset-input name="example.color.action-1-inverse.bg-default"></example-color-preset-input>
+            </label>
+            <br>
+            <label>
+              Button text
+              <example-color-preset-input name="example.color.action-1-inverse.color-default"></example-color-preset-input>
+            </label>
+          </fieldset>
+          <div class="basis-theme">
+            <example-story-canvas>
+              <utrecht-button appearance="primary-action-button">Primary button</utrecht-button>
+              <utrecht-button>Primary button</utrecht-button>
+              <utrecht-link href="https://example.com/">Voorbeeldlink</utrecht-link>
+              <utrecht-pagination
+  links='[{"href":"./1","index":1,"title":"Resultaat 1 tot 10"},{"href":"./2","index":2,"title":"Resultaat 11 tot 20"},{"href":"./3","index":3,"title":"Resultaat 21 tot 30"},{"href":"./4","index":4,"title":"Resultaat 31 tot 40"},{"href":"./5","index":5,"title":"Resultaat 41 tot 50"}]'
+  next='{"href":"./2"}'
+  prev='{"disabled":true}'
+  current-index="3"
+></utrecht-pagination>
+            </example-story-canvas>
+          </div>
+        <theme-builder-split-view>
+      </section>
     </theme-builder-frame>
 
     <form class="scroll-snap-container">
@@ -722,11 +887,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         </table>
       </example-story>
     </form>
-  </utrecht-page-body>
+  </div>
 
-  <utrecht-page-footer>
+  <footer>
     <p>Hello world</p>
-  </utrecht-page-footer>
+  </footer>
 `;
 
 [
@@ -828,7 +993,12 @@ if (domainInputForm) {
           label: fontToken.$value.at(0)!,
           value: fontToken.$value.at(0)!,
         }))
-      setPresetFonts(fontFamilies)
+
+      if (fontFamilies.length > 0) {
+        setPresetFonts(fontFamilies)
+      } else {
+        setPresetFonts(PRESET_FONTS)
+      }
 
       // Preset font-sizes
       const fontSizes =
@@ -843,15 +1013,15 @@ if (domainInputForm) {
             return sortCssUnit(b.value, a.value)
           })
 
-      // prevent the select from becoming empty if there are no suitable candidates
-      setPresetFontSizes(fontSizes)
+      if (fontSizes.length > 0) {
+        // prevent the select from becoming empty if there are no suitable candidates
+        setPresetFontSizes(fontSizes)
+      } else {
+        setPresetFontSizes(PRESET_FONT_SIZES)
+      }
     }
   });
 }
-
-document.addEventListener('change', event => {
-  console.log(event)
-})
 
 const setPresetColors = (colors: ColorOption[]) => {
   Array.from(document.querySelectorAll<ExampleColorPresetInput>('example-color-preset-input')).forEach((el) => {
@@ -879,28 +1049,30 @@ const setPresetFontSizes = (dimensions: DimensionOption[]) => {
   }
 };
 
+
+const PRESET_FONTS = [
+  {
+    label: 'Sans Serif',
+    value: 'sans-serif'
+  },
+  {
+    label: 'Serif',
+    value: 'serif'
+  },
+  {
+    label: 'System',
+    value: 'system-ui'
+  }
+]
+const PRESET_FONT_SIZES = [
+  { value: '1rem' },
+  { value: '2rem' }
+]
+
 document.addEventListener('DOMContentLoaded', (event) => {
-  const fonts = [
-    {
-      label: 'Sans Serif',
-      value: 'sans-serif'
-    },
-    {
-      label: 'Serif',
-      value: 'serif'
-    },
-    {
-      label: 'System',
-      value: 'system-ui'
-    }
-  ]
-  const fontSizes = [
-    { value: '1rem' },
-    { value: '2rem' }
-  ]
   setPresetColors(radixColors);
-  setPresetFonts(fonts)
-  setPresetFontSizes(fontSizes)
+  setPresetFonts(PRESET_FONTS)
+  setPresetFontSizes(PRESET_FONT_SIZES)
 })
 
 window.setPresetColors = setPresetColors;

@@ -41,6 +41,7 @@ export class FontPanel extends HTMLElement {
 
         font-panel-group {
           display: flex;
+					width: 100%;
           gap: 1ch;
           align-items: center;
         }
@@ -74,15 +75,16 @@ export class FontPanel extends HTMLElement {
       <font-panel-group token="font-weight">
         <label>Weight</label>
         <select prop="weight" token="font-weight">
-          <option value="100">Thin (hairline)</option>
-          <option value="200">Extra light</option>
-          <option value="300">Light</option>
-          <option value="400">Normal</option>
-          <option value="500">Medium</option>
-          <option value="600">Semi Bold</option>
-          <option value="700" selected>Bold</option>
-          <option value="800">Extra Bold</option>
-          <option value="900">Black</option>
+					<option disabled selected>not set</option>
+          <option value="100">100 - Thin (hairline)</option>
+          <option value="200">200 - Extra light</option>
+          <option value="300">300 - Light</option>
+          <option value="400">400 - Normal</option>
+          <option value="500">500 - Medium</option>
+          <option value="600">600 - Semi Bold</option>
+          <option value="700">700 - Bold</option>
+          <option value="800">800 - Extra Bold</option>
+          <option value="900">900 - Black</option>
         </select>
       </font-panel-group>
 
@@ -92,6 +94,7 @@ export class FontPanel extends HTMLElement {
           <small style="font-size:.7em">T</small>T
         </font-panel-faux-label>
         <select prop="size" token="font-size">
+					<option disabled>not set</option>
           <option>1rem</option>
           <option>2rem</option>
         </select>
@@ -104,57 +107,26 @@ export class FontPanel extends HTMLElement {
           <sup>A</sup>
         </font-panel-faux-label>
         <select prop="leading" token="line-height">
+					<option value="initial" selected>not set</option>
           <option>0</option>
           <option>0.75</option>
-          <option selected>1</option>
+          <option>1</option>
           <option>1.5</option>
           <option>2</option>
         </select>
       </font-panel-group>
 
-      <font-panel-misc>
-        <font-panel-group token="font-style">
-          <label id="italic-label" class="sr-only">Italic?</label>
-          <toggle-button aria-labelledby="italic-label" token="font-style" prop="italic">
-            <span class="sr-only">Italic</span>
-            <span aria-hidden="true" style="font-size: 1.2em; font-style: italic;">T</span>
-          </toggle-button>
-        </font-panel-group>
-
-        <font-panel-group token="color">
-          <label>Color</label>
-					<example-color-preset-input name="basis.color.text" inverse="basis.color.text-inverse"></example-color-preset-input>
-        </font-panel-group>
-      </font-panel-misc>
+			<font-panel-group token="color">
+				<label>Color</label>
+				<font-panel-color-sample style="display: inline-block; border: 1px solid ButtonBorder; aspect-ratio: 1; height: 1lh;" title="click to open color picker">
+				</font-panel-color-sample>
+				<example-color-preset-input name="${this.getAttribute('token') || ''}.color"></example-color-preset-input>
+			</font-panel-group>
     `
 	}
 
 	private setupEventListeners() {
 		if (!this.shadowRoot) return
-
-		// Handle toggle button changes (italic)
-		this.shadowRoot.addEventListener('togglebuttonchange', (event) => {
-			const target = event.target as HTMLElement
-			const token = target.getAttribute('token')
-			const prop = target.getAttribute('prop')
-
-			if (!token || !prop) return
-
-			this.dispatchEvent(new CustomEvent('fontpaneltoggle', {
-				detail: {
-					enabled: (event as CustomEvent).detail.pressed,
-					value: this._name,
-					token: `${this._name}.${token}`,
-				},
-				composed: true,
-				bubbles: true,
-			}))
-
-			// Update component property
-			if (prop === 'italic') {
-				this.italic = (event as CustomEvent).detail.pressed
-			}
-		})
 
 		// Handle select and input changes
 		this.shadowRoot.addEventListener('change', (event) => {
@@ -206,12 +178,6 @@ export class FontPanel extends HTMLElement {
 				(select as HTMLSelectElement).value = this.getAttribute(prop) || ''
 			}
 		})
-
-		// Sync toggle button state for italic
-		const toggleButton = this.shadowRoot.querySelector('toggle-button[prop="italic"]')
-		if (toggleButton && this.hasAttribute('italic')) {
-			toggleButton.setAttribute('pressed', '')
-		}
 	}
 
 	attributeChangedCallback(name: string, oldValue: string, newValue: string) {
@@ -288,6 +254,11 @@ export class FontPanel extends HTMLElement {
 
 		const currentValue = select.value
 		select.replaceChildren()
+
+		const option = document.createElement('option')
+		option.textContent = 'not set'
+		option.disabled = true
+		select.appendChild(option)
 
 		for (let size of sizes) {
 			const option = document.createElement('option')

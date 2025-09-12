@@ -26,7 +26,7 @@ customElements.define(
       const style = this.ownerDocument.createElement('style');
       style.textContent = `
       .example-story-canvas {
-        background-color: white;
+        background-color: var(--basis-document-bg, white);
         border-radius: 4px;
         border-width: 1px;
         border-style: solid;
@@ -39,6 +39,7 @@ customElements.define(
         padding-inline-end: 20px;
         padding-inline-start: 20px;
         position: relative;
+        accent-color: var(--basis-form-control-accent-color);
       }`;
       const shadow = this.attachShadow({ mode: 'closed' });
       shadow.appendChild(style);

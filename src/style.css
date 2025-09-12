@@ -84,6 +84,10 @@ theme-builder-frame {
   padding: 2em;
   scroll-snap-align: center;
   scroll-snap-type: proximity;
+
+  & section {
+    margin-block-start: 2em;
+  }
 }
 
 theme-builder-split-view {
