@@ -1,6 +1,5 @@
 // @ts-expect-error module types not present
 import { sortFn as sortCssUnit } from 'css-unit-sort';
-import "https://elements.colorjs.io/src/color-inline/color-inline.js";
 import type { css_to_tokens } from '@projectwallace/css-design-tokens'
 import { slugify } from './utils'
 import { use_context } from './tb-context';
@@ -165,11 +164,6 @@ export class StagingTokens extends HTMLElement {
 						// force reactivity
 						state.selectedColors = state.selectedColors
 					}
-					// this.dispatchEvent(new CustomEvent('preset-color-change', {
-					// 	detail: this._selectedColors,
-					// 	composed: true,
-					// 	bubbles: true,
-					// }))
 				}
 			}
 			else if (input.name === 'family-candidate') {
@@ -181,11 +175,6 @@ export class StagingTokens extends HTMLElement {
 						state.selectedFamilies.delete(selectedFamily)
 						state.selectedFamilies = state.selectedFamilies
 					}
-					// this.dispatchEvent(new CustomEvent('preset-family-change', {
-					// 	detail: this._selectedFamilies,
-					// 	composed: true,
-					// 	bubbles: true,
-					// }))
 				}
 			}
 			else if (input.name === 'size-candidate') {
@@ -197,18 +186,28 @@ export class StagingTokens extends HTMLElement {
 						state.selectedSizes.delete(selectedSize)
 						state.selectedSizes = state.selectedSizes
 					}
-					// this.dispatchEvent(new CustomEvent('preset-size-change', {
-					// 	detail: this._selectedSizes,
-					// 	composed: true,
-					// 	bubbles: true,
-					// }))
 				}
+			}
+		}
+		else if (target !== null && target.tagName === 'BUTTON') {
+			const action = target.getAttribute('data-action')
+			const inputs = target.closest('section')?.querySelectorAll<HTMLInputElement>('input[type=checkbox]')
+			if (!action || !inputs || inputs.length === 0) return
+
+			for (let checkbox of Array.from(inputs)) {
+				if (action === 'select-all') {
+					checkbox.checked = true
+				} else if (action === 'unselect-all') {
+					checkbox.checked = false
+				}
+				checkbox.dispatchEvent(new Event('change', { bubbles: true }))
 			}
 		}
 	}
 
 	connectedCallback() {
 		this.shadowRoot!.addEventListener('change', this)
+		this.shadowRoot!.addEventListener('click', this)
 	}
 
 	set tokens(t: NonNullable<typeof this._tokens>) {
@@ -270,6 +269,8 @@ export class StagingTokens extends HTMLElement {
 		this.shadowRoot!.innerHTML = html`
 			<section>
 				<h3>Colors</h3>
+				<button type="button" data-action="select-all">Select all</button>
+				<button type="button" data-action="unselect-all">Unselect all</button>
 				<ol class="samples">
 					${colors.map(option => `
 						<li>
@@ -295,6 +296,8 @@ export class StagingTokens extends HTMLElement {
 			</section>
 			<section>
 				<h3>Font-families</h3>
+				<button type="button" data-action="select-all">Select all</button>
+				<button type="button" data-action="unselect-all">Unselect all</button>
 				<ol class="samples">
 					${families.map(option => `
 						<li>
@@ -311,6 +314,8 @@ export class StagingTokens extends HTMLElement {
 			</section>
 			<section>
 				<h3>Font-sizes</h3>
+				<button type="button" data-action="select-all">Select all</button>
+				<button type="button" data-action="unselect-all">Unselect all</button>
 				<ol class="samples">
 					${sizes.map(option => `
 						<li>

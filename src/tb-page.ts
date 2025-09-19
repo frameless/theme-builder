@@ -1,12 +1,13 @@
+const css = String.raw
+const html = String.raw
+
 const template = document.createElement('template')
-template.innerHTML = `
+template.innerHTML = html`
 	<header>
 		<tb-title>Theme builder<tb-title>
 	</header>
 	<slot></slot>
 `
-
-const css = String.raw
 
 const sheet = new CSSStyleSheet()
 sheet.replaceSync(css`

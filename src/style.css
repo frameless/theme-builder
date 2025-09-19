@@ -75,6 +75,7 @@ utrecht-page-header,
 }
 
 html {
+  accent-color: AccentColor;
   background-color: var(--basis-color-default-bg-document-bg-1);
   color-scheme: light dark;
 }

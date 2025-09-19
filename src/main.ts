@@ -1,17 +1,8 @@
-import type { ExampleColorPresetInput } from './color-preset-input.js';
-import type { FontOption, ExampleFontPresetInput } from './font-preset-input.js';
-import type { DimensionOption } from './dimension-preset-input.js';
-import type { FontPanel } from './font-panel.js';
 import { defineCustomElements } from '@utrecht/web-component-library-stencil/loader/index.js';
 import type { VariantsMap } from './types.js';
 import { variants } from './design-token-options.js';
 import './story-canvas.js';
 import './basis-theme-stylesheet.js';
-import './example-design-token-value.js';
-import './example-font-family-details.js';
-import './example-border-width.js';
-import './example-single-line-of-text.js';
-import './example-design-tokens-table.js';
 import './color-preset-input.js';
 import './font-preset-input.js';
 import './font-panel.js';
@@ -26,7 +17,6 @@ import './fluid.css';
 import type { css_to_tokens } from '@projectwallace/css-design-tokens';
 import "https://elements.colorjs.io/src/color-scale/color-scale.js";
 import "https://elements.colorjs.io/src/color-inline/color-inline.js";
-import { PresetState } from './preset-state.js';
 import './tb-page.js'
 import './tb-url-form.js'
 import './tb-staging-tokens.js'
@@ -36,22 +26,7 @@ import type { StagingTokens, ColorOption } from './tb-staging-tokens.js';
 
 defineCustomElements();
 
-const presetState = new PresetState()
-
 const variantsMap: VariantsMap = new Map(variants.map((group) => [group.id, group]));
-
-const radixColors = [
-  { label: 'voilet', value: '#5315f6' },
-  { label: 'Gray', value: '#3f5676' },
-  { label: 'Pink', value: '#a60e52' },
-  { label: 'Red', value: '#a41e24' },
-  { label: 'Orange', value: '#6a2e13' },
-  { label: 'Yellow', value: '#8b3e18' },
-  { label: 'Green', value: '#645400' },
-  { label: 'Green', value: '#116227' },
-  { label: 'Sea green', value: '#006053' },
-  { label: 'Blue', value: '#00588f' },
-];
 
 document.addEventListener('preset-tokens', (event: CustomEvent<ReturnType<typeof css_to_tokens>>) => {
   Array.from(document.querySelectorAll<StagingTokens>('tb-staging-tokens')).forEach(element => {

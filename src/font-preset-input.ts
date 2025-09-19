@@ -101,8 +101,7 @@ export class ExampleFontPresetInput extends HTMLElement {
           }
 
           selectedcontent {
-            .font-specimen,
-            .count {
+            .font-specimen {
               display: none;
             }
           }
@@ -118,7 +117,6 @@ export class ExampleFontPresetInput extends HTMLElement {
           <option value="${font.value}" translate="no">
             <span class="font-name">${font.label}</span>
             <span class="font-specimen" style="font-family: ${font.value}">AaBbCcDd 1234567890</span>
-            ${font.count ? `<span class="count">${font.count}<span>` : ''}
           </option>`
     ).join('\n')}
       </select>
