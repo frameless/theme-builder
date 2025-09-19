@@ -45,4 +45,14 @@ customElements.define('tb-page', class extends HTMLElement {
 		root.adoptedStyleSheets = [sheet]
 		root.appendChild(t)
 	}
+
+	connectedCallback() {
+		const title = this.getAttribute('title')
+		if (title) {
+			const titleElement = this.shadowRoot?.querySelector('tb-title')
+			if (titleElement) {
+				titleElement.textContent = `${title} - ${titleElement?.textContent}`
+			}
+		}
+	}
 })

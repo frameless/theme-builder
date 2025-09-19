@@ -38,12 +38,12 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <basis-theme-stylesheet></basis-theme-stylesheet>
 
   <tb-context-provider>
-    <tb-page>
+    <tb-page title="Analyze a URL">
       <tb-url-form></tb-url-form>
       <tb-staging-tokens></tb-staging-tokens>
     </tb-page>
 
-    <tb-page>
+    <tb-page title="Configure preset tokens">
       <h2>Document</h2>
       <theme-builder-split-view>
         <div>
