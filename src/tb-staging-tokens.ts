@@ -3,6 +3,7 @@ import { sortFn as sortCssUnit } from 'css-unit-sort';
 import type { css_to_tokens } from '@projectwallace/css-design-tokens'
 import { slugify } from './utils'
 import { use_context } from './tb-context';
+import './tb-empty.js'
 
 const css = String.raw
 const html = String.raw
@@ -11,15 +12,23 @@ const sheet = new CSSStyleSheet()
 sheet.replaceSync(css`
 	:host {
 		display: grid;
-		grid-template-columns: 5fr 3fr;
-		grid-template-rows: repeat(2, auto);
+		grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+		grid-template-rows: repeat(auto-fit, 30em);
 		gap: 1rem;
 		align-items: start;
 		height: 100%;
 		container-type: block-size;
 	}
 
+	section:nth-of-type(1) {
+		grid-column: span 3;
+	}
+	section:nth-of-type(2) {
+		grid-column: span 2;
+	}
+
 	section {
+		max-height: 100%;
 		overflow: auto;
 		background:
 			/* Shadow Cover TOP */
@@ -51,21 +60,6 @@ sheet.replaceSync(css`
 		background-repeat: no-repeat;
 		background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
 		background-attachment: local, local, scroll, scroll;
-
-		&:nth-of-type(1) {
-			grid-row: 1 / -1;
-			max-height: 80cqb;
-		}
-		&:nth-of-type(2) {
-			grid-row: 1;
-			grid-column: 2;
-			max-height: 40cqb;
-		}
-		&:nth-of-type(3) {
-			grid-row: 2;
-			grid-column: 2;
-			max-height: 40cqb;
-		}
 	}
 
 	.samples {
@@ -135,11 +129,18 @@ export type SizeOption = {
 	count: number;
 }
 
+export type LineHeightOption = {
+	label?: string;
+	value: string;
+	count: number;
+}
+
 export class StagingTokens extends HTMLElement {
 	_tokens: ReturnType<typeof css_to_tokens> | undefined = undefined
 	_stagedColors: ColorOption[] = []
 	_stagedFamilies: FamilyOption[] = []
 	_stagedSizes: SizeOption[] = []
+	_stagedLineHeights: LineHeightOption[] = []
 
 	constructor() {
 		super()
@@ -151,7 +152,7 @@ export class StagingTokens extends HTMLElement {
 		const state = use_context(this)
 		const target = event.target as HTMLElement
 
-		if (target !== null && target.tagName === 'INPUT') {
+		if (target !== null && target.tagName === 'INPUT' && event.type === 'change') {
 			const input = event.target as HTMLInputElement
 
 			if (input.name === 'color-candidate') {
@@ -188,8 +189,19 @@ export class StagingTokens extends HTMLElement {
 					}
 				}
 			}
+			else if (input.name === 'line-height-candidate') {
+				const selectedLineHeight = this._stagedLineHeights.find(option => option.value === input.value)
+				if (selectedLineHeight !== undefined) {
+					if (input.checked) {
+						state.selectedLineHeights = state.selectedLineHeights.add(selectedLineHeight)
+					} else {
+						state.selectedLineHeights.delete(selectedLineHeight)
+						state.selectedLineHeights = state.selectedLineHeights
+					}
+				}
+			}
 		}
-		else if (target !== null && target.tagName === 'BUTTON') {
+		else if (target !== null && target.tagName === 'BUTTON' && event.type === 'click') {
 			const action = target.getAttribute('data-action')
 			const inputs = target.closest('section')?.querySelectorAll<HTMLInputElement>('input[type=checkbox]')
 			if (!action || !inputs || inputs.length === 0) return
@@ -244,12 +256,12 @@ export class StagingTokens extends HTMLElement {
 	private getSizeCandidates(tokens: NonNullable<typeof this._tokens>): SizeOption[] {
 		const fontSizes =
 			Object.entries(tokens.font_size)
-				.filter(([, fontToken]) => {
-					return fontToken.$type === 'dimension'
+				.filter(([, token]) => {
+					return token.$type === 'dimension'
 				})
-				.map(([, fontToken]) => ({
-					value: fontToken.$extensions['com.projectwallace.css-authored-as'],
-					count: fontToken.$extensions['com.projectwallace.usage-count'],
+				.map(([, token]) => ({
+					value: token.$extensions['com.projectwallace.css-authored-as'],
+					count: token.$extensions['com.projectwallace.usage-count'],
 				}))
 				.sort((a, b) => {
 					return sortCssUnit(b.value, a.value)
@@ -257,77 +269,132 @@ export class StagingTokens extends HTMLElement {
 		return fontSizes
 	}
 
+	private getLineHeightCandidates(tokens: NonNullable<typeof this._tokens>): LineHeightOption[] {
+		const lineHeights =
+			Object.entries(tokens.line_height)
+				.filter(([, token]) => {
+					return token.$type === 'dimension' || token.$type === 'number'
+				})
+				.map(([, token]) => ({
+					value: token.$extensions['com.projectwallace.css-authored-as'],
+					count: token.$extensions['com.projectwallace.usage-count'],
+				}))
+				.sort((a, b) => {
+					return sortCssUnit(b.value, a.value)
+				})
+		return lineHeights
+	}
+
 	private render(tokens: NonNullable<typeof this._tokens>) {
 		const colors = this.getColorCandidates(tokens)
 		const families = this.getFamilyCandidates(tokens)
 		const sizes = this.getSizeCandidates(tokens)
+		const lineHeights = this.getLineHeightCandidates(tokens)
 
 		this._stagedColors = colors
 		this._stagedFamilies = families
 		this._stagedSizes = sizes
+		this._stagedLineHeights = lineHeights
 
 		this.shadowRoot!.innerHTML = html`
 			<section>
 				<h3>Colors</h3>
-				<button type="button" data-action="select-all">Select all</button>
-				<button type="button" data-action="unselect-all">Unselect all</button>
-				<ol class="samples">
-					${colors.map(option => `
-						<li>
-							<input type="checkbox" name="color-candidate" id="color-${slugify(option.label)}" value="${option.value}">
-							<span>
-								<label for="color-${slugify(option.label)}">
-									<color-inline value="${option.value}">
-										<code>${option.value}</code>
-									</color-inline>
-										${option.label}
-								</label>
-								<ul class="used-properties">
-									${option.properties.map(property => `
-										<li>
-											<code>${property}</code>
-										</li>
-									`).join('')}
-								</ul>
-							</span>
-						</li>
-					`).join('')}
-				</ol>
+				${colors.length === 0
+				? html`<tb-empty>No colors</tb-empty>`
+				: html`
+					<button type="button" data-action="select-all">Select all</button>
+					<button type="button" data-action="unselect-all">Unselect all</button>
+					<ol class="samples">
+						${colors.map(option => `
+							<li>
+								<input type="checkbox" name="color-candidate" id="color-${slugify(option.label)}" value="${option.value}">
+								<span>
+									<label for="color-${slugify(option.label)}">
+										<color-inline value="${option.value}">
+											<code>${option.value}</code>
+										</color-inline>
+											${option.label}
+									</label>
+									<ul class="used-properties">
+										${option.properties.map(property => `
+											<li>
+												<code>${property}</code>
+											</li>
+										`).join('')}
+									</ul>
+								</span>
+							</li>
+						`).join('')}
+					</ol>
+				`
+			}
 			</section>
 			<section>
 				<h3>Font-families</h3>
-				<button type="button" data-action="select-all">Select all</button>
-				<button type="button" data-action="unselect-all">Unselect all</button>
-				<ol class="samples">
-					${families.map(option => `
-						<li>
-							<input type="checkbox" name="family-candidate" id="color-${slugify(option.label)}" value="${option.value}">
-							<span>
-								<label for="color-${slugify(option.label)}">
-									<code>${option.value}</code>
-								</label>
-								<span class="font-specimen" style="font-family: ${option.value}">AaBbCcDd 1234567890</span>
-							<span>
-						</li>
-					`).join('')}
-				</ol>
+				${families.length === 0
+				? html`<tb-empty>No font-families</tb-empty>`
+				: html`
+						<button type="button" data-action="select-all">Select all</button>
+						<button type="button" data-action="unselect-all">Unselect all</button>
+						<ol class="samples">
+							${families.map(option => `
+								<li>
+									<input type="checkbox" name="family-candidate" id="color-${slugify(option.label)}" value="${option.value}">
+									<span>
+										<label for="color-${slugify(option.label)}">
+											<code>${option.value}</code>
+										</label>
+										<span class="font-specimen" style="font-family: ${option.value}">AaBbCcDd 1234567890</span>
+									<span>
+								</li>
+							`).join('')}
+						</ol>
+					`
+			}
 			</section>
 			<section>
 				<h3>Font-sizes</h3>
-				<button type="button" data-action="select-all">Select all</button>
-				<button type="button" data-action="unselect-all">Unselect all</button>
-				<ol class="samples">
-					${sizes.map(option => `
-						<li>
-							<input type="checkbox" name="size-candidate" id="color-${slugify(option.value)}" value="${option.value}">
-							<span>
-								<label for="color-${slugify(option.value)}">
-									<code>${option.value}</code>
-								</label>
-							<span>
-						</li>
-					`).join('')}
-				</ol>
+				${sizes.length === 0
+				? html`<tb-empty>No font-sizes</tb-empty>`
+				: html`
+					<button type="button" data-action="select-all">Select all</button>
+					<button type="button" data-action="unselect-all">Unselect all</button>
+					<ol class="samples">
+						${sizes.map(option => `
+							<li>
+								<input type="checkbox" name="size-candidate" id="color-${slugify(option.value)}" value="${option.value}">
+								<span>
+									<label for="color-${slugify(option.value)}">
+										<code>${option.value}</code>
+									</label>
+								<span>
+							</li>
+						`).join('')}
+					</ol>
+				`
+			}
+			</section>
+			<section>
+				<h3>Line-heights</h3>
+				${lineHeights.length === 0
+				? html`<tb-empty>No line-heights</tb-empty>`
+				: html`
+					<button type="button" data-action="select-all">Select all</button>
+					<button type="button" data-action="unselect-all">Unselect all</button>
+					<ol class="samples">
+						${lineHeights.map(option => `
+							<li>
+								<input type="checkbox" name="line-height-candidate" id="line-height-${slugify(option.value)}" value="${option.value}">
+								<span>
+									<label for="line-height-${slugify(option.value)}">
+										<code>${option.value}</code>
+									</label>
+								<span>
+							</li>
+						`).join('')}
+					</ol>
+				`
+			}
 			</section>
 		`
 	}

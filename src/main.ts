@@ -22,19 +22,22 @@ import './tb-url-form.js'
 import './tb-staging-tokens.js'
 import './tb-context.js'
 import './tb-context-provider.js'
-import type { StagingTokens, ColorOption } from './tb-staging-tokens.js';
+import type { StagingTokens } from './tb-staging-tokens.js';
 
 defineCustomElements();
 
 const variantsMap: VariantsMap = new Map(variants.map((group) => [group.id, group]));
 
+// fired when URL scraping is completed
 document.addEventListener('preset-tokens', (event: CustomEvent<ReturnType<typeof css_to_tokens>>) => {
   Array.from(document.querySelectorAll<StagingTokens>('tb-staging-tokens')).forEach(element => {
     element.tokens = event.detail
   })
 })
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+const html = String.raw
+
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
   <basis-theme-stylesheet></basis-theme-stylesheet>
 
   <tb-context-provider>
@@ -87,9 +90,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       </theme-builder-split-view>
     </tb-page>
 
-    <tb-page>
-      <h2>Typography</h2>
-      <h3>Headings</h3>
+    <tb-page title="Typography">
+      <h2>Headings</h2>
       <theme-builder-split-view>
         <fieldset>
             <legend>Basic Heading</legend>
@@ -124,35 +126,32 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             </div>
           `).join('')}
       </theme-builder-split-view>
+      <h2>Body text</h2>
       <theme-builder-split-view>
-        <div>
-          <utrecht-heading-3>Body text</utrecht-heading-3>
-          <fieldset>
-            <legend>Paragraph</legend>
-            <font-panel token="basis.typography"></font-panel>
-          </fieldset>
-          <fieldset>
-            <legend>Lead paragraph</legend>
-            <font-panel token="basis.typography"></font-panel>
-          </fieldset>
-        </div>
+        <fieldset>
+          <legend>Paragraph</legend>
+          <font-panel token="basis.typography"></font-panel>
+        </fieldset>
         <div class="basis-theme">
           <example-story-canvas>
             <utrecht-paragraph>Lorem ipsum</utrecht-heading-1>
+          </example-story-canvas>
+        </div>
+      </theme-builder-split-view>
+      <theme-builder-split-view>
+        <fieldset>
+          <legend>Lead paragraph</legend>
+          <font-panel token="basis.typography"></font-panel>
+        </fieldset>
+        <div class="basis-theme">
+          <example-story-canvas>
             <utrecht-paragraph lead="true">Lorem ipsum lead</utrecht-heading-2>
           </example-story-canvas>
         </div>
       </theme-builder-split-view>
     </tb-page>
-  </tb-context-provider>
 
-
-
-
-
-  <!--<div>
-    <theme-builder-frame>
-      <h2>Forms</h2>
+    <tb-page title="Forms">
       <section>
         <h3>Text Inputs</h3>
         <theme-builder-split-view>
@@ -283,8 +282,14 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           </div>
         </theme-builder-split-view>
       </section>
-    </theme-builder-frame>
+    </tb-page>
+  </tb-context-provider>
 
+
+
+
+
+  <!--<div>
     <theme-builder-frame>
       <h2>Action colors</h2>
       <section>

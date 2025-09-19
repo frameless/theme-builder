@@ -1,13 +1,72 @@
+import { use_context } from "./tb-context"
+import { effect } from "./tb-reactive"
+import type { SizeOption, LineHeightOption } from "./tb-staging-tokens"
+const css = String.raw
+
+const sheet = new CSSStyleSheet()
+sheet.replaceSync(css`
+	:host {
+		display: grid;
+		grid-template-columns: 3fr 2fr;
+		row-gap: .5rem;
+		column-gap: 1ch;
+	}
+
+	.sr-only {
+		display: none;
+	}
+
+	font-panel-group {
+		display: grid;
+		width: 100%;
+		column-gap: 1ch;
+		row-gap: .2rem;
+		align-items: center;
+
+		& label {
+			font-size: smaller;
+			grid-column: 1 / -1;
+		}
+
+		&:has(font-panel-faux-label) {
+			grid-template-columns: max-content 1fr;
+		}
+	}
+
+	font-panel-misc {
+		display: flex;
+		gap: 1rem;
+		grid-column: 1 / -1;
+	}
+
+	select {
+		width: 100%;
+		padding-block: .25lh;
+		padding-inline: .25ch;
+	}
+
+	font-panel-faux-label {
+		color: ButtonText;
+	}
+
+	example-font-preset-input {
+		width: 100%;
+	}
+`)
+
 export class FontPanel extends HTMLElement {
 	static get observedAttributes() {
 		return ['family', 'weight', 'size', 'leading', 'italic']
 	}
 
 	private _name: string | null = null
+	private _sizes: SizeOption[] = []
+	private _lineHeights: LineHeightOption[] = []
 
 	constructor() {
 		super()
-		this.attachShadow({ mode: 'open' })
+		const root = this.attachShadow({ mode: 'open' })
+		root.adoptedStyleSheets = [sheet]
 		this.render()
 	}
 
@@ -15,62 +74,19 @@ export class FontPanel extends HTMLElement {
 		this._name = this.getAttribute('token')
 		this.setupEventListeners()
 		this.syncFormState()
+
+		effect(() => {
+			const context = use_context(this)
+			this._lineHeights = context.selectedLineHeights.size > 0 ? Array.from(context.selectedLineHeights) : [{ value: '0' }, { value: '1' }, { value: '1.5' }, { value: '2' }]
+			this._sizes = context.selectedSizes.size > 0 ? Array.from(context.selectedSizes) : [{ value: '1rem', count: 1, }, { value: '2rem', count: 1, }]
+			this.render()
+		})
 	}
 
 	private render() {
 		if (!this.shadowRoot) return
 
 		this.shadowRoot.innerHTML = `
-      <style>
-        :host {
-          display: grid;
-          grid-template-columns: 3fr 2fr;
-          row-gap: .5rem;
-					column-gap: 1ch;
-        }
-
-        .sr-only {
-          display: none;
-        }
-
-        font-panel-group {
-          display: grid;
-					width: 100%;
-          column-gap: 1ch;
-					row-gap: .2rem;
-          align-items: center;
-
-					& label {
-						font-size: smaller;
-						grid-column: 1 / -1;
-					}
-
-					&:has(font-panel-faux-label) {
-						grid-template-columns: max-content 1fr;
-					}
-        }
-
-        font-panel-misc {
-          display: flex;
-          gap: 1rem;
-					grid-column: 1 / -1;
-        }
-
-				select {
-          width: 100%;
-          padding-block: .25lh;
-          padding-inline: .25ch;
-        }
-
-        font-panel-faux-label {
-          color: ButtonText;
-        }
-
-        example-font-preset-input {
-          width: 100%;
-        }
-      </style>
-
       <font-panel-group token="font-family">
         <label>Family</label>
         <example-font-preset-input token="font-family" prop="family"></example-font-preset-input>
@@ -79,7 +95,7 @@ export class FontPanel extends HTMLElement {
       <font-panel-group token="font-weight">
         <label>Weight</label>
         <select prop="weight" token="font-weight">
-					<option disabled selected>not set</option>
+					<option selected value="initial">not set</option>
           <option value="100">100 - Thin (hairline)</option>
           <option value="200">200 - Extra light</option>
           <option value="300">300 - Light</option>
@@ -98,9 +114,8 @@ export class FontPanel extends HTMLElement {
           <small style="font-size:.7em">T</small>T
         </font-panel-faux-label>
         <select prop="size" token="font-size">
-					<option disabled>not set</option>
-          <option>1rem</option>
-          <option>2rem</option>
+					<option selected value="initial">not set</option>
+					${this._sizes.map(option => `<option value="${option.value}">${option.label || option.value}</option>`).join('')}
         </select>
       </font-panel-group>
 
@@ -112,11 +127,7 @@ export class FontPanel extends HTMLElement {
         </font-panel-faux-label>
         <select prop="leading" token="line-height">
 					<option value="initial" selected>not set</option>
-          <option>0</option>
-          <option>0.75</option>
-          <option>1</option>
-          <option>1.5</option>
-          <option>2</option>
+					${this._lineHeights.map(option => `<option value="${option.value}">${option.label || option.value}</option>`).join('')}
         </select>
       </font-panel-group>
 
