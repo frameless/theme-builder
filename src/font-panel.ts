@@ -25,22 +25,29 @@ export class FontPanel extends HTMLElement {
         :host {
           display: grid;
           grid-template-columns: 3fr 2fr;
-          gap: .5rem;
+          row-gap: .5rem;
+					column-gap: 1ch;
         }
 
         .sr-only {
           display: none;
         }
 
-        font-panel-group:has(select) label {
-          display: none;
-        }
-
         font-panel-group {
-          display: flex;
+          display: grid;
 					width: 100%;
-          gap: 1ch;
+          column-gap: 1ch;
+					row-gap: .2rem;
           align-items: center;
+
+					& label {
+						font-size: smaller;
+						grid-column: 1 / -1;
+					}
+
+					&:has(font-panel-faux-label) {
+						grid-template-columns: max-content 1fr;
+					}
         }
 
         font-panel-misc {
@@ -115,8 +122,6 @@ export class FontPanel extends HTMLElement {
 
 			<font-panel-group token="color">
 				<label>Color</label>
-				<font-panel-color-sample style="display: inline-block; border: 1px solid ButtonBorder; aspect-ratio: 1; height: 1lh;" title="click to open color picker">
-				</font-panel-color-sample>
 				<example-color-preset-input name="${this.getAttribute('token') || ''}.color"></example-color-preset-input>
 			</font-panel-group>
     `

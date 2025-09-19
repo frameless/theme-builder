@@ -28,13 +28,27 @@ export function create_context(initial_set = new Set()) {
 // Hook for children to consume context
 export function use_context(element: HTMLElement) {
 	let current = element
+	let visited = new Set()
 
 	// Walk up the DOM tree to find context provider
-	while (current) {
+	while (current && !visited.has(current)) {
+		visited.add(current)
+
+		// Check for context on current element
 		if (current.context_map && current.context_map.has(context_key)) {
 			return current.context_map.get(context_key)
 		}
-		current = current.parentElement
+
+		// Move up to parent, crossing shadow DOM boundaries
+		if (current.parentNode && current.parentNode !== current) {
+			current = current.parentNode
+		} else if (current.host && current.host !== current) {
+			// We're at a shadow root, go to host element
+			current = current.host
+		} else {
+			// No more parents
+			break
+		}
 	}
 
 	throw new Error('Context not found - make sure parent provides context')
