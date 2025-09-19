@@ -1,3 +1,6 @@
+import { use_context } from "./tb-context";
+import { effect } from "./tb-reactive";
+
 const requested = new Set<ExampleFontPresetInput>();
 
 let animationFrame = -1;
@@ -20,6 +23,7 @@ const renderThings = () => {
 export interface FontOption {
   label: string;
   value: string;
+  count?: number;
 }
 
 export class ExampleFontPresetInput extends HTMLElement {
@@ -36,13 +40,12 @@ export class ExampleFontPresetInput extends HTMLElement {
   }
 
   connectedCallback() {
-    this.render();
-    // this.attachShadow({ mode: 'open' })
-    document.addEventListener('PresetFontFamilyChange', (evt) => this._handlePresetChange(evt));
-  }
+    const state = use_context(this)
 
-  _handlePresetChange(event: CustomEvent<{ detail: FontOption[] }>) {
-    this.fonts = event.detail
+    effect(() => {
+      this._fonts = Array.from(state.selectedFamilies)
+      requestRender(this)
+    });
   }
 
   set name(value: string) {
@@ -63,6 +66,7 @@ export class ExampleFontPresetInput extends HTMLElement {
   renderHTML(name: string, fonts: FontOption[]) {
     return `
       <style>
+        :host {
         .font-select,
         ::picker(select) {
           appearance: base-select;
@@ -97,21 +101,24 @@ export class ExampleFontPresetInput extends HTMLElement {
           }
 
           selectedcontent {
-            .font-specimen {
+            .font-specimen,
+            .count {
               display: none;
             }
           }
         }
+  }
       </style>
       <select name="${name}" class="font-select" onchange='themeBuilder.handleFontInput(event.currentTarget, ${JSON.stringify(name)})'>
         <button>
           <selectedcontent></selectedcontent>
         </button>
-        <option></option>
+        <option value="initial" selected>not set</option>
         ${fonts.map(font => `
           <option value="${font.value}" translate="no">
             <span class="font-name">${font.label}</span>
             <span class="font-specimen" style="font-family: ${font.value}">AaBbCcDd 1234567890</span>
+            ${font.count ? `<span class="count">${font.count}<span>` : ''}
           </option>`
     ).join('\n')}
       </select>

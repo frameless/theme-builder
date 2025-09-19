@@ -46,8 +46,8 @@ importers:
         specifier: 2.28.1
         version: 2.28.1
       '@projectwallace/css-design-tokens':
-        specifier: 0.6.0
-        version: 0.6.0
+        specifier: 0.7.1
+        version: 0.7.1
       '@types/node':
         specifier: 22.13.10
         version: 22.13.10
@@ -124,8 +124,8 @@ importers:
         specifier: 3.1.2
         version: 3.1.2
       '@projectwallace/css-design-tokens':
-        specifier: 0.5.0
-        version: 0.5.0
+        specifier: 0.7.1
+        version: 0.7.1
       css-tree:
         specifier: 3.1.0
         version: 3.1.0
@@ -515,20 +515,12 @@ packages:
     resolution: {integrity: sha512-Zwq5OCzuwJC2jwqmpEQt7Ds1DTi6BWSwoGkbb1n9pO3hzb35BoJELx7c0T23iDkBGkh2e7tvOtjF3tr3OaQHDQ==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@projectwallace/css-analyzer@7.5.1':
-    resolution: {integrity: sha512-iSfZBGwLbisecZTDZQrqeCk4ocUysCIyWHMvW5MRlSq4RwHECfL6imcbq/Y9RmFXtJDBJLvePZ9eygwRyAaYbw==}
-    engines: {node: '>=18.0.0'}
-
   '@projectwallace/css-analyzer@7.6.0':
     resolution: {integrity: sha512-up4GNW2WM/L0cKBrwhoKKcKB+Q9gRvlL9+llGRh9wZraUSzlJSoVvv76Olsx6K/gfQjZZxQiwQEBwcsVcVfDlg==}
     engines: {node: '>=18.0.0'}
 
-  '@projectwallace/css-design-tokens@0.5.0':
-    resolution: {integrity: sha512-7CmpLPw5xEKW+mNIoXHZq8NsFb9jOlpNa2ozEsFTpVuR1YVDgcg83DkdEsQq9RFLTwcjBhTZBl20aHTa5DmT7Q==}
-    engines: {node: '>=18'}
-
-  '@projectwallace/css-design-tokens@0.6.0':
-    resolution: {integrity: sha512-C6y/5NN/wm3IENmphsHAisysLY64Pb7MLZd6QGYs8Ul6ERl5Qb2OTfA6yUFt/fnfgYtrBQ2RLKy34aUBn3px6g==}
+  '@projectwallace/css-design-tokens@0.7.1':
+    resolution: {integrity: sha512-0Lfm8H/U/OKdUXzlNMDw4QK0sBLKZN6GJSBcbU/jz8wA/7vou+0j3bvfg+DGY1X7IpEDifQE0/rXOlpRfMPe/Q==}
     engines: {node: '>=18'}
 
   '@radix-ui/colors@3.0.0':
@@ -4242,25 +4234,12 @@ snapshots:
 
   '@pkgr/core@0.1.0': {}
 
-  '@projectwallace/css-analyzer@7.5.1':
-    dependencies:
-      '@bramus/specificity': 2.4.2
-      css-tree: 3.1.0
-
   '@projectwallace/css-analyzer@7.6.0':
     dependencies:
       '@bramus/specificity': 2.4.2
       css-tree: 3.1.0
 
-  '@projectwallace/css-design-tokens@0.5.0':
-    dependencies:
-      '@projectwallace/css-analyzer': 7.5.1
-      color-sorter: 7.0.0
-      colorjs.io: 0.6.0-alpha.1
-      css-time-sort: 3.0.0
-      css-tree: 3.1.0
-
-  '@projectwallace/css-design-tokens@0.6.0':
+  '@projectwallace/css-design-tokens@0.7.1':
     dependencies:
       '@projectwallace/css-analyzer': 7.6.0
       color-sorter: 7.0.0

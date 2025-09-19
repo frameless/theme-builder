@@ -1,6 +1,3 @@
-import type { ColorOption } from "./color-preset-input"
-import type { ExampleColorPresetInput } from "./color-preset-input"
-
 export class FontPanel extends HTMLElement {
 	static get observedAttributes() {
 		return ['family', 'weight', 'size', 'leading', 'italic']
@@ -245,39 +242,6 @@ export class FontPanel extends HTMLElement {
 
 	get italic(): boolean {
 		return this.hasAttribute('italic')
-	}
-
-	// Method to update font size options
-	updateFontSizeOptions(sizes: string[]) {
-		const select = this.shadowRoot?.querySelector('font-panel-group[token="font-size"] select') as HTMLSelectElement
-		if (!select) return
-
-		const currentValue = select.value
-		select.replaceChildren()
-
-		const option = document.createElement('option')
-		option.textContent = 'not set'
-		option.disabled = true
-		select.appendChild(option)
-
-		for (let size of sizes) {
-			const option = document.createElement('option')
-			option.value = size
-			option.textContent = size
-			select.appendChild(option)
-
-			// Restore selection if it still exists
-			if (size === currentValue) {
-				select.value = currentValue
-			}
-		}
-	}
-
-	updateColorOptions(colors: ColorOption[]) {
-		const input = this.shadowRoot?.querySelector('example-color-preset-input') as ExampleColorPresetInput
-		if (!input) return
-
-		input.colors = colors
 	}
 }
 

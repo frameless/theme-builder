@@ -76,12 +76,18 @@ utrecht-page-header,
 
 html {
   background-color: var(--basis-color-default-bg-document-bg-1);
+  color-scheme: light dark;
+}
+
+body {
+  margin-inline: 0;
 }
 
 theme-builder-frame {
   display: block;
-  min-block-size: 50vh;
-  padding: 2em;
+
+  /* min-block-size: 50vh; */
+  padding-block: 1em;
   scroll-snap-align: center;
   scroll-snap-type: proximity;
 

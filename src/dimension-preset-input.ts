@@ -19,6 +19,7 @@ const renderThings = () => {
 
 export interface DimensionOption {
 	value: string;
+	count?: number;
 }
 
 export class ExampleDimensionPresetInput extends HTMLElement {
