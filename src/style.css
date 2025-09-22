@@ -83,23 +83,3 @@ html {
 body {
   margin-inline: 0;
 }
-
-theme-builder-frame {
-  display: block;
-
-  /* min-block-size: 50vh; */
-  padding-block: 1em;
-  scroll-snap-align: center;
-  scroll-snap-type: proximity;
-
-  & section {
-    margin-block-start: 2em;
-  }
-}
-
-theme-builder-split-view {
-  align-items: start;
-  display: grid;
-  gap: 2em;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-}

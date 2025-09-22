@@ -1,6 +1,8 @@
 import { create_context } from "./tb-context"
 
 class ProviderElement extends HTMLElement {
+	private context;
+
 	constructor() {
 		super()
 		this.context = create_context()

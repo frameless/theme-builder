@@ -1,27 +1,8 @@
 import { use_context } from "./tb-context";
 import { effect } from "./tb-reactive";
 
-const requested = new Set<ExampleColorPresetInput>();
-
-let animationFrame = -1;
-
-const requestRender = (el: ExampleColorPresetInput) => {
-  if (animationFrame === -1) {
-    requested.add(el);
-    requestAnimationFrame(renderThings);
-  }
-};
-
-const renderThings = () => {
-  animationFrame = -1;
-  for (let item of requested) {
-    requested.delete(item);
-    item.render();
-  }
-};
-
 export interface ColorOption {
-  label: string;
+  label?: string;
   value: string;
   count?: number;
   properties?: string[];
@@ -45,28 +26,28 @@ export class ExampleColorPresetInput extends HTMLElement {
 
     effect(() => {
       this._colors = Array.from(state.selectedColors)
-      requestRender(this)
+      this.render()
     });
   }
 
   set name(value: string) {
     this._name = value;
-    requestRender(this);
+    this.render();
   }
 
   set value(value: string) {
     this._value = value;
-    requestRender(this);
+    this.render();
   }
 
   set inverse(value: string) {
     this._inverse = value;
-    requestRender(this);
+    this.render();
   }
 
   set colors(value: ColorOption[]) {
     this._colors = value;
-    requestRender(this);
+    this.render();
   }
 
   renderHTML(name: string, inverseName: string, colors: ColorOption[]) {
@@ -127,7 +108,7 @@ export class ExampleColorPresetInput extends HTMLElement {
         ${colors.map(color => `
           <option value="${color.value}" translate="no">
             <color-inline value="${color.value}"></color-inline>
-            <span class="name">${color.label}</span>
+            <span class="name">${color.label || color.value}</span>
             <span class="value">(${color.value})</span>
           </option>`
     ).join('\n')}

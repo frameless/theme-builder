@@ -22,6 +22,7 @@ import './tb-url-form.js'
 import './tb-staging-tokens.js'
 import './tb-context.js'
 import './tb-context-provider.js'
+import './tb-split-view.js'
 import type { StagingTokens } from './tb-staging-tokens.js';
 
 defineCustomElements();
@@ -48,7 +49,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
 
     <tb-page title="Configure preset tokens">
       <h2>Document</h2>
-      <theme-builder-split-view>
+      <tb-split-view>
         <div>
           <fieldset>
             <legend>Document colors</legend>
@@ -87,12 +88,12 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
             <utrecht-paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </utrecht-paragraph>
           </example-story-canvas>
         </div>
-      </theme-builder-split-view>
+      </tb-split-view>
     </tb-page>
 
     <tb-page title="Typography">
       <h2>Headings</h2>
-      <theme-builder-split-view>
+      <tb-split-view>
         <fieldset>
             <legend>Basic Heading</legend>
             <label>
@@ -112,8 +113,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
               <utrecht-heading-4>heading level 4</utrecht-heading-4>
             </example-story-canvas>
           </div>
-        </theme-builder-split-view>
-        <theme-builder-split-view>
+        </tb-split-view>
+        <tb-split-view>
           ${[1, 2, 3, 4].map(level => `
             <fieldset>
               <legend>Heading ${level}</legend>
@@ -125,9 +126,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
               </example-story-canvas>
             </div>
           `).join('')}
-      </theme-builder-split-view>
+      </tb-split-view>
       <h2>Body text</h2>
-      <theme-builder-split-view>
+      <tb-split-view>
         <fieldset>
           <legend>Paragraph</legend>
           <font-panel token="basis.typography"></font-panel>
@@ -137,8 +138,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
             <utrecht-paragraph>Lorem ipsum</utrecht-heading-1>
           </example-story-canvas>
         </div>
-      </theme-builder-split-view>
-      <theme-builder-split-view>
+      </tb-split-view>
+      <tb-split-view>
         <fieldset>
           <legend>Lead paragraph</legend>
           <font-panel token="basis.typography"></font-panel>
@@ -148,13 +149,13 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
             <utrecht-paragraph lead="true">Lorem ipsum lead</utrecht-heading-2>
           </example-story-canvas>
         </div>
-      </theme-builder-split-view>
+      </tb-split-view>
     </tb-page>
 
     <tb-page title="Forms">
       <section>
         <h3>Text Inputs</h3>
-        <theme-builder-split-view>
+        <tb-split-view>
           <div>
             <fieldset>
               <legend>Vertical Spacing</legend>
@@ -249,11 +250,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
                 Repellendus assumenda eveniet qui. Ab eum et ut et odit quia. Voluptates rerum et qui sed aperiam totam veritatis quos."></utrecht-textarea>
             </example-story-canvas>
           </div>
-        </theme-builder-split-view>
+        </tb-split-view>
       </section>
       <section>
         <h3>Checkboxes and radios</h3>
-        <theme-builder-split-view>
+        <tb-split-view>
           <fieldset>
             <legend>Form accent colors</legend>
             <example-color-preset-input name="basis.form-control.accent-color">
@@ -280,21 +281,15 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
               <label>
             </example-story-canvas>
           </div>
-        </theme-builder-split-view>
+        </tb-split-view>
       </section>
     </tb-page>
-  </tb-context-provider>
 
-
-
-
-
-  <!--<div>
-    <theme-builder-frame>
+    <tb-page>
       <h2>Action colors</h2>
       <section>
         <h3>Primary colors</h3>
-        <theme-builder-split-view>
+        <tb-split-view>
           <fieldset>
             <legend>Primary Colors</legend>
             <label>
@@ -325,7 +320,52 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
 ></utrecht-pagination>
             </example-story-canvas>
           </div>
-        <theme-builder-split-view>
+        <tb-split-view>
+      </section>
+    </tb-page>
+  </tb-context-provider>
+
+
+
+
+
+  <!--<div>
+    <theme-builder-frame>
+      <h2>Action colors</h2>
+      <section>
+        <h3>Primary colors</h3>
+        <tb-split-view>
+          <fieldset>
+            <legend>Primary Colors</legend>
+            <label>
+              Link
+              <example-color-preset-input name="basis.color.default"></example-color-preset-input>
+            </label>
+            <br>
+            <label>
+              Button background
+              <example-color-preset-input name="example.color.action-1-inverse.bg-default"></example-color-preset-input>
+            </label>
+            <br>
+            <label>
+              Button text
+              <example-color-preset-input name="example.color.action-1-inverse.color-default"></example-color-preset-input>
+            </label>
+          </fieldset>
+          <div class="basis-theme">
+            <example-story-canvas>
+              <utrecht-button appearance="primary-action-button">Primary button</utrecht-button>
+              <utrecht-button>Primary button</utrecht-button>
+              <utrecht-link href="https://example.com/">Voorbeeldlink</utrecht-link>
+              <utrecht-pagination
+  links='[{"href":"./1","index":1,"title":"Resultaat 1 tot 10"},{"href":"./2","index":2,"title":"Resultaat 11 tot 20"},{"href":"./3","index":3,"title":"Resultaat 21 tot 30"},{"href":"./4","index":4,"title":"Resultaat 31 tot 40"},{"href":"./5","index":5,"title":"Resultaat 41 tot 50"}]'
+  next='{"href":"./2"}'
+  prev='{"disabled":true}'
+  current-index="3"
+></utrecht-pagination>
+            </example-story-canvas>
+          </div>
+        <tb-split-view>
       </section>
     </theme-builder-frame>-->
 `;
