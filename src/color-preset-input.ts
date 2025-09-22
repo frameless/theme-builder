@@ -1,5 +1,5 @@
-import { use_context } from "./tb-context";
-import { effect } from "./tb-reactive";
+import { use_context } from './tb-context';
+import { effect } from './tb-reactive';
 
 export interface ColorOption {
   label?: string;
@@ -22,11 +22,11 @@ export class ExampleColorPresetInput extends HTMLElement {
   }
 
   connectedCallback() {
-    const state = use_context(this)
+    const state = use_context(this);
 
     effect(() => {
-      this._colors = Array.from(state.selectedColors)
-      this.render()
+      this._colors = Array.from(state.selectedColors);
+      this.render();
     });
   }
 
@@ -105,15 +105,18 @@ export class ExampleColorPresetInput extends HTMLElement {
           <selectedcontent></selectedcontent>
         </button>
         <option value="initial" selected>not set</option>
-        ${colors.map(color => `
+        ${colors
+          .map(
+            (color) => `
           <option value="${color.value}" translate="no">
             <color-inline value="${color.value}"></color-inline>
             <span class="name">${color.label || color.value}</span>
             <span class="value">(${color.value})</span>
-          </option>`
-    ).join('\n')}
+          </option>`,
+          )
+          .join('\n')}
       </select>
-    `
+    `;
   }
 
   render() {

@@ -15,14 +15,14 @@ import './style.css';
 import '@nl-design-system-unstable/basis-design-tokens/dist/theme.css';
 import './fluid.css';
 import type { css_to_tokens } from '@projectwallace/css-design-tokens';
-import "https://elements.colorjs.io/src/color-scale/color-scale.js";
-import "https://elements.colorjs.io/src/color-inline/color-inline.js";
-import './tb-page.js'
-import './tb-url-form.js'
-import './tb-staging-tokens.js'
-import './tb-context.js'
-import './tb-context-provider.js'
-import './tb-split-view.js'
+import 'https://elements.colorjs.io/src/color-scale/color-scale.js';
+import 'https://elements.colorjs.io/src/color-inline/color-inline.js';
+import './tb-page.js';
+import './tb-url-form.js';
+import './tb-staging-tokens.js';
+import './tb-context.js';
+import './tb-context-provider.js';
+import './tb-split-view.js';
 import type { StagingTokens } from './tb-staging-tokens.js';
 
 defineCustomElements();
@@ -31,12 +31,12 @@ const variantsMap: VariantsMap = new Map(variants.map((group) => [group.id, grou
 
 // fired when URL scraping is completed
 document.addEventListener('preset-tokens', (event: CustomEvent<ReturnType<typeof css_to_tokens>>) => {
-  Array.from(document.querySelectorAll<StagingTokens>('tb-staging-tokens')).forEach(element => {
-    element.tokens = event.detail
-  })
-})
+  Array.from(document.querySelectorAll<StagingTokens>('tb-staging-tokens')).forEach((element) => {
+    element.tokens = event.detail;
+  });
+});
 
-const html = String.raw
+const html = String.raw;
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
   <basis-theme-stylesheet></basis-theme-stylesheet>
@@ -115,7 +115,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
           </div>
         </tb-split-view>
         <tb-split-view>
-          ${[1, 2, 3, 4].map(level => `
+          ${[1, 2, 3, 4]
+            .map(
+              (level) => `
             <fieldset>
               <legend>Heading ${level}</legend>
               <font-panel token="utrecht.heading-${level}"></font-panel>
@@ -125,7 +127,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
                 <utrecht-heading-${level}>heading level ${level}</utrecht-heading-${level}>
               </example-story-canvas>
             </div>
-          `).join('')}
+          `,
+            )
+            .join('')}
       </tb-split-view>
       <h2>Body text</h2>
       <tb-split-view>
@@ -159,7 +163,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
           <div>
             <fieldset>
               <legend>Vertical Spacing</legend>
-              ${variantsMap.get('form-control-padding-block')?.variants.map(({ id, flatTokens, name, recommended }) => `
+              ${variantsMap
+                .get('form-control-padding-block')
+                ?.variants.map(
+                  ({ id, flatTokens, name, recommended }) => `
                   <label for="form-control-padding-block-${id}">
                   ${name}
                     <input
@@ -171,11 +178,16 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
                     >
                     ${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}
                   </label>
-                `).join('<br>')}
+                `,
+                )
+                .join('<br>')}
             </fieldset>
             <fieldset>
               <legend>Horizontal Spacing</legend>
-              ${variantsMap.get('form-control-padding-inline')?.variants.map(({ id, flatTokens, name, recommended }) => `
+              ${variantsMap
+                .get('form-control-padding-inline')
+                ?.variants.map(
+                  ({ id, flatTokens, name, recommended }) => `
                   <label for="form-control-padding-inline-${id}">
                     ${name}
                     <input
@@ -187,11 +199,16 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
                     >
                     ${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}
                   </label>
-                `).join('<br>')}
+                `,
+                )
+                .join('<br>')}
             </fieldset>
             <fieldset>
               <legend>Radius</legend>
-              ${variantsMap.get('form-control-border-radius')?.variants.map(({ id, flatTokens, name, recommended }) => `
+              ${variantsMap
+                .get('form-control-border-radius')
+                ?.variants.map(
+                  ({ id, flatTokens, name, recommended }) => `
                   <label for="form-control-border-radius-${id}">
                     ${name}
                     <input
@@ -203,11 +220,16 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
                       >
                     ${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}
                   </label>
-                `).join('<br>')}
+                `,
+                )
+                .join('<br>')}
             </fieldset>
             <fieldset>
               <legend>Border width</legend>
-              ${variantsMap.get('form-control-border-width')?.variants.map(({ id, flatTokens, name, recommended }) => `
+              ${variantsMap
+                .get('form-control-border-width')
+                ?.variants.map(
+                  ({ id, flatTokens, name, recommended }) => `
                   <label for="form-control-border-width-${id}">
                     ${name}
                     <input
@@ -219,7 +241,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
                       >
                     ${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}
                   </label>
-                `).join('<br>')}
+                `,
+                )
+                .join('<br>')}
             </fieldset>
             <fieldset>
               <legend>Colors</legend>
@@ -370,8 +394,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
     </theme-builder-frame>-->
 `;
 
-
-;[
+[
   { inputId: 'primary-input', name: 'primary', inverseName: 'primary-inverse' },
   { inputId: 'secondary-input', name: 'secondary', inverseName: 'primary-inverse' },
   { inputId: 'text-input', name: 'text', inverseName: 'text-inverse' },

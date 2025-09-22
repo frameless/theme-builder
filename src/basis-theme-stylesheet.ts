@@ -40,7 +40,7 @@ class BasisThemeStylesheet extends HTMLElement {
   }
 
   connectedCallback() {
-    const self = this
+    const self = this;
 
     if (this.sheet) {
       this.ownerDocument.adoptedStyleSheets.push(this.sheet);
@@ -49,9 +49,9 @@ class BasisThemeStylesheet extends HTMLElement {
     this.ownerDocument.addEventListener('unsubscribeDesignTokenValue', this._eventHandler, true);
 
     // TODO: remove listeners
-    this.ownerDocument.addEventListener('fontpanelchange', (event: CustomEvent<{ token: string; value: string; }>) => {
+    this.ownerDocument.addEventListener('fontpanelchange', (event: CustomEvent<{ token: string; value: string }>) => {
       self.setToken(event.detail.token, event.detail.value);
-    })
+    });
   }
 
   disconnectedCallback() {
