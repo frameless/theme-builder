@@ -77,8 +77,12 @@ export class FontPanel extends HTMLElement {
 
 		effect(() => {
 			const context = use_context(this)
-			this._lineHeights = context.selectedLineHeights.size > 0 ? Array.from(context.selectedLineHeights) : [{ value: '0' }, { value: '1' }, { value: '1.5' }, { value: '2' }]
-			this._sizes = context.selectedSizes.size > 0 ? Array.from(context.selectedSizes) : [{ value: '1rem', count: 1, }, { value: '2rem', count: 1, }]
+			this._lineHeights = context.selectedLineHeights.size > 0
+				? Array.from(context.selectedLineHeights)
+				: [{ value: '0', count: 1 }, { value: '1', count: 1 }, { value: '1.5', count: 1 }, { value: '2', count: 1 }]
+			this._sizes = context.selectedSizes.size > 0
+				? Array.from(context.selectedSizes)
+				: [{ value: '1rem', count: 1, }, { value: '2rem', count: 1, }]
 			this.render()
 		})
 	}

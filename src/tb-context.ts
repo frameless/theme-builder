@@ -1,13 +1,13 @@
 import { reactive } from './tb-reactive.js'
-import { ColorOption, FamilyOption, LinHeightOption, SizeOption } from './tb-staging-tokens.js'
+import { ColorOption, FamilyOption, LineHeightOption, SizeOption } from './tb-staging-tokens.js'
 
 let context_key = Symbol('tb_context')
 
-type Context = {
+export type Context = {
 	selectedColors: Set<ColorOption>,
 	selectedFamilies: Set<FamilyOption>,
 	selectedSizes: Set<SizeOption>,
-	selectedLineHeights: Set<LinHeightOption>,
+	selectedLineHeights: Set<LineHeightOption>,
 }
 
 export function create_context(initial_set = new Set()) {

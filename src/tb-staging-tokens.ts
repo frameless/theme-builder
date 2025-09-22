@@ -2,7 +2,7 @@
 import { sortFn as sortCssUnit } from 'css-unit-sort';
 import type { css_to_tokens } from '@projectwallace/css-design-tokens'
 import { slugify } from './utils'
-import { use_context } from './tb-context';
+import { use_context, type Context } from './tb-context';
 import './tb-empty.js'
 
 const css = String.raw
@@ -30,6 +30,9 @@ sheet.replaceSync(css`
 	section {
 		max-height: 100%;
 		overflow: auto;
+		scrollbar-color: ButtonBorder ButtonFace;
+		scrollbar-gutter: stable;
+		overscroll-behavior: contain;
 		background:
 			/* Shadow Cover TOP */
 			linear-gradient(
@@ -110,30 +113,21 @@ sheet.replaceSync(css`
 	}
 `)
 
-export type ColorOption = {
-	label: string;
-	value: string;
-	properties: string[];
-	count: number;
-}
-
-export type FamilyOption = {
-	label: string;
-	value: string;
-	count: number;
-}
-
-export type SizeOption = {
+type Option = {
 	label?: string;
 	value: string;
 	count: number;
 }
 
-export type LineHeightOption = {
-	label?: string;
-	value: string;
-	count: number;
+export type ColorOption = Option & {
+	properties?: string[];
 }
+
+export type FamilyOption = Option
+
+export type SizeOption = Option
+
+export type LineHeightOption = Option
 
 export class StagingTokens extends HTMLElement {
 	_tokens: ReturnType<typeof css_to_tokens> | undefined = undefined
@@ -149,54 +143,29 @@ export class StagingTokens extends HTMLElement {
 	}
 
 	handleEvent(event: Event) {
-		const state = use_context(this)
 		const target = event.target as HTMLElement
 
 		if (target !== null && target.tagName === 'INPUT' && event.type === 'change') {
+			const state = use_context(this)
 			const input = event.target as HTMLInputElement
+			// Map the <input name=""> to the staged items in `this` and selected items in `state`
+			const map = new Map<string, [Option[], keyof Context]>([
+				['color-candidate', [this._stagedColors, 'selectedColors']],
+				['family-candidate', [this._stagedFamilies, 'selectedFamilies']],
+				['size-candidate', [this._stagedSizes, 'selectedSizes']],
+				['line-height-candidate', [this._stagedLineHeights, 'selectedLineHeights']],
+			])
 
-			if (input.name === 'color-candidate') {
-				const selectedColor = this._stagedColors.find(color => color.value === input.value)
-				if (selectedColor !== undefined) {
+			if (map.has(input.name)) {
+				const [stagedItems, stateProperty] = map.get(input.name)!
+				const checkedItem = stagedItems.find(item => item.value === input.value)
+				if (checkedItem !== undefined) {
 					if (input.checked) {
-						state.selectedColors = state.selectedColors.add(selectedColor)
+						state[stateProperty] = state[stateProperty].add(checkedItem)
 					} else {
-						state.selectedColors.delete(selectedColor)
+						state[stateProperty].delete(checkedItem)
 						// force reactivity
-						state.selectedColors = state.selectedColors
-					}
-				}
-			}
-			else if (input.name === 'family-candidate') {
-				const selectedFamily = this._stagedFamilies.find(color => color.value === input.value)
-				if (selectedFamily !== undefined) {
-					if (input.checked) {
-						state.selectedFamilies = state.selectedFamilies.add(selectedFamily)
-					} else {
-						state.selectedFamilies.delete(selectedFamily)
-						state.selectedFamilies = state.selectedFamilies
-					}
-				}
-			}
-			else if (input.name === 'size-candidate') {
-				const selectedSize = this._stagedSizes.find(option => option.value === input.value)
-				if (selectedSize !== undefined) {
-					if (input.checked) {
-						state.selectedSizes = state.selectedSizes.add(selectedSize)
-					} else {
-						state.selectedSizes.delete(selectedSize)
-						state.selectedSizes = state.selectedSizes
-					}
-				}
-			}
-			else if (input.name === 'line-height-candidate') {
-				const selectedLineHeight = this._stagedLineHeights.find(option => option.value === input.value)
-				if (selectedLineHeight !== undefined) {
-					if (input.checked) {
-						state.selectedLineHeights = state.selectedLineHeights.add(selectedLineHeight)
-					} else {
-						state.selectedLineHeights.delete(selectedLineHeight)
-						state.selectedLineHeights = state.selectedLineHeights
+						state[stateProperty] = state[stateProperty]
 					}
 				}
 			}
@@ -305,23 +274,23 @@ export class StagingTokens extends HTMLElement {
 					<button type="button" data-action="select-all">Select all</button>
 					<button type="button" data-action="unselect-all">Unselect all</button>
 					<ol class="samples">
-						${colors.map(option => `
+						${colors.map(option => html`
 							<li>
-								<input type="checkbox" name="color-candidate" id="color-${slugify(option.label)}" value="${option.value}">
+								<input type="checkbox" name="color-candidate" id="color-${slugify(option.value)}" value="${option.value}">
 								<span>
-									<label for="color-${slugify(option.label)}">
+									<label for="color-${slugify(option.value)}">
 										<color-inline value="${option.value}">
 											<code>${option.value}</code>
 										</color-inline>
 											${option.label}
 									</label>
-									<ul class="used-properties">
+									${option.properties ? html`<ul class="used-properties">
 										${option.properties.map(property => `
 											<li>
 												<code>${property}</code>
 											</li>
 										`).join('')}
-									</ul>
+									</ul>`: ''}
 								</span>
 							</li>
 						`).join('')}
@@ -337,11 +306,11 @@ export class StagingTokens extends HTMLElement {
 						<button type="button" data-action="select-all">Select all</button>
 						<button type="button" data-action="unselect-all">Unselect all</button>
 						<ol class="samples">
-							${families.map(option => `
+							${families.map(option => html`
 								<li>
-									<input type="checkbox" name="family-candidate" id="color-${slugify(option.label)}" value="${option.value}">
+									<input type="checkbox" name="family-candidate" id="color-${slugify(option.value)}" value="${option.value}">
 									<span>
-										<label for="color-${slugify(option.label)}">
+										<label for="color-${slugify(option.value)}">
 											<code>${option.value}</code>
 										</label>
 										<span class="font-specimen" style="font-family: ${option.value}">AaBbCcDd 1234567890</span>
@@ -360,7 +329,7 @@ export class StagingTokens extends HTMLElement {
 					<button type="button" data-action="select-all">Select all</button>
 					<button type="button" data-action="unselect-all">Unselect all</button>
 					<ol class="samples">
-						${sizes.map(option => `
+						${sizes.map(option => html`
 							<li>
 								<input type="checkbox" name="size-candidate" id="color-${slugify(option.value)}" value="${option.value}">
 								<span>
@@ -382,7 +351,7 @@ export class StagingTokens extends HTMLElement {
 					<button type="button" data-action="select-all">Select all</button>
 					<button type="button" data-action="unselect-all">Unselect all</button>
 					<ol class="samples">
-						${lineHeights.map(option => `
+						${lineHeights.map(option => html`
 							<li>
 								<input type="checkbox" name="line-height-candidate" id="line-height-${slugify(option.value)}" value="${option.value}">
 								<span>

@@ -1,5 +1,6 @@
 import { use_context } from "./tb-context";
 import { effect } from "./tb-reactive";
+import { FamilyOption } from "./tb-staging-tokens";
 
 const requested = new Set<ExampleFontPresetInput>();
 
@@ -20,16 +21,10 @@ const renderThings = () => {
   }
 };
 
-export interface FontOption {
-  label: string;
-  value: string;
-  count?: number;
-}
-
 export class ExampleFontPresetInput extends HTMLElement {
   _name: string;
   _value: string;
-  _fonts: FontOption[];
+  _fonts: FamilyOption[];
 
   constructor() {
     super();
@@ -58,12 +53,12 @@ export class ExampleFontPresetInput extends HTMLElement {
     requestRender(this);
   }
 
-  set fonts(value: FontOption[]) {
+  set fonts(value: FamilyOption[]) {
     this._fonts = value;
     requestRender(this);
   }
 
-  renderHTML(name: string, fonts: FontOption[]) {
+  renderHTML(name: string, fonts: FamilyOption[]) {
     return `
       <style>
         :host {
@@ -115,7 +110,7 @@ export class ExampleFontPresetInput extends HTMLElement {
         <option value="initial" selected>not set</option>
         ${fonts.map(font => `
           <option value="${font.value}" translate="no">
-            <span class="font-name">${font.label}</span>
+            <span class="font-name">${font.label || font.value}</span>
             <span class="font-specimen" style="font-family: ${font.value}">AaBbCcDd 1234567890</span>
           </option>`
     ).join('\n')}
