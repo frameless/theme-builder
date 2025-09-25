@@ -15,7 +15,7 @@ import './style.css';
 import '@nl-design-system-unstable/basis-design-tokens/dist/theme.css';
 import './fluid.css';
 import type { css_to_tokens } from '@projectwallace/css-design-tokens';
-import 'https://elements.colorjs.io/src/color-scale/color-scale.js';
+// TODO: use node_modules version but blocked by https://github.com/color-js/elements/issues/193
 import 'https://elements.colorjs.io/src/color-inline/color-inline.js';
 import './tb-page.js';
 import './tb-url-form.js';
@@ -24,15 +24,23 @@ import './tb-context.js';
 import './tb-context-provider.js';
 import './tb-split-view.js';
 import type { StagingTokens } from './tb-staging-tokens.js';
+import { initDb } from './tb-db.js';
 
 defineCustomElements();
+
+async function init() {
+  await initDb();
+  console.info('DB initialized')
+}
+
+init()
 
 const variantsMap: VariantsMap = new Map(variants.map((group) => [group.id, group]));
 
 // fired when URL scraping is completed
-document.addEventListener('preset-tokens', (event: CustomEvent<ReturnType<typeof css_to_tokens>>) => {
+document.addEventListener('preset-tokens', (event: CustomEvent<{ tokens: ReturnType<typeof css_to_tokens>; url: string }>) => {
   Array.from(document.querySelectorAll<StagingTokens>('tb-staging-tokens')).forEach((element) => {
-    element.tokens = event.detail;
+    element.tokens = event.detail.tokens;
   });
 });
 
@@ -116,8 +124,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
         </tb-split-view>
         <tb-split-view>
           ${[1, 2, 3, 4]
-            .map(
-              (level) => `
+    .map(
+      (level) => html`
             <fieldset>
               <legend>Heading ${level}</legend>
               <font-panel token="utrecht.heading-${level}"></font-panel>
@@ -128,8 +136,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
               </example-story-canvas>
             </div>
           `,
-            )
-            .join('')}
+    )
+    .join('')}
       </tb-split-view>
       <h2>Body text</h2>
       <tb-split-view>
@@ -164,9 +172,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
             <fieldset>
               <legend>Vertical Spacing</legend>
               ${variantsMap
-                .get('form-control-padding-block')
-                ?.variants.map(
-                  ({ id, flatTokens, name, recommended }) => `
+    .get('form-control-padding-block')
+    ?.variants.map(
+      ({ id, flatTokens, name, recommended }) => html`
                   <label for="form-control-padding-block-${id}">
                   ${name}
                     <input
@@ -179,15 +187,15 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
                     ${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}
                   </label>
                 `,
-                )
-                .join('<br>')}
+    )
+    .join('<br>')}
             </fieldset>
             <fieldset>
               <legend>Horizontal Spacing</legend>
               ${variantsMap
-                .get('form-control-padding-inline')
-                ?.variants.map(
-                  ({ id, flatTokens, name, recommended }) => `
+    .get('form-control-padding-inline')
+    ?.variants.map(
+      ({ id, flatTokens, name, recommended }) => html`
                   <label for="form-control-padding-inline-${id}">
                     ${name}
                     <input
@@ -197,18 +205,18 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
                       name="form-control-padding-inline"
                       onchange="themeBuilder.clickGroupOption(event.currentTarget.name, event.currentTarget.value)"
                     >
-                    ${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}
+                    ${recommended ? html`<utrecht-data-badge>recommended</utrecht-data-badge>` : ''}
                   </label>
                 `,
-                )
-                .join('<br>')}
+    )
+    .join('<br>')}
             </fieldset>
             <fieldset>
               <legend>Radius</legend>
               ${variantsMap
-                .get('form-control-border-radius')
-                ?.variants.map(
-                  ({ id, flatTokens, name, recommended }) => `
+    .get('form-control-border-radius')
+    ?.variants.map(
+      ({ id, flatTokens, name, recommended }) => html`
                   <label for="form-control-border-radius-${id}">
                     ${name}
                     <input
@@ -218,18 +226,18 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
                       name="form-control-border-radius"
                       onchange="themeBuilder.clickGroupOption(event.currentTarget.name, event.currentTarget.value)"
                       >
-                    ${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}
+                    ${recommended ? `<utrecht-data-badge>recommended</utrecht-data-badge>` : ''}
                   </label>
                 `,
-                )
-                .join('<br>')}
+    )
+    .join('<br>')}
             </fieldset>
             <fieldset>
               <legend>Border width</legend>
               ${variantsMap
-                .get('form-control-border-width')
-                ?.variants.map(
-                  ({ id, flatTokens, name, recommended }) => `
+    .get('form-control-border-width')
+    ?.variants.map(
+      ({ id, flatTokens, name, recommended }) => html`
                   <label for="form-control-border-width-${id}">
                     ${name}
                     <input
@@ -239,11 +247,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
                       name="form-control-border-width"
                       onchange="themeBuilder.clickGroupOption(event.currentTarget.name, event.currentTarget.value)"
                       >
-                    ${recommended ? ' <utrecht-data-badge>recommended</utrecht-data-badge>' : ''}
+                    ${recommended ? `<utrecht-data-badge>recommended</utrecht-data-badge>` : ''}
                   </label>
                 `,
-                )
-                .join('<br>')}
+    )
+    .join('<br>')}
             </fieldset>
             <fieldset>
               <legend>Colors</legend>
@@ -318,17 +326,17 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
             <legend>Primary Colors</legend>
             <label>
               Link
-              <example-color-preset-input name="basis.color.default"></example-color-preset-input>
+              <example-color-preset-input name="basis.color.primary-text-1"></example-color-preset-input>
             </label>
             <br>
             <label>
               Button background
-              <example-color-preset-input name="example.color.action-1-inverse.bg-default"></example-color-preset-input>
+              <example-color-preset-input name="utrecht.button.primary-action.background-color"></example-color-preset-input>
             </label>
             <br>
             <label>
               Button text
-              <example-color-preset-input name="example.color.action-1-inverse.color-default"></example-color-preset-input>
+              <example-color-preset-input name="utrecht.button.primary-action.color"></example-color-preset-input>
             </label>
           </fieldset>
           <div class="basis-theme">
@@ -348,50 +356,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = html`
       </section>
     </tb-page>
   </tb-context-provider>
-
-
-
-
-
-  <!--<div>
-    <theme-builder-frame>
-      <h2>Action colors</h2>
-      <section>
-        <h3>Primary colors</h3>
-        <tb-split-view>
-          <fieldset>
-            <legend>Primary Colors</legend>
-            <label>
-              Link
-              <example-color-preset-input name="basis.color.default"></example-color-preset-input>
-            </label>
-            <br>
-            <label>
-              Button background
-              <example-color-preset-input name="example.color.action-1-inverse.bg-default"></example-color-preset-input>
-            </label>
-            <br>
-            <label>
-              Button text
-              <example-color-preset-input name="example.color.action-1-inverse.color-default"></example-color-preset-input>
-            </label>
-          </fieldset>
-          <div class="basis-theme">
-            <example-story-canvas>
-              <utrecht-button appearance="primary-action-button">Primary button</utrecht-button>
-              <utrecht-button>Primary button</utrecht-button>
-              <utrecht-link href="https://example.com/">Voorbeeldlink</utrecht-link>
-              <utrecht-pagination
-  links='[{"href":"./1","index":1,"title":"Resultaat 1 tot 10"},{"href":"./2","index":2,"title":"Resultaat 11 tot 20"},{"href":"./3","index":3,"title":"Resultaat 21 tot 30"},{"href":"./4","index":4,"title":"Resultaat 31 tot 40"},{"href":"./5","index":5,"title":"Resultaat 41 tot 50"}]'
-  next='{"href":"./2"}'
-  prev='{"disabled":true}'
-  current-index="3"
-></utrecht-pagination>
-            </example-story-canvas>
-          </div>
-        <tb-split-view>
-      </section>
-    </theme-builder-frame>-->
 `;
 
 [

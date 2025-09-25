@@ -26,7 +26,9 @@ customElements.define(
       const style = this.ownerDocument.createElement('style');
       style.textContent = `
       .example-story-canvas {
-        background-color: var(--basis-document-bg, white);
+        color-scheme: light;
+        background-color: Canvas;
+        color: initial;
         border-radius: 4px;
         border-width: 1px;
         border-style: solid;

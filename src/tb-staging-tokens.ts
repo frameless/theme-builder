@@ -4,6 +4,7 @@ import type { css_to_tokens } from '@projectwallace/css-design-tokens'
 import { slugify } from './utils'
 import { use_context, type Context } from './tb-context';
 import './tb-empty.js'
+import { getDb, initDb } from './tb-db.js';
 
 const css = String.raw
 const html = String.raw
@@ -142,30 +143,38 @@ export class StagingTokens extends HTMLElement {
 		root.adoptedStyleSheets = [sheet]
 	}
 
-	handleEvent(event: Event) {
+	async handleEvent(event: Event) {
 		const target = event.target as HTMLElement
 
 		if (target !== null && target.tagName === 'INPUT' && event.type === 'change') {
 			const state = use_context(this)
-			const input = event.target as HTMLInputElement
+			const input = target as HTMLInputElement
 			// Map the <input name=""> to the staged items in `this` and selected items in `state`
-			const map = new Map<string, [Option[], keyof Context]>([
-				['color-candidate', [this._stagedColors, 'selectedColors']],
-				['family-candidate', [this._stagedFamilies, 'selectedFamilies']],
-				['size-candidate', [this._stagedSizes, 'selectedSizes']],
-				['line-height-candidate', [this._stagedLineHeights, 'selectedLineHeights']],
+			const map = new Map<string, [Option[], keyof Context, 'color' | 'fontFamily' | 'fontSize' | 'lineHeight']>([
+				['color-candidate', [this._stagedColors, 'selectedColors', 'color']],
+				['family-candidate', [this._stagedFamilies, 'selectedFamilies', 'fontFamily']],
+				['size-candidate', [this._stagedSizes, 'selectedSizes', 'fontSize']],
+				['line-height-candidate', [this._stagedLineHeights, 'selectedLineHeights', 'lineHeight']],
 			])
+			const db = await getDb()
+			const currentSite = await db.get('state', 'currentSite')
 
 			if (map.has(input.name)) {
-				const [stagedItems, stateProperty] = map.get(input.name)!
+				const [stagedItems, stateProperty, tokenType] = map.get(input.name)!
 				const checkedItem = stagedItems.find(item => item.value === input.value)
 				if (checkedItem !== undefined) {
 					if (input.checked) {
 						state[stateProperty] = state[stateProperty].add(checkedItem)
+						await db.put('stagedTokens', {
+							website: currentSite.value,
+							type: tokenType,
+							value: input.value
+						})
 					} else {
 						state[stateProperty].delete(checkedItem)
 						// force reactivity
 						state[stateProperty] = state[stateProperty]
+						await db.delete('stagedTokens', [currentSite.value, 'color', input.value])
 					}
 				}
 			}
@@ -186,7 +195,7 @@ export class StagingTokens extends HTMLElement {
 		}
 	}
 
-	connectedCallback() {
+	async connectedCallback() {
 		this.shadowRoot!.addEventListener('change', this)
 		this.shadowRoot!.addEventListener('click', this)
 	}
@@ -194,6 +203,48 @@ export class StagingTokens extends HTMLElement {
 	set tokens(t: NonNullable<typeof this._tokens>) {
 		this._tokens = t
 		this.render(t)
+		this.restoreState()
+	}
+
+	private async restoreState() {
+		const db = await initDb();
+
+		const currentSite = await db.get('state', 'currentSite')
+		if (currentSite !== undefined) {
+			const state = use_context(this)
+			const tokens = await db.getAllFromIndex('stagedTokens', 'website', currentSite.value)
+			for (let token of tokens) {
+				if (token.type === 'color') {
+					const color = this._stagedColors.find(c => c.value === token.value)
+					if (color) {
+						state.selectedColors = state.selectedColors.add(color);
+						(this.shadowRoot?.querySelector(`input[name=color-candidate][value="${color.value}"]`) as HTMLInputElement).checked = true
+					}
+				}
+				else if (token.type === 'fontSize') {
+					const item = this._stagedSizes.find(i => i.value === token.value)
+					if (item) {
+						state.selectedSizes = state.selectedSizes.add(item);
+						(this.shadowRoot?.querySelector(`input[name=size-candidate][value="${item.value}"]`) as HTMLInputElement).checked = true
+					}
+				}
+				else if (token.type === 'fontFamily') {
+					const item = this._stagedFamilies.find(i => i.value === token.value)
+					if (item) {
+						state.selectedFamilies = state.selectedFamilies.add(item);
+						(this.shadowRoot?.querySelector(`input[name=family-candidate][value="${item.value}"]`) as HTMLInputElement).checked = true
+					}
+				}
+				else if (token.type === 'lineHeight') {
+					const item = this._stagedLineHeights.find(i => i.value === token.value)
+					console.log(item)
+					if (item) {
+						state.selectedLineHeights = state.selectedLineHeights.add(item);
+						(this.shadowRoot?.querySelector(`input[name=line-height-candidate][value="${item.value}"]`) as HTMLInputElement).checked = true
+					}
+				}
+			}
+		}
 	}
 
 	private getColorCandidates(tokens: NonNullable<typeof this._tokens>): ColorOption[] {
