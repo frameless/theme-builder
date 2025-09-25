@@ -2,7 +2,7 @@ import { openDB, type IDBPDatabase } from "idb"
 
 let db: IDBPDatabase
 
-export const VERSION = 4;
+export const VERSION = 6;
 
 export async function initDb() {
 	db = await openDB('theme-builder', VERSION, {
@@ -15,8 +15,9 @@ export async function initDb() {
 				websiteStore.createIndex('url', 'url', { unique: true })
 
 				// Table: tokens
+				// Allow storing `{ tokenId: 'basis.color.text', value: '#f00', website: 'example.com', type: 'color' }`
 				const tokensStore = db.createObjectStore('tokens', {
-					autoIncrement: true
+					autoIncrement: true,
 				})
 				tokensStore.createIndex('tokenId', 'tokenId') // so we can get <tokenId> for a website
 				tokensStore.createIndex('website', 'website') // so we can get all tokens for 1 website
@@ -41,6 +42,24 @@ export async function initDb() {
 				stagedTokens.createIndex('website', 'website')
 				stagedTokens.createIndex('type', 'type')
 				stagedTokens.createIndex('value', 'value')
+			}
+
+			if (oldVersion < 5) {
+				// Allow storing `{ tokenId: 'basis.color.text', value: '#f00', website: 'example.com', type: 'color' }`
+				db.deleteObjectStore('tokens')
+				const tokenStore = db.createObjectStore('tokens', {
+					keyPath: ['website', 'tokenName', 'value', 'type']
+				})
+				tokenStore.createIndex('tokenName', 'tokenName')
+			}
+
+			if (oldVersion < 6) {
+				// Allow storing `{ tokenId: 'basis.color.text', value: '#f00', website: 'example.com', type: 'color' }`
+				db.deleteObjectStore('tokens')
+				const tokenStore = db.createObjectStore('tokens', {
+					keyPath: ['website', 'tokenName', 'type']
+				})
+				tokenStore.createIndex('tokenName', 'tokenName')
 			}
 		}
 	})

@@ -50,7 +50,6 @@ customElements.define('tb-url-form', class extends HTMLElement {
 			const currentSite = await db.get('state', 'currentSite')
 
 			if (currentSite !== undefined) {
-				console.log(currentSite)
 				const website = await db.get('website', currentSite.value)
 				if (website !== undefined) {
 					const { css, url } = website
@@ -59,7 +58,6 @@ customElements.define('tb-url-form', class extends HTMLElement {
 						input.value = url
 					}
 					const tokens = css_to_tokens(css)
-					console.log('dispatching preset-tokens to staging can render')
 					this.dispatchEvent(new CustomEvent('preset-tokens', {
 						detail: {
 							tokens,

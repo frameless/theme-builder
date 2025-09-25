@@ -145,6 +145,8 @@ export class StagingTokens extends HTMLElement {
 
 	async handleEvent(event: Event) {
 		const target = event.target as HTMLElement
+		const db = await getDb()
+		const currentSite = await db.get('state', 'currentSite')
 
 		if (target !== null && target.tagName === 'INPUT' && event.type === 'change') {
 			const state = use_context(this)
@@ -156,8 +158,6 @@ export class StagingTokens extends HTMLElement {
 				['size-candidate', [this._stagedSizes, 'selectedSizes', 'fontSize']],
 				['line-height-candidate', [this._stagedLineHeights, 'selectedLineHeights', 'lineHeight']],
 			])
-			const db = await getDb()
-			const currentSite = await db.get('state', 'currentSite')
 
 			if (map.has(input.name)) {
 				const [stagedItems, stateProperty, tokenType] = map.get(input.name)!
@@ -183,6 +183,20 @@ export class StagingTokens extends HTMLElement {
 			const action = target.getAttribute('data-action')
 			const inputs = target.closest('section')?.querySelectorAll<HTMLInputElement>('input[type=checkbox]')
 			if (!action || !inputs || inputs.length === 0) return
+
+			if (action === 'select-all') {
+				await Promise.all(Array.from(inputs).map(input => db.put('stagedTokens', {
+					website: currentSite.value,
+					type: input.dataset['tokenType'],
+					value: input.value
+				})))
+			} else if (action === 'unselect-all') {
+				await Promise.all(Array.from(inputs).map(input => db.delete('stagedTokens', [
+					currentSite.value,
+					input.dataset['tokenType'],
+					input.value
+				])))
+			}
 
 			for (let checkbox of Array.from(inputs)) {
 				if (action === 'select-all') {
@@ -237,7 +251,6 @@ export class StagingTokens extends HTMLElement {
 				}
 				else if (token.type === 'lineHeight') {
 					const item = this._stagedLineHeights.find(i => i.value === token.value)
-					console.log(item)
 					if (item) {
 						state.selectedLineHeights = state.selectedLineHeights.add(item);
 						(this.shadowRoot?.querySelector(`input[name=line-height-candidate][value="${item.value}"]`) as HTMLInputElement).checked = true
@@ -270,6 +283,7 @@ export class StagingTokens extends HTMLElement {
 				value: fontToken.$value.join(', '),
 				count: fontToken.$extensions['com.projectwallace.usage-count'],
 			}))
+			.sort((a, b) => b.count - a.count)
 		return families
 	}
 
@@ -327,13 +341,13 @@ export class StagingTokens extends HTMLElement {
 					<ol class="samples">
 						${colors.map(option => html`
 							<li>
-								<input type="checkbox" name="color-candidate" id="color-${slugify(option.value)}" value="${option.value}">
+								<input type="checkbox" name="color-candidate" data-token-type="color" id="color-${slugify(option.value)}" value="${option.value}">
 								<span>
 									<label for="color-${slugify(option.value)}">
 										<color-inline value="${option.value}">
 											<code>${option.value}</code>
 										</color-inline>
-											${option.label}
+										${option.label}
 									</label>
 									${option.properties ? html`<ul class="used-properties">
 										${option.properties.map(property => `
@@ -359,7 +373,7 @@ export class StagingTokens extends HTMLElement {
 						<ol class="samples">
 							${families.map(option => html`
 								<li>
-									<input type="checkbox" name="family-candidate" id="color-${slugify(option.value)}" value="${option.value}">
+									<input type="checkbox" name="family-candidate" data-token-type="font-family" id="color-${slugify(option.value)}" value="${option.value}">
 									<span>
 										<label for="color-${slugify(option.value)}">
 											<code>${option.value}</code>
@@ -382,7 +396,7 @@ export class StagingTokens extends HTMLElement {
 					<ol class="samples">
 						${sizes.map(option => html`
 							<li>
-								<input type="checkbox" name="size-candidate" id="color-${slugify(option.value)}" value="${option.value}">
+								<input type="checkbox" name="size-candidate" data-token-type="font-size" id="font-size-${slugify(option.value)}" value="${option.value}">
 								<span>
 									<label for="color-${slugify(option.value)}">
 										<code>${option.value}</code>
@@ -404,7 +418,7 @@ export class StagingTokens extends HTMLElement {
 					<ol class="samples">
 						${lineHeights.map(option => html`
 							<li>
-								<input type="checkbox" name="line-height-candidate" id="line-height-${slugify(option.value)}" value="${option.value}">
+								<input type="checkbox" name="line-height-candidate" data-token-type="line-height" id="line-height-${slugify(option.value)}" value="${option.value}">
 								<span>
 									<label for="line-height-${slugify(option.value)}">
 										<code>${option.value}</code>

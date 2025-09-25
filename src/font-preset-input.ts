@@ -1,30 +1,13 @@
 import { use_context } from "./tb-context";
+import { getDb } from "./tb-db";
 import { effect } from "./tb-reactive";
 import { FamilyOption } from "./tb-staging-tokens";
-
-const requested = new Set<ExampleFontPresetInput>();
-
-let animationFrame = -1;
-
-const requestRender = (el: ExampleFontPresetInput) => {
-  if (animationFrame === -1) {
-    requested.add(el);
-    requestAnimationFrame(renderThings);
-  }
-};
-
-const renderThings = () => {
-  animationFrame = -1;
-  for (let item of requested) {
-    requested.delete(item);
-    item.render();
-  }
-};
 
 export class ExampleFontPresetInput extends HTMLElement {
   _name: string;
   _value: string;
   _fonts: FamilyOption[];
+  _selectedFont: string;
 
   constructor() {
     super();
@@ -34,31 +17,40 @@ export class ExampleFontPresetInput extends HTMLElement {
     this._fonts = [];
   }
 
-  connectedCallback() {
+  async connectedCallback() {
     const state = use_context(this)
+    const db = await getDb()
+    const currentSite = await db.get('state', 'currentSite')
 
-    effect(() => {
+    effect(async () => {
       this._fonts = Array.from(state.selectedFamilies)
-      requestRender(this)
-    });
+      if (currentSite) {
+        const selectedFont = await db.get('tokens', [currentSite.value, this._name, 'font-family'])
+        if (selectedFont) {
+          this._selectedFont = selectedFont.value
+        }
+      }
+
+      this.render()
+    })
   }
 
   set name(value: string) {
     this._name = value;
-    requestRender(this);
+    this.render()
   }
 
   set value(value: string) {
     this._value = value;
-    requestRender(this);
+    this.render()
   }
 
   set fonts(value: FamilyOption[]) {
     this._fonts = value;
-    requestRender(this);
+    this.render()
   }
 
-  renderHTML(name: string, fonts: FamilyOption[]) {
+  renderHTML(name: string, fonts: FamilyOption[], selectedValue?: string) {
     return `
       <style>
         :host {
@@ -107,9 +99,9 @@ export class ExampleFontPresetInput extends HTMLElement {
         <button>
           <selectedcontent></selectedcontent>
         </button>
-        <option value="initial" selected>not set</option>
+        <option value="initial" ${selectedValue ? '' : 'selected'}>not set</option>
         ${fonts.map(font => `
-          <option value="${font.value}" translate="no">
+          <option value="${font.value}" translate="no" ${selectedValue === font.value ? 'selected' : ''}>
             <span class="font-name">${font.label || font.value}</span>
             <span class="font-specimen" style="font-family: ${font.value}">AaBbCcDd 1234567890</span>
           </option>`
@@ -119,7 +111,7 @@ export class ExampleFontPresetInput extends HTMLElement {
   }
 
   render() {
-    this.innerHTML = this.renderHTML(this._name, this._fonts);
+    this.innerHTML = this.renderHTML(this._name, this._fonts, this._selectedFont);
   }
 }
 

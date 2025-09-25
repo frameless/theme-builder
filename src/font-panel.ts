@@ -93,7 +93,7 @@ export class FontPanel extends HTMLElement {
 		this.shadowRoot.innerHTML = `
       <font-panel-group token="font-family">
         <label>Family</label>
-        <example-font-preset-input token="font-family" prop="family"></example-font-preset-input>
+        <example-font-preset-input name="${this._name}" token="font-family" prop="family"></example-font-preset-input>
       </font-panel-group>
 
       <font-panel-group token="font-weight">
@@ -150,13 +150,13 @@ export class FontPanel extends HTMLElement {
 			const target = event.target as HTMLSelectElement | HTMLInputElement
 			const token = target.getAttribute('token')
 			const prop = target.getAttribute('prop')
-
 			if (!token || !prop) return
 
 			this.dispatchEvent(new CustomEvent('fontpanelchange', {
 				detail: {
 					value: target.value,
-					token: `${this._name}.${token}`
+					token: `${this._name}.${token}`,
+					type: token,
 				},
 				bubbles: true,
 				composed: true,

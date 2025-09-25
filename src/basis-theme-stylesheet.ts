@@ -1,5 +1,6 @@
 import { variants } from './design-token-options';
 import { ExampleDesignTokenValue } from './example-design-token-value';
+import { getDb } from './tb-db';
 import { VariantsMap } from './types';
 import { cssVariablesToString, toCssVariables } from './utils';
 
@@ -21,6 +22,7 @@ class BasisThemeStylesheet extends HTMLElement {
   _eventHandler: (evt: Event) => void;
   _designTokenValueListeners: Set<ExampleDesignTokenValue>;
   _flatTokensCache: FlatTokens;
+  private db;
 
   constructor() {
     super();
@@ -39,7 +41,7 @@ class BasisThemeStylesheet extends HTMLElement {
     this._eventHandler = (evt) => this.handleRequestDesignTokenValue(evt);
   }
 
-  connectedCallback() {
+  async connectedCallback() {
     const self = this;
 
     if (this.sheet) {
@@ -50,8 +52,11 @@ class BasisThemeStylesheet extends HTMLElement {
 
     // TODO: remove listeners
     this.ownerDocument.addEventListener('fontpanelchange', (event: CustomEvent<{ token: string; value: string }>) => {
-      self.setToken(event.detail.token, event.detail.value);
+      console.log(event.detail)
+      // self.setToken(event.detail.token, event.detail.value, );
     });
+
+    this.db = await getDb();
   }
 
   disconnectedCallback() {
@@ -104,13 +109,23 @@ class BasisThemeStylesheet extends HTMLElement {
     this.map.set(id, tokens);
     this.update();
   }
+
   setTokens(input: HTMLButtonElement | HTMLInputElement) {
     const tokens = JSON.parse(input.value) as { [index: string]: string };
 
     this.toggleTokens(input.name, tokens);
   }
 
-  setToken(name: string, value: string) {
+  async setToken(name: string, value: string, type: string) {
+    const currentSite = await this.db.get('state', 'currentSite')
+    if (currentSite) {
+      await this.db.put('tokens', {
+        tokenName: name,
+        value,
+        website: currentSite.value,
+        type,
+      })
+    }
     this.toggleTokens(name, { [name]: value });
     this.setParameter(name, value);
   }
@@ -155,7 +170,8 @@ class BasisThemeStylesheet extends HTMLElement {
       return;
     }
 
-    this.setToken(name, value);
+    console.log({ name, value })
+    this.setToken(name, value, 'font-family');
     this.update();
   }
 
@@ -165,7 +181,7 @@ class BasisThemeStylesheet extends HTMLElement {
       return;
     }
 
-    this.setToken(name, value);
+    this.setToken(name, value, 'font-size');
     this.update();
   }
 
@@ -174,7 +190,7 @@ class BasisThemeStylesheet extends HTMLElement {
     if (typeof value !== 'string') {
       return;
     }
-    this.setToken(name, value);
+    this.setToken(name, value, 'color');
     this.update();
   }
 }
